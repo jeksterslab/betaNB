@@ -25,8 +25,9 @@ knitr::opts_chunk$set(
 
 ## Description
 
-Generates nonparametric bootstrap confidence intervals for
-standardized regression coefficients
+Generates nonparametric bootstrap confidence intervals
+(Efron & Tibshirani, 1993: https://doi.org/10.1201/9780429246593)
+for standardized regression coefficients
 and other effect sizes
 for models fitted by `lm()`.
 
@@ -144,7 +145,12 @@ Courtesy of the National Academies Press, Washington, D.C.
 Pesigan, I. J. A. (2022).
 Confidence intervals for standardized coefficients:
 Applied to regression coefficients in primary studies and indirect effects in meta-analytic structural equation modeling [Unpublished doctoral dissertation].
-University of Macau. 
+University of Macau.
+
+Efron, B., & Tibshirani, R. J. (1993).
+*An introduction to the bootstrap*.
+Chapman & Hall.
+https://doi.org/10.1201/9780429246593
 
 ## Documentation
 

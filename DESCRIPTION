@@ -1,14 +1,16 @@
 Package: betaNB
 Title: Nonparametric Bootstrap Confidence Intervals for Standardized Regression Coefficients
    and Other Effect Sizes
-Version: 1.2.0.9000
+Version: 1.0.0.9000
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
            role = c("aut", "cre", "cph"),
            email = "r.jeksterslab@gmail.com",
            comment = c(ORCID = "0000-0003-4818-8420"))
-Description: Generates nonparametric bootstrap confidence intervals for standardized regression coefficients
+Description: Generates nonparametric bootstrap confidence intervals
+    (Efron & Tibshirani, 1993: <doi:10.1201/9780429246593>)
+    for standardized regression coefficients
     and other effect sizes for models fitted by lm().
 URL: https://github.com/jeksterslab/betaNB, https://jeksterslab.github.io/betaNB/
 BugReports: https://github.com/jeksterslab/betaNB/issues

@@ -6,7 +6,7 @@
 \alias{_PACKAGE}
 \title{betaNB: Nonparametric Bootstrap Confidence Intervals for Standardized Regression Coefficients and Other Effect Sizes}
 \description{
-Generates nonparametric bootstrap confidence intervals for standardized regression coefficients and other effect sizes for models fitted by lm().
+Generates nonparametric bootstrap confidence intervals (Efron & Tibshirani, 1993: \doi{10.1201/9780429246593}) for standardized regression coefficients and other effect sizes for models fitted by lm().
 }
 \seealso{
 Useful links:
