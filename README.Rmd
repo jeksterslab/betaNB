@@ -1,0 +1,153 @@
+---
+title: "betaNB"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/jeksterslab/betaNB/workflows/R-CMD-check/badge.svg)](https://github.com/jeksterslab/betaNB/actions)
+[![test-coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yaml)
+[![lint](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yaml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yaml)
+[![codecov](https://codecov.io/gh/jeksterslab/betaNB/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaNB)
+<!-- badges: end -->
+
+## Description
+
+Generates nonparametric bootstrap confidence intervals for
+standardized regression coefficients
+and other effect sizes
+for models fitted by `lm()`.
+
+## Installation
+
+<!--
+You can install the CRAN release of `betaNB` with:
+
+```r
+install.packages("betaNB")
+```
+-->
+
+You can install the development version of `betaNB` from
+[GitHub](https://github.com/jeksterslab/betaNB) with:
+
+```r
+install.packages("remotes")
+remotes::install_github("jeksterslab/betaNB")
+```
+
+## Example
+
+In this example, a multiple regression model is fitted
+using program quality ratings (`QUALITY`) as the regressand/outcome variable
+and number of published articles attributed to the program faculty members (`NARTIC`),
+percent of faculty members holding research grants (`PCTGRT`), and
+percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
+using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982).
+Confidence intervals for the standardized regression coefficients are generated
+using the `BetaNB()` function from the `betaNB` package.
+
+```{r}
+#| message = FALSE
+library(betaNB)
+```
+
+```{r}
+#| echo = FALSE
+if (!exists("nas1982")) {
+  try(
+    data(
+      "nas1982",
+      package = "betaNB"
+    ),
+    silent = TRUE
+  )
+}
+df <- nas1982
+```
+
+```{r}
+#| eval = FALSE
+df <- betaNB::nas1982
+```
+
+### Regression
+
+Fit the regression model using the `lm()` function.
+
+```{r}
+object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+```
+
+### Nonparametric Bootstrap
+
+```{r}
+nb <- NB(object)
+```
+
+### Standardized Regression Slopes
+
+```{r}
+BetaNB(nb)
+```
+
+### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+
+```{r}
+RSqNB(nb)
+```
+
+### Improvement in R-squared
+
+```{r}
+DeltaRSqNB(nb)
+```
+
+### Semipartial Correlation Coefficients
+
+```{r}
+SCorNB(nb)
+```
+
+### Squared Partial Correlation Coefficients
+
+```{r}
+PCorNB(nb)
+```
+
+### Differences of Standardized Regression Coefficients
+
+```{r}
+DiffBetaNB(nb)
+```
+
+### References
+
+National Research Council. (1982).
+*An assessment of research-doctorate programs in the United States: Social and behavioral sciences*.
+https://doi.org/10.17226/9781.
+Reproduced with permission from the National Academy of Sciences,
+Courtesy of the National Academies Press, Washington, D.C.
+
+Pesigan, I. J. A. (2022).
+Confidence intervals for standardized coefficients:
+Applied to regression coefficients in primary studies and indirect effects in meta-analytic structural equation modeling [Unpublished doctoral dissertation].
+University of Macau. 
+
+## Documentation
+
+See
+[GitHub Pages](https://jeksterslab.github.io/betaNB/index.html)
+for package documentation.
