@@ -59,8 +59,7 @@ NB <- function(object,
                   n = n,
                   size = n,
                   replace = TRUE
-                ),
-                ,
+                ), ,
                 drop = FALSE
               ]
             )
@@ -78,8 +77,7 @@ NB <- function(object,
           unname(
             stats::cov(
               x[
-                -i,
-                ,
+                -i, ,
                 drop = FALSE
               ]
             )

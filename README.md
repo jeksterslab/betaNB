@@ -48,7 +48,11 @@ number of published articles attributed to the program faculty members
 ratings of 46 doctoral programs in psychology in the USA (National
 Research Council, 1982). Confidence intervals for the standardized
 regression coefficients are generated using the `BetaNB()` function from
-the `betaNB` package.
+the `betaNB` package. Confidence intervals for other effect sizes such
+as multiple correlation coefficient (`RSqMC()`), improvement in
+R-squared (`DeltaRSqMC()`), semipartial correlation coefficients
+(`SCorMC()`), and squared partial correlation coefficients (`PCorMC()`)
+are also available.
 
 ``` r
 library(betaNB)
@@ -82,9 +86,9 @@ BetaNB(nb)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4951 0.0727 5000  0.2300 0.3018 0.3474 0.6363 0.6832 0.7246
-#> PCTGRT  0.3915 0.0763 5000  0.0949 0.1847 0.2335 0.5360 0.5835 0.6317
-#> PCTSUPP 0.2632 0.0809 5000 -0.0006 0.0547 0.1033 0.4203 0.4765 0.5330
+#> NARTIC  0.4951 0.0710 5000  0.2361 0.3148 0.3632 0.6376 0.6855 0.7295
+#> PCTGRT  0.3915 0.0766 5000  0.1157 0.1817 0.2324 0.5326 0.5815 0.6197
+#> PCTSUPP 0.2632 0.0803 5000 -0.0102 0.0531 0.1058 0.4185 0.4648 0.5158
 ```
 
 ### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
@@ -97,8 +101,8 @@ RSqNB(nb)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> rsq 0.8045 0.0524 5000 0.5761 0.6456 0.6938 0.8963 0.9171 0.9354
-#> adj 0.7906 0.0562 5000 0.5458 0.6203 0.6720 0.8889 0.9111 0.9307
+#> rsq 0.8045 0.0522 5000 0.5654 0.6397 0.6973 0.8968 0.9164 0.9296
+#> adj 0.7906 0.0560 5000 0.5343 0.6140 0.6757 0.8895 0.9105 0.9246
 ```
 
 ### Improvement in R-squared
@@ -111,9 +115,9 @@ DeltaRSqNB(nb)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.1859 0.0591 5000 0.0339 0.0593 0.0803 0.3095 0.3634 0.4298
-#> PCTGRT  0.1177 0.0484 5000 0.0059 0.0196 0.0326 0.2270 0.2672 0.3358
-#> PCTSUPP 0.0569 0.0350 5000 0.0002 0.0025 0.0083 0.1423 0.1834 0.2256
+#> NARTIC  0.1859 0.0582 5000 0.0330 0.0590 0.0846 0.3105 0.3586 0.4092
+#> PCTGRT  0.1177 0.0487 5000 0.0079 0.0182 0.0343 0.2244 0.2642 0.2922
+#> PCTSUPP 0.0569 0.0345 5000 0.0002 0.0022 0.0089 0.1403 0.1717 0.2143
 ```
 
 ### Semipartial Correlation Coefficients
@@ -126,9 +130,9 @@ SCorNB(nb)
 #> Semipartial correlations
 #> type = "pc"
 #>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4312 0.0699 5000  0.1839 0.2435 0.2833 0.5563 0.6028 0.6556
-#> PCTGRT  0.3430 0.0724 5000  0.0767 0.1399 0.1804 0.4765 0.5169 0.5794
-#> PCTSUPP 0.2385 0.0724 5000 -0.0005 0.0499 0.0910 0.3773 0.4282 0.4749
+#> NARTIC  0.4312 0.0684 5000  0.1811 0.2429 0.2908 0.5573 0.5989 0.6397
+#> PCTGRT  0.3430 0.0732 5000  0.0890 0.1347 0.1852 0.4737 0.5140 0.5406
+#> PCTSUPP 0.2385 0.0722 5000 -0.0092 0.0470 0.0941 0.3745 0.4144 0.4629
 ```
 
 ### Squared Partial Correlation Coefficients
@@ -141,9 +145,9 @@ PCorNB(nb)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4874 0.0986 5000 0.1360 0.2094 0.2773 0.6661 0.7058 0.7554
-#> PCTGRT  0.3757 0.1072 5000 0.0292 0.1017 0.1514 0.5782 0.6419 0.6896
-#> PCTSUPP 0.2254 0.1162 5000 0.0011 0.0122 0.0414 0.4817 0.5681 0.6694
+#> NARTIC  0.4874 0.0979 5000 0.1171 0.2259 0.2901 0.6715 0.7166 0.7689
+#> PCTGRT  0.3757 0.1099 5000 0.0368 0.0896 0.1566 0.5820 0.6298 0.6967
+#> PCTSUPP 0.2254 0.1152 5000 0.0009 0.0095 0.0399 0.4760 0.5562 0.6203
 ```
 
 ### Differences of Standardized Regression Coefficients
@@ -156,9 +160,9 @@ DiffBetaNB(nb)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%
-#> NARTIC-PCTGRT  0.1037 0.1315 5000 -0.3577 -0.2473 -0.1536 0.3689 0.4643 0.6041
-#> NARTIC-PCTSUPP 0.2319 0.1260 5000 -0.2117 -0.0973 -0.0180 0.4765 0.5554 0.6402
-#> PCTGRT-PCTSUPP 0.1282 0.1280 5000 -0.2765 -0.1963 -0.1299 0.3760 0.4668 0.5417
+#> NARTIC-PCTGRT  0.1037 0.1296 5000 -0.3522 -0.2242 -0.1354 0.3764 0.4650 0.5695
+#> NARTIC-PCTSUPP 0.2319 0.1241 5000 -0.1755 -0.0870 -0.0066 0.4841 0.5707 0.6568
+#> PCTGRT-PCTSUPP 0.1282 0.1283 5000 -0.2667 -0.1935 -0.1248 0.3821 0.4562 0.5186
 ```
 
 ### References
