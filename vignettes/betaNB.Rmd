@@ -135,6 +135,11 @@ DiffBetaNB(nb)
 
 ### References
 
+Efron, B., & Tibshirani, R. J. (1993).
+*An introduction to the bootstrap*.
+Chapman & Hall.
+https://doi.org/10.1201/9780429246593
+
 National Research Council. (1982).
 *An assessment of research-doctorate programs in the United States: Social and behavioral sciences*.
 https://doi.org/10.17226/9781.
@@ -145,8 +150,3 @@ Pesigan, I. J. A. (2022).
 Confidence intervals for standardized coefficients:
 Applied to regression coefficients in primary studies and indirect effects in meta-analytic structural equation modeling [Unpublished doctoral dissertation].
 University of Macau. 
-
-Efron, B., & Tibshirani, R. J. (1993).
-*An introduction to the bootstrap*.
-Chapman & Hall.
-https://doi.org/10.1201/9780429246593

@@ -81,10 +81,10 @@ BetaNB(nb)
 #> 
 #> Standardized regression slopes
 #> type = "pc"
-#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4951 0.0718 5000 0.2530 0.2991 0.3516 0.6382 0.6818 0.7337
-#> PCTGRT  0.3915 0.0761 5000 0.1410 0.1881 0.2408 0.5406 0.5890 0.6451
-#> PCTSUPP 0.2632 0.0796 5000 0.0057 0.0550 0.1081 0.4196 0.4584 0.5117
+#>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.4951 0.0727 5000  0.2300 0.3018 0.3474 0.6363 0.6832 0.7246
+#> PCTGRT  0.3915 0.0763 5000  0.0949 0.1847 0.2335 0.5360 0.5835 0.6317
+#> PCTSUPP 0.2632 0.0809 5000 -0.0006 0.0547 0.1033 0.4203 0.4765 0.5330
 ```
 
 ### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
@@ -97,8 +97,8 @@ RSqNB(nb)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> rsq 0.8045 0.0530 5000 0.5791 0.6382 0.6905 0.8970 0.9167 0.9402
-#> adj 0.7906 0.0568 5000 0.5490 0.6124 0.6684 0.8897 0.9108 0.9359
+#> rsq 0.8045 0.0524 5000 0.5761 0.6456 0.6938 0.8963 0.9171 0.9354
+#> adj 0.7906 0.0562 5000 0.5458 0.6203 0.6720 0.8889 0.9111 0.9307
 ```
 
 ### Improvement in R-squared
@@ -111,9 +111,9 @@ DeltaRSqNB(nb)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.1859 0.0590 5000 0.0342 0.0580 0.0817 0.3128 0.3644 0.4466
-#> PCTGRT  0.1177 0.0488 5000 0.0117 0.0222 0.0371 0.2270 0.2707 0.3227
-#> PCTSUPP 0.0569 0.0341 5000 0.0000 0.0023 0.0089 0.1409 0.1730 0.2010
+#> NARTIC  0.1859 0.0591 5000 0.0339 0.0593 0.0803 0.3095 0.3634 0.4298
+#> PCTGRT  0.1177 0.0484 5000 0.0059 0.0196 0.0326 0.2270 0.2672 0.3358
+#> PCTSUPP 0.0569 0.0350 5000 0.0002 0.0025 0.0083 0.1423 0.1834 0.2256
 ```
 
 ### Semipartial Correlation Coefficients
@@ -125,10 +125,10 @@ SCorNB(nb)
 #> 
 #> Semipartial correlations
 #> type = "pc"
-#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4312 0.0694 5000 0.1850 0.2409 0.2858 0.5593 0.6036 0.6683
-#> PCTGRT  0.3430 0.0723 5000 0.1082 0.1488 0.1926 0.4764 0.5203 0.5681
-#> PCTSUPP 0.2385 0.0715 5000 0.0052 0.0477 0.0943 0.3754 0.4160 0.4483
+#>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.4312 0.0699 5000  0.1839 0.2435 0.2833 0.5563 0.6028 0.6556
+#> PCTGRT  0.3430 0.0724 5000  0.0767 0.1399 0.1804 0.4765 0.5169 0.5794
+#> PCTSUPP 0.2385 0.0724 5000 -0.0005 0.0499 0.0910 0.3773 0.4282 0.4749
 ```
 
 ### Squared Partial Correlation Coefficients
@@ -141,9 +141,9 @@ PCorNB(nb)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4874 0.0994 5000 0.1199 0.2019 0.2806 0.6668 0.7162 0.7748
-#> PCTGRT  0.3757 0.1063 5000 0.0538 0.1035 0.1667 0.5775 0.6431 0.7032
-#> PCTSUPP 0.2254 0.1156 5000 0.0001 0.0113 0.0435 0.4804 0.5664 0.6316
+#> NARTIC  0.4874 0.0986 5000 0.1360 0.2094 0.2773 0.6661 0.7058 0.7554
+#> PCTGRT  0.3757 0.1072 5000 0.0292 0.1017 0.1514 0.5782 0.6419 0.6896
+#> PCTSUPP 0.2254 0.1162 5000 0.0011 0.0122 0.0414 0.4817 0.5681 0.6694
 ```
 
 ### Differences of Standardized Regression Coefficients
@@ -156,12 +156,15 @@ DiffBetaNB(nb)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%
-#> NARTIC-PCTGRT  0.1037 0.1308 5000 -0.3678 -0.2461 -0.1584 0.3651 0.4489 0.5480
-#> NARTIC-PCTSUPP 0.2319 0.1228 5000 -0.1509 -0.0734 -0.0042 0.4784 0.5596 0.6884
-#> PCTGRT-PCTSUPP 0.1282 0.1278 5000 -0.2718 -0.1905 -0.1215 0.3847 0.4591 0.5969
+#> NARTIC-PCTGRT  0.1037 0.1315 5000 -0.3577 -0.2473 -0.1536 0.3689 0.4643 0.6041
+#> NARTIC-PCTSUPP 0.2319 0.1260 5000 -0.2117 -0.0973 -0.0180 0.4765 0.5554 0.6402
+#> PCTGRT-PCTSUPP 0.1282 0.1280 5000 -0.2765 -0.1963 -0.1299 0.3760 0.4668 0.5417
 ```
 
 ### References
+
+Efron, B., & Tibshirani, R. J. (1993). *An introduction to the
+bootstrap*. Chapman & Hall. <https://doi.org/10.1201/9780429246593>
 
 National Research Council. (1982). *An assessment of research-doctorate
 programs in the United States: Social and behavioral sciences*.
@@ -173,9 +176,6 @@ Pesigan, I. J. A. (2022). Confidence intervals for standardized
 coefficients: Applied to regression coefficients in primary studies and
 indirect effects in meta-analytic structural equation modeling
 \[Unpublished doctoral dissertation\]. University of Macau.
-
-Efron, B., & Tibshirani, R. J. (1993). *An introduction to the
-bootstrap*. Chapman & Hall. <https://doi.org/10.1201/9780429246593>
 
 ## Documentation
 
