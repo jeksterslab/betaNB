@@ -105,7 +105,7 @@ BetaNB(nb)
 
 ### Other Effect Sizes
 
-The `betaNB` package also has functions to generate Monte Carlo confidence intervals
+The `betaNB` package also has functions to generate nonparametric bootstrap confidence intervals
 for other effect sizes such as
 `RSqNB()` for multiple correlation coefficients (R-squared and adjusted R-squared),
 `DeltaRSqNB()` for improvement in R-squared,
