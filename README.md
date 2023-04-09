@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2023-04-08
+2023-04-09
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -48,11 +48,7 @@ number of published articles attributed to the program faculty members
 ratings of 46 doctoral programs in psychology in the USA (National
 Research Council, 1982). Confidence intervals for the standardized
 regression coefficients are generated using the `BetaNB()` function from
-the `betaNB` package. Confidence intervals for other effect sizes such
-as multiple correlation coefficient (`RSqMC()`), improvement in
-R-squared (`DeltaRSqMC()`), semipartial correlation coefficients
-(`SCorMC()`), and squared partial correlation coefficients (`PCorMC()`)
-are also available.
+the `betaNB` package.
 
 ``` r
 library(betaNB)
@@ -85,13 +81,23 @@ BetaNB(nb)
 #> 
 #> Standardized regression slopes
 #> type = "pc"
-#>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4951 0.0710 5000  0.2361 0.3148 0.3632 0.6376 0.6855 0.7295
-#> PCTGRT  0.3915 0.0766 5000  0.1157 0.1817 0.2324 0.5326 0.5815 0.6197
-#> PCTSUPP 0.2632 0.0803 5000 -0.0102 0.0531 0.1058 0.4185 0.4648 0.5158
+#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.4951 0.0730 5000 0.2459 0.3031 0.3500 0.6380 0.6896 0.7246
+#> PCTGRT  0.3915 0.0767 5000 0.1238 0.1886 0.2382 0.5416 0.5924 0.6638
+#> PCTSUPP 0.2632 0.0807 5000 0.0010 0.0489 0.0992 0.4121 0.4562 0.4999
 ```
 
-### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+### Other Effect Sizes
+
+The `betaNB` package also has functions to generate Monte Carlo
+confidence intervals for other effect sizes such as `RSqNB()` for
+multiple correlation coefficients (R-squared and adjusted R-squared),
+`DeltaRSqNB()` for improvement in R-squared, `SCorNB()` for semipartial
+correlation coefficients, `PCorNB()` for squared partial correlation
+coefficients, and `DiffBetaNB()` for differences of standardized
+regression coefficients.
+
+#### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
 
 ``` r
 RSqNB(nb)
@@ -101,11 +107,11 @@ RSqNB(nb)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> rsq 0.8045 0.0522 5000 0.5654 0.6397 0.6973 0.8968 0.9164 0.9296
-#> adj 0.7906 0.0560 5000 0.5343 0.6140 0.6757 0.8895 0.9105 0.9246
+#> rsq 0.8045 0.0543 5000 0.5575 0.6444 0.6890 0.8983 0.9157 0.9264
+#> adj 0.7906 0.0582 5000 0.5259 0.6190 0.6668 0.8911 0.9096 0.9211
 ```
 
-### Improvement in R-squared
+#### Improvement in R-squared
 
 ``` r
 DeltaRSqNB(nb)
@@ -115,12 +121,12 @@ DeltaRSqNB(nb)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.1859 0.0582 5000 0.0330 0.0590 0.0846 0.3105 0.3586 0.4092
-#> PCTGRT  0.1177 0.0487 5000 0.0079 0.0182 0.0343 0.2244 0.2642 0.2922
-#> PCTSUPP 0.0569 0.0345 5000 0.0002 0.0022 0.0089 0.1403 0.1717 0.2143
+#> NARTIC  0.1859 0.0600 5000 0.0359 0.0587 0.0817 0.3136 0.3639 0.4121
+#> PCTGRT  0.1177 0.0491 5000 0.0094 0.0219 0.0339 0.2272 0.2790 0.3201
+#> PCTSUPP 0.0569 0.0338 5000 0.0001 0.0018 0.0079 0.1372 0.1647 0.2122
 ```
 
-### Semipartial Correlation Coefficients
+#### Semipartial Correlation Coefficients
 
 ``` r
 SCorNB(nb)
@@ -129,13 +135,13 @@ SCorNB(nb)
 #> 
 #> Semipartial correlations
 #> type = "pc"
-#>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4312 0.0684 5000  0.1811 0.2429 0.2908 0.5573 0.5989 0.6397
-#> PCTGRT  0.3430 0.0732 5000  0.0890 0.1347 0.1852 0.4737 0.5140 0.5406
-#> PCTSUPP 0.2385 0.0722 5000 -0.0092 0.0470 0.0941 0.3745 0.4144 0.4629
+#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.4312 0.0705 5000 0.1895 0.2423 0.2859 0.5600 0.6033 0.6419
+#> PCTGRT  0.3430 0.0728 5000 0.0969 0.1479 0.1843 0.4767 0.5282 0.5658
+#> PCTSUPP 0.2385 0.0723 5000 0.0008 0.0423 0.0891 0.3704 0.4059 0.4604
 ```
 
-### Squared Partial Correlation Coefficients
+#### Squared Partial Correlation Coefficients
 
 ``` r
 PCorNB(nb)
@@ -145,12 +151,12 @@ PCorNB(nb)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4874 0.0979 5000 0.1171 0.2259 0.2901 0.6715 0.7166 0.7689
-#> PCTGRT  0.3757 0.1099 5000 0.0368 0.0896 0.1566 0.5820 0.6298 0.6967
-#> PCTSUPP 0.2254 0.1152 5000 0.0009 0.0095 0.0399 0.4760 0.5562 0.6203
+#> NARTIC  0.4874 0.0995 5000 0.1447 0.2168 0.2778 0.6680 0.7157 0.7568
+#> PCTGRT  0.3757 0.1080 5000 0.0557 0.1011 0.1567 0.5892 0.6480 0.7101
+#> PCTSUPP 0.2254 0.1169 5000 0.0006 0.0090 0.0363 0.4769 0.5526 0.6165
 ```
 
-### Differences of Standardized Regression Coefficients
+#### Differences of Standardized Regression Coefficients
 
 ``` r
 DiffBetaNB(nb)
@@ -160,9 +166,9 @@ DiffBetaNB(nb)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%
-#> NARTIC-PCTGRT  0.1037 0.1296 5000 -0.3522 -0.2242 -0.1354 0.3764 0.4650 0.5695
-#> NARTIC-PCTSUPP 0.2319 0.1241 5000 -0.1755 -0.0870 -0.0066 0.4841 0.5707 0.6568
-#> PCTGRT-PCTSUPP 0.1282 0.1283 5000 -0.2667 -0.1935 -0.1248 0.3821 0.4562 0.5186
+#> NARTIC-PCTGRT  0.1037 0.1325 5000 -0.3683 -0.2463 -0.1528 0.3685 0.4580 0.5576
+#> NARTIC-PCTSUPP 0.2319 0.1252 5000 -0.1859 -0.0732 -0.0041 0.4847 0.5766 0.6700
+#> PCTGRT-PCTSUPP 0.1282 0.1289 5000 -0.2269 -0.1887 -0.1126 0.3922 0.4846 0.5755
 ```
 
 ### References

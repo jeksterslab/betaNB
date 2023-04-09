@@ -58,12 +58,6 @@ percentage of program graduates who received support (`PCTSUPP`) as regressor/pr
 using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982).
 Confidence intervals for the standardized regression coefficients are generated
 using the `BetaNB()` function from the `betaNB` package.
-Confidence intervals for other effect sizes such as
-multiple correlation coefficient (`RSqMC()`),
-improvement in R-squared (`DeltaRSqMC()`),
-semipartial correlation coefficients (`SCorMC()`), and
-squared partial correlation coefficients (`PCorMC()`)
-are also available.
 
 ```{r}
 #| message = FALSE
@@ -109,31 +103,42 @@ nb <- NB(object)
 BetaNB(nb)
 ```
 
-### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+### Other Effect Sizes
+
+The `betaNB` package also has functions to generate Monte Carlo confidence intervals
+for other effect sizes such as
+`RSqNB()` for multiple correlation coefficients (R-squared and adjusted R-squared),
+`DeltaRSqNB()` for improvement in R-squared,
+`SCorNB()` for semipartial correlation coefficients,
+`PCorNB()` for squared partial correlation coefficients,
+and
+`DiffBetaNB()` for differences of standardized regression coefficients.
+
+#### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
 
 ```{r}
 RSqNB(nb)
 ```
 
-### Improvement in R-squared
+#### Improvement in R-squared
 
 ```{r}
 DeltaRSqNB(nb)
 ```
 
-### Semipartial Correlation Coefficients
+#### Semipartial Correlation Coefficients
 
 ```{r}
 SCorNB(nb)
 ```
 
-### Squared Partial Correlation Coefficients
+#### Squared Partial Correlation Coefficients
 
 ```{r}
 PCorNB(nb)
 ```
 
-### Differences of Standardized Regression Coefficients
+#### Differences of Standardized Regression Coefficients
 
 ```{r}
 DiffBetaNB(nb)
