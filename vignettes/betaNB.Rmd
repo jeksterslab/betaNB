@@ -1,9 +1,9 @@
 ---
-title: "betaNB: Nonparametric Bootstrap Confidence Intervals for Standardized Regression Coefficients and Other Effect Sizes"
+title: "betaNB: Bootstrap for Regression Effect Sizes"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{betaNB: Nonparametric Bootstrap Confidence Intervals for Standardized Regression Coefficients and Other Effect Sizes}
+  %\VignetteIndexEntry{betaNB: Bootstrap for Regression Effect Sizes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,8 +26,11 @@ knitr::opts_chunk$set(
 
 Generates nonparametric bootstrap confidence intervals
 (Efron & Tibshirani, 1993: https://doi.org/10.1201/9780429246593)
-for standardized regression coefficients
-and other effect sizes
+for standardized regression coefficients (beta)
+and other effect sizes,
+including multiple correlation, semipartial correlations,
+improvement in R-squared, squared partial correlations,
+and differences in standardized regression coefficients,
 for models fitted by `lm()`.
 
 ## Installation

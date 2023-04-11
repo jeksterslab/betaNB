@@ -4,9 +4,9 @@
 \name{betaNB-package}
 \alias{betaNB-package}
 \alias{_PACKAGE}
-\title{betaNB: Nonparametric Bootstrap Confidence Intervals for Standardized Regression Coefficients and Other Effect Sizes}
+\title{betaNB: Bootstrap for Regression Effect Sizes}
 \description{
-Generates nonparametric bootstrap confidence intervals (Efron & Tibshirani, 1993: \doi{10.1201/9780429246593}) for standardized regression coefficients and other effect sizes for models fitted by lm().
+Generates nonparametric bootstrap confidence intervals (Efron & Tibshirani, 1993: \doi{10.1201/9780429246593}) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by lm().
 }
 \seealso{
 Useful links:

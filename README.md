@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2023-04-09
+2023-04-11
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -16,8 +16,10 @@ Ivan Jacob Agaloos Pesigan
 
 Generates nonparametric bootstrap confidence intervals (Efron &
 Tibshirani, 1993: <https://doi.org/10.1201/9780429246593>) for
-standardized regression coefficients and other effect sizes for models
-fitted by `lm()`.
+standardized regression coefficients (beta) and other effect sizes,
+including multiple correlation, semipartial correlations, improvement in
+R-squared, squared partial correlations, and differences in standardized
+regression coefficients, for models fitted by `lm()`.
 
 ## Installation
 
@@ -81,10 +83,10 @@ BetaNB(nb)
 #> 
 #> Standardized regression slopes
 #> type = "pc"
-#>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4951 0.0718 5000  0.2259 0.3043 0.3544 0.6368 0.6855 0.7351
-#> PCTGRT  0.3915 0.0772 5000  0.1094 0.1791 0.2320 0.5436 0.5879 0.6240
-#> PCTSUPP 0.2632 0.0797 5000 -0.0001 0.0579 0.1048 0.4145 0.4572 0.5030
+#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.4951 0.0721 5000 0.2584 0.3029 0.3518 0.6372 0.6818 0.7343
+#> PCTGRT  0.3915 0.0755 5000 0.1295 0.1860 0.2341 0.5364 0.5794 0.6216
+#> PCTSUPP 0.2632 0.0797 5000 0.0039 0.0556 0.1025 0.4157 0.4619 0.5232
 ```
 
 ### Other Effect Sizes
@@ -107,8 +109,8 @@ RSqNB(nb)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> rsq 0.8045 0.0527 5000 0.5600 0.6328 0.6897 0.8986 0.9152 0.9371
-#> adj 0.7906 0.0565 5000 0.5286 0.6066 0.6675 0.8913 0.9092 0.9326
+#> rsq 0.8045 0.0524 5000 0.5955 0.6475 0.6958 0.8978 0.9177 0.9302
+#> adj 0.7906 0.0561 5000 0.5666 0.6224 0.6741 0.8905 0.9118 0.9253
 ```
 
 #### Improvement in R-squared
@@ -120,10 +122,10 @@ DeltaRSqNB(nb)
 #> 
 #> Improvement in R-squared
 #> type = "pc"
-#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.1859 0.0583 5000 0.0355 0.0619 0.0834 0.3128 0.3614 0.4446
-#> PCTGRT  0.1177 0.0493 5000 0.0059 0.0188 0.0349 0.2276 0.2809 0.3143
-#> PCTSUPP 0.0569 0.0338 5000 0.0002 0.0030 0.0085 0.1377 0.1708 0.1980
+#>            est    se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.1859 0.059 5000 0.0411 0.0554 0.0808 0.3114 0.3600 0.4274
+#> PCTGRT  0.1177 0.047 5000 0.0091 0.0206 0.0355 0.2214 0.2598 0.3045
+#> PCTSUPP 0.0569 0.034 5000 0.0002 0.0027 0.0084 0.1370 0.1703 0.2194
 ```
 
 #### Semipartial Correlation Coefficients
@@ -135,10 +137,10 @@ SCorNB(nb)
 #> 
 #> Semipartial correlations
 #> type = "pc"
-#>            est     se    R   0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4312 0.0685 5000  0.1883 0.2487 0.2887 0.5593 0.6012 0.6668
-#> PCTGRT  0.3430 0.0734 5000  0.0767 0.1372 0.1868 0.4770 0.5300 0.5606
-#> PCTSUPP 0.2385 0.0715 5000 -0.0001 0.0546 0.0925 0.3711 0.4133 0.4450
+#>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
+#> NARTIC  0.4312 0.0696 5000 0.2028 0.2353 0.2842 0.5580 0.6000 0.6537
+#> PCTGRT  0.3430 0.0707 5000 0.0952 0.1435 0.1884 0.4706 0.5097 0.5518
+#> PCTSUPP 0.2385 0.0715 5000 0.0036 0.0517 0.0918 0.3701 0.4127 0.4684
 ```
 
 #### Squared Partial Correlation Coefficients
@@ -151,9 +153,9 @@ PCorNB(nb)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R  0.05%   0.5%   2.5%  97.5%  99.5% 99.95%
-#> NARTIC  0.4874 0.0983 5000 0.1254 0.2242 0.2867 0.6710 0.7191 0.7734
-#> PCTGRT  0.3757 0.1071 5000 0.0346 0.0977 0.1551 0.5776 0.6335 0.7013
-#> PCTSUPP 0.2254 0.1155 5000 0.0012 0.0123 0.0403 0.4723 0.5422 0.6269
+#> NARTIC  0.4874 0.0979 5000 0.1572 0.2122 0.2857 0.6745 0.7145 0.7539
+#> PCTGRT  0.3757 0.1066 5000 0.0520 0.1038 0.1610 0.5838 0.6374 0.6957
+#> PCTSUPP 0.2254 0.1150 5000 0.0008 0.0107 0.0408 0.4765 0.5444 0.6259
 ```
 
 #### Differences of Standardized Regression Coefficients
@@ -166,9 +168,9 @@ DiffBetaNB(nb)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R   0.05%    0.5%    2.5%  97.5%  99.5% 99.95%
-#> NARTIC-PCTGRT  0.1037 0.1321 5000 -0.3179 -0.2369 -0.1568 0.3741 0.4626 0.5805
-#> NARTIC-PCTSUPP 0.2319 0.1232 5000 -0.1854 -0.0764 -0.0056 0.4835 0.5465 0.6601
-#> PCTGRT-PCTSUPP 0.1282 0.1287 5000 -0.2809 -0.1953 -0.1145 0.3893 0.4641 0.5499
+#> NARTIC-PCTGRT  0.1037 0.1306 5000 -0.3169 -0.2188 -0.1517 0.3708 0.4575 0.5786
+#> NARTIC-PCTSUPP 0.2319 0.1235 5000 -0.1500 -0.0908 -0.0114 0.4804 0.5503 0.6586
+#> PCTGRT-PCTSUPP 0.1282 0.1274 5000 -0.2834 -0.1846 -0.1184 0.3820 0.4733 0.5770
 ```
 
 ### References

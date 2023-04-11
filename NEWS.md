@@ -1,6 +1,8 @@
-# betaNB 1.0.0.9000
+# betaNB 1.0.1
 
-Latest development version.
+## Minor
+
+* Edits to the DESCRIPTION file.
 
 # betaNB 1.0.0
 
