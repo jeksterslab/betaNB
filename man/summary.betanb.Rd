@@ -14,8 +14,9 @@ the output of the
 \code{BetaNB()},
 \code{RSqNB()},
 \code{SCorNB()},
-\code{DeltaRSqNB()}, or
-\code{PCorNB()}
+\code{DeltaRSqNB()},
+\code{PCorNB()}, or
+\code{DiffBetaNB()}
 functions.}
 
 \item{alpha}{Significance level.}

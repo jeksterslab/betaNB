@@ -17,7 +17,6 @@
 #'   `type = "bc"` for bias corrected;
 #'   `type = "bca"` for bias corrected and accelerated.
 #'
-#' @export
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB ci internal
 .CI <- function(object,

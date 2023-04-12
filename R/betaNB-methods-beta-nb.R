@@ -16,8 +16,9 @@
 #'   `BetaNB()`,
 #'   `RSqNB()`,
 #'   `SCorNB()`,
-#'   `DeltaRSqNB()`, or
-#'   `PCorNB()`
+#'   `DeltaRSqNB()`,
+#'   `PCorNB()`, or
+#'   `DiffBetaNB()`
 #'   functions.
 #' @inheritParams summary.betanb
 #'
@@ -102,8 +103,9 @@ print.betanb <- function(x,
 #'   `BetaNB()`,
 #'   `RSqNB()`,
 #'   `SCorNB()`,
-#'   `DeltaRSqNB()`, or
-#'   `PCorNB()`
+#'   `DeltaRSqNB()`,
+#'   `PCorNB()`, or
+#'   `DiffBetaNB()`
 #'   functions.
 #' @param ... additional arguments.
 #' @param alpha Significance level.
