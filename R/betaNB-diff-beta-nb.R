@@ -48,7 +48,7 @@
 #' @keywords betaNB diff
 DiffBetaNB <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "nb"
     )

@@ -48,7 +48,7 @@
 #' @keywords betaNB deltarsq
 DeltaRSqNB <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "nb"
     )

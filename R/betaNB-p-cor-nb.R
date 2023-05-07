@@ -48,7 +48,7 @@
 #' @keywords betaNB pcor
 PCorNB <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "nb"
     )

@@ -48,7 +48,7 @@
 #' @keywords betaNB scor
 SCorNB <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "nb"
     )

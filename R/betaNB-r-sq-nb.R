@@ -49,7 +49,7 @@
 #' @keywords betaNB rsq
 RSqNB <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "nb"
     )

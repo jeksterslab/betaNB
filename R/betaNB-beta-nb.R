@@ -48,7 +48,7 @@
 #' @keywords betaNB std
 BetaNB <- function(object) {
   stopifnot(
-    methods::is(
+    inherits(
       object,
       "nb"
     )

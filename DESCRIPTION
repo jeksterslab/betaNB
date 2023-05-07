@@ -23,8 +23,7 @@ Roxygen: list(markdown = TRUE)
 Depends:
     R (>= 3.5.0)
 Imports:
-    stats,
-    methods
+    stats
 Suggests:
     knitr,
     rmarkdown,
