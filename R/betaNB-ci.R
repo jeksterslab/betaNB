@@ -19,8 +19,9 @@
 #'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB ci internal
+#' @noRd
 .CI <- function(object,
-                alpha = c(0.05, 0.01, 0.001),
+                alpha = NULL,
                 type = "pc") {
   stopifnot(
     inherits(
@@ -28,6 +29,9 @@
       "betanb"
     )
   )
+  if (is.null(alpha)) {
+    alpha <- object$args$alpha
+  }
   probs <- .PCProbs(alpha = alpha)
   thetahatstar <- do.call(
     what = "rbind",

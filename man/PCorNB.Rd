@@ -6,25 +6,28 @@
 and Generate the Corresponding Sampling Distribution
 Using Nonparametric Bootstrapping}
 \usage{
-PCorNB(object)
+PCorNB(object, alpha = c(0.05, 0.01, 0.001))
 }
 \arguments{
-\item{object}{Object of class \code{mc}, that is,
-the output of the \code{MC()} function.}
+\item{object}{Object of class \code{nb}, that is,
+the output of the \code{NB()} function.}
+
+\item{alpha}{Numeric vector.
+Significance level \eqn{\alpha}.}
 }
 \value{
 Returns an object
 of class \code{betanb} which is a list with the following elements:
 \describe{
 \item{call}{Function call.}
-\item{object}{The function argument \code{object}.}
+\item{args}{Function arguments.}
 \item{thetahatstar}{Sampling distribution of
 \eqn{r^{2}_{p}}.}
 \item{vcov}{Sampling variance-covariance matrix of
 \eqn{r^{2}_{p}}.}
 \item{est}{Vector of estimated
 \eqn{r^{2}_{p}}.}
-\item{fun}{Function used ("PCorMC").}
+\item{fun}{Function used ("PCorNB").}
 }
 }
 \description{
@@ -43,23 +46,32 @@ distribution of \eqn{r^{2}_{p}},
 where \eqn{\alpha} is the significance level.
 }
 \examples{
-# Fit the regression model
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaNB")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-# Generate the sampling distribution of sample covariances
-# (use a large R, for example, R = 5000 for actual research)
-nb <- NB(object, R = 50)
-# Generate confidence intervals for standardized regression slopes
-rp <- PCorNB(nb)
-# Methods --------------------------------------------------------
-print(rp)
-summary(rp)
-coef(rp)
-vcov(rp)
-confint(rp, level = 0.95)
+
+# NB -----------------------------------------------------------------------
+nb <- NB(
+  object,
+  R = 100, # use a large value e.g., 5000L for actual research
+  seed = 0508
+)
+
+# PCorNB -------------------------------------------------------------------
+out <- PCorNB(nb, alpha = 0.05)
+
+## Methods -----------------------------------------------------------------
+print(out)
+summary(out)
+coef(out)
+vcov(out)
+confint(out, level = 0.95)
+
 }
 \seealso{
 Other Beta Nonparametric Bootstrap Functions: 
-\code{\link{.CI}()},
 \code{\link{BetaNB}()},
 \code{\link{DeltaRSqNB}()},
 \code{\link{DiffBetaNB}()},

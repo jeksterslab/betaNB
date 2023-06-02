@@ -103,7 +103,7 @@ nb <- NB(object)
 ### Standardized Regression Slopes
 
 ```{r}
-BetaNB(nb)
+BetaNB(nb, alpha = 0.05)
 ```
 
 ### Other Effect Sizes
@@ -120,31 +120,31 @@ and
 #### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
 
 ```{r}
-RSqNB(nb)
+RSqNB(nb, alpha = 0.05)
 ```
 
 #### Improvement in R-squared
 
 ```{r}
-DeltaRSqNB(nb)
+DeltaRSqNB(nb, alpha = 0.05)
 ```
 
 #### Semipartial Correlation Coefficients
 
 ```{r}
-SCorNB(nb)
+SCorNB(nb, alpha = 0.05)
 ```
 
 #### Squared Partial Correlation Coefficients
 
 ```{r}
-PCorNB(nb)
+PCorNB(nb, alpha = 0.05)
 ```
 
 #### Differences of Standardized Regression Coefficients
 
 ```{r}
-DiffBetaNB(nb)
+DiffBetaNB(nb, alpha = 0.05)
 ```
 
 ### References

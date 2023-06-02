@@ -5,7 +5,7 @@
 \title{Generate the Sampling Distribution of Sample Covariances
 Using Nonparametric Bootstrapping}
 \usage{
-NB(object, R = 5000, seed = NULL)
+NB(object, R = 5000L, seed = NULL)
 }
 \arguments{
 \item{object}{Object of class \code{lm}.}
@@ -32,11 +32,28 @@ Generate the Sampling Distribution of Sample Covariances
 Using Nonparametric Bootstrapping
 }
 \examples{
-# Fit the regression model
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaNB")
+
+# Fit Model in lm ----------------------------------------------------------
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-# Generate the sampling distribution of sample covariances
-# (use a large R, for example, R = 5000 for actual research)
-NB(object, R = 100)
+
+# NB -----------------------------------------------------------------------
+nb <- NB(
+  object,
+  R = 100, # use a large value e.g., 20000L for actual research
+  seed = 0508
+)
+nb
+# The `nb` object can be passed as the first argument
+# to the following functions
+#   - BetaNB
+#   - DeltaRSqNB
+#   - DiffBetaNB
+#   - PCorNB
+#   - RSqNB
+#   - SCorNB
+
 }
 \references{
 Efron, B., & Tibshirani, R. J. (1993)
@@ -45,7 +62,6 @@ Chapman & Hall.
 }
 \seealso{
 Other Beta Nonparametric Bootstrap Functions: 
-\code{\link{.CI}()},
 \code{\link{BetaNB}()},
 \code{\link{DeltaRSqNB}()},
 \code{\link{DiffBetaNB}()},

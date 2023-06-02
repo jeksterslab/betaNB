@@ -17,7 +17,7 @@
 #'   of class `betanb` which is a list with the following elements:
 #'   \describe{
 #'     \item{call}{Function call.}
-#'     \item{object}{The function argument `object`.}
+#'     \item{args}{Function arguments.}
 #'     \item{thetahatstar}{Sampling distribution of
 #'       \eqn{\boldsymbol{\hat{\beta}}}.}
 #'     \item{jackknife}{Jackknife estimates.}
@@ -26,27 +26,40 @@
 #'     \item{fun}{Function used ("BetaNB").}
 #'   }
 #'
-#' @param object Object of class `mc`, that is,
-#'   the output of the `MC()` function.
+#' @param object Object of class `nb`, that is,
+#'   the output of the `NB()` function.
+#' @param alpha Numeric vector.
+#'   Significance level \eqn{\alpha}.
 #'
 #' @examples
-#' # Fit the regression model
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' # Generate the sampling distribution of sample covariances
-#' # (use a large R, for example, R = 5000 for actual research)
-#' nb <- NB(object, R = 50)
-#' # Generate confidence intervals for standardized regression slopes
-#' std <- BetaNB(nb)
-#' # Methods --------------------------------------------------------
-#' print(std)
-#' summary(std)
-#' coef(std)
-#' vcov(std)
-#' confint(std, level = 0.95)
-#' @export
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # BetaNB -------------------------------------------------------------------
+#' out <- BetaNB(nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' print(out)
+#' summary(out)
+#' coef(out)
+#' vcov(out)
+#' confint(out, level = 0.95)
+#'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB std
-BetaNB <- function(object) {
+#' @export
+BetaNB <- function(object,
+                   alpha = c(0.05, 0.01, 0.001)) {
   stopifnot(
     inherits(
       object,
@@ -77,7 +90,10 @@ BetaNB <- function(object) {
   colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
-    object = object,
+    args = list(
+      object = object,
+      alpha = alpha
+    ),
     thetahatstar = thetahatstar,
     jackknife = lapply(
       X = object$jackknife,

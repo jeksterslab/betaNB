@@ -25,16 +25,33 @@
 #' Chapman & Hall.
 #'
 #' @examples
-#' # Fit the regression model
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' # Generate the sampling distribution of sample covariances
-#' # (use a large R, for example, R = 5000 for actual research)
-#' NB(object, R = 100)
-#' @export
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object,
+#'   R = 100, # use a large value e.g., 20000L for actual research
+#'   seed = 0508
+#' )
+#' nb
+#' # The `nb` object can be passed as the first argument
+#' # to the following functions
+#' #   - BetaNB
+#' #   - DeltaRSqNB
+#' #   - DiffBetaNB
+#' #   - PCorNB
+#' #   - RSqNB
+#' #   - SCorNB
+#'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB nb
+#' @export
 NB <- function(object,
-               R = 5000,
+               R = 5000L,
                seed = NULL) {
   set.seed(seed)
   lm_process <- .ProcessLM(object)

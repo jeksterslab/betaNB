@@ -18,12 +18,10 @@ Prints the first six bootstrap covariance matrices.
 Print Method for an Object of Class \code{nb}
 }
 \examples{
-# Fit the regression model
 object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-# Generate bootstrap covariance matrices
-# (use a large R, for example, R = 5000 for actual research)
-nb <- NB(object, R = 50)
+nb <- NB(object, R = 100)
 print(nb)
+
 }
 \author{
 Ivan Jacob Agaloos Pesigan

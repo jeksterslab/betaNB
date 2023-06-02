@@ -41,19 +41,6 @@ Returns a matrix of confidence intervals.
 Confidence Intervals Method for an Object of Class
 \code{betanb}
 }
-\examples{
-# Fit the regression model
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-# Generate bootstrap covariance matrices
-# (use a large R, for example, R = 5000 for actual research)
-nb <- NB(object, R = 50)
-# Generate confidence intervals for standardized regression slopes
-std <- BetaNB(nb)
-# Method ---------------------------------------------------------
-confint(std, level = 0.95, type = "pc")
-confint(std, level = 0.95, type = "bc")
-confint(std, level = 0.95, type = "bca")
-}
 \author{
 Ivan Jacob Agaloos Pesigan
 }

@@ -18,36 +18,47 @@
 #'   of class `betanb` which is a list with the following elements:
 #'   \describe{
 #'     \item{call}{Function call.}
-#'     \item{object}{The function argument `object`.}
+#'     \item{args}{Function arguments.}
 #'     \item{thetahatstar}{Sampling distribution of
 #'       \eqn{R^{2}} and \eqn{\bar{R}^{2}}.}
 #'     \item{vcov}{Sampling variance-covariance matrix of
 #'       \eqn{R^{2}} and \eqn{\bar{R}^{2}}.}
 #'     \item{est}{Vector of estimated
 #'       \eqn{R^{2}} and \eqn{\bar{R}^{2}}.}
-#'     \item{fun}{Function used ("RSqMC").}
+#'     \item{fun}{Function used ("RSqNB").}
 #'   }
 #'
 #' @inheritParams BetaNB
 #'
 #' @examples
-#' # Fit the regression model
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' # Generate the sampling distribution of sample covariances
-#' # (use a large R, for example, R = 5000 for actual research)
-#' nb <- NB(object, R = 50)
-#' # Generate confidence intervals for standardized regression slopes
-#' rsq <- RSqNB(nb)
-#' # Methods --------------------------------------------------------
-#' print(rsq)
-#' summary(rsq)
-#' coef(rsq)
-#' vcov(rsq)
-#' confint(rsq, level = 0.95)
-#' @export
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # RSqNB --------------------------------------------------------------------
+#' out <- RSqNB(nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' print(out)
+#' summary(out)
+#' coef(out)
+#' vcov(out)
+#' confint(out, level = 0.95)
+#'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB rsq
-RSqNB <- function(object) {
+#' @export
+RSqNB <- function(object,
+                  alpha = c(0.05, 0.01, 0.001)) {
   stopifnot(
     inherits(
       object,
@@ -55,10 +66,7 @@ RSqNB <- function(object) {
     )
   )
   fun <- "RSqNB"
-  est <- c(
-    rsq = object$lm_process$summary_lm$r.squared,
-    adj = object$lm_process$summary_lm$adj.r.squared
-  )
+  est <- object$lm_process$rsq
   foo <- function(x) {
     rsq <- .RSqofSigma(
       sigmacap = x,
@@ -93,7 +101,10 @@ RSqNB <- function(object) {
   colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
-    object = object,
+    args = list(
+      object = object,
+      alpha = alpha
+    ),
     thetahatstar = thetahatstar,
     jackknife = lapply(
       X = object$jackknife,

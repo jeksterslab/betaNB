@@ -8,14 +8,12 @@
 #' @param ... additional arguments.
 #'
 #' @examples
-#' # Fit the regression model
 #' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' # Generate bootstrap covariance matrices
-#' # (use a large R, for example, R = 5000 for actual research)
-#' nb <- NB(object, R = 50)
+#' nb <- NB(object, R = 100)
 #' print(nb)
-#' @export
+#'
 #' @keywords methods
+#' @export
 print.nb <- function(x,
                      ...) {
   cat("Call:\n")
