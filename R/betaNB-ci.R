@@ -10,7 +10,7 @@
 #'
 #' @param object Object of class `betanb`.
 #' @param alpha Numeric vector.
-#'   Significance level.
+#'   Significance level \eqn{\alpha}.
 #' @param type Charater string.
 #'   Confidence interval type, that is,
 #'   `type = "pc"` for percentile;

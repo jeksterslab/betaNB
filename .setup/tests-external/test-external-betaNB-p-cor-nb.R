@@ -64,7 +64,7 @@ lapply(
             betastar = lm_process$betastar,
             sigmacapx = lm_process$sigmacapx
           )^2,
-          rsq = lm_process$summary_lm$r.squared
+          rsq = lm_process$rsq[1]
         )
       )
     }

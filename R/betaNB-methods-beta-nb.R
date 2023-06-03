@@ -20,12 +20,16 @@
 #'   `PCorNB()`, or
 #'   `DiffBetaNB()`
 #'   functions.
+#' @param alpha Numeric vector.
+#'   Significance level \eqn{\alpha}.
+#'   If `alpha = NULL`,
+#'   use the argument `alpha` used in `x`.
 #' @inheritParams summary.betanb
 #'
 #' @keywords methods
 #' @export
 print.betanb <- function(x,
-                         alpha = c(0.05, 0.01, 0.001),
+                         alpha = NULL,
                          type = "pc",
                          digits = 4,
                          ...) {
@@ -96,7 +100,10 @@ print.betanb <- function(x,
 #'   `DiffBetaNB()`
 #'   functions.
 #' @param ... additional arguments.
-#' @param alpha Significance level.
+#' @param alpha Numeric vector.
+#'   Significance level \eqn{\alpha}.
+#'   If `alpha = NULL`,
+#'   use the argument `alpha` used in `object`.
 #' @param type Charater string.
 #'   Confidence interval type, that is,
 #'   `type = "pc"` for percentile;
@@ -107,7 +114,7 @@ print.betanb <- function(x,
 #' @keywords methods
 #' @export
 summary.betanb <- function(object,
-                           alpha = c(0.05, 0.01, 0.001),
+                           alpha = NULL,
                            type = "pc",
                            digits = 4,
                            ...) {
