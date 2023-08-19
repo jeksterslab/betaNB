@@ -1,6 +1,6 @@
 Package: betaNB
 Title: Bootstrap for Regression Effect Sizes
-Version: 1.0.2
+Version: 1.0.2.9000
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -14,18 +14,19 @@ Description: Generates nonparametric bootstrap confidence intervals
     improvement in R-squared, squared partial correlations,
     and differences in standardized regression coefficients,
     for models fitted by lm().
-URL: https://github.com/jeksterslab/betaNB, https://jeksterslab.github.io/betaNB/
+URL: https://github.com/jeksterslab/betaNB,
+        https://jeksterslab.github.io/betaNB/
 BugReports: https://github.com/jeksterslab/betaNB/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-Depends:
-    R (>= 3.5.0)
-Imports:
-    stats
-Suggests:
-    knitr,
-    rmarkdown,
-    testthat
+Depends: R (>= 3.5.0)
+Imports: stats
+Suggests: knitr, rmarkdown, testthat
 RoxygenNote: 7.2.3
+NeedsCompilation: no
+Packaged: 2023-08-19 15:53:42 UTC; root
+Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
+    (<https://orcid.org/0000-0003-4818-8420>)
+Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
