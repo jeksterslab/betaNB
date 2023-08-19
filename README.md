@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2023-07-08
+2023-08-19
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -10,9 +10,21 @@ Ivan Jacob Agaloos Pesigan
 Status](https://www.r-pkg.org/badges/version/betaNB)](https://cran.r-project.org/package=betaNB)
 [![R-Universe
 Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev)
-[![R-CMD-check](https://github.com/jeksterslab/betaNB/workflows/R-CMD-check/badge.svg)](https://github.com/jeksterslab/betaNB/actions)
-[![test-coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yaml)
-[![lint](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yaml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yaml)
+[![DOI](https://zenodo.org/badge/DOI/10.3758/s13428-023-02114-4.svg)](https://doi.org/10.3758/s13428-023-02114-4)
+[![Make
+Project](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml)
+[![R-CMD-check](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml)
+[![R Package Test
+Coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml)
+[![Lint R
+Package](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml)
+[![Package Website (GitHub
+Pages)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml)
+[![Compile
+LaTeX](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml)
+[![Shell
+Check](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml)
+[![pages-build-deployment](https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/jeksterslab/betaNB/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaNB)
 <!-- badges: end -->
 
@@ -86,9 +98,9 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0732 5000 0.3511 0.6388
-#> PCTGRT  0.3915 0.0779 5000 0.2358 0.5435
-#> PCTSUPP 0.2632 0.0800 5000 0.1025 0.4176
+#> NARTIC  0.4951 0.0727 5000 0.3532 0.6397
+#> PCTGRT  0.3915 0.0774 5000 0.2372 0.5368
+#> PCTSUPP 0.2632 0.0812 5000 0.1014 0.4202
 ```
 
 ### Other Effect Sizes
@@ -111,8 +123,8 @@ RSqNB(nb, alpha = 0.05)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0515 5000 0.7006 0.8957
-#> adj 0.7906 0.0552 5000 0.6792 0.8882
+#> rsq 0.8045 0.0523 5000 0.6938 0.8986
+#> adj 0.7906 0.0560 5000 0.6719 0.8914
 ```
 
 #### Improvement in R-squared
@@ -125,9 +137,9 @@ DeltaRSqNB(nb, alpha = 0.05)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0586 5000 0.0803 0.3099
-#> PCTGRT  0.1177 0.0493 5000 0.0343 0.2252
-#> PCTSUPP 0.0569 0.0344 5000 0.0083 0.1400
+#> NARTIC  0.1859 0.0592 5000 0.0807 0.3115
+#> PCTGRT  0.1177 0.0486 5000 0.0366 0.2261
+#> PCTSUPP 0.0569 0.0352 5000 0.0084 0.1441
 ```
 
 #### Semipartial Correlation Coefficients
@@ -140,9 +152,9 @@ SCorNB(nb, alpha = 0.05)
 #> Semipartial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0692 5000 0.2833 0.5567
-#> PCTGRT  0.3430 0.0737 5000 0.1852 0.4745
-#> PCTSUPP 0.2385 0.0720 5000 0.0910 0.3742
+#> NARTIC  0.4312 0.0699 5000 0.2841 0.5581
+#> PCTGRT  0.3430 0.0725 5000 0.1913 0.4756
+#> PCTSUPP 0.2385 0.0733 5000 0.0911 0.3796
 ```
 
 #### Squared Partial Correlation Coefficients
@@ -155,9 +167,9 @@ PCorNB(nb, alpha = 0.05)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0999 5000 0.2769 0.6693
-#> PCTGRT  0.3757 0.1086 5000 0.1580 0.5851
-#> PCTSUPP 0.2254 0.1155 5000 0.0411 0.4875
+#> NARTIC  0.4874 0.0985 5000 0.2820 0.6687
+#> PCTGRT  0.3757 0.1088 5000 0.1602 0.5860
+#> PCTSUPP 0.2254 0.1158 5000 0.0387 0.4811
 ```
 
 #### Differences of Standardized Regression Coefficients
@@ -170,28 +182,43 @@ DiffBetaNB(nb, alpha = 0.05)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1342 5000 -0.1599 0.3719
-#> NARTIC-PCTSUPP 0.2319 0.1253 5000 -0.0115 0.4855
-#> PCTGRT-PCTSUPP 0.1282 0.1285 5000 -0.1173 0.3844
+#> NARTIC-PCTGRT  0.1037 0.1326 5000 -0.1589 0.3729
+#> NARTIC-PCTSUPP 0.2319 0.1256 5000 -0.0110 0.4780
+#> PCTGRT-PCTSUPP 0.1282 0.1298 5000 -0.1269 0.3879
 ```
-
-### References
-
-Efron, B., & Tibshirani, R. J. (1993). *An introduction to the
-bootstrap*. Chapman & Hall. <https://doi.org/10.1201/9780429246593>
-
-National Research Council. (1982). *An assessment of research-doctorate
-programs in the United States: Social and behavioral sciences*.
-<https://doi.org/10.17226/9781>. Reproduced with permission from the
-National Academy of Sciences, Courtesy of the National Academies Press,
-Washington, D.C.
-
-Pesigan, I. J. A. (2022). Confidence intervals for standardized
-coefficients: Applied to regression coefficients in primary studies and
-indirect effects in meta-analytic structural equation modeling
-\[Unpublished doctoral dissertation\]. University of Macau.
 
 ## Documentation
 
 See [GitHub Pages](https://jeksterslab.github.io/betaNB/index.html) for
 package documentation.
+
+## References
+
+<div id="refs" class="references csl-bib-body hanging-indent"
+line-spacing="2">
+
+<div id="ref-Efron-Tibshirani-1993" class="csl-entry">
+
+Efron, B., & Tibshirani, R. J. (1993). *An introduction to the
+bootstrap*. Chapman & Hall. <https://doi.org/10.1201/9780429246593>
+
+</div>
+
+<div id="ref-NationalResearchCouncil-1982" class="csl-entry">
+
+National Research Council. (1982). *An assessment of research-doctorate
+programs in the United States: Social and behavioral sciences*. National
+Academies Press. <https://doi.org/10.17226/9781>
+
+</div>
+
+<div id="ref-Pesigan-2022" class="csl-entry">
+
+Pesigan, I. J. A. (2022). *Confidence intervals for standardized
+coefficients: Applied to regression coefficients in primary studies and
+indirect effects in meta-analytic structural equation modeling* \[PhD
+thesis\]. University of Macau.
+
+</div>
+
+</div>

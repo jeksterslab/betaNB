@@ -1,0 +1,168 @@
+---
+title: "betaNB"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+output: github_document
+bibliography: "vignettes.bib"
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @Pesigan-2022
+  @Efron-Tibshirani-1993
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+<!-- badges: start -->
+[![CRAN Status](https://www.r-pkg.org/badges/version/betaNB)](https://cran.r-project.org/package=betaNB)
+[![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev)
+[![DOI](https://zenodo.org/badge/DOI/10.3758/s13428-023-02114-4.svg)](https://doi.org/10.3758/s13428-023-02114-4)
+[![Make Project](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml)
+[![R-CMD-check](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml)
+[![R Package Test Coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml)
+[![Lint R Package](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml)
+[![Package Website (GitHub Pages)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml)
+[![Compile LaTeX](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml)
+[![Shell Check](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml)
+[![pages-build-deployment](https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment)
+[![codecov](https://codecov.io/gh/jeksterslab/betaNB/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaNB)
+<!-- badges: end -->
+
+## Description
+
+Generates nonparametric bootstrap confidence intervals
+(Efron & Tibshirani, 1993: https://doi.org/10.1201/9780429246593)
+for standardized regression coefficients (beta)
+and other effect sizes,
+including multiple correlation, semipartial correlations,
+improvement in R-squared, squared partial correlations,
+and differences in standardized regression coefficients,
+for models fitted by `lm()`.
+
+## Installation
+
+You can install the CRAN release of `betaNB` with:
+
+```r
+install.packages("betaNB")
+```
+
+You can install the development version of `betaNB` from
+[GitHub](https://github.com/jeksterslab/betaNB) with:
+
+```r
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("jeksterslab/betaNB")
+```
+
+## Example
+
+In this example, a multiple regression model is fitted
+using program quality ratings (`QUALITY`) as the regressand/outcome variable
+and number of published articles attributed to the program faculty members (`NARTIC`),
+percent of faculty members holding research grants (`PCTGRT`), and
+percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
+using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA [@NationalResearchCouncil-1982].
+Confidence intervals for the standardized regression coefficients are generated
+using the `BetaNB()` function from the `betaNB` package.
+
+```{r}
+#| message = FALSE
+library(betaNB)
+```
+
+```{r}
+#| echo = FALSE
+if (!exists("nas1982")) {
+  try(
+    data(
+      "nas1982",
+      package = "betaNB"
+    ),
+    silent = TRUE
+  )
+}
+df <- nas1982
+```
+
+```{r}
+#| eval = FALSE
+df <- betaNB::nas1982
+```
+
+### Regression
+
+Fit the regression model using the `lm()` function.
+
+```{r}
+object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+```
+
+### Nonparametric Bootstrap
+
+```{r}
+nb <- NB(object)
+```
+
+### Standardized Regression Slopes
+
+```{r}
+BetaNB(nb, alpha = 0.05)
+```
+
+### Other Effect Sizes
+
+The `betaNB` package also has functions to generate nonparametric bootstrap confidence intervals
+for other effect sizes such as
+`RSqNB()` for multiple correlation coefficients (R-squared and adjusted R-squared),
+`DeltaRSqNB()` for improvement in R-squared,
+`SCorNB()` for semipartial correlation coefficients,
+`PCorNB()` for squared partial correlation coefficients,
+and
+`DiffBetaNB()` for differences of standardized regression coefficients.
+
+#### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+
+```{r}
+RSqNB(nb, alpha = 0.05)
+```
+
+#### Improvement in R-squared
+
+```{r}
+DeltaRSqNB(nb, alpha = 0.05)
+```
+
+#### Semipartial Correlation Coefficients
+
+```{r}
+SCorNB(nb, alpha = 0.05)
+```
+
+#### Squared Partial Correlation Coefficients
+
+```{r}
+PCorNB(nb, alpha = 0.05)
+```
+
+#### Differences of Standardized Regression Coefficients
+
+```{r}
+DiffBetaNB(nb, alpha = 0.05)
+```
+
+## Documentation
+
+See
+[GitHub Pages](https://jeksterslab.github.io/betaNB/index.html)
+for package documentation.
+
+## References

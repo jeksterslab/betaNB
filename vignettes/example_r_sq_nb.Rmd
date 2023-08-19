@@ -2,6 +2,10 @@
 title: "betaNB: Example Using the RSqNB Function"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @Pesigan-2022
+  @Efron-Tibshirani-1993
 vignette: >
   %\VignetteIndexEntry{betaNB: Example Using the RSqNB Function}
   %\VignetteEngine{knitr::rmarkdown}
@@ -132,14 +136,3 @@ confint(out, level = 0.95, type = "bca")
 ```
 
 ## References
-
-Efron, B., & Tibshirani, R. J. (1993).
-*An introduction to the bootstrap*.
-Chapman & Hall.
-https://doi.org/10.1201/9780429246593
-
-National Research Council. (1982).
-*An assessment of research-doctorate programs in the United States: Social and behavioral sciences*.
-https://doi.org/10.17226/9781.
-Reproduced with permission from the National Academy of Sciences,
-Courtesy of the National Academies Press, Washington, D.C.
