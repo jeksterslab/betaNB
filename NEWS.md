@@ -1,6 +1,6 @@
 # betaNB 1.0.2.9000
 
-Latest development version.
+* Minor edits to setting seed.
 
 # betaNB 1.0.2
 

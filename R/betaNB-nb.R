@@ -53,7 +53,9 @@
 NB <- function(object,
                R = 5000L,
                seed = NULL) {
-  set.seed(seed)
+  if (!is.null(seed)) {
+    set.seed(seed)
+  }
   lm_process <- .ProcessLM(object)
   out <- list(
     call = match.call(),
