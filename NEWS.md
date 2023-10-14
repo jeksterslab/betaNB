@@ -1,4 +1,4 @@
-# betaNB 1.0.2.9000
+# betaNB 1.0.3
 
 * Minor edits to setting seed.
 
