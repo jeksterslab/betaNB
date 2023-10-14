@@ -29,7 +29,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">betaNB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -135,9 +135,9 @@ the BetaNB Function</a>.</p>
 <span><span class="co">#&gt; Squared partial correlations</span></span>
 <span><span class="co">#&gt; type = "pc"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4874 0.0977 5000 0.2891 0.6706</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3757 0.1080 5000 0.1521 0.5816</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2254 0.1131 5000 0.0435 0.4721</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4874 0.0979 5000 0.2832 0.6678</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3757 0.1072 5000 0.1675 0.5838</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2254 0.1159 5000 0.0438 0.4812</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals"></a>
@@ -150,9 +150,9 @@ the BetaNB Function</a>.</p>
 <span><span class="co">#&gt; Squared partial correlations</span></span>
 <span><span class="co">#&gt; type = "bc"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4874 0.0977 5000 0.2690 0.6479</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3757 0.1080 5000 0.1514 0.5797</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2254 0.1131 5000 0.0410 0.4657</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4874 0.0979 5000 0.2663 0.6554</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3757 0.1072 5000 0.1576 0.5766</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2254 0.1159 5000 0.0409 0.4763</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals"></a>
@@ -165,9 +165,9 @@ the BetaNB Function</a>.</p>
 <span><span class="co">#&gt; Squared partial correlations</span></span>
 <span><span class="co">#&gt; type = "bca"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4874 0.0977 5000 0.2690 0.6484</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3757 0.1080 5000 0.1583 0.5857</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2254 0.1131 5000 0.0276 0.4439</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4874 0.0979 5000 0.2666 0.6557</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3757 0.1072 5000 0.1628 0.5811</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2254 0.1159 5000 0.0256 0.4551</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -186,9 +186,9 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
 <span><span class="co">#&gt;              NARTIC       PCTGRT      PCTSUPP</span></span>
-<span><span class="co">#&gt; NARTIC  0.009541860 0.0014733259 0.0019192955</span></span>
-<span><span class="co">#&gt; PCTGRT  0.001473326 0.0116554071 0.0007005064</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.001919295 0.0007005064 0.0127996513</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.009590507 0.0019301939 0.0021045173</span></span>
+<span><span class="co">#&gt; PCTGRT  0.001930194 0.0114822673 0.0009261115</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.002104517 0.0009261115 0.0134326752</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="confint">confint<a class="anchor" aria-label="anchor" href="#confint"></a>
@@ -199,10 +199,10 @@ the BetaNB Function</a>.</p>
 </h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.28908702 0.6706011</span></span>
-<span><span class="co">#&gt; PCTGRT  0.15206492 0.5815955</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.04352111 0.4721101</span></span></code></pre></div>
+<span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
+<span><span class="co">#&gt; NARTIC  0.2831885 0.6678479</span></span>
+<span><span class="co">#&gt; PCTGRT  0.1675216 0.5837874</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.0438261 0.4811561</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals-1">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals-1"></a>
@@ -210,19 +210,19 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.26903946 0.6478949</span></span>
-<span><span class="co">#&gt; PCTGRT  0.15140414 0.5797243</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.04096299 0.4657447</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.26626206 0.6553655</span></span>
+<span><span class="co">#&gt; PCTGRT  0.15764201 0.5766068</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.04085047 0.4762847</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals-1">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals-1"></a>
 </h4>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bca"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.2690468 0.6483536</span></span>
-<span><span class="co">#&gt; PCTGRT  0.1582657 0.5856863</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.0276143 0.4439402</span></span></code></pre></div>
+<span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
+<span><span class="co">#&gt; NARTIC  0.26662873 0.6557489</span></span>
+<span><span class="co">#&gt; PCTGRT  0.16276236 0.5811396</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.02556966 0.4550619</span></span></code></pre></div>
 </div>
 </div>
 </div>
