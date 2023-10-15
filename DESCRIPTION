@@ -1,6 +1,6 @@
 Package: betaNB
 Title: Bootstrap for Regression Effect Sizes
-Version: 1.0.3
+Version: 1.0.3.9000
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -28,4 +28,3 @@ Suggests:
     knitr,
     rmarkdown,
     testthat
-RoxygenNote: 7.2.3
