@@ -33,7 +33,7 @@ preferred-citation:
   institution:
     name: University of Macau
   thesis-type: PhD Thesis
-repository: https://packagemanager.rstudio.com/all/__linux__/focal/latest/
+repository: https://packagemanager.rstudio.com/all/__linux__/jammy/latest/
 repository-code: https://github.com/jeksterslab/betaNB
 url: https://jeksterslab.github.io/betaNB/
 contact:
