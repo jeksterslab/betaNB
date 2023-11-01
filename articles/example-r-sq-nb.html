@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="betaNB">
-<title>betaNB: Example Using the SCorNB Function • betaNB</title>
+<title>betaNB: Example Using the RSqNB Function • betaNB</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.7/font.css" rel="stylesheet">
@@ -14,7 +14,7 @@
 <link href="../deps/Roboto_Slab-0.4.7/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="betaNB: Example Using the SCorNB Function">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="betaNB: Example Using the RSqNB Function">
 <meta property="og:description" content="betaNB">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -74,21 +74,21 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>betaNB: Example Using the SCorNB Function</h1>
+      <img src="" class="logo" alt=""><h1>betaNB: Example Using the RSqNB Function</h1>
                         <h4 data-toc-skip class="author">Ivan Jacob
 Agaloos Pesigan</h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/jeksterslab/betaNB/blob/HEAD/vignettes/example_s_cor_nb.Rmd"><code>vignettes/example_s_cor_nb.Rmd</code></a></small>
-      <div class="d-none name"><code>example_s_cor_nb.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/jeksterslab/betaNB/blob/HEAD/vignettes/example-r-sq-nb.Rmd"><code>vignettes/example-r-sq-nb.Rmd</code></a></small>
+      <div class="d-none name"><code>example-r-sq-nb.Rmd</code></div>
     </div>
 
     
     
-<p>Confidence intervals for semipartial correlation coefficients are
-generated using the <code><a href="../reference/SCorNB.html">SCorNB()</a></code> function from the
+<p>Confidence intervals for multiple correlation coefficients are
+generated using the <code><a href="../reference/RSqNB.html">RSqNB()</a></code> function from the
 <code>betaNB</code> package. In this example, we use the data set and
-the model used in <a href="example_beta_nb.html">betaNB: Example Using
+the model used in <a href="example-beta-nb.html">betaNB: Example Using
 the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/betaNB">betaNB</a></span><span class="op">)</span></span></code></pre></div>
@@ -108,13 +108,13 @@ the BetaNB Function</a>.</p>
 <code class="sourceCode R"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/NB.html">NB</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="semipartial-correlation-coefficients">Semipartial Correlation Coefficients<a class="anchor" aria-label="anchor" href="#semipartial-correlation-coefficients"></a>
+<h3 id="multiple-correlation-coefficients">Multiple Correlation Coefficients<a class="anchor" aria-label="anchor" href="#multiple-correlation-coefficients"></a>
 </h3>
 <div class="section level4">
 <h4 id="normal-theory-approach">Normal-Theory Approach<a class="anchor" aria-label="anchor" href="#normal-theory-approach"></a>
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/SCorNB.html">SCorNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RSqNB.html">RSqNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -123,21 +123,20 @@ the BetaNB Function</a>.</p>
 <div class="section level3">
 <h3 id="summary">summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h3>
-<p>Summary of the results of <code><a href="../reference/SCorNB.html">SCorNB()</a></code>.</p>
+<p>Summary of the results of <code><a href="../reference/RSqNB.html">RSqNB()</a></code>.</p>
 <div class="section level4">
 <h4 id="percentile-confidence-intervals">Percentile Confidence Intervals<a class="anchor" aria-label="anchor" href="#percentile-confidence-intervals"></a>
 </h4>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; SCorNB(object = nb, alpha = 0.05)</span></span>
+<span><span class="co">#&gt; RSqNB(object = nb, alpha = 0.05)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Semipartial correlations</span></span>
+<span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
 <span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4312 0.0689 5000 0.2875 0.5589</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3430 0.0733 5000 0.1838 0.4720</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2385 0.0720 5000 0.0912 0.3758</span></span></code></pre></div>
+<span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
+<span><span class="co">#&gt; rsq 0.8045 0.0534 5000 0.6914 0.8981</span></span>
+<span><span class="co">#&gt; adj 0.7906 0.0572 5000 0.6694 0.8908</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals"></a>
@@ -145,14 +144,13 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; SCorNB(object = nb, alpha = 0.05)</span></span>
+<span><span class="co">#&gt; RSqNB(object = nb, alpha = 0.05)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Semipartial correlations</span></span>
+<span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
 <span><span class="co">#&gt; type = "bc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4312 0.0689 5000 0.3037 0.5738</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3430 0.0733 5000 0.2106 0.4941</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2385 0.0720 5000 0.1001 0.3854</span></span></code></pre></div>
+<span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
+<span><span class="co">#&gt; rsq 0.8045 0.0534 5000 0.6466 0.8816</span></span>
+<span><span class="co">#&gt; adj 0.7906 0.0572 5000 0.6213 0.8731</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals"></a>
@@ -160,14 +158,13 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span>, type <span class="op">=</span> <span class="st">"bca"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; SCorNB(object = nb, alpha = 0.05)</span></span>
+<span><span class="co">#&gt; RSqNB(object = nb, alpha = 0.05)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Semipartial correlations</span></span>
+<span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
 <span><span class="co">#&gt; type = "bca"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4312 0.0689 5000 0.3114 0.5828</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3430 0.0733 5000 0.2227 0.5101</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2385 0.0720 5000 0.0967 0.3828</span></span></code></pre></div>
+<span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
+<span><span class="co">#&gt; rsq 0.8045 0.0534 5000 0.6390 0.8805</span></span>
+<span><span class="co">#&gt; adj 0.7906 0.0572 5000 0.6132 0.8719</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -176,8 +173,8 @@ the BetaNB Function</a>.</p>
 <p>Return the vector of estimates.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    NARTIC    PCTGRT   PCTSUPP </span></span>
-<span><span class="co">#&gt; 0.4311525 0.3430075 0.2384789</span></span></code></pre></div>
+<span><span class="co">#&gt;       rsq       adj </span></span>
+<span><span class="co">#&gt; 0.8045263 0.7905638</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="vcov">vcov<a class="anchor" aria-label="anchor" href="#vcov"></a>
@@ -185,10 +182,9 @@ the BetaNB Function</a>.</p>
 <p>Return the sampling covariance matrix.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                NARTIC        PCTGRT       PCTSUPP</span></span>
-<span><span class="co">#&gt; NARTIC   0.0047510667 -0.0004040033 -0.0006356789</span></span>
-<span><span class="co">#&gt; PCTGRT  -0.0004040033  0.0053701360 -0.0008585796</span></span>
-<span><span class="co">#&gt; PCTSUPP -0.0006356789 -0.0008585796  0.0051881960</span></span></code></pre></div>
+<span><span class="co">#&gt;             rsq         adj</span></span>
+<span><span class="co">#&gt; rsq 0.002852872 0.003056649</span></span>
+<span><span class="co">#&gt; adj 0.003056649 0.003274981</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="confint">confint<a class="anchor" aria-label="anchor" href="#confint"></a>
@@ -199,30 +195,27 @@ the BetaNB Function</a>.</p>
 </h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.28751354 0.5589486</span></span>
-<span><span class="co">#&gt; PCTGRT  0.18382273 0.4720322</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.09122777 0.3758115</span></span></code></pre></div>
+<span><span class="co">#&gt;         2.5 %    97.5 %</span></span>
+<span><span class="co">#&gt; rsq 0.6914381 0.8981200</span></span>
+<span><span class="co">#&gt; adj 0.6693980 0.8908429</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals-1">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals-1"></a>
 </h4>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.3037403 0.5738165</span></span>
-<span><span class="co">#&gt; PCTGRT  0.2106266 0.4941267</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.1001352 0.3853955</span></span></code></pre></div>
+<span><span class="co">#&gt;         2.5 %    97.5 %</span></span>
+<span><span class="co">#&gt; rsq 0.6465789 0.8815881</span></span>
+<span><span class="co">#&gt; adj 0.6213345 0.8731301</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals-1">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals-1"></a>
 </h4>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bca"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.31136826 0.5828180</span></span>
-<span><span class="co">#&gt; PCTGRT  0.22270176 0.5101019</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.09670179 0.3828360</span></span></code></pre></div>
+<span><span class="co">#&gt;         2.5 %    97.5 %</span></span>
+<span><span class="co">#&gt; rsq 0.6390046 0.8804565</span></span>
+<span><span class="co">#&gt; adj 0.6132192 0.8719177</span></span></code></pre></div>
 </div>
 </div>
 </div>

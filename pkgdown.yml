@@ -3,14 +3,14 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   betaNB: betaNB.html
-  example_beta_nb: example_beta_nb.html
-  example_delta_r_sq_nb: example_delta_r_sq_nb.html
-  example_diff_beta_nb: example_diff_beta_nb.html
-  example_p_cor_nb: example_p_cor_nb.html
-  example_r_sq_nb: example_r_sq_nb.html
-  example_s_cor_nb: example_s_cor_nb.html
+  example-beta-nb: example-beta-nb.html
+  example-delta-r-sq-nb: example-delta-r-sq-nb.html
+  example-diff-beta-nb: example-diff-beta-nb.html
+  example-p-cor-nb: example-p-cor-nb.html
+  example-r-sq-nb: example-r-sq-nb.html
+  example-s-cor-nb: example-s-cor-nb.html
   session: session/session.html
-last_built: 2023-10-16T23:44Z
+last_built: 2023-11-01T23:02Z
 urls:
   reference: https://github.com/jeksterslab/betaNB/reference
   article: https://github.com/jeksterslab/betaNB/articles
