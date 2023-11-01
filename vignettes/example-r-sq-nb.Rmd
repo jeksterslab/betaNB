@@ -25,7 +25,7 @@ are generated using
 the `RSqNB()` function from the `betaNB` package.
 In this example,
 we use the data set and the model used in
-[betaNB: Example Using the BetaNB Function](example_beta_nb.html).
+[betaNB: Example Using the BetaNB Function](example-beta-nb.html).
 
 ```{r}
 #| message = FALSE

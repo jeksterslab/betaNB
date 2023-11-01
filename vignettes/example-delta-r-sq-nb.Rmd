@@ -1,5 +1,5 @@
 ---
-title: "betaNB: Example Using the SCorNB Function"
+title: "betaNB: Example Using the DeltaRSqNB Function"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
@@ -7,7 +7,7 @@ nocite: |
   @Pesigan-2022
   @Efron-Tibshirani-1993
 vignette: >
-  %\VignetteIndexEntry{betaNB: Example Using the SCorNB Function}
+  %\VignetteIndexEntry{betaNB: Example Using the DeltaRSqNB Function}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,12 +20,12 @@ knitr::opts_chunk$set(
 ```
 
 Confidence intervals for
-semipartial correlation coefficients
+improvement in R-squared
 are generated using
-the `SCorNB()` function from the `betaNB` package.
+the `DeltaRSqNB()` function from the `betaNB` package.
 In this example,
 we use the data set and the model used in
-[betaNB: Example Using the BetaNB Function](example_beta_nb.html).
+[betaNB: Example Using the BetaNB Function](example-beta-nb.html).
 
 ```{r}
 #| message = FALSE
@@ -65,19 +65,19 @@ object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 nb <- NB(object)
 ```
 
-### Semipartial Correlation Coefficients
+### Improvement in R-squared
 
 #### Normal-Theory Approach
 
 ```{r}
-out <- SCorNB(nb, alpha = 0.05)
+out <- DeltaRSqNB(nb, alpha = 0.05)
 ```
 
 ## Methods
 
 ### summary
 
-Summary of the results of `SCorNB()`.
+Summary of the results of `DeltaRSqNB()`.
 
 #### Percentile Confidence Intervals
 

@@ -40,12 +40,12 @@ reference:
 articles:
 - title: Examples
   contents:
-  - example_beta_nb
-  - example_r_sq_nb
-  - example_s_cor_nb
-  - example_delta_r_sq_nb
-  - example_p_cor_nb
-  - example_diff_beta_nb
+  - example-beta-nb
+  - example-r-sq-nb
+  - example-s-cor-nb
+  - example-delta-r-sq-nb
+  - example-p-cor-nb
+  - example-diff-beta-nb
 - title: Session Information
   contents:
   - session/session

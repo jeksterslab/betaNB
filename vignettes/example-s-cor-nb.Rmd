@@ -1,5 +1,5 @@
 ---
-title: "betaNB: Example Using the PCorNB Function"
+title: "betaNB: Example Using the SCorNB Function"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
@@ -7,7 +7,7 @@ nocite: |
   @Pesigan-2022
   @Efron-Tibshirani-1993
 vignette: >
-  %\VignetteIndexEntry{betaNB: Example Using the PCorNB Function}
+  %\VignetteIndexEntry{betaNB: Example Using the SCorNB Function}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,12 +20,12 @@ knitr::opts_chunk$set(
 ```
 
 Confidence intervals for
-squared partial correlation coefficients
+semipartial correlation coefficients
 are generated using
-the `PCorNB()` function from the `betaNB` package.
+the `SCorNB()` function from the `betaNB` package.
 In this example,
 we use the data set and the model used in
-[betaNB: Example Using the BetaNB Function](example_beta_nb.html).
+[betaNB: Example Using the BetaNB Function](example-beta-nb.html).
 
 ```{r}
 #| message = FALSE
@@ -65,19 +65,19 @@ object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 nb <- NB(object)
 ```
 
-### Squared Partial Correlation Coefficients
+### Semipartial Correlation Coefficients
 
 #### Normal-Theory Approach
 
 ```{r}
-out <- PCorNB(nb, alpha = 0.05)
+out <- SCorNB(nb, alpha = 0.05)
 ```
 
 ## Methods
 
 ### summary
 
-Summary of the results of `PCorNB()`.
+Summary of the results of `SCorNB()`.
 
 #### Percentile Confidence Intervals
 
