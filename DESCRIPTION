@@ -24,9 +24,9 @@ Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.5.0)
 Imports: stats
 Suggests: knitr, rmarkdown, testthat
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2024-01-21 01:32:59 UTC; root
+Packaged: 2024-02-16 22:13:02 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
     (<https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
