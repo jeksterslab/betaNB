@@ -1,6 +1,8 @@
-# betaNB 1.0.3.9000
+# betaNB 1.0.4
 
-* Latest development version.
+## Patch
+
+* Minor documentation edits.
 
 # betaNB 1.0.3
 

@@ -1,14 +1,14 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v1.0.0
+# --------------------------------------------
+# CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# -----------------------------------------------------------
+# --------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "betaNB" in publications use:'
 type: software
 license: MIT
 title: 'betaNB: Bootstrap for Regression Effect Sizes'
-version: 1.0.3.9000
+version: 1.0.4
 abstract: 'Generates nonparametric bootstrap confidence intervals (Efron & Tibshirani,
   1993: <https://doi.org/10.1201/9780429246593>) for standardized regression coefficients
   (beta) and other effect sizes, including multiple correlation, semipartial correlations,
@@ -57,4 +57,5 @@ references:
     email: r.jeksterslab@gmail.com
     orcid: https://orcid.org/0000-0003-4818-8420
   year: '2023'
-  notes: R package version 1.0.3.9000
+  notes: R package version 1.0.4
+
