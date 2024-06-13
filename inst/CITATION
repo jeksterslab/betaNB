@@ -48,12 +48,11 @@ bibentry(
   author = author,
   title = paste0(pkg, ":", " ", title),
   year = year,
-  note = note,
   textVersion = paste0(
     author_text, " ",
     "(", year, ")", ".", " ",
     pkg, ":", " ", title, ".", " ",
-    note, ".", " ",
+    ".", " ",
     url
   )
 )
