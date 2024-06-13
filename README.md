@@ -97,9 +97,9 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0733 5000 0.3526 0.6413
-#> PCTGRT  0.3915 0.0776 5000 0.2339 0.5372
-#> PCTSUPP 0.2632 0.0802 5000 0.1027 0.4123
+#> NARTIC  0.4951 0.0707 5000 0.3567 0.6322
+#> PCTGRT  0.3915 0.0768 5000 0.2364 0.5418
+#> PCTSUPP 0.2632 0.0776 5000 0.1121 0.4134
 ```
 
 ### Other Effect Sizes
@@ -122,8 +122,8 @@ RSqNB(nb, alpha = 0.05)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0529 5000 0.6933 0.8999
-#> adj 0.7906 0.0567 5000 0.6714 0.8927
+#> rsq 0.8045 0.0527 5000 0.6906 0.8969
+#> adj 0.7906 0.0564 5000 0.6685 0.8895
 ```
 
 #### Improvement in R-squared
@@ -136,9 +136,9 @@ DeltaRSqNB(nb, alpha = 0.05)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0596 5000 0.0813 0.3121
-#> PCTGRT  0.1177 0.0483 5000 0.0359 0.2225
-#> PCTSUPP 0.0569 0.0343 5000 0.0083 0.1393
+#> NARTIC  0.1859 0.0583 5000 0.0832 0.3093
+#> PCTGRT  0.1177 0.0491 5000 0.0349 0.2286
+#> PCTSUPP 0.0569 0.0332 5000 0.0097 0.1357
 ```
 
 #### Semipartial Correlation Coefficients
@@ -151,9 +151,9 @@ SCorNB(nb, alpha = 0.05)
 #> Semipartial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0702 5000 0.2852 0.5586
-#> PCTGRT  0.3430 0.0730 5000 0.1895 0.4717
-#> PCTSUPP 0.2385 0.0721 5000 0.0910 0.3732
+#> NARTIC  0.4312 0.0686 5000 0.2884 0.5561
+#> PCTGRT  0.3430 0.0731 5000 0.1868 0.4781
+#> PCTSUPP 0.2385 0.0698 5000 0.0986 0.3684
 ```
 
 #### Squared Partial Correlation Coefficients
@@ -166,9 +166,9 @@ PCorNB(nb, alpha = 0.05)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.1013 5000 0.2725 0.6678
-#> PCTGRT  0.3757 0.1089 5000 0.1566 0.5811
-#> PCTSUPP 0.2254 0.1155 5000 0.0387 0.4778
+#> NARTIC  0.4874 0.0970 5000 0.2895 0.6661
+#> PCTGRT  0.3757 0.1079 5000 0.1579 0.5811
+#> PCTSUPP 0.2254 0.1114 5000 0.0462 0.4697
 ```
 
 #### Differences of Standardized Regression Coefficients
@@ -181,9 +181,9 @@ DiffBetaNB(nb, alpha = 0.05)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1339 5000 -0.1540 0.3772
-#> NARTIC-PCTSUPP 0.2319 0.1253 5000 -0.0050 0.4822
-#> PCTGRT-PCTSUPP 0.1282 0.1286 5000 -0.1198 0.3805
+#> NARTIC-PCTGRT  0.1037 0.1304 5000 -0.1507 0.3645
+#> NARTIC-PCTSUPP 0.2319 0.1202 5000  0.0015 0.4726
+#> PCTGRT-PCTSUPP 0.1282 0.1269 5000 -0.1198 0.3789
 ```
 
 ## Documentation
