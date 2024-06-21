@@ -217,7 +217,7 @@
 % confint(out, type = type)
 %% end.rcode
 
-\nocite{RCoreTeam-2023}
+\nocite{RCoreTeam-2024}
 
 \printbibliography
 
