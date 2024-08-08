@@ -9,6 +9,9 @@ type: software
 license: MIT
 title: 'betaNB: Bootstrap for Regression Effect Sizes'
 version: 1.0.4.9000
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.betaNB
 abstract: 'Generates nonparametric bootstrap confidence intervals (Efron & Tibshirani,
   1993: <https://doi.org/10.1201/9780429246593>) for standardized regression coefficients
   (beta) and other effect sizes, including multiple correlation, semipartial correlations,
