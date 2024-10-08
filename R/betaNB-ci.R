@@ -23,12 +23,6 @@
 .CI <- function(object,
                 alpha = NULL,
                 type = "pc") {
-  stopifnot(
-    inherits(
-      object,
-      "betanb"
-    )
-  )
   if (is.null(alpha)) {
     alpha <- object$args$alpha
   }
