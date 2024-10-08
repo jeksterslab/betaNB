@@ -53,6 +53,12 @@
 NB <- function(object,
                R = 5000L,
                seed = NULL) {
+  stopifnot(
+    inherits(
+      x = object,
+      what = "lm"
+    )
+  )
   if (!is.null(seed)) {
     set.seed(seed)
   }
