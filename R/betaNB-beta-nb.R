@@ -21,6 +21,8 @@
 #'     \item{thetahatstar}{Sampling distribution of
 #'       \eqn{\boldsymbol{\hat{\beta}}}.}
 #'     \item{jackknife}{Jackknife estimates.}
+#'     \item{vcov}{Sampling variance-covariance matrix of
+#'       \eqn{\boldsymbol{\hat{\beta}}}.}
 #'     \item{est}{Vector of estimated
 #'       \eqn{\boldsymbol{\hat{\beta}}}.}
 #'     \item{fun}{Function used ("BetaNB").}
