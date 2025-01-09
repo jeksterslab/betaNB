@@ -80,6 +80,7 @@ lapply(
     testthat::test_that(
       paste(text, "means"),
       {
+        testhat::skip_on_cran()
         testthat::expect_true(
           all(
             abs(

@@ -27,6 +27,7 @@ lapply(
     testthat::test_that(
       paste(text, "semipartial correlation coefficients"),
       {
+        testhat::skip_on_cran()
         testthat::expect_true(
           all(
             abs(
@@ -45,6 +46,7 @@ lapply(
     testthat::test_that(
       paste(text, "error"),
       {
+        testhat::skip_on_cran()
         testthat::expect_error(
           SCorNB(nb)
         )

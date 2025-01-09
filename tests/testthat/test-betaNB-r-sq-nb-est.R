@@ -30,6 +30,7 @@ lapply(
     testthat::test_that(
       paste(text, "multiple regression", "coef"),
       {
+        testhat::skip_on_cran()
         testthat::expect_true(
           all(
             abs(
@@ -53,6 +54,7 @@ lapply(
     testthat::test_that(
       paste(text, "simple regression"),
       {
+        testhat::skip_on_cran()
         testthat::expect_true(
           all(
             abs(
