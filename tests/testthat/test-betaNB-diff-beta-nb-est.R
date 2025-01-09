@@ -27,7 +27,7 @@ lapply(
     testthat::test_that(
       paste(text, "differences of standardized slopes"),
       {
-        testhat::skip_on_cran()
+        testthat::skip_on_cran()
         testthat::expect_true(
           all(
             abs(
@@ -46,7 +46,7 @@ lapply(
     testthat::test_that(
       paste(text, "error"),
       {
-        testhat::skip_on_cran()
+        testthat::skip_on_cran()
         testthat::expect_error(
           DiffBetaNB(nb)
         )
