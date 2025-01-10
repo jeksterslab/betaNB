@@ -43,7 +43,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] betaNB_1.0.5
+#> [1] betaNB_1.0.5.9000
 #> 
 #> loaded via a namespace (and not attached):
 #> [1] compiler_4.4.2  tools_4.4.2     rProject_0.0.14 knitr_1.49     
@@ -56,7 +56,7 @@ sessionInfo()
 ``` r
 installed.packages()[, c("Package", "Version")]
 #>                   Package             Version      
-#> betaNB            "betaNB"            "1.0.5"      
+#> betaNB            "betaNB"            "1.0.5.9000" 
 #> abind             "abind"             "1.4-8"      
 #> arm               "arm"               "1.14-4"     
 #> arrow             "arrow"             "18.1.0"     
@@ -459,7 +459,7 @@ installed.packages()[, c("Package", "Version")]
 #> Core(s) per socket:                   4
 #> Socket(s):                            1
 #> Stepping:                             12
-#> CPU(s) scaling MHz:                   74%
+#> CPU(s) scaling MHz:                   50%
 #> CPU max MHz:                          4100.0000
 #> CPU min MHz:                          400.0000
 #> BogoMIPS:                             3799.90
@@ -492,7 +492,7 @@ installed.packages()[, c("Package", "Version")]
 
 ```
 #>                total        used        free      shared  buff/cache   available
-#> Mem:            23Gi       3.3Gi        18Gi       781Mi       2.4Gi        19Gi
+#> Mem:            23Gi       7.7Gi        12Gi       1.2Gi       4.2Gi        15Gi
 #> Swap:           11Gi          0B        11Gi
-#> Total:          34Gi       3.3Gi        30Gi
+#> Total:          34Gi       7.7Gi        24Gi
 ```
