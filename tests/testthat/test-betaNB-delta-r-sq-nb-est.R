@@ -6,29 +6,28 @@ lapply(
                  R,
                  tol) {
     message(text)
-    if (!exists("nas1982")) {
-      try(
-        data(
-          "nas1982",
-          package = "betaNB"
-        ),
-        silent = TRUE
-      )
-    }
-    df <- nas1982
-    object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-    nb <- NB(object, R = R)
-    out <- DeltaRSqNB(nb)
-    print.betanb(out)
-    summary.betanb(out)
-    coef.betanb(out)
-    vcov.betanb(out)
-    confint.betanb(out)
-    object <- lm(QUALITY ~ NARTIC, data = df)
     testthat::test_that(
       paste(text, "improvement in R-squared"),
       {
         testthat::skip_on_cran()
+        if (!exists("nas1982")) {
+          try(
+            data(
+              "nas1982",
+              package = "betaNB"
+            ),
+            silent = TRUE
+          )
+        }
+        df <- nas1982
+        object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+        nb <- NB(object, R = R)
+        out <- DeltaRSqNB(nb)
+        print.betanb(out)
+        summary.betanb(out)
+        coef.betanb(out)
+        vcov.betanb(out)
+        confint.betanb(out)
         testthat::expect_true(
           all(
             abs(
@@ -42,11 +41,22 @@ lapply(
         )
       }
     )
-    nb <- NB(object, R = R)
     testthat::test_that(
       paste(text, "error"),
       {
         testthat::skip_on_cran()
+        if (!exists("nas1982")) {
+          try(
+            data(
+              "nas1982",
+              package = "betaNB"
+            ),
+            silent = TRUE
+          )
+        }
+        df <- nas1982
+        object <- lm(QUALITY ~ NARTIC, data = df)
+        nb <- NB(object, R = R)
         testthat::expect_error(
           DeltaRSqNB(nb)
         )
