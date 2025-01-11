@@ -3,6 +3,7 @@
 ## Patch
 
 * Latest development version.
+* Minor edits to tests.
 
 # betaNB 1.0.5
 
