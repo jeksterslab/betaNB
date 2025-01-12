@@ -13,6 +13,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.PAT }}
     strategy:
+      fail-fast: false
       matrix:
         container:
           - name: gcc13
@@ -29,6 +30,8 @@ jobs:
             image: ghcr.io/r-hub/containers/noremap:latest
           - name: nosuggests
             image: ghcr.io/r-hub/containers/nosuggests:latest
+          - name: rchk
+            image: ghcr.io/r-hub/containers/rchk:latest
           - name: valgrind
             image: ghcr.io/r-hub/containers/valgrind:latest
     name: ${{ matrix.container.name }}
