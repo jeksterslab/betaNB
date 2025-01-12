@@ -120,9 +120,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <span><span class="co">#&gt; Standardized regression slopes</span></span>
 <span><span class="co">#&gt; type = "pc"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0709 5000 0.3576 0.6353</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0760 5000 0.2393 0.5350</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0795 5000 0.1038 0.4165</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4951 0.0724 5000 0.3575 0.6401</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3915 0.0772 5000 0.2349 0.5378</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632 0.0779 5000 0.1072 0.4120</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals"></a>
@@ -135,9 +135,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <span><span class="co">#&gt; Standardized regression slopes</span></span>
 <span><span class="co">#&gt; type = "bc"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0709 5000 0.3605 0.6398</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0760 5000 0.2421 0.5390</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0795 5000 0.1088 0.4214</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4951 0.0724 5000 0.3567 0.6389</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3915 0.0772 5000 0.2389 0.5403</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632 0.0779 5000 0.1065 0.4113</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals"></a>
@@ -150,9 +150,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <span><span class="co">#&gt; Standardized regression slopes</span></span>
 <span><span class="co">#&gt; type = "bca"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0709 5000 0.3613 0.6410</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0760 5000 0.2485 0.5444</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0795 5000 0.0991 0.4140</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4951 0.0724 5000 0.3575 0.6399</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3915 0.0772 5000 0.2452 0.5461</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632 0.0779 5000 0.0983 0.4065</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -171,9 +171,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               NARTIC       PCTGRT      PCTSUPP</span></span>
-<span><span class="co">#&gt; NARTIC   0.005021808 -0.002905661 -0.001954425</span></span>
-<span><span class="co">#&gt; PCTGRT  -0.002905661  0.005780317 -0.002091341</span></span>
-<span><span class="co">#&gt; PCTSUPP -0.001954425 -0.002091341  0.006323584</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC   0.005247674 -0.003312333 -0.001842729</span></span>
+<span><span class="co">#&gt; PCTGRT  -0.003312333  0.005964551 -0.001878601</span></span>
+<span><span class="co">#&gt; PCTSUPP -0.001842729 -0.001878601  0.006062880</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="confint">confint<a class="anchor" aria-label="anchor" href="#confint"></a>
@@ -185,9 +185,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.3576075 0.6352919</span></span>
-<span><span class="co">#&gt; PCTGRT  0.2393214 0.5350258</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.1037905 0.4164896</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.3575436 0.6400557</span></span>
+<span><span class="co">#&gt; PCTGRT  0.2349434 0.5378290</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.1072032 0.4119656</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals-1">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals-1"></a>
@@ -195,9 +195,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.3604978 0.6398155</span></span>
-<span><span class="co">#&gt; PCTGRT  0.2420926 0.5390413</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.1088062 0.4214327</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.3566765 0.6388575</span></span>
+<span><span class="co">#&gt; PCTGRT  0.2388607 0.5403263</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.1064713 0.4113182</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals-1">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals-1"></a>
@@ -205,9 +205,9 @@ are generated using the <code><a href="../reference/BetaNB.html">BetaNB()</a></c
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bca"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; NARTIC  0.36128322 0.6410143</span></span>
-<span><span class="co">#&gt; PCTGRT  0.24854750 0.5443813</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.09907309 0.4140432</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.35750043 0.6399283</span></span>
+<span><span class="co">#&gt; PCTGRT  0.24518080 0.5461364</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.09827881 0.4064791</span></span></code></pre></div>
 </div>
 </div>
 </div>
