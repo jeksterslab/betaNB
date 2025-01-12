@@ -6,7 +6,6 @@ lapply(
                  R,
                  tol) {
     message(text)
-
     testthat::test_that(
       paste(text, "multiple regression", "coef"),
       {
@@ -41,7 +40,6 @@ lapply(
         )
       }
     )
-
     testthat::test_that(
       paste(text, "simple regression"),
       {

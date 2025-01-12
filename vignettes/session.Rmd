@@ -46,7 +46,7 @@ sessionInfo()
 #> [1] betaNB_1.0.5.9000
 #> 
 #> loaded via a namespace (and not attached):
-#> [1] compiler_4.4.2  tools_4.4.2     rProject_0.0.14 knitr_1.49     
+#> [1] compiler_4.4.2  tools_4.4.2     rProject_0.0.17 knitr_1.49     
 #> [5] xfun_0.50       evaluate_1.0.3
 ```
 
@@ -57,25 +57,19 @@ sessionInfo()
 installed.packages()[, c("Package", "Version")]
 #>                   Package             Version      
 #> betaNB            "betaNB"            "1.0.5.9000" 
-#> cli               "cli"               "3.6.3.9002" 
-#> evaluate          "evaluate"          "1.0.3"      
-#> openssl           "openssl"           "2.3.1"      
-#> processx          "processx"          "3.8.5"      
-#> rProject          "rProject"          "0.0.14"     
-#> testthat          "testthat"          "3.2.2.9000" 
 #> abind             "abind"             "1.4-8"      
 #> arm               "arm"               "1.14-4"     
-#> arrow             "arrow"             "18.1.0"     
+#> arrow             "arrow"             "18.1.0.1"   
 #> ash               "ash"               "1.0-15"     
 #> AsioHeaders       "AsioHeaders"       "1.22.1-2"   
 #> askpass           "askpass"           "1.2.1"      
 #> assertthat        "assertthat"        "0.2.1"      
 #> backports         "backports"         "1.5.0"      
 #> base64enc         "base64enc"         "0.1-3"      
-#> betaDelta         "betaDelta"         "1.0.5.9000" 
-#> betaMC            "betaMC"            "1.3.2.9000" 
-#> betaNB            "betaNB"            "1.0.5"      
-#> betaSandwich      "betaSandwich"      "1.0.7.9000" 
+#> betaDelta         "betaDelta"         "1.0.6"      
+#> betaMC            "betaMC"            "1.3.3"      
+#> betaNB            "betaNB"            "1.0.5.9000" 
+#> betaSandwich      "betaSandwich"      "1.0.8"      
 #> BH                "BH"                "1.87.0-1"   
 #> bibtex            "bibtex"            "0.5.1"      
 #> BiocManager       "BiocManager"       "1.30.25"    
@@ -95,7 +89,7 @@ installed.packages()[, c("Package", "Version")]
 #> cellranger        "cellranger"        "1.1.0"      
 #> cffr              "cffr"              "1.1.1"      
 #> checkmate         "checkmate"         "2.3.2"      
-#> cli               "cli"               "3.6.3.9001" 
+#> cli               "cli"               "3.6.3.9002" 
 #> clipr             "clipr"             "0.8.0"      
 #> clock             "clock"             "0.7.1"      
 #> clusterGeneration "clusterGeneration" "1.3.8"      
@@ -112,7 +106,7 @@ installed.packages()[, c("Package", "Version")]
 #> crayon            "crayon"            "1.5.3"      
 #> credentials       "credentials"       "2.0.2"      
 #> crosstalk         "crosstalk"         "1.2.1"      
-#> cTMed             "cTMed"             "1.0.4"      
+#> cTMed             "cTMed"             "1.0.4.9000" 
 #> ctsem             "ctsem"             "3.10.1"     
 #> curl              "curl"              "6.1.0"      
 #> cyclocomp         "cyclocomp"         "1.1.1"      
@@ -141,7 +135,7 @@ installed.packages()[, c("Package", "Version")]
 #> dynUtils          "dynUtils"          "0.9.1"      
 #> ellipse           "ellipse"           "0.5.0"      
 #> ellipsis          "ellipsis"          "0.3.2"      
-#> evaluate          "evaluate"          "1.0.1"      
+#> evaluate          "evaluate"          "1.0.3"      
 #> expm              "expm"              "1.0-0"      
 #> fansi             "fansi"             "1.0.6"      
 #> farver            "farver"            "2.1.2"      
@@ -190,7 +184,7 @@ installed.packages()[, c("Package", "Version")]
 #> hdrcde            "hdrcde"            "3.4"        
 #> here              "here"              "1.0.1"      
 #> highr             "highr"             "0.11"       
-#> Hmisc             "Hmisc"             "5.2-1"      
+#> Hmisc             "Hmisc"             "5.2-2"      
 #> hms               "hms"               "1.1.3"      
 #> htmlTable         "htmlTable"         "2.4.3"      
 #> htmltools         "htmltools"         "0.5.8.1"    
@@ -204,7 +198,7 @@ installed.packages()[, c("Package", "Version")]
 #> igraph            "igraph"            "2.1.3"      
 #> infer             "infer"             "1.0.7"      
 #> ini               "ini"               "0.3.1"      
-#> inline            "inline"            "0.3.20"     
+#> inline            "inline"            "0.3.21"     
 #> ipred             "ipred"             "0.9-15"     
 #> isoband           "isoband"           "0.2.7"      
 #> iterators         "iterators"         "1.0.14"     
@@ -229,7 +223,7 @@ installed.packages()[, c("Package", "Version")]
 #> lintr             "lintr"             "3.1.2"      
 #> listenv           "listenv"           "0.9.1"      
 #> littler           "littler"           "0.3.20"     
-#> lme4              "lme4"              "1.1-35.5"   
+#> lme4              "lme4"              "1.1-36"     
 #> locfit            "locfit"            "1.5-9.10"   
 #> longMI            "longMI"            "1.0.0"      
 #> loo               "loo"               "2.8.0"      
@@ -258,12 +252,12 @@ installed.packages()[, c("Package", "Version")]
 #> MplusAutomation   "MplusAutomation"   "1.1.1"      
 #> multicool         "multicool"         "1.0.1"      
 #> munsell           "munsell"           "0.5.1"      
-#> mvtnorm           "mvtnorm"           "1.3-2"      
+#> mvtnorm           "mvtnorm"           "1.3-3"      
 #> nloptr            "nloptr"            "2.1.1"      
 #> numDeriv          "numDeriv"          "2016.8-1.1" 
 #> nycflights13      "nycflights13"      "1.0.2"      
 #> OpenMx            "OpenMx"            "2.21.13"    
-#> openssl           "openssl"           "2.3.0"      
+#> openssl           "openssl"           "2.3.1"      
 #> ordinal           "ordinal"           "2023.12-4.1"
 #> pan               "pan"               "1.9"        
 #> pander            "pander"            "0.6.5"      
@@ -288,7 +282,7 @@ installed.packages()[, c("Package", "Version")]
 #> praise            "praise"            "1.0.0"      
 #> prettyunits       "prettyunits"       "1.2.0"      
 #> printr            "printr"            "0.3"        
-#> processx          "processx"          "3.8.4"      
+#> processx          "processx"          "3.8.5"      
 #> prodlim           "prodlim"           "2024.06.25" 
 #> profvis           "profvis"           "0.4.0"      
 #> progress          "progress"          "1.2.3"      
@@ -303,7 +297,7 @@ installed.packages()[, c("Package", "Version")]
 #> quadprog          "quadprog"          "1.5-8"      
 #> quantreg          "quantreg"          "5.99.1"     
 #> quarto            "quarto"            "1.4.4"      
-#> QuickJSR          "QuickJSR"          "1.4.0"      
+#> QuickJSR          "QuickJSR"          "1.5.1"      
 #> R.cache           "R.cache"           "0.16.0"     
 #> R.methodsS3       "R.methodsS3"       "1.8.2"      
 #> R.oo              "R.oo"              "1.27.0"     
@@ -327,6 +321,7 @@ installed.packages()[, c("Package", "Version")]
 #> readxl            "readxl"            "1.4.3"      
 #> recipes           "recipes"           "1.1.0"      
 #> RefManageR        "RefManageR"        "1.4.0"      
+#> reformulas        "reformulas"        "0.4.0"      
 #> rematch           "rematch"           "2.0.0"      
 #> rematch2          "rematch2"          "2.1.2"      
 #> remotes           "remotes"           "2.5.0"      
@@ -342,7 +337,7 @@ installed.packages()[, c("Package", "Version")]
 #> roxygen2          "roxygen2"          "7.3.2"      
 #> rpf               "rpf"               "1.0.14"     
 #> RPostgres         "RPostgres"         "1.4.7"      
-#> rProject          "rProject"          "0.0.14"     
+#> rProject          "rProject"          "0.0.17"     
 #> rprojroot         "rprojroot"         "2.0.4"      
 #> rsample           "rsample"           "1.2.1"      
 #> RSQLite           "RSQLite"           "2.3.9"      
@@ -465,7 +460,7 @@ installed.packages()[, c("Package", "Version")]
 #> Core(s) per socket:                   4
 #> Socket(s):                            1
 #> Stepping:                             12
-#> CPU(s) scaling MHz:                   83%
+#> CPU(s) scaling MHz:                   84%
 #> CPU max MHz:                          4100.0000
 #> CPU min MHz:                          400.0000
 #> BogoMIPS:                             3799.90
@@ -498,7 +493,7 @@ installed.packages()[, c("Package", "Version")]
 
 ```
 #>                total        used        free      shared  buff/cache   available
-#> Mem:            23Gi       5.8Gi        15Gi       818Mi       3.0Gi        17Gi
-#> Swap:           11Gi          0B        11Gi
-#> Total:          34Gi       5.8Gi        27Gi
+#> Mem:            23Gi       7.0Gi       4.0Gi       1.6Gi        13Gi        15Gi
+#> Swap:           11Gi       6.2Mi        11Gi
+#> Total:          34Gi       7.0Gi        15Gi
 ```
