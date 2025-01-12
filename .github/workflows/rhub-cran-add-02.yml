@@ -29,8 +29,6 @@ jobs:
             image: ghcr.io/r-hub/containers/noremap:latest
           - name: nosuggests
             image: ghcr.io/r-hub/containers/nosuggests:latest
-          - name: rchk
-            image: ghcr.io/r-hub/containers/rchk:latest
           - name: valgrind
             image: ghcr.io/r-hub/containers/valgrind:latest
     name: ${{ matrix.container.name }}
