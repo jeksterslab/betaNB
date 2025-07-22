@@ -76,18 +76,16 @@ NB <- function(object,
       FUN = function(i,
                      x,
                      n) {
-        return(
-          unname(
-            stats::cov(
-              x[
-                sample.int(
-                  n = n,
-                  size = n,
-                  replace = TRUE
-                ), ,
-                drop = FALSE
-              ]
-            )
+        unname(
+          stats::cov(
+            x[
+              sample.int(
+                n = n,
+                size = n,
+                replace = TRUE
+              ), ,
+              drop = FALSE
+            ]
           )
         )
       },
@@ -98,14 +96,12 @@ NB <- function(object,
       X = seq_len(lm_process$n),
       FUN = function(i,
                      x) {
-        return(
-          unname(
-            stats::cov(
-              x[
-                -i, ,
-                drop = FALSE
-              ]
-            )
+        unname(
+          stats::cov(
+            x[
+              -i, ,
+              drop = FALSE
+            ]
           )
         )
       },
@@ -116,7 +112,5 @@ NB <- function(object,
     "nb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

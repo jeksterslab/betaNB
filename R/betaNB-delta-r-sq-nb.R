@@ -74,20 +74,18 @@ DeltaRSqNB <- function(object,
   )^2
   names(est) <- object$lm_process$xnames
   foo <- function(x) {
-    return(
-      .SPCor(
-        betastar = .BetaStarofSigma(
-          sigmacap = x,
-          q = 1 / sqrt(diag(x)),
-          k = object$lm_process$k
-        ),
-        sigmacapx = x[
-          2:object$lm_process$k,
-          2:object$lm_process$k,
-          drop = FALSE
-        ]
-      )^2
-    )
+    .SPCor(
+      betastar = .BetaStarofSigma(
+        sigmacap = x,
+        q = 1 / sqrt(diag(x)),
+        k = object$lm_process$k
+      ),
+      sigmacapx = x[
+        2:object$lm_process$k,
+        2:object$lm_process$k,
+        drop = FALSE
+      ]
+    )^2
   }
   thetahatstar <- lapply(
     X = object$thetahatstar,
@@ -119,7 +117,5 @@ DeltaRSqNB <- function(object,
     "betanb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

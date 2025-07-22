@@ -83,7 +83,7 @@ DiffBetaNB <- function(object,
         object$lm_process$dif_idx[2, i]
       ]
     }
-    return(diff)
+    diff
   }
   thetahatstar <- lapply(
     X = object$thetahatstar,
@@ -115,7 +115,5 @@ DiffBetaNB <- function(object,
     "betanb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

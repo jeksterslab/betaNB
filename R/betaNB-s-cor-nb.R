@@ -74,19 +74,17 @@ SCorNB <- function(object,
   )
   names(est) <- object$lm_process$xnames
   foo <- function(x) {
-    return(
-      .SPCor(
-        betastar = .BetaStarofSigma(
-          sigmacap = x,
-          q = 1 / sqrt(diag(x)),
-          k = object$lm_process$k
-        ),
-        sigmacapx = x[
-          2:object$lm_process$k,
-          2:object$lm_process$k,
-          drop = FALSE
-        ]
-      )
+    .SPCor(
+      betastar = .BetaStarofSigma(
+        sigmacap = x,
+        q = 1 / sqrt(diag(x)),
+        k = object$lm_process$k
+      ),
+      sigmacapx = x[
+        2:object$lm_process$k,
+        2:object$lm_process$k,
+        drop = FALSE
+      ]
     )
   }
   thetahatstar <- lapply(
@@ -119,7 +117,5 @@ SCorNB <- function(object,
     "betanb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }
