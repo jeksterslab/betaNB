@@ -71,12 +71,10 @@ BetaNB <- function(object,
   fun <- "BetaNB"
   est <- object$lm_process$betastar
   foo <- function(x) {
-    return(
-      .BetaStarofSigma(
-        sigmacap = x,
-        q = 1 / sqrt(diag(x)),
-        k = object$lm_process$k
-      )
+    .BetaStarofSigma(
+      sigmacap = x,
+      q = 1 / sqrt(diag(x)),
+      k = object$lm_process$k
     )
   }
   thetahatstar <- lapply(
@@ -109,7 +107,5 @@ BetaNB <- function(object,
     "betanb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

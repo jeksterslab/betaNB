@@ -81,11 +81,9 @@ RSqNB <- function(object,
         ) / object$lm_process$df
       )
     )
-    return(
-      c(
-        rsq = rsq,
-        adj = adj
-      )
+    c(
+      rsq = rsq,
+      adj = adj
     )
   }
   thetahatstar <- lapply(
@@ -118,7 +116,5 @@ RSqNB <- function(object,
     "betanb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

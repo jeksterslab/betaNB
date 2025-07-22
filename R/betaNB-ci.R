@@ -90,7 +90,5 @@
     args = ci
   )
   rownames(ci) <- names(thetahat)
-  return(
-    ci
-  )
+  ci
 }

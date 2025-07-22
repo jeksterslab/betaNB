@@ -58,13 +58,11 @@
 .BetaStarofSigma <- function(sigmacap,
                              q,
                              k) {
-  return(
-    .BetaStarofRho(
-      rhocap = .RhoofSigma(
-        x = sigmacap,
-        q = q
-      ),
-      k = k
-    )
+  .BetaStarofRho(
+    rhocap = .RhoofSigma(
+      x = sigmacap,
+      q = q
+    ),
+    k = k
   )
 }

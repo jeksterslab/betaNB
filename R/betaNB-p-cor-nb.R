@@ -93,11 +93,9 @@ PCorNB <- function(object,
       sigmacap = x,
       k = object$lm_process$k
     )
-    return(
-      .PCorSq(
-        srsq = sr^2,
-        rsq = rsq
-      )
+    .PCorSq(
+      srsq = sr^2,
+      rsq = rsq
     )
   }
   thetahatstar <- lapply(
@@ -130,7 +128,5 @@ PCorNB <- function(object,
     "betanb",
     class(out)
   )
-  return(
-    out
-  )
+  out
 }

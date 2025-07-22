@@ -154,16 +154,18 @@ summary.betanb <- function(object,
     )
     # nocov end
   }
-  return(
-    round(
-      .CI(
-        object = object,
-        alpha = alpha,
-        type = type
-      ),
+  ci <- .CI(
+    object = object,
+    alpha = alpha,
+    type = type
+  )
+  if (!is.null(digits)) {
+    ci <- round(
+      x = ci,
       digits = digits
     )
-  )
+  }
+  ci
 }
 
 #' Sampling Variance-Covariance Matrix Method for an Object of Class
@@ -179,9 +181,7 @@ summary.betanb <- function(object,
 #' @export
 vcov.betanb <- function(object,
                         ...) {
-  return(
-    object$vcov
-  )
+  object$vcov
 }
 
 #' Estimated Parameter Method for an Object of Class
@@ -197,9 +197,7 @@ vcov.betanb <- function(object,
 #' @export
 coef.betanb <- function(object,
                         ...) {
-  return(
-    object$est
-  )
+  object$est
 }
 
 #' Confidence Intervals Method for an Object of Class
@@ -242,7 +240,5 @@ confint.betanb <- function(object,
     x = varnames
   )
   colnames(ci) <- varnames
-  return(
-    ci
-  )
+  ci
 }
