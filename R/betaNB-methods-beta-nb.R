@@ -136,20 +136,24 @@ summary.betanb <- function(object,
   if (object$fun == "DiffBetaNB") {
     label <- "Differences of standardized regression slopes"
   }
-  cat("Call:\n")
-  base::print(object$call)
-  cat(
-    paste0(
-      "\n",
-      label,
-      "\n",
-      "type = ",
-      "\"",
-      type,
-      "\"",
-      "\n"
+  if (interactive()) {
+    # nocov start
+    cat("Call:\n")
+    base::print(object$call)
+    cat(
+      paste0(
+        "\n",
+        label,
+        "\n",
+        "type = ",
+        "\"",
+        type,
+        "\"",
+        "\n"
+      )
     )
-  )
+    # nocov end
+  }
   return(
     round(
       .CI(

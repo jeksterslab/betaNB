@@ -1,6 +1,6 @@
 Package: betaNB
 Title: Bootstrap for Regression Effect Sizes
-Version: 1.0.5.9000
+Version: 1.0.6
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
