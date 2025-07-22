@@ -14,13 +14,11 @@
 .BCAProbs <- function(z0,
                       z1,
                       acceleration) {
-  return(
-    stats::pnorm(
-      q = z0 + (
-        z0 + z1
-      ) / (
-        1 - acceleration * (z0 + z1)
-      )
+  stats::pnorm(
+    q = z0 + (
+      z0 + z1
+    ) / (
+      1 - acceleration * (z0 + z1)
     )
   )
 }

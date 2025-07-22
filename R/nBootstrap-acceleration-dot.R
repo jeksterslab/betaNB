@@ -12,9 +12,9 @@
 #' @noRd
 .Acceleration <- function(jackknife) {
   parenthesis <- mean(jackknife) - jackknife
-  numerator <- sum(parenthesis^3)
-  denominator <- 6 * ((sum(parenthesis^2))^(3 / 2))
-  return(
-    numerator / denominator
+  (
+    sum(parenthesis^3)
+  ) / (
+    6 * ((sum(parenthesis^2))^(3 / 2))
   )
 }
