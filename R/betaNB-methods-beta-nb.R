@@ -33,11 +33,13 @@ print.betanb <- function(x,
                          type = "pc",
                          digits = 4,
                          ...) {
-  summary.betanb(
-    object = x,
-    alpha = alpha,
-    type = type,
-    digits = digits
+  print.summary.betanb(
+    summary.betanb(
+      object = x,
+      alpha = alpha,
+      type = type,
+      digits = digits
+    )
   )
 }
 
