@@ -33,47 +33,11 @@ print.betanb <- function(x,
                          type = "pc",
                          digits = 4,
                          ...) {
-  if (x$fun == "BetaNB") {
-    label <- "Standardized regression slopes"
-  }
-  if (x$fun == "RSqNB") {
-    label <- "R-squared and adjusted R-squared"
-  }
-  if (x$fun == "SCorNB") {
-    label <- "Semipartial correlations"
-  }
-  if (x$fun == "DeltaRSqNB") {
-    label <- "Improvement in R-squared"
-  }
-  if (x$fun == "PCorNB") {
-    label <- "Squared partial correlations"
-  }
-  if (x$fun == "DiffBetaNB") {
-    label <- "Differences of standardized regression slopes"
-  }
-  cat("Call:\n")
-  base::print(x$call)
-  cat(
-    paste0(
-      "\n",
-      label,
-      "\n",
-      "type = ",
-      "\"",
-      type,
-      "\"",
-      "\n"
-    )
-  )
-  base::print(
-    round(
-      .CI(
-        object = x,
-        alpha = alpha,
-        type = type
-      ),
-      digits = digits
-    )
+  summary.betanb(
+    object = x,
+    alpha = alpha,
+    type = type,
+    digits = digits
   )
 }
 
@@ -118,6 +82,56 @@ summary.betanb <- function(object,
                            type = "pc",
                            digits = 4,
                            ...) {
+  ci <- .CI(
+    object = object,
+    alpha = alpha,
+    type = type
+  )
+  print_summary <- round(
+    x = ci,
+    digits = digits
+  )
+  attr(
+    x = ci,
+    which = "fit"
+  ) <- object
+  attr(
+    x = ci,
+    which = "print_summary"
+  ) <- print_summary
+  attr(
+    x = ci,
+    which = "alpha"
+  ) <- alpha
+  attr(
+    x = ci,
+    which = "type"
+  ) <- type
+  attr(
+    x = ci,
+    which = "digits"
+  ) <- digits
+  class(ci) <- "summary.betanb"
+  ci
+}
+
+#' @noRd
+#' @keywords internal
+#' @exportS3Method print summary.betanb
+print.summary.betanb <- function(x,
+                                 ...) {
+  print_summary <- attr(
+    x = x,
+    which = "print_summary"
+  )
+  type <- attr(
+    x = x,
+    which = "type"
+  )
+  object <- attr(
+    x = x,
+    which = "fit"
+  )
   if (object$fun == "BetaNB") {
     label <- "Standardized regression slopes"
   }
@@ -136,36 +150,22 @@ summary.betanb <- function(object,
   if (object$fun == "DiffBetaNB") {
     label <- "Differences of standardized regression slopes"
   }
-  if (interactive()) {
-    # nocov start
-    cat("Call:\n")
-    base::print(object$call)
-    cat(
-      paste0(
-        "\n",
-        label,
-        "\n",
-        "type = ",
-        "\"",
-        type,
-        "\"",
-        "\n"
-      )
+  cat("Call:\n")
+  base::print(object$call)
+  cat(
+    paste0(
+      "\n",
+      label,
+      "\n",
+      "type = ",
+      "\"",
+      type,
+      "\"",
+      "\n"
     )
-    # nocov end
-  }
-  ci <- .CI(
-    object = object,
-    alpha = alpha,
-    type = type
   )
-  if (!is.null(digits)) {
-    ci <- round(
-      x = ci,
-      digits = digits
-    )
-  }
-  ci
+  print(print_summary)
+  invisible(x)
 }
 
 #' Sampling Variance-Covariance Matrix Method for an Object of Class
