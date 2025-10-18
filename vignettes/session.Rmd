@@ -460,7 +460,7 @@ installed.packages()[, c("Package", "Version")]
 #> Core(s) per socket:                   12
 #> Socket(s):                            2
 #> Stepping:                             2
-#> CPU(s) scaling MHz:                   67%
+#> CPU(s) scaling MHz:                   69%
 #> CPU max MHz:                          3300.0000
 #> CPU min MHz:                          1200.0000
 #> BogoMIPS:                             4988.39
