@@ -92,6 +92,15 @@ nb <- NB(object)
 
 ``` r
 BetaNB(nb, alpha = 0.05)
+#> Call:
+#> BetaNB(object = nb, alpha = 0.05)
+#> 
+#> Standardized regression slopes
+#> type = "pc"
+#>            est     se    R   2.5%  97.5%
+#> NARTIC  0.4951 0.0728 5000 0.3503 0.6360
+#> PCTGRT  0.3915 0.0767 5000 0.2416 0.5422
+#> PCTSUPP 0.2632 0.0783 5000 0.1088 0.4155
 ```
 
 ### Other Effect Sizes
@@ -108,30 +117,74 @@ standardized regression coefficients.
 
 ``` r
 RSqNB(nb, alpha = 0.05)
+#> Call:
+#> RSqNB(object = nb, alpha = 0.05)
+#> 
+#> R-squared and adjusted R-squared
+#> type = "pc"
+#>        est     se    R   2.5%  97.5%
+#> rsq 0.8045 0.0521 5000 0.6947 0.8983
+#> adj 0.7906 0.0558 5000 0.6729 0.8910
 ```
 
 #### Improvement in R-squared
 
 ``` r
 DeltaRSqNB(nb, alpha = 0.05)
+#> Call:
+#> DeltaRSqNB(object = nb, alpha = 0.05)
+#> 
+#> Improvement in R-squared
+#> type = "pc"
+#>            est     se    R   2.5%  97.5%
+#> NARTIC  0.1859 0.0598 5000 0.0792 0.3118
+#> PCTGRT  0.1177 0.0492 5000 0.0374 0.2278
+#> PCTSUPP 0.0569 0.0334 5000 0.0094 0.1378
 ```
 
 #### Semipartial Correlation Coefficients
 
 ``` r
 SCorNB(nb, alpha = 0.05)
+#> Call:
+#> SCorNB(object = nb, alpha = 0.05)
+#> 
+#> Semipartial correlations
+#> type = "pc"
+#>            est     se    R   2.5%  97.5%
+#> NARTIC  0.4312 0.0704 5000 0.2814 0.5584
+#> PCTGRT  0.3430 0.0725 5000 0.1935 0.4773
+#> PCTSUPP 0.2385 0.0703 5000 0.0968 0.3712
 ```
 
 #### Squared Partial Correlation Coefficients
 
 ``` r
 PCorNB(nb, alpha = 0.05)
+#> Call:
+#> PCorNB(object = nb, alpha = 0.05)
+#> 
+#> Squared partial correlations
+#> type = "pc"
+#>            est     se    R   2.5%  97.5%
+#> NARTIC  0.4874 0.0989 5000 0.2800 0.6695
+#> PCTGRT  0.3757 0.1078 5000 0.1633 0.5854
+#> PCTSUPP 0.2254 0.1145 5000 0.0450 0.4832
 ```
 
 #### Differences of Standardized Regression Coefficients
 
 ``` r
 DiffBetaNB(nb, alpha = 0.05)
+#> Call:
+#> DiffBetaNB(object = nb, alpha = 0.05)
+#> 
+#> Differences of standardized regression slopes
+#> type = "pc"
+#>                   est     se    R    2.5%  97.5%
+#> NARTIC-PCTGRT  0.1037 0.1328 5000 -0.1609 0.3654
+#> NARTIC-PCTSUPP 0.2319 0.1230 5000 -0.0063 0.4759
+#> PCTGRT-PCTSUPP 0.1282 0.1258 5000 -0.1118 0.3814
 ```
 
 ## Documentation
