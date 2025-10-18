@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2025-07-22
+2025-10-18
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -92,15 +92,6 @@ nb <- NB(object)
 
 ``` r
 BetaNB(nb, alpha = 0.05)
-#> Call:
-#> BetaNB(object = nb, alpha = 0.05)
-#> 
-#> Standardized regression slopes
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0714 5000 0.3521 0.6361
-#> PCTGRT  0.3915 0.0760 5000 0.2377 0.5382
-#> PCTSUPP 0.2632 0.0796 5000 0.1076 0.4157
 ```
 
 ### Other Effect Sizes
@@ -117,74 +108,30 @@ standardized regression coefficients.
 
 ``` r
 RSqNB(nb, alpha = 0.05)
-#> Call:
-#> RSqNB(object = nb, alpha = 0.05)
-#> 
-#> R-squared and adjusted R-squared
-#> type = "pc"
-#>        est     se    R  2.5%  97.5%
-#> rsq 0.8045 0.0533 5000 0.692 0.8975
-#> adj 0.7906 0.0571 5000 0.670 0.8902
 ```
 
 #### Improvement in R-squared
 
 ``` r
 DeltaRSqNB(nb, alpha = 0.05)
-#> Call:
-#> DeltaRSqNB(object = nb, alpha = 0.05)
-#> 
-#> Improvement in R-squared
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0581 5000 0.0811 0.3069
-#> PCTGRT  0.1177 0.0487 5000 0.0368 0.2286
-#> PCTSUPP 0.0569 0.0343 5000 0.0091 0.1405
 ```
 
 #### Semipartial Correlation Coefficients
 
 ``` r
 SCorNB(nb, alpha = 0.05)
-#> Call:
-#> SCorNB(object = nb, alpha = 0.05)
-#> 
-#> Semipartial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0686 5000 0.2847 0.5540
-#> PCTGRT  0.3430 0.0721 5000 0.1917 0.4782
-#> PCTSUPP 0.2385 0.0715 5000 0.0953 0.3749
 ```
 
 #### Squared Partial Correlation Coefficients
 
 ``` r
 PCorNB(nb, alpha = 0.05)
-#> Call:
-#> PCorNB(object = nb, alpha = 0.05)
-#> 
-#> Squared partial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0969 5000 0.2873 0.6624
-#> PCTGRT  0.3757 0.1079 5000 0.1632 0.5861
-#> PCTSUPP 0.2254 0.1156 5000 0.0429 0.4832
 ```
 
 #### Differences of Standardized Regression Coefficients
 
 ``` r
 DiffBetaNB(nb, alpha = 0.05)
-#> Call:
-#> DiffBetaNB(object = nb, alpha = 0.05)
-#> 
-#> Differences of standardized regression slopes
-#> type = "pc"
-#>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1302 5000 -0.1472 0.3651
-#> NARTIC-PCTSUPP 0.2319 0.1235 5000 -0.0055 0.4766
-#> PCTGRT-PCTSUPP 0.1282 0.1274 5000 -0.1152 0.3831
 ```
 
 ## Documentation

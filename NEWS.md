@@ -2,7 +2,7 @@
 
 ## Patch
 
-* Minor edits to tests.
+* Minor edits to methods.
 
 # betaNB 1.0.5
 

@@ -74,9 +74,7 @@ lapply(
             args = lapply(
               X = nb$thetahatstar,
               FUN = function(i) {
-                return(
-                  .Vech(i)
-                )
+                .Vech(i)
               }
             )
           )
