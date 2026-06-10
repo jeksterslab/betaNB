@@ -224,10 +224,8 @@ confint.betanb <- function(object,
                            type = "pc",
                            ...) {
   if (is.null(parm)) {
-    parm <- seq_len(
-      length(
-        object$est
-      )
+    parm <- seq_along(
+      object$est
     )
   }
   ci <- .CI(
