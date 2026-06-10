@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Bootstrap for Regression Effect Sizes • betaNB</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="index.html">betaNB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,166 +52,8 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="betanb">betaNB<a class="anchor" aria-label="anchor" href="#betanb"></a>
-</h1></div>
-<p>Ivan Jacob Agaloos Pesigan 2025-10-19</p>
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- badges: start -->
-
-<div class="section level2">
-<h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
-</h2>
-<p>Generates nonparametric bootstrap confidence intervals (Efron &amp; Tibshirani, 1993: <a href="https://doi.org/10.1201/9780429246593" class="external-link uri">https://doi.org/10.1201/9780429246593</a>) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>.</p>
-</div>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>You can install the CRAN release of <code>betaNB</code> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"betaNB"</span><span class="op">)</span></span></code></pre></div>
-<p>You can install the development version of <code>betaNB</code> from <a href="https://github.com/jeksterslab/betaNB">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jeksterslab/betaNB"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
-<p>In this example, a multiple regression model is fitted using program quality ratings (<code>QUALITY</code>) as the regressand/outcome variable and number of published articles attributed to the program faculty members (<code>NARTIC</code>), percent of faculty members holding research grants (<code>PCTGRT</code>), and percentage of program graduates who received support (<code>PCTSUPP</code>) as regressor/predictor variables using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA (National Research Council, 1982). Confidence intervals for the standardized regression coefficients are generated using the <code><a href="reference/BetaNB.html">BetaNB()</a></code> function from the <code>betaNB</code> package.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/betaNB">betaNB</a></span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">betaNB</span><span class="fu">::</span><span class="va"><a href="reference/nas1982.html">nas1982</a></span></span></code></pre></div>
-<div class="section level3">
-<h3 id="regression">Regression<a class="anchor" aria-label="anchor" href="#regression"></a>
-</h3>
-<p>Fit the regression model using the <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code> function.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="nonparametric-bootstrap">Nonparametric Bootstrap<a class="anchor" aria-label="anchor" href="#nonparametric-bootstrap"></a>
-</h3>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/NB.html">NB</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="standardized-regression-slopes">Standardized Regression Slopes<a class="anchor" aria-label="anchor" href="#standardized-regression-slopes"></a>
-</h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/BetaNB.html">BetaNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; BetaNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Standardized regression slopes</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0724 5000 0.3563 0.6390</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5000 0.2357 0.5403</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0793 5000 0.1093 0.4183</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="other-effect-sizes">Other Effect Sizes<a class="anchor" aria-label="anchor" href="#other-effect-sizes"></a>
-</h3>
-<p>The <code>betaNB</code> package also has functions to generate nonparametric bootstrap confidence intervals for other effect sizes such as <code><a href="reference/RSqNB.html">RSqNB()</a></code> for multiple correlation coefficients (R-squared and adjusted R-squared), <code><a href="reference/DeltaRSqNB.html">DeltaRSqNB()</a></code> for improvement in R-squared, <code><a href="reference/SCorNB.html">SCorNB()</a></code> for semipartial correlation coefficients, <code><a href="reference/PCorNB.html">PCorNB()</a></code> for squared partial correlation coefficients, and <code><a href="reference/DiffBetaNB.html">DiffBetaNB()</a></code> for differences of standardized regression coefficients.</p>
-<div class="section level4">
-<h4 id="multiple-correlation-coefficients-r-squared-and-adjusted-r-squared">Multiple Correlation Coefficients (R-squared and adjusted R-squared)<a class="anchor" aria-label="anchor" href="#multiple-correlation-coefficients-r-squared-and-adjusted-r-squared"></a>
-</h4>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/RSqNB.html">RSqNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; RSqNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; rsq 0.8045 0.0531 5000 0.6901 0.8970</span></span>
-<span><span class="co">#&gt; adj 0.7906 0.0569 5000 0.6679 0.8896</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="improvement-in-r-squared">Improvement in R-squared<a class="anchor" aria-label="anchor" href="#improvement-in-r-squared"></a>
-</h4>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/DeltaRSqNB.html">DeltaRSqNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; DeltaRSqNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Improvement in R-squared</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.1859 0.0602 5000 0.0820 0.3177</span></span>
-<span><span class="co">#&gt; PCTGRT  0.1177 0.0487 5000 0.0356 0.2268</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.0569 0.0342 5000 0.0091 0.1404</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="semipartial-correlation-coefficients">Semipartial Correlation Coefficients<a class="anchor" aria-label="anchor" href="#semipartial-correlation-coefficients"></a>
-</h4>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/SCorNB.html">SCorNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; SCorNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Semipartial correlations</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4312 0.0705 5000 0.2863 0.5636</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3430 0.0724 5000 0.1887 0.4763</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2385 0.0713 5000 0.0952 0.3747</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="squared-partial-correlation-coefficients">Squared Partial Correlation Coefficients<a class="anchor" aria-label="anchor" href="#squared-partial-correlation-coefficients"></a>
-</h4>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/PCorNB.html">PCorNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; PCorNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Squared partial correlations</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4874 0.0991 5000 0.2882 0.6704</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3757 0.1083 5000 0.1627 0.5892</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2254 0.1150 5000 0.0466 0.4860</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="differences-of-standardized-regression-coefficients">Differences of Standardized Regression Coefficients<a class="anchor" aria-label="anchor" href="#differences-of-standardized-regression-coefficients"></a>
-</h4>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/DiffBetaNB.html">DiffBetaNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; DiffBetaNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Differences of standardized regression slopes</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;                   est     se    R    2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC-PCTGRT  0.1037 0.1317 5000 -0.1509 0.3698</span></span>
-<span><span class="co">#&gt; NARTIC-PCTSUPP 0.2319 0.1230 5000 -0.0094 0.4774</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1283 5000 -0.1230 0.3812</span></span></code></pre></div>
-</div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
-</h2>
-<p>See <a href="https://jeksterslab.github.io/betaNB/index.html" class="external-link">GitHub Pages</a> for package documentation.</p>
-</div>
-<div class="section level2">
-<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
-<div id="ref-Efron-Tibshirani-1993" class="csl-entry">
-Efron, B., &amp; Tibshirani, R. J. (1993). <em>An introduction to the bootstrap</em>. Chapman &amp; Hall. <a href="https://doi.org/10.1201/9780429246593" class="external-link uri">https://doi.org/10.1201/9780429246593</a>
-</div>
-<div id="ref-NationalResearchCouncil-1982" class="csl-entry">
-National Research Council. (1982). <em>An assessment of research-doctorate programs in the United States: Social and behavioral sciences</em>. National Academies Press. <a href="https://doi.org/10.17226/9781" class="external-link uri">https://doi.org/10.17226/9781</a>
-</div>
-<div id="ref-Pesigan-2022" class="csl-entry">
-Pesigan, I. J. A. (2022). <em>Confidence intervals for standardized coefficients: Applied to regression coefficients in primary studies and indirect effects in meta-analytic structural equation modeling</em> [PhD thesis]. University of Macau.
-</div>
-</div>
-</div>
-</div>
+  <main id="main" class="col-md-9">
+Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani, 1993: &lt;<a href="https://doi.org/10.1201/9780429246593" class="external-link">doi:10.1201/9780429246593</a>&gt;) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by lm().
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -244,22 +86,7 @@ Pesigan, I. J. A. (2022). <em>Confidence intervals for standardized coefficients
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=betaNB" class="external-link"><img src="https://www.r-pkg.org/badges/version/betaNB" alt="CRAN Status"></a></li>
-<li><a href="https://jeksterslab.r-universe.dev/betaNB" class="external-link"><img src="https://jeksterslab.r-universe.dev/badges/betaNB" alt="R-Universe Status"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/make.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg" alt="Make Project"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg" alt="R Package Test Coverage"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml/badge.svg" alt="Lint R Package"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml/badge.svg" alt="Package Website (GitHub Pages)"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml/badge.svg" alt="Compile LaTeX"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml/badge.svg" alt="Shell Check"></a></li>
-<li><a href="https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment"><img src="https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment/badge.svg" alt="pages-build-deployment"></a></li>
-<li><a href="https://codecov.io/gh/jeksterslab/betaNB" class="external-link"><img src="https://codecov.io/gh/jeksterslab/betaNB/branch/main/graph/badge.svg?token=KVLUET3DJ6" alt="codecov"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>
@@ -270,7 +97,7 @@ Pesigan, I. J. A. (2022). <em>Confidence intervals for standardized coefficients
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
