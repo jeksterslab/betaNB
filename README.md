@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2025-10-19
+2026-06-10
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -10,10 +10,11 @@ Ivan Jacob Agaloos Pesigan
 [![CRAN
 Status](https://www.r-pkg.org/badges/version/betaNB)](https://cran.r-project.org/package=betaNB)
 [![R-Universe
-Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev/betaNB)
+Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev)
 [![Make
 Project](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml)
-[![R-CMD-check](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml)
+[![R-CMD-check-standard](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml)
+[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml)
 [![R Package Test
 Coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml)
 [![Lint R
@@ -49,8 +50,8 @@ You can install the development version of `betaNB` from
 [GitHub](https://github.com/jeksterslab/betaNB) with:
 
 ``` r
-if (!require("remotes")) install.packages("remotes")
-remotes::install_github("jeksterslab/betaNB")
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("jeksterslab/betaNB")
 ```
 
 ## Example
@@ -98,9 +99,9 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0724 5000 0.3563 0.6390
-#> PCTGRT  0.3915 0.0770 5000 0.2357 0.5403
-#> PCTSUPP 0.2632 0.0793 5000 0.1093 0.4183
+#> NARTIC  0.4951 0.0711 5000 0.3529 0.6360
+#> PCTGRT  0.3915 0.0777 5000 0.2376 0.5429
+#> PCTSUPP 0.2632 0.0796 5000 0.1034 0.4159
 ```
 
 ### Other Effect Sizes
@@ -123,8 +124,8 @@ RSqNB(nb, alpha = 0.05)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0531 5000 0.6901 0.8970
-#> adj 0.7906 0.0569 5000 0.6679 0.8896
+#> rsq 0.8045 0.0525 5000 0.6921 0.8964
+#> adj 0.7906 0.0563 5000 0.6701 0.8890
 ```
 
 #### Improvement in R-squared
@@ -137,9 +138,9 @@ DeltaRSqNB(nb, alpha = 0.05)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0602 5000 0.0820 0.3177
-#> PCTGRT  0.1177 0.0487 5000 0.0356 0.2268
-#> PCTSUPP 0.0569 0.0342 5000 0.0091 0.1404
+#> NARTIC  0.1859 0.0577 5000 0.0822 0.3089
+#> PCTGRT  0.1177 0.0505 5000 0.0349 0.2294
+#> PCTSUPP 0.0569 0.0342 5000 0.0083 0.1383
 ```
 
 #### Semipartial Correlation Coefficients
@@ -152,9 +153,9 @@ SCorNB(nb, alpha = 0.05)
 #> Semipartial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0705 5000 0.2863 0.5636
-#> PCTGRT  0.3430 0.0724 5000 0.1887 0.4763
-#> PCTSUPP 0.2385 0.0713 5000 0.0952 0.3747
+#> NARTIC  0.4312 0.0683 5000 0.2868 0.5558
+#> PCTGRT  0.3430 0.0745 5000 0.1868 0.4790
+#> PCTSUPP 0.2385 0.0717 5000 0.0914 0.3719
 ```
 
 #### Squared Partial Correlation Coefficients
@@ -167,9 +168,9 @@ PCorNB(nb, alpha = 0.05)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0991 5000 0.2882 0.6704
-#> PCTGRT  0.3757 0.1083 5000 0.1627 0.5892
-#> PCTSUPP 0.2254 0.1150 5000 0.0466 0.4860
+#> NARTIC  0.4874 0.0977 5000 0.2826 0.6676
+#> PCTGRT  0.3757 0.1096 5000 0.1624 0.5851
+#> PCTSUPP 0.2254 0.1154 5000 0.0400 0.4837
 ```
 
 #### Differences of Standardized Regression Coefficients
@@ -182,9 +183,9 @@ DiffBetaNB(nb, alpha = 0.05)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1317 5000 -0.1509 0.3698
-#> NARTIC-PCTSUPP 0.2319 0.1230 5000 -0.0094 0.4774
-#> PCTGRT-PCTSUPP 0.1282 0.1283 5000 -0.1230 0.3812
+#> NARTIC-PCTGRT  0.1037 0.1309 5000 -0.1507 0.3654
+#> NARTIC-PCTSUPP 0.2319 0.1233 5000 -0.0054 0.4824
+#> PCTGRT-PCTSUPP 0.1282 0.1292 5000 -0.1174 0.3904
 ```
 
 ## Documentation
@@ -195,7 +196,7 @@ package documentation.
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-Efron-Tibshirani-1993" class="csl-entry">
 
@@ -218,6 +219,14 @@ Pesigan, I. J. A. (2022). *Confidence intervals for standardized
 coefficients: Applied to regression coefficients in primary studies and
 indirect effects in meta-analytic structural equation modeling* \[PhD
 thesis\]. University of Macau.
+
+</div>
+
+<div id="ref-RCoreTeam-2026" class="csl-entry">
+
+R Core Team. (2026). *R: A language and environment for statistical
+computing*. R Foundation for Statistical Computing.
+<https://www.R-project.org/>
 
 </div>
 

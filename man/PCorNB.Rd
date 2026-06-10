@@ -71,13 +71,13 @@ confint(out, level = 0.95)
 
 }
 \seealso{
-Other Beta Nonparametric Bootstrap Functions: 
-\code{\link{BetaNB}()},
-\code{\link{DeltaRSqNB}()},
-\code{\link{DiffBetaNB}()},
-\code{\link{NB}()},
-\code{\link{RSqNB}()},
-\code{\link{SCorNB}()}
+Other Beta Nonparametric Bootstrap Functions:
+\code{\link[=BetaNB]{BetaNB()}},
+\code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
+\code{\link[=DiffBetaNB]{DiffBetaNB()}},
+\code{\link[=NB]{NB()}},
+\code{\link[=RSqNB]{RSqNB()}},
+\code{\link[=SCorNB]{SCorNB()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

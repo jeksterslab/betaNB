@@ -6,6 +6,7 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa
 nocite: |
   @Pesigan-2022
   @Efron-Tibshirani-1993
+  @RCoreTeam-2026
 vignette: >
   %\VignetteIndexEntry{betaNB: Bootstrap for Regression Effect Sizes}
   %\VignetteEngine{knitr::rmarkdown}
@@ -23,7 +24,8 @@ knitr::opts_chunk$set(
 [![CRAN Status](https://www.r-pkg.org/badges/version/betaNB)](https://cran.r-project.org/package=betaNB)
 [![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev)
 [![Make Project](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml)
-[![R-CMD-check](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml)
+[![R-CMD-check-standard](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml)
+[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml)
 [![R Package Test Coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml)
 [![Lint R Package](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml)
 [![Package Website (GitHub Pages)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml)
@@ -56,8 +58,8 @@ You can install the development version of `betaNB` from
 [GitHub](https://github.com/jeksterslab/betaNB) with:
 
 ```r
-if (!require("remotes")) install.packages("remotes")
-remotes::install_github("jeksterslab/betaNB")
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("jeksterslab/betaNB")
 ```
 
 ## Example
