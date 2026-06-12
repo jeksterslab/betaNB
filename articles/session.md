@@ -33,7 +33,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] betaNB_1.0.7
+#> [1] betaNB_1.0.7.9000
 #> 
 #> loaded via a namespace (and not attached):
 #> [1] compiler_4.6.0  cli_3.6.6.9000  tools_4.6.0     otel_0.2.0     
@@ -47,7 +47,7 @@ sessionInfo()
 
 installed.packages()[, c("Package", "Version")]
 #>                   Package             Version     
-#> betaNB            "betaNB"            "1.0.7"     
+#> betaNB            "betaNB"            "1.0.7.9000"
 #> abind             "abind"             "1.4-8"     
 #> Amelia            "Amelia"            "1.8.3"     
 #> arm               "arm"               "1.15-3"    
@@ -59,8 +59,8 @@ installed.packages()[, c("Package", "Version")]
 #> backports         "backports"         "1.5.1"     
 #> base64enc         "base64enc"         "0.1-6"     
 #> betaDelta         "betaDelta"         "1.0.7"     
-#> betaMC            "betaMC"            "1.3.3"     
-#> betaNB            "betaNB"            "1.0.6"     
+#> betaMC            "betaMC"            "1.3.4"     
+#> betaNB            "betaNB"            "1.0.7"     
 #> betaSandwich      "betaSandwich"      "1.0.9"     
 #> BH                "BH"                "1.90.0-1"  
 #> bibtex            "bibtex"            "0.5.2"     
@@ -428,7 +428,7 @@ installed.packages()[, c("Package", "Version")]
 #> xtable            "xtable"            "1.8-8"     
 #> yaml              "yaml"              "2.3.12"    
 #> yardstick         "yardstick"         "1.4.0"     
-#> zip               "zip"               "2.3.3"     
+#> zip               "zip"               "3.0.0"     
 #> zoo               "zoo"               "1.8-15"    
 #> base              "base"              "4.6.0"     
 #> boot              "boot"              "1.3-32"    
@@ -470,21 +470,21 @@ installed.packages()[, c("Package", "Version")]
     #> CPU(s):                                  4
     #> On-line CPU(s) list:                     0-3
     #> Vendor ID:                               AuthenticAMD
-    #> Model name:                              AMD EPYC 7763 64-Core Processor
+    #> Model name:                              AMD EPYC 9V74 80-Core Processor
     #> CPU family:                              25
-    #> Model:                                   1
+    #> Model:                                   17
     #> Thread(s) per core:                      2
     #> Core(s) per socket:                      2
     #> Socket(s):                               1
     #> Stepping:                                1
-    #> BogoMIPS:                                4890.85
+    #> BogoMIPS:                                5192.27
     #> Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves user_shstk clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm
     #> Virtualization:                          AMD-V
     #> Hypervisor vendor:                       Microsoft
     #> Virtualization type:                     full
     #> L1d cache:                               64 KiB (2 instances)
     #> L1i cache:                               64 KiB (2 instances)
-    #> L2 cache:                                1 MiB (2 instances)
+    #> L2 cache:                                2 MiB (2 instances)
     #> L3 cache:                                32 MiB (1 instance)
     #> NUMA node(s):                            1
     #> NUMA node0 CPU(s):                       0-3
@@ -511,6 +511,6 @@ installed.packages()[, c("Package", "Version")]
 ## Memory
 
     #>                total        used        free      shared  buff/cache   available
-    #> Mem:            15Gi       1.3Gi       1.7Gi        48Mi        12Gi        14Gi
+    #> Mem:            15Gi       1.5Gi       1.9Gi        48Mi        12Gi        14Gi
     #> Swap:          3.0Gi        24Ki       3.0Gi
-    #> Total:          18Gi       1.3Gi       4.7Gi
+    #> Total:          18Gi       1.5Gi       4.9Gi

@@ -61,8 +61,8 @@ summary(out, type = "pc")
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0528 5000 0.6901 0.8977
-#> adj 0.7906 0.0566 5000 0.6680 0.8904
+#> rsq 0.8045 0.0521 5000 0.6937 0.8968
+#> adj 0.7906 0.0558 5000 0.6718 0.8895
 ```
 
 #### Bias Corrected Confidence Intervals
@@ -76,8 +76,8 @@ summary(out, type = "bc")
 #> R-squared and adjusted R-squared
 #> type = "bc"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0528 5000 0.6429 0.8784
-#> adj 0.7906 0.0566 5000 0.6174 0.8697
+#> rsq 0.8045 0.0521 5000 0.6527 0.8797
+#> adj 0.7906 0.0558 5000 0.6278 0.8711
 ```
 
 #### Bias Corrected and Accelerated Confidence Intervals
@@ -91,8 +91,8 @@ summary(out, type = "bca")
 #> R-squared and adjusted R-squared
 #> type = "bca"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0528 5000 0.6314 0.8770
-#> adj 0.7906 0.0566 5000 0.6051 0.8682
+#> rsq 0.8045 0.0521 5000 0.6466 0.8779
+#> adj 0.7906 0.0558 5000 0.6213 0.8692
 ```
 
 ### coef
@@ -114,8 +114,8 @@ Return the sampling covariance matrix.
 
 vcov(out)
 #>             rsq         adj
-#> rsq 0.002787058 0.002986133
-#> adj 0.002986133 0.003199429
+#> rsq 0.002713540 0.002907364
+#> adj 0.002907364 0.003115033
 ```
 
 ### confint
@@ -128,8 +128,8 @@ Return confidence intervals.
 
 confint(out, level = 0.95, type = "pc")
 #>         2.5 %    97.5 %
-#> rsq 0.6901025 0.8977158
-#> adj 0.6679669 0.8904098
+#> rsq 0.6937054 0.8968400
+#> adj 0.6718272 0.8894715
 ```
 
 #### Bias Corrected Confidence Intervals
@@ -138,8 +138,8 @@ confint(out, level = 0.95, type = "pc")
 
 confint(out, level = 0.95, type = "bc")
 #>         2.5 %    97.5 %
-#> rsq 0.6429176 0.8784039
-#> adj 0.6174117 0.8697184
+#> rsq 0.6526504 0.8796771
+#> adj 0.6278397 0.8710826
 ```
 
 #### Bias Corrected and Accelerated Confidence Intervals
@@ -148,8 +148,8 @@ confint(out, level = 0.95, type = "bc")
 
 confint(out, level = 0.95, type = "bca")
 #>         2.5 %    97.5 %
-#> rsq 0.6314489 0.8770113
-#> adj 0.6051238 0.8682264
+#> rsq 0.6465582 0.8779490
+#> adj 0.6213123 0.8692311
 ```
 
 ## References

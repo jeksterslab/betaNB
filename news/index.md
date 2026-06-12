@@ -1,6 +1,14 @@
 # Changelog
 
+## betaNB 1.0.7.9000
+
+### Patch
+
+- Latest development version.
+
 ## betaNB 1.0.7
+
+CRAN release: 2026-06-11
 
 ### Patch
 

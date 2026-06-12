@@ -61,9 +61,9 @@ summary(out, type = "pc")
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0979 5000 0.2846 0.6671
-#> PCTGRT  0.3757 0.1086 5000 0.1570 0.5825
-#> PCTSUPP 0.2254 0.1159 5000 0.0375 0.4838
+#> NARTIC  0.4874 0.0986 5000 0.2876 0.6712
+#> PCTGRT  0.3757 0.1074 5000 0.1598 0.5871
+#> PCTSUPP 0.2254 0.1146 5000 0.0427 0.4745
 ```
 
 #### Bias Corrected Confidence Intervals
@@ -77,9 +77,9 @@ summary(out, type = "bc")
 #> Squared partial correlations
 #> type = "bc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0979 5000 0.2696 0.6571
-#> PCTGRT  0.3757 0.1086 5000 0.1545 0.5786
-#> PCTSUPP 0.2254 0.1159 5000 0.0340 0.4766
+#> NARTIC  0.4874 0.0986 5000 0.2687 0.6589
+#> PCTGRT  0.3757 0.1074 5000 0.1556 0.5825
+#> PCTSUPP 0.2254 0.1146 5000 0.0425 0.4744
 ```
 
 #### Bias Corrected and Accelerated Confidence Intervals
@@ -93,9 +93,9 @@ summary(out, type = "bca")
 #> Squared partial correlations
 #> type = "bca"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0979 5000 0.2698 0.6575
-#> PCTGRT  0.3757 0.1086 5000 0.1593 0.5831
-#> PCTSUPP 0.2254 0.1159 5000 0.0193 0.4501
+#> NARTIC  0.4874 0.0986 5000 0.2692 0.6595
+#> PCTGRT  0.3757 0.1074 5000 0.1607 0.5879
+#> PCTSUPP 0.2254 0.1146 5000 0.0280 0.4509
 ```
 
 ### coef
@@ -116,10 +116,10 @@ Return the sampling covariance matrix.
 ``` r
 
 vcov(out)
-#>              NARTIC      PCTGRT     PCTSUPP
-#> NARTIC  0.009578981 0.001570906 0.002328932
-#> PCTGRT  0.001570906 0.011787470 0.000859340
-#> PCTSUPP 0.002328932 0.000859340 0.013443298
+#>              NARTIC       PCTGRT      PCTSUPP
+#> NARTIC  0.009713247 0.0013595571 0.0018166132
+#> PCTGRT  0.001359557 0.0115304936 0.0009890077
+#> PCTSUPP 0.001816613 0.0009890077 0.0131325705
 ```
 
 ### confint
@@ -132,9 +132,9 @@ Return confidence intervals.
 
 confint(out, level = 0.95, type = "pc")
 #>              2.5 %    97.5 %
-#> NARTIC  0.28464686 0.6671359
-#> PCTGRT  0.15700972 0.5824809
-#> PCTSUPP 0.03746905 0.4837610
+#> NARTIC  0.28756292 0.6712318
+#> PCTGRT  0.15983369 0.5871134
+#> PCTSUPP 0.04270526 0.4744800
 ```
 
 #### Bias Corrected Confidence Intervals
@@ -142,10 +142,10 @@ confint(out, level = 0.95, type = "pc")
 ``` r
 
 confint(out, level = 0.95, type = "bc")
-#>              2.5 %    97.5 %
-#> NARTIC  0.26959577 0.6571086
-#> PCTGRT  0.15452466 0.5785704
-#> PCTSUPP 0.03402619 0.4766240
+#>             2.5 %    97.5 %
+#> NARTIC  0.2686505 0.6589468
+#> PCTGRT  0.1556340 0.5824954
+#> PCTSUPP 0.0425424 0.4743737
 ```
 
 #### Bias Corrected and Accelerated Confidence Intervals
@@ -153,10 +153,10 @@ confint(out, level = 0.95, type = "bc")
 ``` r
 
 confint(out, level = 0.95, type = "bca")
-#>             2.5 %    97.5 %
-#> NARTIC  0.2697658 0.6575337
-#> PCTGRT  0.1592604 0.5831337
-#> PCTSUPP 0.0192868 0.4501250
+#>              2.5 %    97.5 %
+#> NARTIC  0.26920786 0.6594990
+#> PCTGRT  0.16074213 0.5879169
+#> PCTSUPP 0.02802069 0.4508653
 ```
 
 ## References
