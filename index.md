@@ -1,6 +1,6 @@
 # betaNB
 
-Ivan Jacob Agaloos Pesigan 2026-06-13
+Ivan Jacob Agaloos Pesigan 2026-11-02
 
 ## Description
 
@@ -16,19 +16,15 @@ regression coefficients, for models fitted by
 
 You can install the CRAN release of `betaNB` with:
 
-``` r
-
-install.packages("betaNB")
-```
+\
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"betaNB"``)`
 
 You can install the development version of `betaNB` from
 [GitHub](https://github.com/jeksterslab/betaNB) with:
 
-``` r
-
-if (!require("pak")) install.packages("pak")
-pak::pkg_install("jeksterslab/betaNB")
-```
+\
+`if`` ``(``!`[`require`](https://rdrr.io/r/base/library.html)`(`[`"pak"`](https://pak.r-lib.org/)`)``)`` `[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"pak"``)`\
+`pak``::`[`pkg_install`](https://pak.r-lib.org/reference/pkg_install.html)`(``"jeksterslab/betaNB"``)`
 
 ## Example
 
@@ -44,48 +40,38 @@ regression coefficients are generated using the
 [`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md)
 function from the `betaNB` package.
 
-``` r
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`betaNB`](https://github.com/jeksterslab/betaNB)`)`
 
-library(betaNB)
-```
-
-``` r
-
-df <- betaNB::nas1982
-```
+\
+`df`` ``<-`` ``betaNB``::`[`nas1982`](https://github.com/jeksterslab/betaNB/reference/nas1982.md)
 
 ### Regression
 
 Fit the regression model using the
 [`lm()`](https://rdrr.io/r/stats/lm.html) function.
 
-``` r
-
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-```
+\
+`object`` ``<-`` `[`lm`](https://rdrr.io/r/stats/lm.html)`(``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
 
 ### Nonparametric Bootstrap
 
-``` r
-
-nb <- NB(object)
-```
+\
+`nb`` ``<-`` `[`NB`](https://github.com/jeksterslab/betaNB/reference/NB.md)`(``object``)`
 
 ### Standardized Regression Slopes
 
-``` r
-
-BetaNB(nb, alpha = 0.05)
-#> Call:
-#> BetaNB(object = nb, alpha = 0.05)
-#> 
-#> Standardized regression slopes
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0713 5000 0.3617 0.6396
-#> PCTGRT  0.3915 0.0759 5000 0.2369 0.5352
-#> PCTSUPP 0.2632 0.0791 5000 0.1087 0.4179
-```
+\
+[`BetaNB`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> BetaNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Standardized regression slopes`\
+`#> type = "pc"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.4951 0.0743 5000 0.3494 0.6424`\
+`#> PCTGRT  0.3915 0.0781 5000 0.2319 0.5418`\
+`#> PCTSUPP 0.2632 0.0796 5000 0.1047 0.4139`
 
 ### Other Effect Sizes
 
@@ -105,82 +91,72 @@ for differences of standardized regression coefficients.
 
 #### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
 
-``` r
-
-RSqNB(nb, alpha = 0.05)
-#> Call:
-#> RSqNB(object = nb, alpha = 0.05)
-#> 
-#> R-squared and adjusted R-squared
-#> type = "pc"
-#>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0523 5000 0.6950 0.8982
-#> adj 0.7906 0.0560 5000 0.6732 0.8910
-```
+\
+[`RSqNB`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> RSqNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> R-squared and adjusted R-squared`\
+`#> type = "pc"`\
+`#>        est     se    R   2.5%  97.5%`\
+`#> rsq 0.8045 0.0523 5000 0.6937 0.8986`\
+`#> adj 0.7906 0.0560 5000 0.6719 0.8914`
 
 #### Improvement in R-squared
 
-``` r
-
-DeltaRSqNB(nb, alpha = 0.05)
-#> Call:
-#> DeltaRSqNB(object = nb, alpha = 0.05)
-#> 
-#> Improvement in R-squared
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0589 5000 0.0838 0.3125
-#> PCTGRT  0.1177 0.0481 5000 0.0353 0.2190
-#> PCTSUPP 0.0569 0.0341 5000 0.0091 0.1366
-```
+\
+[`DeltaRSqNB`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> DeltaRSqNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Improvement in R-squared`\
+`#> type = "pc"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.1859 0.0605 5000 0.0791 0.3179`\
+`#> PCTGRT  0.1177 0.0489 5000 0.0341 0.2252`\
+`#> PCTSUPP 0.0569 0.0340 5000 0.0088 0.1407`
 
 #### Semipartial Correlation Coefficients
 
-``` r
-
-SCorNB(nb, alpha = 0.05)
-#> Call:
-#> SCorNB(object = nb, alpha = 0.05)
-#> 
-#> Semipartial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0690 5000 0.2895 0.5591
-#> PCTGRT  0.3430 0.0722 5000 0.1879 0.4680
-#> PCTSUPP 0.2385 0.0711 5000 0.0952 0.3696
-```
+\
+[`SCorNB`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> SCorNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Semipartial correlations`\
+`#> type = "pc"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.4312 0.0713 5000 0.2813 0.5638`\
+`#> PCTGRT  0.3430 0.0735 5000 0.1847 0.4745`\
+`#> PCTSUPP 0.2385 0.0714 5000 0.0937 0.3751`
 
 #### Squared Partial Correlation Coefficients
 
-``` r
-
-PCorNB(nb, alpha = 0.05)
-#> Call:
-#> PCorNB(object = nb, alpha = 0.05)
-#> 
-#> Squared partial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0978 5000 0.2937 0.6676
-#> PCTGRT  0.3757 0.1070 5000 0.1626 0.5774
-#> PCTSUPP 0.2254 0.1143 5000 0.0423 0.4786
-```
+\
+[`PCorNB`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> PCorNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Squared partial correlations`\
+`#> type = "pc"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.4874 0.1000 5000 0.2796 0.6709`\
+`#> PCTGRT  0.3757 0.1104 5000 0.1546 0.5875`\
+`#> PCTSUPP 0.2254 0.1150 5000 0.0407 0.4772`
 
 #### Differences of Standardized Regression Coefficients
 
-``` r
-
-DiffBetaNB(nb, alpha = 0.05)
-#> Call:
-#> DiffBetaNB(object = nb, alpha = 0.05)
-#> 
-#> Differences of standardized regression slopes
-#> type = "pc"
-#>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1302 5000 -0.1416 0.3773
-#> NARTIC-PCTSUPP 0.2319 0.1230 5000  0.0002 0.4829
-#> PCTGRT-PCTSUPP 0.1282 0.1262 5000 -0.1221 0.3787
-```
+\
+[`DiffBetaNB`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`#> Call:`\
+`#> DiffBetaNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Differences of standardized regression slopes`\
+`#> type = "pc"`\
+`#>                   est     se    R    2.5%  97.5%`\
+`#> NARTIC-PCTGRT  0.1037 0.1353 5000 -0.1613 0.3793`\
+`#> NARTIC-PCTSUPP 0.2319 0.1261 5000 -0.0075 0.4809`\
+`#> PCTGRT-PCTSUPP 0.1282 0.1279 5000 -0.1246 0.3847`
 
 ## Documentation
 

@@ -7,41 +7,31 @@ function from the `betaNB` package. In this example, we use the data set
 and the model used in [betaNB: Example Using the BetaNB
 Function](https://github.com/jeksterslab/betaNB/articles/example-beta-nb.md).
 
-``` r
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`betaNB`](https://github.com/jeksterslab/betaNB)`)`
 
-library(betaNB)
-```
-
-``` r
-
-df <- betaNB::nas1982
-```
+\
+`df`` ``<-`` ``betaNB``::`[`nas1982`](https://github.com/jeksterslab/betaNB/reference/nas1982.md)
 
 ### Regression
 
 Fit the regression model using the
 [`lm()`](https://rdrr.io/r/stats/lm.html) function.
 
-``` r
-
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-```
+\
+`object`` ``<-`` `[`lm`](https://rdrr.io/r/stats/lm.html)`(``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
 
 ### Nonparametric Bootstrap
 
-``` r
-
-nb <- NB(object)
-```
+\
+`nb`` ``<-`` `[`NB`](https://github.com/jeksterslab/betaNB/reference/NB.md)`(``object``)`
 
 ### Squared Partial Correlation Coefficients
 
 #### Normal-Theory Approach
 
-``` r
-
-out <- PCorNB(nb, alpha = 0.05)
-```
+\
+`out`` ``<-`` `[`PCorNB`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`
 
 ## Methods
 
@@ -52,75 +42,65 @@ Summary of the results of
 
 #### Percentile Confidence Intervals
 
-``` r
-
-summary(out, type = "pc")
-#> Call:
-#> PCorNB(object = nb, alpha = 0.05)
-#> 
-#> Squared partial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0982 5000 0.2872 0.6648
-#> PCTGRT  0.3757 0.1081 5000 0.1609 0.5829
-#> PCTSUPP 0.2254 0.1159 5000 0.0403 0.4849
-```
+\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``out``, type ``=`` ``"pc"``)`\
+`#> Call:`\
+`#> PCorNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Squared partial correlations`\
+`#> type = "pc"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.4874 0.1006 5000 0.2748 0.6681`\
+`#> PCTGRT  0.3757 0.1074 5000 0.1551 0.5738`\
+`#> PCTSUPP 0.2254 0.1155 5000 0.0396 0.4859`
 
 #### Bias Corrected Confidence Intervals
 
-``` r
-
-summary(out, type = "bc")
-#> Call:
-#> PCorNB(object = nb, alpha = 0.05)
-#> 
-#> Squared partial correlations
-#> type = "bc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0982 5000 0.2691 0.6525
-#> PCTGRT  0.3757 0.1081 5000 0.1528 0.5759
-#> PCTSUPP 0.2254 0.1159 5000 0.0346 0.4704
-```
+\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``out``, type ``=`` ``"bc"``)`\
+`#> Call:`\
+`#> PCorNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Squared partial correlations`\
+`#> type = "bc"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.4874 0.1006 5000 0.2583 0.6583`\
+`#> PCTGRT  0.3757 0.1074 5000 0.1517 0.5701`\
+`#> PCTSUPP 0.2254 0.1155 5000 0.0385 0.4820`
 
 #### Bias Corrected and Accelerated Confidence Intervals
 
-``` r
-
-summary(out, type = "bca")
-#> Call:
-#> PCorNB(object = nb, alpha = 0.05)
-#> 
-#> Squared partial correlations
-#> type = "bca"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0982 5000 0.2697 0.6526
-#> PCTGRT  0.3757 0.1081 5000 0.1602 0.5821
-#> PCTSUPP 0.2254 0.1159 5000 0.0212 0.4423
-```
+\
+[`summary`](https://rdrr.io/r/base/summary.html)`(``out``, type ``=`` ``"bca"``)`\
+`#> Call:`\
+`#> PCorNB(object = nb, alpha = 0.05)`\
+`#> `\
+`#> Squared partial correlations`\
+`#> type = "bca"`\
+`#>            est     se    R   2.5%  97.5%`\
+`#> NARTIC  0.4874 0.1006 5000 0.2587 0.6586`\
+`#> PCTGRT  0.3757 0.1074 5000 0.1567 0.5759`\
+`#> PCTSUPP 0.2254 0.1155 5000 0.0234 0.4505`
 
 ### coef
 
 Return the vector of estimates.
 
-``` r
-
-coef(out)
-#>    NARTIC    PCTGRT   PCTSUPP 
-#> 0.4874382 0.3757383 0.2253739
-```
+\
+[`coef`](https://rdrr.io/r/stats/coef.html)`(``out``)`\
+`#>    NARTIC    PCTGRT   PCTSUPP `\
+`#> 0.4874382 0.3757383 0.2253739`
 
 ### vcov
 
 Return the sampling covariance matrix.
 
-``` r
-
-vcov(out)
-#>              NARTIC       PCTGRT      PCTSUPP
-#> NARTIC  0.009639565 0.0014808200 0.0021051605
-#> PCTGRT  0.001480820 0.0116898519 0.0006933677
-#> PCTSUPP 0.002105160 0.0006933677 0.0134260204
-```
+\
+[`vcov`](https://rdrr.io/r/stats/vcov.html)`(``out``)`\
+`#>              NARTIC       PCTGRT      PCTSUPP`\
+`#> NARTIC  0.010121638 0.0018333767 0.0020500117`\
+`#> PCTGRT  0.001833377 0.0115433569 0.0007304251`\
+`#> PCTSUPP 0.002050012 0.0007304251 0.0133366484`
 
 ### confint
 
@@ -128,35 +108,29 @@ Return confidence intervals.
 
 #### Percentile Confidence Intervals
 
-``` r
-
-confint(out, level = 0.95, type = "pc")
-#>              2.5 %    97.5 %
-#> NARTIC  0.28720172 0.6647768
-#> PCTGRT  0.16091920 0.5829195
-#> PCTSUPP 0.04026216 0.4849199
-```
+\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"pc"``)`\
+`#>              2.5 %    97.5 %`\
+`#> NARTIC  0.27479511 0.6680534`\
+`#> PCTGRT  0.15512882 0.5738085`\
+`#> PCTSUPP 0.03964807 0.4858840`
 
 #### Bias Corrected Confidence Intervals
 
-``` r
-
-confint(out, level = 0.95, type = "bc")
-#>              2.5 %    97.5 %
-#> NARTIC  0.26905184 0.6525084
-#> PCTGRT  0.15277864 0.5759113
-#> PCTSUPP 0.03461796 0.4703940
-```
+\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"bc"``)`\
+`#>              2.5 %    97.5 %`\
+`#> NARTIC  0.25830044 0.6582961`\
+`#> PCTGRT  0.15169825 0.5701260`\
+`#> PCTSUPP 0.03849452 0.4820489`
 
 #### Bias Corrected and Accelerated Confidence Intervals
 
-``` r
-
-confint(out, level = 0.95, type = "bca")
-#>              2.5 %    97.5 %
-#> NARTIC  0.26967574 0.6526185
-#> PCTGRT  0.16021333 0.5820753
-#> PCTSUPP 0.02116022 0.4422629
-```
+\
+[`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"bca"``)`\
+`#>              2.5 %    97.5 %`\
+`#> NARTIC  0.25865908 0.6585990`\
+`#> PCTGRT  0.15668840 0.5758633`\
+`#> PCTSUPP 0.02340785 0.4505173`
 
 ## References
