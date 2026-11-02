@@ -6,7 +6,7 @@
 and Generate the Corresponding Sampling Distribution
 Using Nonparametric Bootstrapping}
 \usage{
-BetaNB(object, alpha = c(0.05, 0.01, 0.001))
+BetaNB(object, alpha = c(0.05, 0.01, 0.001), std_y = TRUE, std_x = NULL)
 }
 \arguments{
 \item{object}{Object of class \code{nb}, that is,
@@ -14,6 +14,17 @@ the output of the \code{NB()} function.}
 
 \item{alpha}{Numeric vector.
 Significance level \eqn{\alpha}.}
+
+\item{std_y}{Logical.
+Standardize \eqn{y}.
+With \code{std_y = FALSE}, \eqn{y} is left in its original units.}
+
+\item{std_x}{Character vector or \code{NULL}.
+Names of the regressors to standardize.
+\code{NULL} (default) standardizes all regressors;
+\code{character(0)} standardizes none
+(for example, leave a dummy variable out to keep its 0-1 contrast).
+The standard deviations are taken from each bootstrap sample.}
 }
 \value{
 Returns an object
@@ -75,6 +86,7 @@ confint(out, level = 0.95)
 Other Beta Nonparametric Bootstrap Functions:
 \code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
 \code{\link[=DiffBetaNB]{DiffBetaNB()}},
+\code{\link[=FSqNB]{FSqNB()}},
 \code{\link[=NB]{NB()}},
 \code{\link[=PCorNB]{PCorNB()}},
 \code{\link[=RSqNB]{RSqNB()}},

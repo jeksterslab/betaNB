@@ -68,33 +68,15 @@ DiffBetaNB <- function(object,
   }
   fun <- "DiffBetaNB"
   est <- object$lm_process$dif_betastar
-  p_dif <- dim(object$lm_process$dif_idx)[2]
-  foo <- function(x) {
-    std <- .BetaStarofSigma(
-      sigmacap = x,
-      q = 1 / sqrt(diag(x)),
-      k = object$lm_process$k
-    )
-    diff <- rep(x = 0.0, times = p_dif)
-    for (i in seq_len(p_dif)) {
-      diff[i] <- std[
-        object$lm_process$dif_idx[1, i]
-      ] - std[
-        object$lm_process$dif_idx[2, i]
-      ]
-    }
-    diff
-  }
-  thetahatstar <- lapply(
-    X = object$thetahatstar,
-    FUN = foo
+  thetahatstar <- .DiffBetaMat(
+    betastar = object$es$betastar,
+    lm_process = object$lm_process
   )
-  vcov <- stats::var(
-    do.call(
-      what = "rbind",
-      args = thetahatstar
-    )
+  jackknife <- .DiffBetaMat(
+    betastar = object$es_jackknife$betastar,
+    lm_process = object$lm_process
   )
+  vcov <- stats::var(thetahatstar)
   colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
@@ -103,10 +85,7 @@ DiffBetaNB <- function(object,
       alpha = alpha
     ),
     thetahatstar = thetahatstar,
-    jackknife = lapply(
-      X = object$jackknife,
-      FUN = foo
-    ),
+    jackknife = jackknife,
     vcov = vcov,
     est = est,
     fun = fun

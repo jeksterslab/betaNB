@@ -74,6 +74,7 @@ confint(out, level = 0.95)
 Other Beta Nonparametric Bootstrap Functions:
 \code{\link[=BetaNB]{BetaNB()}},
 \code{\link[=DiffBetaNB]{DiffBetaNB()}},
+\code{\link[=FSqNB]{FSqNB()}},
 \code{\link[=NB]{NB()}},
 \code{\link[=PCorNB]{PCorNB()}},
 \code{\link[=RSqNB]{RSqNB()}},

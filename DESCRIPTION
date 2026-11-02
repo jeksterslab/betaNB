@@ -22,11 +22,12 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.5.0)
-Imports: stats
+Imports: Rcpp, stats
+LinkingTo: Rcpp, RcppArmadillo
 Suggests: knitr, rmarkdown, testthat, betaDelta, betaSandwich, betaMC
 Config/roxygen2/version: 8.1.1.9000
-NeedsCompilation: no
-Packaged: 2026-11-02 06:06:52 UTC; root
+NeedsCompilation: yes
+Packaged: 2026-11-02 20:45:01 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
