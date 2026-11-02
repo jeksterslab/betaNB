@@ -66,6 +66,7 @@ Other Beta Nonparametric Bootstrap Functions:
 [`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md),
 [`DeltaRSqNB()`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md),
 [`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md),
+[`FSqNB()`](https://github.com/jeksterslab/betaNB/reference/FSqNB.md),
 [`NB()`](https://github.com/jeksterslab/betaNB/reference/NB.md),
 [`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md),
 [`SCorNB()`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)

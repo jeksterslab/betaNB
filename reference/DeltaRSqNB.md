@@ -63,6 +63,7 @@ significance level.
 Other Beta Nonparametric Bootstrap Functions:
 [`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md),
 [`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md),
+[`FSqNB()`](https://github.com/jeksterslab/betaNB/reference/FSqNB.md),
 [`NB()`](https://github.com/jeksterslab/betaNB/reference/NB.md),
 [`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md),
 [`RSqNB()`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md),

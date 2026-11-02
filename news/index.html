@@ -43,8 +43,11 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.7.9000" id="betanb-1079000">betaNB 1.0.7.9000<a class="anchor" aria-label="anchor" href="#betanb-1079000"></a></h2>
 <div class="section level3">
-<h3 id="patch-1-0-7-9000">Patch<a class="anchor" aria-label="anchor" href="#patch-1-0-7-9000"></a></h3>
-<ul><li>Latest development version.</li>
+<h3 id="minor-1-0-7-9000">Minor<a class="anchor" aria-label="anchor" href="#minor-1-0-7-9000"></a></h3>
+<ul><li>New <code><a href="../reference/FSqNB.html">FSqNB()</a></code>: Cohen’s f-squared and the local f-squared of each regressor.</li>
+<li>Faster bootstrap: the bootstrap and jackknife covariance matrices (closed-form leave-one-out) and the effect sizes are computed in C++ (Rcpp, RcppArmadillo), once per <code><a href="../reference/NB.html">NB()</a></code> call. The bootstrap samples are the same as before for the same seed.</li>
+<li>The <code>thetahatstar</code> and <code>jackknife</code> elements of <code>nb</code> and <code>betanb</code> objects are now matrices (one draw per row) instead of lists. <code>nb</code> objects also hold <code>es</code> and <code>es_jackknife</code>.</li>
+<li>Selective standardization: the arguments <code>std_y</code> and <code>std_x</code> standardize only y or only the named regressors (for example, leave a dummy variable in its 0-1 units). The defaults give the same results as before.</li>
 </ul></div>
 </div>
     <div class="section level2">

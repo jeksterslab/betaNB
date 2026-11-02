@@ -43,6 +43,12 @@
   : Estimate Differences of Standardized Slopes and Generate the
   Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
+## Cohen’s f-Squared
+
+- [`FSqNB()`](https://github.com/jeksterslab/betaNB/reference/FSqNB.md)
+  : Estimate Cohen's f-Squared and Generate the Corresponding Sampling
+  Distribution Using the Nonparametric Bootstrap
+
 ## Methods
 
 - [`coef(`*`<betanb>`*`)`](https://github.com/jeksterslab/betaNB/reference/coef.betanb.md)

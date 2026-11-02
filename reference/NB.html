@@ -84,10 +84,21 @@ of class <code>nb</code> which is a list with the following elements:</p><dl><dt
 <dd><p>Processed <code>lm</code> object.</p></dd>
 
 <dt>thetahatstar</dt>
-<dd><p>Sampling distribution of sample covariances.</p></dd>
+<dd><p>Sampling distribution of sample covariances
+(a matrix; each row is the half-vectorization of one bootstrap
+covariance matrix).</p></dd>
 
 <dt>jackknife</dt>
-<dd><p>Jackknife estimates.</p></dd>
+<dd><p>Jackknife estimates
+(a matrix; each row is the half-vectorization of one
+leave-one-out covariance matrix).</p></dd>
+
+<dt>es</dt>
+<dd><p>Effect sizes of the bootstrap samples (a list of matrices).</p></dd>
+
+<dt>es_jackknife</dt>
+<dd><p>Effect sizes of the jackknife samples
+(a list of matrices).</p></dd>
 
 
 </dl></div>
@@ -103,6 +114,7 @@ Chapman &amp; Hall.</p>
 <code><a href="BetaNB.html">BetaNB()</a></code>,
 <code><a href="DeltaRSqNB.html">DeltaRSqNB()</a></code>,
 <code><a href="DiffBetaNB.html">DiffBetaNB()</a></code>,
+<code><a href="FSqNB.html">FSqNB()</a></code>,
 <code><a href="PCorNB.html">PCorNB()</a></code>,
 <code><a href="RSqNB.html">RSqNB()</a></code>,
 <code><a href="SCorNB.html">SCorNB()</a></code></p></div>
@@ -132,48 +144,20 @@ Chapman &amp; Hall.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The first six bootstrap covariance matrices.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 104.8715  489.5053 112.6802 187.9391</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 489.5053 2967.6314 563.7749 844.3464</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 112.6802  563.7749 267.0512 213.5585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 187.9391  844.3464 213.5585 484.8758</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 129.7609  537.8783 160.9517 223.1705</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 537.8783 3217.0435 612.2077 931.1923</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 160.9517  612.2077 389.8048 251.7507</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 223.1705  931.1923 251.7507 613.0826</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  68.31353  309.2290 101.9329 108.6063</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 309.22899 2514.1256 433.4164 480.6309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 101.93285  433.4164 404.9957 159.9232</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 108.60628  480.6309 159.9232 442.2652</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[4]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  99.90966  533.2034 119.6609 144.6464</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 533.20338 4584.2440 536.1246 709.2473</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 119.66087  536.1246 306.1990 173.3411</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 144.64638  709.2473 173.3411 602.6048</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[5]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 124.0604  583.9411 141.2575 183.6101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 583.9411 4629.7546 602.2386 732.7140</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 141.2575  602.2386 293.4208 183.9396</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 183.6101  732.7140 183.9396 649.0246</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[6]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 104.7884  472.3159 159.0193 163.9565</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 472.3159 3566.4295 696.9957 576.1792</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 159.0193  696.9957 357.8382 230.7947</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 163.9565  576.1792 230.7947 625.7203</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 104.87150 489.5053 112.6802 187.9391 2967.631 563.7749 844.3464 267.0512</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 129.76087 537.8783 160.9517 223.1705 3217.043 612.2077 931.1923 389.8048</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  68.31353 309.2290 101.9329 108.6063 2514.126 433.4164 480.6309 404.9957</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  99.90966 533.2034 119.6609 144.6464 4584.244 536.1246 709.2473 306.1990</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 124.06039 583.9411 141.2575 183.6101 4629.755 602.2386 732.7140 293.4208</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 104.78841 472.3159 159.0193 163.9565 3566.429 696.9957 576.1792 357.8382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          [,9]    [,10]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 213.5585 484.8758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 251.7507 613.0826</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 159.9232 442.2652</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 173.3411 602.6048</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 183.9396 649.0246</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 230.7947 625.7203</span>
 <span class="r-in"><span><span class="co"># The `nb` object can be passed as the first argument</span></span></span>
 <span class="r-in"><span><span class="co"># to the following functions</span></span></span>
 <span class="r-in"><span><span class="co">#   - BetaNB</span></span></span>
