@@ -78,17 +78,7 @@ lapply(
         df <- as.data.frame(df)
         object <- lm(y ~ ., data = df)
         nb <- NB(object, R = R)
-        nb <- colMeans(
-          do.call(
-            what = "rbind",
-            args = lapply(
-              X = nb$thetahatstar,
-              FUN = function(i) {
-                .Vech(i)
-              }
-            )
-          )
-        )
+        nb <- colMeans(nb$thetahatstar)
         testthat::expect_true(
           all(
             abs(

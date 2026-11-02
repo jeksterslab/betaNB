@@ -32,6 +32,15 @@
 #'   the output of the `NB()` function.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
+#' @param std_y Logical.
+#'   Standardize \eqn{y}.
+#'   With `std_y = FALSE`, \eqn{y} is left in its original units.
+#' @param std_x Character vector or `NULL`.
+#'   Names of the regressors to standardize.
+#'   `NULL` (default) standardizes all regressors;
+#'   `character(0)` standardizes none
+#'   (for example, leave a dummy variable out to keep its 0-1 contrast).
+#'   The standard deviations are taken from each bootstrap sample.
 #'
 #' @examples
 #' # Data ---------------------------------------------------------------------
@@ -61,7 +70,9 @@
 #' @keywords betaNB std
 #' @export
 BetaNB <- function(object,
-                   alpha = c(0.05, 0.01, 0.001)) {
+                   alpha = c(0.05, 0.01, 0.001),
+                   std_y = TRUE,
+                   std_x = NULL) {
   stopifnot(
     inherits(
       x = object,
@@ -69,36 +80,45 @@ BetaNB <- function(object,
     )
   )
   fun <- "BetaNB"
-  est <- object$lm_process$betastar
-  foo <- function(x) {
-    .BetaStarofSigma(
-      sigmacap = x,
-      q = 1 / sqrt(diag(x)),
-      k = object$lm_process$k
+  index <- .BetaStarSelectIndex(
+    std_x = std_x,
+    xnames = object$lm_process$xnames
+  )
+  est <- .BetaStarSelectLM(
+    lm_process = object$lm_process,
+    std_y = std_y,
+    std_x = index
+  )
+  thetahatstar <- object$es$betastar
+  jackknife <- object$es_jackknife$betastar
+  if (!(std_y && all(index))) {
+    thetahatstar <- .BetaStarSelectofVechSigmaMat(
+      betastar = thetahatstar,
+      vechsigmacap = object$thetahatstar,
+      k = object$lm_process$k,
+      std_y = std_y,
+      std_x = index
+    )
+    jackknife <- .BetaStarSelectofVechSigmaMat(
+      betastar = jackknife,
+      vechsigmacap = object$jackknife,
+      k = object$lm_process$k,
+      std_y = std_y,
+      std_x = index
     )
   }
-  thetahatstar <- lapply(
-    X = object$thetahatstar,
-    FUN = foo
-  )
-  vcov <- stats::var(
-    do.call(
-      what = "rbind",
-      args = thetahatstar
-    )
-  )
+  vcov <- stats::var(thetahatstar)
   colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
     args = list(
       object = object,
-      alpha = alpha
+      alpha = alpha,
+      std_y = std_y,
+      std_x = std_x
     ),
     thetahatstar = thetahatstar,
-    jackknife = lapply(
-      X = object$jackknife,
-      FUN = foo
-    ),
+    jackknife = jackknife,
     vcov = vcov,
     est = est,
     fun = fun

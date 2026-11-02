@@ -9,8 +9,15 @@
 #'     \item{call}{Function call.}
 #'     \item{args}{Function arguments.}
 #'     \item{lm_process}{Processed `lm` object.}
-#'     \item{thetahatstar}{Sampling distribution of sample covariances.}
-#'     \item{jackknife}{Jackknife estimates.}
+#'     \item{thetahatstar}{Sampling distribution of sample covariances
+#'       (a matrix; each row is the half-vectorization of one bootstrap
+#'       covariance matrix).}
+#'     \item{jackknife}{Jackknife estimates
+#'       (a matrix; each row is the half-vectorization of one
+#'       leave-one-out covariance matrix).}
+#'     \item{es}{Effect sizes of the bootstrap samples (a list of matrices).}
+#'     \item{es_jackknife}{Effect sizes of the jackknife samples
+#'       (a list of matrices).}
 #' }
 #'
 #' @param object Object of class `lm`.
@@ -63,6 +70,13 @@ NB <- function(object,
     set.seed(seed)
   }
   lm_process <- .ProcessLM(object)
+  thetahatstar <- .NBVechCovDraws(
+    x = lm_process$x,
+    R = R
+  )
+  jackknife <- .JackknifeVechCov(
+    x = lm_process$x
+  )
   out <- list(
     call = match.call(),
     args = list(
@@ -71,41 +85,15 @@ NB <- function(object,
       seed = seed
     ),
     lm_process = lm_process,
-    thetahatstar = lapply(
-      X = seq_len(R),
-      FUN = function(i,
-                     x,
-                     n) {
-        unname(
-          stats::cov(
-            x[
-              sample.int(
-                n = n,
-                size = n,
-                replace = TRUE
-              ), ,
-              drop = FALSE
-            ]
-          )
-        )
-      },
-      x = lm_process$x,
-      n = lm_process$n
+    thetahatstar = thetahatstar,
+    jackknife = jackknife,
+    es = .NBES(
+      vechsigmacap = thetahatstar,
+      lm_process = lm_process
     ),
-    jackknife = lapply(
-      X = seq_len(lm_process$n),
-      FUN = function(i,
-                     x) {
-        unname(
-          stats::cov(
-            x[
-              -i, ,
-              drop = FALSE
-            ]
-          )
-        )
-      },
-      x = lm_process$x
+    es_jackknife = .NBES(
+      vechsigmacap = jackknife,
+      lm_process = lm_process
     )
   )
   class(out) <- c(

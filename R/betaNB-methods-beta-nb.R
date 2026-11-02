@@ -152,6 +152,9 @@ print.summary.betanb <- function(x,
   if (object$fun == "DiffBetaNB") {
     label <- "Differences of standardized regression slopes"
   }
+  if (object$fun == "FSqNB") {
+    label <- "Cohen's f-squared (fsq) and local f-squared"
+  }
   cat("Call:\n")
   base::print(object$call)
   cat(

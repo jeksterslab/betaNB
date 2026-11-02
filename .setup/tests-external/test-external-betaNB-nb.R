@@ -64,19 +64,7 @@ lapply(
     df <- as.data.frame(df)
     object <- lm(y ~ ., data = df)
     nb <- NB(object, R = R)
-    nb <- colMeans(
-      do.call(
-        what = "rbind",
-        args = lapply(
-          X = nb$thetahatstar,
-          FUN = function(i) {
-            return(
-              .Vech(i)
-            )
-          }
-        )
-      )
-    )
+    nb <- colMeans(nb$thetahatstar)
     testthat::test_that(
       paste(text, "means"),
       {

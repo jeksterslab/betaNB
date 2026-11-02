@@ -67,35 +67,15 @@ RSqNB <- function(object,
   )
   fun <- "RSqNB"
   est <- object$lm_process$rsq
-  foo <- function(x) {
-    rsq <- .RSqofSigma(
-      sigmacap = x,
-      k = object$lm_process$k
-    )
-    adj <- (
-      1 - (
-        1 - rsq
-      ) * (
-        (
-          object$lm_process$n - 1
-        ) / object$lm_process$df
-      )
-    )
-    c(
-      rsq = rsq,
-      adj = adj
-    )
-  }
-  thetahatstar <- lapply(
-    X = object$thetahatstar,
-    FUN = foo
+  thetahatstar <- .NBRSqAdj(
+    rsq = object$es$rsq,
+    lm_process = object$lm_process
   )
-  vcov <- stats::var(
-    do.call(
-      what = "rbind",
-      args = thetahatstar
-    )
+  jackknife <- .NBRSqAdj(
+    rsq = object$es_jackknife$rsq,
+    lm_process = object$lm_process
   )
+  vcov <- stats::var(thetahatstar)
   colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
@@ -104,10 +84,7 @@ RSqNB <- function(object,
       alpha = alpha
     ),
     thetahatstar = thetahatstar,
-    jackknife = lapply(
-      X = object$jackknife,
-      FUN = foo
-    ),
+    jackknife = jackknife,
     vcov = vcov,
     est = est,
     fun = fun

@@ -73,30 +73,9 @@ DeltaRSqNB <- function(object,
     sigmacapx = object$lm_process$sigmacapx
   )^2
   names(est) <- object$lm_process$xnames
-  foo <- function(x) {
-    .SPCor(
-      betastar = .BetaStarofSigma(
-        sigmacap = x,
-        q = 1 / sqrt(diag(x)),
-        k = object$lm_process$k
-      ),
-      sigmacapx = x[
-        2:object$lm_process$k,
-        2:object$lm_process$k,
-        drop = FALSE
-      ]
-    )^2
-  }
-  thetahatstar <- lapply(
-    X = object$thetahatstar,
-    FUN = foo
-  )
-  vcov <- stats::var(
-    do.call(
-      what = "rbind",
-      args = thetahatstar
-    )
-  )
+  thetahatstar <- object$es$spcor^2
+  jackknife <- object$es_jackknife$spcor^2
+  vcov <- stats::var(thetahatstar)
   colnames(vcov) <- rownames(vcov) <- names(est)
   out <- list(
     call = match.call(),
@@ -105,10 +84,7 @@ DeltaRSqNB <- function(object,
       alpha = alpha
     ),
     thetahatstar = thetahatstar,
-    jackknife = lapply(
-      X = object$jackknife,
-      FUN = foo
-    ),
+    jackknife = jackknife,
     vcov = vcov,
     est = est,
     fun = fun

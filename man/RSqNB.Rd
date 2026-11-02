@@ -77,6 +77,7 @@ Other Beta Nonparametric Bootstrap Functions:
 \code{\link[=BetaNB]{BetaNB()}},
 \code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
 \code{\link[=DiffBetaNB]{DiffBetaNB()}},
+\code{\link[=FSqNB]{FSqNB()}},
 \code{\link[=NB]{NB()}},
 \code{\link[=PCorNB]{PCorNB()}},
 \code{\link[=SCorNB]{SCorNB()}}

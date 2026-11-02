@@ -23,8 +23,15 @@ of class \code{nb} which is a list with the following elements:
 \item{call}{Function call.}
 \item{args}{Function arguments.}
 \item{lm_process}{Processed \code{lm} object.}
-\item{thetahatstar}{Sampling distribution of sample covariances.}
-\item{jackknife}{Jackknife estimates.}
+\item{thetahatstar}{Sampling distribution of sample covariances
+(a matrix; each row is the half-vectorization of one bootstrap
+covariance matrix).}
+\item{jackknife}{Jackknife estimates
+(a matrix; each row is the half-vectorization of one
+leave-one-out covariance matrix).}
+\item{es}{Effect sizes of the bootstrap samples (a list of matrices).}
+\item{es_jackknife}{Effect sizes of the jackknife samples
+(a list of matrices).}
 }
 }
 \description{
@@ -65,6 +72,7 @@ Other Beta Nonparametric Bootstrap Functions:
 \code{\link[=BetaNB]{BetaNB()}},
 \code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
 \code{\link[=DiffBetaNB]{DiffBetaNB()}},
+\code{\link[=FSqNB]{FSqNB()}},
 \code{\link[=PCorNB]{PCorNB()}},
 \code{\link[=RSqNB]{RSqNB()}},
 \code{\link[=SCorNB]{SCorNB()}}
