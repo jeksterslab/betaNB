@@ -24,7 +24,8 @@
 #'       \eqn{f^2} (column `fsq`) and the local \eqn{f^2}
 #'       (one column per regressor).}
 #'     \item{jackknife}{Jackknife estimates.}
-#'     \item{vcov}{Sampling variance-covariance matrix.}#'     \item{est}{Vector of estimates.}
+#'     \item{vcov}{Sampling variance-covariance matrix.}
+#'     \item{est}{Vector of estimates.}
 #'     \item{fun}{Function used ("FSqNB").}
 #'   }
 #'
@@ -52,7 +53,7 @@
 #'   seed = 0508
 #' )
 #'
-#' # FSqNB -----------------------------------------------------------------
+#' # FSqNB --------------------------------------------------------------------
 #' out <- FSqNB(nb, alpha = 0.05)
 #'
 #' ## Methods -----------------------------------------------------------------

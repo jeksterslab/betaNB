@@ -25,7 +25,8 @@ of class \code{betanb} which is a list with the following elements:
 \eqn{f^2} (column \code{fsq}) and the local \eqn{f^2}
 (one column per regressor).}
 \item{jackknife}{Jackknife estimates.}
-\item{vcov}{Sampling variance-covariance matrix.}#'     \item{est}{Vector of estimates.}
+\item{vcov}{Sampling variance-covariance matrix.}
+\item{est}{Vector of estimates.}
 \item{fun}{Function used ("FSqNB").}
 }
 }
@@ -60,7 +61,7 @@ nb <- NB(
   seed = 0508
 )
 
-# FSqNB -----------------------------------------------------------------
+# FSqNB --------------------------------------------------------------------
 out <- FSqNB(nb, alpha = 0.05)
 
 ## Methods -----------------------------------------------------------------
