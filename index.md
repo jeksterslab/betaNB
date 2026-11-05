@@ -1,6 +1,6 @@
 # betaNB
 
-Ivan Jacob Agaloos Pesigan 2026-11-03
+Ivan Jacob Agaloos Pesigan 2026-11-05
 
 ## Description
 
@@ -69,9 +69,9 @@ Fit the regression model using the
 `#> Standardized regression slopes`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.4951 0.0734 5000 0.3536 0.6370`\
-`#> PCTGRT  0.3915 0.0784 5000 0.2339 0.5457`\
-`#> PCTSUPP 0.2632 0.0800 5000 0.1042 0.4178`
+`#> NARTIC  0.4951 0.0721 5000 0.3548 0.6395`\
+`#> PCTGRT  0.3915 0.0751 5000 0.2420 0.5344`\
+`#> PCTSUPP 0.2632 0.0788 5000 0.1039 0.4144`
 
 ### Other Effect Sizes
 
@@ -99,8 +99,8 @@ for differences of standardized regression coefficients.
 `#> R-squared and adjusted R-squared`\
 `#> type = "pc"`\
 `#>        est     se    R   2.5%  97.5%`\
-`#> rsq 0.8045 0.0536 5000 0.6886 0.8988`\
-`#> adj 0.7906 0.0574 5000 0.6663 0.8916`
+`#> rsq 0.8045 0.0521 5000 0.6938 0.8980`\
+`#> adj 0.7906 0.0559 5000 0.6719 0.8907`
 
 #### Improvement in R-squared
 
@@ -112,9 +112,9 @@ for differences of standardized regression coefficients.
 `#> Improvement in R-squared`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.1859 0.0605 5000 0.0822 0.3176`\
-`#> PCTGRT  0.1177 0.0496 5000 0.0346 0.2273`\
-`#> PCTSUPP 0.0569 0.0343 5000 0.0081 0.1387`
+`#> NARTIC  0.1859 0.0590 5000 0.0799 0.3134`\
+`#> PCTGRT  0.1177 0.0477 5000 0.0373 0.2192`\
+`#> PCTSUPP 0.0569 0.0337 5000 0.0089 0.1362`
 
 #### Semipartial Correlation Coefficients
 
@@ -126,9 +126,9 @@ for differences of standardized regression coefficients.
 `#> Semipartial correlations`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.4312 0.0711 5000 0.2868 0.5635`\
-`#> PCTGRT  0.3430 0.0740 5000 0.1859 0.4768`\
-`#> PCTSUPP 0.2385 0.0715 5000 0.0903 0.3725`
+`#> NARTIC  0.4312 0.0696 5000 0.2826 0.5598`\
+`#> PCTGRT  0.3430 0.0709 5000 0.1932 0.4682`\
+`#> PCTSUPP 0.2385 0.0708 5000 0.0945 0.3690`
 
 #### Squared Partial Correlation Coefficients
 
@@ -140,9 +140,9 @@ for differences of standardized regression coefficients.
 `#> Squared partial correlations`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.4874 0.1002 5000 0.2753 0.6701`\
-`#> PCTGRT  0.3757 0.1100 5000 0.1558 0.5872`\
-`#> PCTSUPP 0.2254 0.1163 5000 0.0408 0.4856`
+`#> NARTIC  0.4874 0.0988 5000 0.2842 0.6729`\
+`#> PCTGRT  0.3757 0.1060 5000 0.1617 0.5855`\
+`#> PCTSUPP 0.2254 0.1144 5000 0.0414 0.4759`
 
 #### Differences of Standardized Regression Coefficients
 
@@ -154,9 +154,9 @@ for differences of standardized regression coefficients.
 `#> Differences of standardized regression slopes`\
 `#> type = "pc"`\
 `#>                   est     se    R    2.5%  97.5%`\
-`#> NARTIC-PCTGRT  0.1037 0.1344 5000 -0.1544 0.3724`\
-`#> NARTIC-PCTSUPP 0.2319 0.1245 5000 -0.0108 0.4815`\
-`#> PCTGRT-PCTSUPP 0.1282 0.1295 5000 -0.1147 0.3863`
+`#> NARTIC-PCTGRT  0.1037 0.1300 5000 -0.1484 0.3646`\
+`#> NARTIC-PCTSUPP 0.2319 0.1238 5000 -0.0105 0.4817`\
+`#> PCTGRT-PCTSUPP 0.1282 0.1252 5000 -0.1133 0.3776`
 
 ## Documentation
 

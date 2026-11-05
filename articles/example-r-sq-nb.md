@@ -49,9 +49,9 @@ Summary of the results of
 `#> `\
 `#> R-squared and adjusted R-squared`\
 `#> type = "pc"`\
-`#>        est     se    R  2.5%  97.5%`\
-`#> rsq 0.8045 0.0529 5000 0.692 0.8997`\
-`#> adj 0.7906 0.0567 5000 0.670 0.8926`
+`#>        est     se    R   2.5%  97.5%`\
+`#> rsq 0.8045 0.0529 5000 0.6946 0.8975`\
+`#> adj 0.7906 0.0567 5000 0.6728 0.8901`
 
 #### Bias Corrected Confidence Intervals
 
@@ -63,8 +63,8 @@ Summary of the results of
 `#> R-squared and adjusted R-squared`\
 `#> type = "bc"`\
 `#>        est     se    R   2.5%  97.5%`\
-`#> rsq 0.8045 0.0529 5000 0.6484 0.8798`\
-`#> adj 0.7906 0.0567 5000 0.6233 0.8713`
+`#> rsq 0.8045 0.0529 5000 0.6544 0.8829`\
+`#> adj 0.7906 0.0567 5000 0.6297 0.8745`
 
 #### Bias Corrected and Accelerated Confidence Intervals
 
@@ -75,9 +75,9 @@ Summary of the results of
 `#> `\
 `#> R-squared and adjusted R-squared`\
 `#> type = "bca"`\
-`#>        est     se    R   2.5%  97.5%`\
-`#> rsq 0.8045 0.0529 5000 0.6407 0.8783`\
-`#> adj 0.7906 0.0567 5000 0.6150 0.8697`
+`#>        est     se    R  2.5%  97.5%`\
+`#> rsq 0.8045 0.0529 5000 0.649 0.8811`\
+`#> adj 0.7906 0.0567 5000 0.624 0.8726`
 
 ### coef
 
@@ -95,8 +95,8 @@ Return the sampling covariance matrix.
 \
 [`vcov`](https://rdrr.io/r/stats/vcov.html)`(``out``)`\
 `#>             rsq         adj`\
-`#> rsq 0.002797422 0.002997238`\
-`#> adj 0.002997238 0.003211326`
+`#> rsq 0.002800802 0.003000859`\
+`#> adj 0.003000859 0.003215206`
 
 ### confint
 
@@ -106,24 +106,24 @@ Return confidence intervals.
 
 \
 [`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"pc"``)`\
-`#>         2.5 %    97.5 %`\
-`#> rsq 0.6920359 0.8997329`\
-`#> adj 0.6700385 0.8925709`
+`#>         2.5 %   97.5 %`\
+`#> rsq 0.6946313 0.897451`\
+`#> adj 0.6728193 0.890126`
 
 #### Bias Corrected Confidence Intervals
 
 \
 [`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"bc"``)`\
 `#>         2.5 %    97.5 %`\
-`#> rsq 0.6483710 0.8798456`\
-`#> adj 0.6232546 0.8712631`
+`#> rsq 0.6543932 0.8829017`\
+`#> adj 0.6297070 0.8745375`
 
 #### Bias Corrected and Accelerated Confidence Intervals
 
 \
 [`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"bca"``)`\
 `#>         2.5 %    97.5 %`\
-`#> rsq 0.6407051 0.8783401`\
-`#> adj 0.6150411 0.8696502`
+`#> rsq 0.6490356 0.8811345`\
+`#> adj 0.6239667 0.8726441`
 
 ## References
