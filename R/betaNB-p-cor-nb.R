@@ -75,11 +75,11 @@ PCorNB <- function(object,
     )^2,
     rsq = object$lm_process$rsq[1]
   )
-  names(est) <- object$lm_process$xnames
+  names(x = est) <- object$lm_process$xnames
   thetahatstar <- object$es$pcorsq
   jackknife <- object$es_jackknife$pcorsq
-  vcov <- stats::var(thetahatstar)
-  colnames(vcov) <- rownames(vcov) <- names(est)
+  vcov <- stats::var(x = thetahatstar)
+  colnames(x = vcov) <- rownames(x = vcov) <- names(x = est)
   out <- list(
     call = match.call(),
     args = list(
@@ -92,9 +92,9 @@ PCorNB <- function(object,
     est = est,
     fun = fun
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "betanb",
-    class(out)
+    class(x = out)
   )
   out
 }

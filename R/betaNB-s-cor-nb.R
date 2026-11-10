@@ -72,11 +72,11 @@ SCorNB <- function(object,
     betastar = object$lm_process$betastar,
     sigmacapx = object$lm_process$sigmacapx
   )
-  names(est) <- object$lm_process$xnames
+  names(x = est) <- object$lm_process$xnames
   thetahatstar <- object$es$spcor
   jackknife <- object$es_jackknife$spcor
-  vcov <- stats::var(thetahatstar)
-  colnames(vcov) <- rownames(vcov) <- names(est)
+  vcov <- stats::var(x = thetahatstar)
+  colnames(x = vcov) <- rownames(x = vcov) <- names(x = est)
   out <- list(
     call = match.call(),
     args = list(
@@ -89,9 +89,9 @@ SCorNB <- function(object,
     est = est,
     fun = fun
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "betanb",
-    class(out)
+    class(x = out)
   )
   out
 }

@@ -25,6 +25,42 @@
 #'   Number of bootstrap replications.
 #' @param seed Integer.
 #'   Seed number for reproducibility.
+#' @param type Character string.
+#'   Bootstrap sampler.
+#'   `"pairs"` (default) resamples the rows of the data
+#'   (nonparametric bootstrap).
+#'   `"wild"` is the wild bootstrap, which generates
+#'   \eqn{y_i^{*} = \mathbf{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
+#'   f(h_i) e_i v_i},
+#'   where \eqn{e_i} is the residual,
+#'   \eqn{h_i} is the leverage,
+#'   \eqn{v_i} is a random weight with mean 0 and variance 1,
+#'   and \eqn{f(h_i)} is set by `hc`.
+#'   The arguments `weights`, `hc`, and `x` are used only
+#'   with `type = "wild"`.
+#' @param weights Character string.
+#'   Distribution of \eqn{v_i}:
+#'   `"rademacher"` (default; -1 or 1 with equal probability),
+#'   `"mammen"` (two-point distribution with third moment 1),
+#'   `"webb"` (six-point distribution),
+#'   or `"normal"` (standard normal).
+#' @param hc Character string.
+#'   Adjustment of the residuals,
+#'   with the same definitions as the heteroskedasticity-consistent
+#'   sampling covariance matrices of `betaSandwich`:
+#'   `"hc3"` (default), `"hc0"`, `"hc1"`, `"hc2"`, `"hc4"`, `"hc4m"`,
+#'   or `"hc5"`.
+#'   A leverage equal to 1 is an error for every type except
+#'   `"hc0"` and `"hc1"`.
+#' @param x Character string.
+#'   `"random"` (default) resamples the rows
+#'   \eqn{\left( \mathbf{x}_i, f(h_i) e_i \right)} together
+#'   before the weights are applied,
+#'   so the sampling variability of the regressors is kept.
+#'   `"fixed"` keeps the regressors of the data in every sample
+#'   (conditional wild bootstrap);
+#'   the covariance matrix of the regressors is then the same
+#'   in every sample.
 #'
 #' @references
 #' Efron, B., & Tibshirani, R. J. (1993)
@@ -59,21 +95,39 @@
 #' @export
 NB <- function(object,
                R = 5000L,
-               seed = NULL) {
+               seed = NULL,
+               type = c("pairs", "wild"),
+               weights = c("rademacher", "mammen", "webb", "normal"),
+               hc = c("hc3", "hc0", "hc1", "hc2", "hc4", "hc4m", "hc5"),
+               x = c("random", "fixed")) {
   stopifnot(
     inherits(
       x = object,
       what = "lm"
     )
   )
-  if (!is.null(seed)) {
-    set.seed(seed)
+  type <- match.arg(arg = type)
+  weights <- match.arg(arg = weights)
+  hc <- match.arg(arg = hc)
+  x <- match.arg(arg = x)
+  if (!is.null(x = seed)) {
+    set.seed(seed = seed)
   }
-  lm_process <- .ProcessLM(object)
-  thetahatstar <- .NBVechCovDraws(
-    x = lm_process$x,
-    R = R
-  )
+  lm_process <- .ProcessLM(object = object)
+  if (type == "wild") {
+    thetahatstar <- .NBWildVechCovDraws(
+      lm_process = lm_process,
+      R = R,
+      weights = weights,
+      hc = hc,
+      x = x
+    )
+  } else {
+    thetahatstar <- .NBVechCovDraws(
+      x = lm_process$x,
+      R = R
+    )
+  }
   jackknife <- .JackknifeVechCov(
     x = lm_process$x
   )
@@ -82,7 +136,11 @@ NB <- function(object,
     args = list(
       object = object,
       R = R,
-      seed = seed
+      seed = seed,
+      type = type,
+      weights = weights,
+      hc = hc,
+      x = x
     ),
     lm_process = lm_process,
     thetahatstar = thetahatstar,
@@ -96,9 +154,9 @@ NB <- function(object,
       lm_process = lm_process
     )
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "nb",
-    class(out)
+    class(x = out)
   )
   out
 }

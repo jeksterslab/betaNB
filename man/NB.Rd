@@ -5,7 +5,15 @@
 \title{Generate the Sampling Distribution of Sample Covariances
 Using Nonparametric Bootstrapping}
 \usage{
-NB(object, R = 5000L, seed = NULL)
+NB(
+  object,
+  R = 5000L,
+  seed = NULL,
+  type = c("pairs", "wild"),
+  weights = c("rademacher", "mammen", "webb", "normal"),
+  hc = c("hc3", "hc0", "hc1", "hc2", "hc4", "hc4m", "hc5"),
+  x = c("random", "fixed")
+)
 }
 \arguments{
 \item{object}{Object of class \code{lm}.}
@@ -15,6 +23,46 @@ Number of bootstrap replications.}
 
 \item{seed}{Integer.
 Seed number for reproducibility.}
+
+\item{type}{Character string.
+Bootstrap sampler.
+\code{"pairs"} (default) resamples the rows of the data
+(nonparametric bootstrap).
+\code{"wild"} is the wild bootstrap, which generates
+\eqn{y_i^{*} = \mathbf{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
+f(h_i) e_i v_i},
+where \eqn{e_i} is the residual,
+\eqn{h_i} is the leverage,
+\eqn{v_i} is a random weight with mean 0 and variance 1,
+and \eqn{f(h_i)} is set by \code{hc}.
+The arguments \code{weights}, \code{hc}, and \code{x} are used only
+with \code{type = "wild"}.}
+
+\item{weights}{Character string.
+Distribution of \eqn{v_i}:
+\code{"rademacher"} (default; -1 or 1 with equal probability),
+\code{"mammen"} (two-point distribution with third moment 1),
+\code{"webb"} (six-point distribution),
+or \code{"normal"} (standard normal).}
+
+\item{hc}{Character string.
+Adjustment of the residuals,
+with the same definitions as the heteroskedasticity-consistent
+sampling covariance matrices of \code{betaSandwich}:
+\code{"hc3"} (default), \code{"hc0"}, \code{"hc1"}, \code{"hc2"}, \code{"hc4"}, \code{"hc4m"},
+or \code{"hc5"}.
+A leverage equal to 1 is an error for every type except
+\code{"hc0"} and \code{"hc1"}.}
+
+\item{x}{Character string.
+\code{"random"} (default) resamples the rows
+\eqn{\left( \mathbf{x}_i, f(h_i) e_i \right)} together
+before the weights are applied,
+so the sampling variability of the regressors is kept.
+\code{"fixed"} keeps the regressors of the data in every sample
+(conditional wild bootstrap);
+the covariance matrix of the regressors is then the same
+in every sample.}
 }
 \value{
 Returns an object

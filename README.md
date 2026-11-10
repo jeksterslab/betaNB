@@ -1,32 +1,31 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-05
+2026-11-10
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <!-- badges: start -->
-
-[![CRAN
-Status](https://www.r-pkg.org/badges/version/betaNB)](https://cran.r-project.org/package=betaNB)
-[![R-Universe
-Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev)
-[![Make
-Project](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml)
-[![R-CMD-check-standard](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml)
-[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml)
-[![R Package Test
-Coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml)
-[![Lint R
-Package](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml)
-[![Package Website (GitHub
-Pages)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml)
-[![Compile
-LaTeX](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml)
-[![Shell
-Check](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml)
+[![CRAN Status](https://www.r-pkg.org/badges/version/betaNB)](https://cran.r-project.org/package=betaNB)
+[![R-Universe Status](https://jeksterslab.r-universe.dev/badges/betaNB)](https://jeksterslab.r-universe.dev)
 [![pages-build-deployment](https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/jeksterslab/betaNB/branch/main/graph/badge.svg?token=KVLUET3DJ6)](https://codecov.io/gh/jeksterslab/betaNB)
+[![Make Project (make all)](https://github.com/jeksterslab/betaNB/actions/workflows/make-all.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make-all.yml)
+[![Make Project](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/make.yml)
+[![R-CMD-check-full](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-full.yml)
+[![R-CMD-check-oldrel](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-oldrel.yml)
+[![R-CMD-check-standard](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/check-standard.yml)
+[![Compile LaTeX](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/latex.yml)
+[![Lint R Package](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/lint.yml)
+[![Non-ASCII Check](https://github.com/jeksterslab/betaNB/actions/workflows/non-ascii-check.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/non-ascii-check.yml)
+[![Package Website (GitHub Pages)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/pkgdown-gh-pages.yml)
+[![rhub 1 (essential)](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-1-essential.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-1-essential.yml)
+[![rhub 2 (memory)](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-2-memory.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-2-memory.yml)
+[![rhub 3 (numerics), review only](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-3-numerics.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-3-numerics.yml)
+[![rhub 4 (compilers), review only](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-4-compilers.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/rhub-4-compilers.yml)
+[![Shell Check](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/shellcheck.yml)
+[![Source Code](https://github.com/jeksterslab/betaNB/actions/workflows/source.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/source.yml)
+[![R Package Test Coverage](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/jeksterslab/betaNB/actions/workflows/test-coverage.yml)
 <!-- badges: end -->
 
 ## Description
@@ -99,9 +98,9 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0721 5000 0.3548 0.6395
-#> PCTGRT  0.3915 0.0751 5000 0.2420 0.5344
-#> PCTSUPP 0.2632 0.0788 5000 0.1039 0.4144
+#> NARTIC  0.4951 0.0738 5000 0.3524 0.6423
+#> PCTGRT  0.3915 0.0773 5000 0.2327 0.5362
+#> PCTSUPP 0.2632 0.0797 5000 0.1045 0.4159
 ```
 
 ### Other Effect Sizes
@@ -124,8 +123,8 @@ RSqNB(nb, alpha = 0.05)
 #> R-squared and adjusted R-squared
 #> type = "pc"
 #>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0521 5000 0.6938 0.8980
-#> adj 0.7906 0.0559 5000 0.6719 0.8907
+#> rsq 0.8045 0.0525 5000 0.6924 0.8948
+#> adj 0.7906 0.0563 5000 0.6704 0.8873
 ```
 
 #### Improvement in R-squared
@@ -138,9 +137,9 @@ DeltaRSqNB(nb, alpha = 0.05)
 #> Improvement in R-squared
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0590 5000 0.0799 0.3134
-#> PCTGRT  0.1177 0.0477 5000 0.0373 0.2192
-#> PCTSUPP 0.0569 0.0337 5000 0.0089 0.1362
+#> NARTIC  0.1859 0.0604 5000 0.0811 0.3132
+#> PCTGRT  0.1177 0.0495 5000 0.0343 0.2283
+#> PCTSUPP 0.0569 0.0340 5000 0.0083 0.1399
 ```
 
 #### Semipartial Correlation Coefficients
@@ -153,9 +152,9 @@ SCorNB(nb, alpha = 0.05)
 #> Semipartial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0696 5000 0.2826 0.5598
-#> PCTGRT  0.3430 0.0709 5000 0.1932 0.4682
-#> PCTSUPP 0.2385 0.0708 5000 0.0945 0.3690
+#> NARTIC  0.4312 0.0710 5000 0.2848 0.5597
+#> PCTGRT  0.3430 0.0736 5000 0.1853 0.4778
+#> PCTSUPP 0.2385 0.0714 5000 0.0910 0.3740
 ```
 
 #### Squared Partial Correlation Coefficients
@@ -168,9 +167,9 @@ PCorNB(nb, alpha = 0.05)
 #> Squared partial correlations
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0988 5000 0.2842 0.6729
-#> PCTGRT  0.3757 0.1060 5000 0.1617 0.5855
-#> PCTSUPP 0.2254 0.1144 5000 0.0414 0.4759
+#> NARTIC  0.4874 0.0993 5000 0.2750 0.6664
+#> PCTGRT  0.3757 0.1092 5000 0.1565 0.5804
+#> PCTSUPP 0.2254 0.1138 5000 0.0412 0.4747
 ```
 
 #### Differences of Standardized Regression Coefficients
@@ -183,9 +182,9 @@ DiffBetaNB(nb, alpha = 0.05)
 #> Differences of standardized regression slopes
 #> type = "pc"
 #>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1300 5000 -0.1484 0.3646
-#> NARTIC-PCTSUPP 0.2319 0.1238 5000 -0.0105 0.4817
-#> PCTGRT-PCTSUPP 0.1282 0.1252 5000 -0.1133 0.3776
+#> NARTIC-PCTGRT  0.1037 0.1333 5000 -0.1546 0.3703
+#> NARTIC-PCTSUPP 0.2319 0.1262 5000 -0.0120 0.4866
+#> PCTGRT-PCTSUPP 0.1282 0.1276 5000 -0.1179 0.3892
 ```
 
 ## Documentation

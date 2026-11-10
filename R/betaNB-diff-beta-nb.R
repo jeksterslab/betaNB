@@ -76,8 +76,8 @@ DiffBetaNB <- function(object,
     betastar = object$es_jackknife$betastar,
     lm_process = object$lm_process
   )
-  vcov <- stats::var(thetahatstar)
-  colnames(vcov) <- rownames(vcov) <- names(est)
+  vcov <- stats::var(x = thetahatstar)
+  colnames(x = vcov) <- rownames(x = vcov) <- names(x = est)
   out <- list(
     call = match.call(),
     args = list(
@@ -90,9 +90,9 @@ DiffBetaNB <- function(object,
     est = est,
     fun = fun
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "betanb",
-    class(out)
+    class(x = out)
   )
   out
 }

@@ -15,7 +15,8 @@
 .DiffBetaMat <- function(betastar,
                          lm_process) {
   idx <- lm_process$dif_idx
-  out <- betastar[, idx[1, ], drop = FALSE] - betastar[, idx[2, ], drop = FALSE]
-  colnames(out) <- names(lm_process$dif_betastar)
+  out <- betastar[, idx[1, ], drop = FALSE] -
+    betastar[, idx[2, ], drop = FALSE]
+  colnames(x = out) <- names(x = lm_process$dif_betastar)
   out
 }

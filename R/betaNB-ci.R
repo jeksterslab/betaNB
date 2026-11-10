@@ -15,7 +15,8 @@
 #'   Confidence interval type, that is,
 #'   `type = "pc"` for percentile;
 #'   `type = "bc"` for bias corrected;
-#'   `type = "bca"` for bias corrected and accelerated.
+#'   `type = "bca"` for bias corrected and accelerated;
+#'   `type = "mpc"` for modified percentile (Delta R-squared only).
 #'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB ci internal
@@ -23,14 +24,18 @@
 .CI <- function(object,
                 alpha = NULL,
                 type = "pc") {
-  if (is.null(alpha)) {
+  if (is.null(x = alpha)) {
     alpha <- object$args$alpha
   }
-  .CIMat(
-    thetahatstar = object$thetahatstar,
-    thetahat = object$est,
-    alpha = alpha,
-    type = type,
-    jackknife = object$jackknife
-  )
+  if (type == "mpc") {
+    .MPCCIMat(object = object, alpha = alpha)
+  } else {
+    .CIMat(
+      thetahatstar = object$thetahatstar,
+      thetahat = object$est,
+      alpha = alpha,
+      type = type,
+      jackknife = object$jackknife
+    )
+  }
 }

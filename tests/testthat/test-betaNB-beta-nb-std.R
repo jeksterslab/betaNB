@@ -4,44 +4,48 @@ lapply(
   FUN = function(i,
                  text,
                  tol) {
+    testthat::skip_on_cran()
     message(text)
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
-    set.seed(42)
+    set.seed(seed = 42)
     n <- 200
-    x1 <- rnorm(n)
-    x2 <- rbinom(n, size = 1, prob = 0.4)
-    x3 <- rnorm(n) + 0.5 * x1
-    y <- 0.4 * x1 + 0.3 * x2 - 0.2 * x3 + rnorm(n)
+    x1 <- stats::rnorm(n = n)
+    x2 <- stats::rbinom(n = n, size = 1, prob = 0.4)
+    x3 <- stats::rnorm(n = n) + 0.5 * x1
+    y <- 0.4 * x1 + 0.3 * x2 - 0.2 * x3 + stats::rnorm(n = n)
     df <- data.frame(y = y, x1 = x1, x2 = x2, x3 = x3)
-    object <- lm(y ~ x1 + x2 + x3, data = df)
-    b <- coef(object)[-1]
-    sds <- sapply(df, sd)
+    object <- stats::lm(formula = y ~ x1 + x2 + x3, data = df)
+    b <- stats::coef(object = object)[-1]
+    sds <- sapply(X = df, FUN = stats::sd)
     testthat::test_that(
-      paste(text, "selective standardization"),
-      {
-        testthat::skip_on_cran()
-        nb <- NB(object, R = 1000L, seed = 42)
-        raw <- BetaNB(nb, std_y = FALSE, std_x = character(0))
-        testthat::expect_true(all(abs(coef(raw) - b) <= tol))
-        dummy <- BetaNB(nb, std_x = c("x1", "x3"))
-        testthat::expect_true(
-          abs(coef(dummy)["x2"] - b["x2"] / sds["y"]) <= tol
+      desc = paste(text, "selective standardization"),
+      code = {
+        nb <- NB(object = object, R = 1000L, seed = 42)
+        raw <- BetaNB(
+          object = nb,
+          std_y = FALSE,
+          std_x = character(length = 0)
         )
         testthat::expect_true(
-          all(
+          object = all(abs(x = stats::coef(object = raw) - b) <= tol)
+        )
+        dummy <- BetaNB(object = nb, std_x = c("x1", "x3"))
+        testthat::expect_true(
+          object = abs(
+            x = stats::coef(object = dummy)["x2"] - b["x2"] / sds["y"]
+          ) <= tol
+        )
+        testthat::expect_true(
+          object = all(
             abs(
-              sqrt(diag(vcov(raw))) / sqrt(diag(vcov(object)))[-1] - 1
+              x = sqrt(
+                x = diag(x = stats::vcov(object = raw))
+              ) / sqrt(x = diag(x = stats::vcov(object = object)))[-1] - 1
             ) <= 0.15
           )
         )
         for (type in c("pc", "bc", "bca")) {
-          ci <- confint(raw, type = type)
-          testthat::expect_true(all(ci[, 1] < b & b < ci[, 2]))
+          ci <- stats::confint(object = raw, type = type)
+          testthat::expect_true(object = all(ci[, 1] < b & b < ci[, 2]))
         }
       }
     )

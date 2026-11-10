@@ -24,9 +24,9 @@
     k = lm_process$k
   )
   varnames <- lm_process$xnames
-  colnames(es$betastar) <- varnames
-  colnames(es$spcor) <- varnames
-  colnames(es$pcorsq) <- varnames
+  colnames(x = es$betastar) <- varnames
+  colnames(x = es$spcor) <- varnames
+  colnames(x = es$pcorsq) <- varnames
   es$rsq <- matrix(
     data = es$rsq,
     ncol = 1
