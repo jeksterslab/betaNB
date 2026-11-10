@@ -15,13 +15,13 @@ vcov(object, ...)
 - object:
 
   Object of Class `betanb`, that is, the output of the
-  [`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md),
-  [`RSqNB()`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md),
-  [`SCorNB()`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md),
-  [`DeltaRSqNB()`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md),
-  [`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md),
+  [`BetaNB()`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md),
+  [`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
+  [`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md),
+  [`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md),
+  [`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
   or
-  [`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md)
+  [`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md)
   functions.
 
 - ...:

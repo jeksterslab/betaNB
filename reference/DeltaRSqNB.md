@@ -6,7 +6,7 @@ Sampling Distribution Using Nonparametric Bootstrapping
 ## Usage
 
 ``` r
-DeltaRSqNB(object, alpha = c(0.05, 0.01, 0.001))
+DeltaRSqNB(object, alpha = c(0.05, 0.01, 0.001), adj = FALSE)
 ```
 
 ## Arguments
@@ -14,12 +14,17 @@ DeltaRSqNB(object, alpha = c(0.05, 0.01, 0.001))
 - object:
 
   Object of class `nb`, that is, the output of the
-  [`NB()`](https://github.com/jeksterslab/betaNB/reference/NB.md)
+  [`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md)
   function.
 
 - alpha:
 
   Numeric vector. Significance level \\(\alpha\\).
+
+- adj:
+
+  Logical. Use differences in adjusted R-squared. Default `FALSE`
+  preserves unadjusted estimates and output.
 
 ## Value
 
@@ -48,7 +53,7 @@ elements:
 
 - fun:
 
-  Function used ("DeltaRSqNB").
+  Estimator label: `"DeltaRSqNB"` or `"DeltaRSqAdjNB"`.
 
 ## Details
 
@@ -58,16 +63,60 @@ percentiles corresponding to \\(100(1 - \alpha)\\%\\) from the generated
 sampling distribution of \\(\Delta R^{2}\\), where \\(\alpha\\) is the
 significance level.
 
+With `adj = TRUE`, estimates and draws are differences between the
+adjusted R-squared values of the full model and the model without each
+regressor. The population target remains the unadjusted increment.
+Negative adjusted estimates and draws are retained.
+
+With `type = "mpc"` in
+[`confint()`](https://rdrr.io/r/stats/confint.html) or
+[`summary()`](https://rdrr.io/r/base/summary.html), an unadjusted lower
+limit is set to zero when the sample F test is nonsignificant. For
+adjusted estimates, a nonpositive percentile lower limit becomes `.001`
+if significant, or zero if nonsignificant; positive lower limits are
+retained. Upper limits are unchanged, without clipping. Both modes use
+the unadjusted sample F statistic and test at the interval's error
+probability `alpha` (equality is nonsignificant).
+
+These lower-limit rules follow Algina et al. (2007, p. 210; 2008, pp.
+735, 737; 2008a, pp. 3–5; 2010, pp. 928–929, 931–932). Unlike their
+ranked endpoints, betaNB retains its ordinary interpolated percentile
+calculation. Their studies used pairs resampling; coverage for wild
+draws or heteroskedastic F testing is not established by those studies.
+
+## References
+
+Algina, J., Keselman, H. J., & Penfield, R. D. (2007). Confidence
+intervals for an effect size measure in multiple linear regression.
+[doi:10.1177/0013164406292030](https://doi.org/10.1177/0013164406292030)
+.
+
+Algina, J., Keselman, H. J., & Penfield, R. D. (2008). Note on a
+confidence interval for the squared semipartial correlation coefficient.
+[doi:10.1177/0013164407313371](https://doi.org/10.1177/0013164407313371)
+.
+
+Algina, J., Keselman, H. J., & Penfield, R. D. (2008a). Confidence
+intervals for the squared multiple semipartial correlation coefficient.
+[doi:10.22237/jmasm/1209614460](https://doi.org/10.22237/jmasm/1209614460)
+.
+
+Algina, J., Keselman, H. J., & Penfield, R. D. (2010). Confidence
+intervals for squared semipartial correlation coefficients: The effect
+of nonnormality.
+[doi:10.1177/0013164410379335](https://doi.org/10.1177/0013164410379335)
+.
+
 ## See also
 
 Other Beta Nonparametric Bootstrap Functions:
-[`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md),
-[`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md),
-[`FSqNB()`](https://github.com/jeksterslab/betaNB/reference/FSqNB.md),
-[`NB()`](https://github.com/jeksterslab/betaNB/reference/NB.md),
-[`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md),
-[`RSqNB()`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md),
-[`SCorNB()`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)
+[`BetaNB()`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md),
+[`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md),
+[`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md),
+[`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md),
+[`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
+[`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
 
 ## Author
 
@@ -126,4 +175,15 @@ confint(out, level = 0.95)
 #> NARTIC  0.079688018 0.2944650
 #> PCTGRT  0.037358975 0.2216272
 #> PCTSUPP 0.009079169 0.1395662
+confint(out, level = 0.95, type = "mpc")
+#>               2.5 %    97.5 %
+#> NARTIC  0.079688018 0.2944650
+#> PCTGRT  0.037358975 0.2216272
+#> PCTSUPP 0.009079169 0.1395662
+adjusted <- DeltaRSqNB(nb, alpha = 0.05, adj = TRUE)
+confint(adjusted, level = 0.95, type = "mpc")
+#>              2.5 %    97.5 %
+#> NARTIC  0.07846053 0.3026643
+#> PCTGRT  0.03560112 0.2264941
+#> PCTSUPP 0.00476836 0.1411020
 ```

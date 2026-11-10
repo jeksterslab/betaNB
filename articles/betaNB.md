@@ -56,14 +56,14 @@ number of published articles attributed to the program faculty members
 ratings of 46 doctoral programs in psychology in the USA
 \[@NationalResearchCouncil-1982\]. Confidence intervals for the
 standardized regression coefficients are generated using the
-[`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md)
+[`BetaNB()`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md)
 function from the `betaNB` package.
 
 \
 [`library`](https://rdrr.io/r/base/library.html)`(`[`betaNB`](https://github.com/jeksterslab/betaNB)`)`
 
 \
-`df`` ``<-`` ``betaNB``::`[`nas1982`](https://github.com/jeksterslab/betaNB/reference/nas1982.md)
+`df`` ``<-`` ``betaNB``::`[`nas1982`](https://jeksterslab.github.io/betaNB/reference/nas1982.md)
 
 ### Regression
 
@@ -76,12 +76,12 @@ Fit the regression model using the
 ### Nonparametric Bootstrap
 
 \
-`nb`` ``<-`` `[`NB`](https://github.com/jeksterslab/betaNB/reference/NB.md)`(``object``)`
+`nb`` ``<-`` `[`NB`](https://jeksterslab.github.io/betaNB/reference/NB.md)`(``object``)`
 
 ### Standardized Regression Slopes
 
 \
-[`BetaNB`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+[`BetaNB`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> BetaNB(object = nb, alpha = 0.05)`\
 `#> `\
@@ -96,22 +96,21 @@ Fit the regression model using the
 
 The `betaNB` package also has functions to generate nonparametric
 bootstrap confidence intervals for other effect sizes such as
-[`RSqNB()`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md)
-for multiple correlation coefficients (R-squared and adjusted
-R-squared),
-[`DeltaRSqNB()`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md)
+[`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md) for
+multiple correlation coefficients (R-squared and adjusted R-squared),
+[`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md)
 for improvement in R-squared,
-[`SCorNB()`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
 for semipartial correlation coefficients,
-[`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md)
+[`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md)
 for squared partial correlation coefficients, and
-[`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md)
+[`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md)
 for differences of standardized regression coefficients.
 
 #### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
 
 \
-[`RSqNB`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+[`RSqNB`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> RSqNB(object = nb, alpha = 0.05)`\
 `#> `\
@@ -124,7 +123,7 @@ for differences of standardized regression coefficients.
 #### Improvement in R-squared
 
 \
-[`DeltaRSqNB`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+[`DeltaRSqNB`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> DeltaRSqNB(object = nb, alpha = 0.05)`\
 `#> `\
@@ -138,7 +137,7 @@ for differences of standardized regression coefficients.
 #### Semipartial Correlation Coefficients
 
 \
-[`SCorNB`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+[`SCorNB`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> SCorNB(object = nb, alpha = 0.05)`\
 `#> `\
@@ -152,7 +151,7 @@ for differences of standardized regression coefficients.
 #### Squared Partial Correlation Coefficients
 
 \
-[`PCorNB`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+[`PCorNB`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> PCorNB(object = nb, alpha = 0.05)`\
 `#> `\
@@ -166,7 +165,7 @@ for differences of standardized regression coefficients.
 #### Differences of Standardized Regression Coefficients
 
 \
-[`DiffBetaNB`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+[`DiffBetaNB`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> DiffBetaNB(object = nb, alpha = 0.05)`\
 `#> `\

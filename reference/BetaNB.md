@@ -14,7 +14,7 @@ BetaNB(object, alpha = c(0.05, 0.01, 0.001), std_y = TRUE, std_x = NULL)
 - object:
 
   Object of class `nb`, that is, the output of the
-  [`NB()`](https://github.com/jeksterslab/betaNB/reference/NB.md)
+  [`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md)
   function.
 
 - alpha:
@@ -79,13 +79,13 @@ the significance level.
 ## See also
 
 Other Beta Nonparametric Bootstrap Functions:
-[`DeltaRSqNB()`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md),
-[`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md),
-[`FSqNB()`](https://github.com/jeksterslab/betaNB/reference/FSqNB.md),
-[`NB()`](https://github.com/jeksterslab/betaNB/reference/NB.md),
-[`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md),
-[`RSqNB()`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md),
-[`SCorNB()`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)
+[`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md),
+[`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md),
+[`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md),
+[`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md),
+[`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
+[`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
 
 ## Author
 

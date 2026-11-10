@@ -6,7 +6,15 @@ Nonparametric Bootstrapping
 ## Usage
 
 ``` r
-NB(object, R = 5000L, seed = NULL)
+NB(
+  object,
+  R = 5000L,
+  seed = NULL,
+  type = c("pairs", "wild"),
+  weights = c("rademacher", "mammen", "webb", "normal"),
+  hc = c("hc3", "hc0", "hc1", "hc2", "hc4", "hc4m", "hc5"),
+  x = c("random", "fixed")
+)
 ```
 
 ## Arguments
@@ -22,6 +30,40 @@ NB(object, R = 5000L, seed = NULL)
 - seed:
 
   Integer. Seed number for reproducibility.
+
+- type:
+
+  Character string. Bootstrap sampler. `"pairs"` (default) resamples the
+  rows of the data (nonparametric bootstrap). `"wild"` is the wild
+  bootstrap, which generates \\(y_i^{\*} = \mathbf{x}\_i^{\prime}
+  \hat{\boldsymbol{\beta}} + f(h_i) e_i v_i\\), where \\(e_i\\) is the
+  residual, \\(h_i\\) is the leverage, \\(v_i\\) is a random weight with
+  mean 0 and variance 1, and \\(f(h_i)\\) is set by `hc`. The arguments
+  `weights`, `hc`, and `x` are used only with `type = "wild"`.
+
+- weights:
+
+  Character string. Distribution of \\(v_i\\): `"rademacher"` (default;
+  -1 or 1 with equal probability), `"mammen"` (two-point distribution
+  with third moment 1), `"webb"` (six-point distribution), or `"normal"`
+  (standard normal).
+
+- hc:
+
+  Character string. Adjustment of the residuals, with the same
+  definitions as the heteroskedasticity-consistent sampling covariance
+  matrices of `betaSandwich`: `"hc3"` (default), `"hc0"`, `"hc1"`,
+  `"hc2"`, `"hc4"`, `"hc4m"`, or `"hc5"`. A leverage equal to 1 is an
+  error for every type except `"hc0"` and `"hc1"`.
+
+- x:
+
+  Character string. `"random"` (default) resamples the rows \\(\left(
+  \mathbf{x}\_i, f(h_i) e_i \right)\\) together before the weights are
+  applied, so the sampling variability of the regressors is kept.
+  `"fixed"` keeps the regressors of the data in every sample
+  (conditional wild bootstrap); the covariance matrix of the regressors
+  is then the same in every sample.
 
 ## Value
 
@@ -66,13 +108,13 @@ bootstrap*. Chapman & Hall.
 ## See also
 
 Other Beta Nonparametric Bootstrap Functions:
-[`BetaNB()`](https://github.com/jeksterslab/betaNB/reference/BetaNB.md),
-[`DeltaRSqNB()`](https://github.com/jeksterslab/betaNB/reference/DeltaRSqNB.md),
-[`DiffBetaNB()`](https://github.com/jeksterslab/betaNB/reference/DiffBetaNB.md),
-[`FSqNB()`](https://github.com/jeksterslab/betaNB/reference/FSqNB.md),
-[`PCorNB()`](https://github.com/jeksterslab/betaNB/reference/PCorNB.md),
-[`RSqNB()`](https://github.com/jeksterslab/betaNB/reference/RSqNB.md),
-[`SCorNB()`](https://github.com/jeksterslab/betaNB/reference/SCorNB.md)
+[`BetaNB()`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md),
+[`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md),
+[`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md),
+[`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md),
+[`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
+[`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
 
 ## Author
 

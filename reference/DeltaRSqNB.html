@@ -25,7 +25,7 @@ Using Nonparametric Bootstrapping"></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="nav-link" href="https://github.com/jeksterslab/betaNB/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/jeksterslab/betaNB/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -35,7 +35,7 @@ Using Nonparametric Bootstrapping"></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Estimate Improvement in R-Squared and Generate the Corresponding Sampling Distribution Using Nonparametric Bootstrapping</h1>
-      <small class="dont-index">Source: <a href="https://github.com/jeksterslab/betaNB/blob/main/R/betaNB-delta-r-sq-nb.R"><code>R/betaNB-delta-r-sq-nb.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/jeksterslab/betaNB/blob/main/R/betaNB-delta-r-sq-nb.R" class="external-link"><code>R/betaNB-delta-r-sq-nb.R</code></a></small>
       <div class="d-none name"><code>DeltaRSqNB.Rd</code></div>
     </div>
 
@@ -47,7 +47,7 @@ Using Nonparametric Bootstrapping</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">DeltaRSqNB</span><span class="op">(</span><span class="va">object</span>, alpha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">DeltaRSqNB</span><span class="op">(</span><span class="va">object</span>, alpha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span><span class="op">)</span>, adj <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,6 +62,11 @@ the output of the <code><a href="NB.html">NB()</a></code> function.</p></dd>
 <dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
 <dd><p>Numeric vector.
 Significance level \(\alpha\).</p></dd>
+
+
+<dt id="arg-adj">adj<a class="anchor" aria-label="anchor" href="#arg-adj"></a></dt>
+<dd><p>Logical. Use differences in adjusted R-squared.
+Default <code>FALSE</code> preserves unadjusted estimates and output.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -86,7 +91,7 @@ of class <code>betanb</code> which is a list with the following elements:</p><dl
 \(\Delta R^{2}\).</p></dd>
 
 <dt>fun</dt>
-<dd><p>Function used ("DeltaRSqNB").</p></dd>
+<dd><p>Estimator label: <code>"DeltaRSqNB"</code> or <code>"DeltaRSqAdjNB"</code>.</p></dd>
 
 
 </dl></div>
@@ -100,6 +105,42 @@ percentiles corresponding to \(100(1 - \alpha)\%\)
 from the generated sampling
 distribution of \(\Delta R^{2}\),
 where \(\alpha\) is the significance level.</p>
+<p>With <code>adj = TRUE</code>, estimates and draws are differences between the
+adjusted R-squared values of the full model and the model without
+each regressor. The population target remains the unadjusted increment.
+Negative adjusted estimates and draws are retained.</p>
+<p>With <code>type = "mpc"</code> in <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code> or <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, an unadjusted
+lower limit is set to zero when the sample F test is nonsignificant.
+For adjusted estimates, a nonpositive percentile lower limit becomes
+<code>.001</code> if significant, or zero if nonsignificant; positive lower
+limits are retained. Upper limits are unchanged, without clipping.
+Both modes use the unadjusted sample F statistic and test at the
+interval's error probability <code>alpha</code> (equality is nonsignificant).</p>
+<p>These lower-limit rules follow Algina et al. (2007, p. 210;
+2008, pp. 735, 737; 2008a, pp. 3–5; 2010, pp. 928–929, 931–932).
+Unlike their ranked endpoints, betaNB retains its ordinary
+interpolated percentile calculation. Their studies used pairs
+resampling; coverage for wild draws or heteroskedastic F testing
+is not established by those studies.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
+    <p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2007).
+Confidence intervals for an effect size measure in multiple linear
+regression. <a href="https://doi.org/10.1177/0013164406292030" class="external-link">doi:10.1177/0013164406292030</a>
+.</p>
+<p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2008).
+Note on a confidence interval for the squared semipartial correlation
+coefficient. <a href="https://doi.org/10.1177/0013164407313371" class="external-link">doi:10.1177/0013164407313371</a>
+.</p>
+<p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2008a).
+Confidence intervals for the squared multiple semipartial correlation
+coefficient. <a href="https://doi.org/10.22237/jmasm/1209614460" class="external-link">doi:10.22237/jmasm/1209614460</a>
+.</p>
+<p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2010).
+Confidence intervals for squared semipartial correlation coefficients:
+The effect of nonnormality. <a href="https://doi.org/10.1177/0013164410379335" class="external-link">doi:10.1177/0013164410379335</a>
+.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -169,6 +210,17 @@ where \(\alpha\) is the significance level.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.079688018 0.2944650</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.037358975 0.2216272</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.009079169 0.1395662</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"mpc"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               2.5 %    97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.079688018 0.2944650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.037358975 0.2216272</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.009079169 0.1395662</span>
+<span class="r-in"><span><span class="va">adjusted</span> <span class="op">&lt;-</span> <span class="fu">DeltaRSqNB</span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span>, adj <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adjusted</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"mpc"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              2.5 %    97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.07846053 0.3026643</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.03560112 0.2264941</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.00476836 0.1411020</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -177,7 +229,7 @@ where \(\alpha\) is the significance level.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Ivan Jacob Agaloos Pesigan.</p>
+  <p>Ivan Jacob Agaloos Pesigan, <a href="https://hhd.psu.edu/hdfs" class="external-link">Department of Human Development and Family Studies</a>, The Pennsylvania State University</p>
 </div>
 
 <div class="pkgdown-footer-right">

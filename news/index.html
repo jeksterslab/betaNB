@@ -21,7 +21,7 @@
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="nav-link" href="https://github.com/jeksterslab/betaNB/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/jeksterslab/betaNB/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -31,17 +31,19 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/jeksterslab/betaNB/blob/main/NEWS.md"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/jeksterslab/betaNB/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.7.9000" id="betanb-1079000">betaNB 1.0.7.9000<a class="anchor" aria-label="anchor" href="#betanb-1079000"></a></h2>
 <div class="section level3">
 <h3 id="minor-1-0-7-9000">Minor<a class="anchor" aria-label="anchor" href="#minor-1-0-7-9000"></a></h3>
-<ul><li>New <code><a href="../reference/FSqNB.html">FSqNB()</a></code>: Cohen’s f-squared and the local f-squared of each regressor.</li>
-<li>Faster bootstrap: the bootstrap and jackknife covariance matrices (closed-form leave-one-out) and the effect sizes are computed in C++ (Rcpp, RcppArmadillo), once per <code><a href="../reference/NB.html">NB()</a></code> call. The bootstrap samples are the same as before for the same seed.</li>
-<li>The <code>thetahatstar</code> and <code>jackknife</code> elements of <code>nb</code> and <code>betanb</code> objects are now matrices (one draw per row) instead of lists. <code>nb</code> objects also hold <code>es</code> and <code>es_jackknife</code>.</li>
-<li>Selective standardization: the arguments <code>std_y</code> and <code>std_x</code> standardize only y or only the named regressors (for example, leave a dummy variable in its 0-1 units). The defaults give the same results as before.</li>
+<ul><li><p><code><a href="../reference/DeltaRSqNB.html">DeltaRSqNB()</a></code> gains <code>adj = TRUE</code> for differences in adjusted R-squared. <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> gain <code>type = "mpc"</code> for modified percentile intervals of Delta R-squared (sr2), unadjusted or adjusted. The sample F test uses the interval’s alpha and the unadjusted increment. Upper limits and ordinary percentile interpolation are unchanged. Existing defaults and <code>"pc"</code>, <code>"bc"</code>, <code>"bca"</code> intervals are unchanged.</p></li>
+<li><p><code><a href="../reference/NB.html">NB()</a></code> gains the wild bootstrap: <code>type = "wild"</code> (default <code>"pairs"</code>, unchanged), with <code>weights</code> (<code>"rademacher"</code>, <code>"mammen"</code>, <code>"webb"</code>, <code>"normal"</code>), <code>hc</code> (<code>"hc3"</code>, <code>"hc0"</code>, <code>"hc1"</code>, <code>"hc2"</code>, <code>"hc4"</code>, <code>"hc4m"</code>, <code>"hc5"</code>; the same leverage adjustments as betaSandwich), and <code>x</code> (<code>"random"</code> resamples the regressors with their residuals, <code>"fixed"</code> keeps them). The effect size functions and intervals work on the wild draws unchanged. The sampler is in R for now.</p></li>
+<li><p>New <code><a href="../reference/FSqNB.html">FSqNB()</a></code>: Cohen’s f-squared and the local f-squared of each regressor.</p></li>
+<li><p>Faster bootstrap: the bootstrap and jackknife covariance matrices (closed-form leave-one-out) and the effect sizes are computed in C++ (Rcpp, RcppArmadillo), once per <code><a href="../reference/NB.html">NB()</a></code> call. The bootstrap samples are the same as before for the same seed.</p></li>
+<li><p>The <code>thetahatstar</code> and <code>jackknife</code> elements of <code>nb</code> and <code>betanb</code> objects are now matrices (one draw per row) instead of lists. <code>nb</code> objects also hold <code>es</code> and <code>es_jackknife</code>.</p></li>
+<li><p>Selective standardization: the arguments <code>std_y</code> and <code>std_x</code> standardize only y or only the named regressors (for example, leave a dummy variable in its 0-1 units). The defaults give the same results as before.</p></li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -105,7 +107,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Ivan Jacob Agaloos Pesigan.</p>
+  <p>Ivan Jacob Agaloos Pesigan, <a href="https://hhd.psu.edu/hdfs" class="external-link">Department of Human Development and Family Studies</a>, The Pennsylvania State University</p>
 </div>
 
 <div class="pkgdown-footer-right">
