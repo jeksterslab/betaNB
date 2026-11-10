@@ -13,6 +13,26 @@
 #'   distribution of \eqn{\Delta R^{2}},
 #'   where \eqn{\alpha} is the significance level.
 #'
+#'   With `adj = TRUE`, estimates and draws are differences between the
+#'   adjusted R-squared values of the full model and the model without
+#'   each regressor. The population target remains the unadjusted increment.
+#'   Negative adjusted estimates and draws are retained.
+#'
+#'   With `type = "mpc"` in [confint()] or [summary()], an unadjusted
+#'   lower limit is set to zero when the sample F test is nonsignificant.
+#'   For adjusted estimates, a nonpositive percentile lower limit becomes
+#'   `.001` if significant, or zero if nonsignificant; positive lower
+#'   limits are retained. Upper limits are unchanged, without clipping.
+#'   Both modes use the unadjusted sample F statistic and test at the
+#'   interval's error probability `alpha` (equality is nonsignificant).
+#'
+#'   These lower-limit rules follow Algina et al. (2007, p. 210;
+#'   2008, pp. 735, 737; 2008a, pp. 3--5; 2010, pp. 928--929, 931--932).
+#'   Unlike their ranked endpoints, betaNB retains its ordinary
+#'   interpolated percentile calculation. Their studies used pairs
+#'   resampling; coverage for wild draws or heteroskedastic F testing
+#'   is not established by those studies.
+#'
 #' @return Returns an object
 #'   of class `betanb` which is a list with the following elements:
 #'   \describe{
@@ -24,10 +44,29 @@
 #'       \eqn{\Delta R^{2}}.}
 #'     \item{est}{Vector of estimated
 #'       \eqn{\Delta R^{2}}.}
-#'     \item{fun}{Function used ("DeltaRSqNB").}
+#'     \item{fun}{Estimator label: `"DeltaRSqNB"` or `"DeltaRSqAdjNB"`.}
 #'   }
 #'
 #' @inheritParams BetaNB
+#' @param adj Logical. Use differences in adjusted R-squared.
+#'   Default `FALSE` preserves unadjusted estimates and output.
+#'
+#' @references
+#' Algina, J., Keselman, H. J., & Penfield, R. D. (2007).
+#' Confidence intervals for an effect size measure in multiple linear
+#' regression. \doi{10.1177/0013164406292030}.
+#'
+#' Algina, J., Keselman, H. J., & Penfield, R. D. (2008).
+#' Note on a confidence interval for the squared semipartial correlation
+#' coefficient. \doi{10.1177/0013164407313371}.
+#'
+#' Algina, J., Keselman, H. J., & Penfield, R. D. (2008a).
+#' Confidence intervals for the squared multiple semipartial correlation
+#' coefficient. \doi{10.22237/jmasm/1209614460}.
+#'
+#' Algina, J., Keselman, H. J., & Penfield, R. D. (2010).
+#' Confidence intervals for squared semipartial correlation coefficients:
+#' The effect of nonnormality. \doi{10.1177/0013164410379335}.
 #'
 #' @examples
 #' # Data ---------------------------------------------------------------------
@@ -52,17 +91,26 @@
 #' coef(out)
 #' vcov(out)
 #' confint(out, level = 0.95)
+#' confint(out, level = 0.95, type = "mpc")
+#' adjusted <- DeltaRSqNB(nb, alpha = 0.05, adj = TRUE)
+#' confint(adjusted, level = 0.95, type = "mpc")
 #'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB deltarsq
 #' @export
 DeltaRSqNB <- function(object,
-                       alpha = c(0.05, 0.01, 0.001)) {
+                       alpha = c(0.05, 0.01, 0.001),
+                       adj = FALSE) {
   stopifnot(
     inherits(
       x = object,
       what = "nb"
     )
+  )
+  stopifnot(
+    is.logical(x = adj),
+    length(x = adj) == 1,
+    !is.na(x = adj)
   )
   if (object$lm_process$p < 2) {
     stop("Two or more regressors is required.")
@@ -72,11 +120,32 @@ DeltaRSqNB <- function(object,
     betastar = object$lm_process$betastar,
     sigmacapx = object$lm_process$sigmacapx
   )^2
-  names(est) <- object$lm_process$xnames
+  names(x = est) <- object$lm_process$xnames
   thetahatstar <- object$es$spcor^2
   jackknife <- object$es_jackknife$spcor^2
-  vcov <- stats::var(thetahatstar)
-  colnames(vcov) <- rownames(vcov) <- names(est)
+  if (adj) {
+    fun <- "DeltaRSqAdjNB"
+    est <- .DeltaRSqAdj(
+      delta_rsq = est,
+      rsq = object$lm_process$rsq[["rsq"]],
+      n = object$lm_process$n,
+      p = object$lm_process$p
+    )
+    thetahatstar <- .DeltaRSqAdj(
+      delta_rsq = thetahatstar,
+      rsq = object$es$rsq[, 1],
+      n = object$lm_process$n,
+      p = object$lm_process$p
+    )
+    jackknife <- .DeltaRSqAdj(
+      delta_rsq = jackknife,
+      rsq = object$es_jackknife$rsq[, 1],
+      n = object$lm_process$n - 1,
+      p = object$lm_process$p
+    )
+  }
+  vcov <- stats::var(x = thetahatstar)
+  colnames(x = vcov) <- rownames(x = vcov) <- names(x = est)
   out <- list(
     call = match.call(),
     args = list(
@@ -89,9 +158,12 @@ DeltaRSqNB <- function(object,
     est = est,
     fun = fun
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "betanb",
-    class(out)
+    class(x = out)
   )
+  if (adj) {
+    out$args$adj <- TRUE
+  }
   out
 }

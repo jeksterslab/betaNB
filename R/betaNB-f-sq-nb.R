@@ -76,10 +76,10 @@ FSqNB <- function(object,
   )
   xnames <- object$lm_process$xnames
   fun <- "FSqNB"
-  est <- .FSqLM(object$lm_process)
+  est <- .FSqLM(lm_process = object$lm_process)
   spcor <- object$es$spcor
   spcor_jack <- object$es_jackknife$spcor
-  colnames(spcor) <- colnames(spcor_jack) <- xnames
+  colnames(x = spcor) <- colnames(x = spcor_jack) <- xnames
   thetahatstar <- .FSq(
     rsq = object$es$rsq[, 1],
     spcor = spcor
@@ -88,8 +88,8 @@ FSqNB <- function(object,
     rsq = object$es_jackknife$rsq[, 1],
     spcor = spcor_jack
   )
-  vcov <- stats::var(thetahatstar)
-  colnames(vcov) <- rownames(vcov) <- names(est)
+  vcov <- stats::var(x = thetahatstar)
+  colnames(x = vcov) <- rownames(x = vcov) <- names(x = est)
   out <- list(
     call = match.call(),
     args = list(
@@ -102,9 +102,9 @@ FSqNB <- function(object,
     est = est,
     fun = fun
   )
-  class(out) <- c(
+  class(x = out) <- c(
     "betanb",
-    class(out)
+    class(x = out)
   )
   out
 }

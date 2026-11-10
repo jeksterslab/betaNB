@@ -8,39 +8,32 @@ lapply(
                  p,
                  beta,
                  R) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     testthat::test_that(
-      paste(text, "means"),
-      {
-        testthat::skip_on_cran()
-        set.seed(42)
-        sigmacapx <- diag(p)
+      desc = paste(text, "means"),
+      code = {
+        set.seed(seed = 42)
+        sigmacapx <- diag(x = p)
         beta <- rep(x = beta, times = p)
         sigmasq <- (
           1 - (
-            tcrossprod(beta, sigmacapx) %*% beta
+            tcrossprod(x = beta, y = sigmacapx) %*% beta
           )
         )
         sigmaysq <- .Vec(
-          sigmasq + crossprod(
-            beta,
-            sigmacapx
+          x = sigmasq + crossprod(
+            x = beta,
+            y = sigmacapx
           ) %*% beta
         )
         sigmayx <- .Vec(
-          crossprod(
-            beta,
-            sigmacapx
+          x = crossprod(
+            x = beta,
+            y = sigmacapx
           )
         )
         sigmacap <- matrix(
@@ -51,9 +44,9 @@ lapply(
         sigmacap[1, 1] <- sigmaysq
         sigmacap[1, 2:(p + 1)] <- sigmacap[2:(p + 1), 1] <- sigmayx
         sigmacap[2:(p + 1), 2:(p + 1)] <- sigmacapx
-        theta <- .Vech(sigmacap)
+        theta <- .Vech(x = sigmacap)
         x <- scale(
-          matrix(
+          x = matrix(
             data = stats::rnorm(
               n = n * p
             ),
@@ -63,30 +56,30 @@ lapply(
         )
         y <- (
           x %*% beta
-        ) + rnorm(
+        ) + stats::rnorm(
           n = n,
-          sd = sqrt(sigmasq)
+          sd = sqrt(x = sigmasq)
         )
         df <- cbind(
           y,
           x
         )
-        colnames(df) <- c(
+        colnames(x = df) <- c(
           "y",
-          paste0("x", seq_len(p))
+          paste0("x", seq_len(length.out = p))
         )
-        df <- as.data.frame(df)
-        object <- lm(y ~ ., data = df)
-        nb <- NB(object, R = R)
-        nb <- colMeans(nb$thetahatstar)
+        df <- as.data.frame(x = df)
+        object <- stats::lm(formula = y ~ ., data = df)
+        nb <- NB(object = object, R = R)
+        nb <- colMeans(x = nb$thetahatstar)
         testthat::expect_true(
-          all(
+          object = all(
             abs(
-              nb - theta
+              x = nb - theta
             ) <= tol
           )
         )
-        print.nb(NB(object, R = 6))
+        print.nb(x = NB(object = object, R = 6))
       }
     )
   },

@@ -5,24 +5,17 @@ lapply(
                  text,
                  R,
                  tol) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     testthat::test_that(
-      paste(text, "multiple regression"),
-      {
-        testthat::skip_on_cran()
-        if (!exists("nas1982")) {
+      desc = paste(text, "multiple regression"),
+      code = {
+        if (!exists(x = "nas1982")) {
           try(
-            data(
+            expr = utils::data(
               "nas1982",
               package = "betaNB"
             ),
@@ -30,27 +23,30 @@ lapply(
           )
         }
         df <- nas1982
-        object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-        nb <- NB(object, R = R)
-        out <- BetaNB(nb)
-        print.betanb(out)
-        summary.betanb(out)
-        print.summary.betanb(summary.betanb(out))
-        coef.betanb(out)
-        vcov.betanb(out)
-        confint.betanb(out)
-        confint.betanb(out, type = "bc")
-        summary.betanb(out, type = "bc")
-        print.summary.betanb(summary.betanb(out, type = "bc"))
-        print.betanb(out, type = "bc")
-        confint.betanb(out, type = "bca")
-        summary.betanb(out, type = "bca")
-        print.summary.betanb(summary.betanb(out, type = "bca"))
-        print.betanb(out, type = "bca")
+        object <- stats::lm(
+          formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+          data = df
+        )
+        nb <- NB(object = object, R = R)
+        out <- BetaNB(object = nb)
+        print.betanb(x = out)
+        summary.betanb(object = out)
+        print.summary.betanb(x = summary.betanb(object = out))
+        coef.betanb(object = out)
+        vcov.betanb(object = out)
+        confint.betanb(object = out)
+        confint.betanb(object = out, type = "bc")
+        summary.betanb(object = out, type = "bc")
+        print.summary.betanb(x = summary.betanb(object = out, type = "bc"))
+        print.betanb(x = out, type = "bc")
+        confint.betanb(object = out, type = "bca")
+        summary.betanb(object = out, type = "bca")
+        print.summary.betanb(x = summary.betanb(object = out, type = "bca"))
+        print.betanb(x = out, type = "bca")
         testthat::expect_true(
-          all(
+          object = all(
             abs(
-              coef.betanb(out) - c(
+              x = coef.betanb(object = out) - c(
                 .4951,
                 .3915,
                 .2632
@@ -61,12 +57,11 @@ lapply(
       }
     )
     testthat::test_that(
-      paste(text, "simple linear regression"),
-      {
-        testthat::skip_on_cran()
-        if (!exists("nas1982")) {
+      desc = paste(text, "simple linear regression"),
+      code = {
+        if (!exists(x = "nas1982")) {
           try(
-            data(
+            expr = utils::data(
               "nas1982",
               package = "betaNB"
             ),
@@ -74,25 +69,25 @@ lapply(
           )
         }
         df <- nas1982
-        object <- lm(QUALITY ~ NARTIC, data = df)
-        nb <- NB(object, R = R)
-        out <- BetaNB(nb)
-        print.betanb(out)
-        summary.betanb(out)
-        print.summary.betanb(summary.betanb(out))
-        coef.betanb(out)
-        vcov.betanb(out)
-        confint.betanb(out)
-        confint.betanb(out, type = "bc")
-        summary.betanb(out, type = "bc")
-        print.summary.betanb(summary.betanb(out, type = "bc"))
-        print.betanb(out, type = "bc")
-        confint.betanb(out, type = "bca")
-        summary.betanb(out, type = "bca")
-        print.summary.betanb(summary.betanb(out, type = "bca"))
-        print.betanb(out, type = "bca")
+        object <- stats::lm(formula = QUALITY ~ NARTIC, data = df)
+        nb <- NB(object = object, R = R)
+        out <- BetaNB(object = nb)
+        print.betanb(x = out)
+        summary.betanb(object = out)
+        print.summary.betanb(x = summary.betanb(object = out))
+        coef.betanb(object = out)
+        vcov.betanb(object = out)
+        confint.betanb(object = out)
+        confint.betanb(object = out, type = "bc")
+        summary.betanb(object = out, type = "bc")
+        print.summary.betanb(x = summary.betanb(object = out, type = "bc"))
+        print.betanb(x = out, type = "bc")
+        confint.betanb(object = out, type = "bca")
+        summary.betanb(object = out, type = "bca")
+        print.summary.betanb(x = summary.betanb(object = out, type = "bca"))
+        print.betanb(x = out, type = "bca")
         testthat::expect_true(
-          TRUE
+          object = TRUE
         )
       }
     )

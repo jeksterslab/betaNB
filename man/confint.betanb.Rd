@@ -30,7 +30,9 @@ If missing, all parameters are considered.}
 Confidence interval type, that is,
 \code{type = "pc"} for percentile;
 \code{type = "bc"} for bias corrected;
-\code{type = "bca"} for bias corrected and accelerated.}
+\code{type = "bca"} for bias corrected and accelerated;
+\code{type = "mpc"} for modified percentile, available only for
+\code{\link[=DeltaRSqNB]{DeltaRSqNB()}} (unadjusted or \code{adj = TRUE}).}
 
 \item{...}{additional arguments.}
 }

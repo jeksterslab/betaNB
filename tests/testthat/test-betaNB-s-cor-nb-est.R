@@ -5,24 +5,17 @@ lapply(
                  text,
                  R,
                  tol) {
+    testthat::skip_on_cran()
     message(text)
 
-    set.seed(42)
-
-    if (!identical(Sys.getenv("NOT_CRAN"), "true") && !interactive()) {
-      message("CRAN: tests skipped.")
-      # nolint start
-      return(invisible(NULL))
-      # nolint end
-    }
+    set.seed(seed = 42)
 
     testthat::test_that(
-      paste(text, "semipartial correlation coefficients"),
-      {
-        testthat::skip_on_cran()
-        if (!exists("nas1982")) {
+      desc = paste(text, "semipartial correlation coefficients"),
+      code = {
+        if (!exists(x = "nas1982")) {
           try(
-            data(
+            expr = utils::data(
               "nas1982",
               package = "betaNB"
             ),
@@ -30,18 +23,21 @@ lapply(
           )
         }
         df <- nas1982
-        object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
-        nb <- NB(object, R = R)
-        out <- SCorNB(nb)
-        print.betanb(out)
-        summary.betanb(out)
-        coef.betanb(out)
-        vcov.betanb(out)
-        confint.betanb(out)
+        object <- stats::lm(
+          formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+          data = df
+        )
+        nb <- NB(object = object, R = R)
+        out <- SCorNB(object = nb)
+        print.betanb(x = out)
+        summary.betanb(object = out)
+        coef.betanb(object = out)
+        vcov.betanb(object = out)
+        confint.betanb(object = out)
         testthat::expect_true(
-          all(
+          object = all(
             abs(
-              coef.betanb(out) - c(
+              x = coef.betanb(object = out) - c(
                 .4312,
                 .3430,
                 .2385
@@ -52,12 +48,11 @@ lapply(
       }
     )
     testthat::test_that(
-      paste(text, "error"),
-      {
-        testthat::skip_on_cran()
-        if (!exists("nas1982")) {
+      desc = paste(text, "error"),
+      code = {
+        if (!exists(x = "nas1982")) {
           try(
-            data(
+            expr = utils::data(
               "nas1982",
               package = "betaNB"
             ),
@@ -65,10 +60,10 @@ lapply(
           )
         }
         df <- nas1982
-        object <- lm(QUALITY ~ NARTIC, data = df)
-        nb <- NB(object, R = R)
+        object <- stats::lm(formula = QUALITY ~ NARTIC, data = df)
+        nb <- NB(object = object, R = R)
         testthat::expect_error(
-          SCorNB(nb)
+          object = SCorNB(object = nb)
         )
       }
     )

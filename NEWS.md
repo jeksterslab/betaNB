@@ -2,6 +2,20 @@
 
 ## Minor
 
+- `DeltaRSqNB()` gains `adj = TRUE` for differences in adjusted R-squared.
+  `confint()` and `summary()` gain `type = "mpc"` for modified percentile
+  intervals of Delta R-squared (sr2), unadjusted or adjusted.
+  The sample F test uses the interval's alpha and the unadjusted increment.
+  Upper limits and ordinary percentile interpolation are unchanged.
+  Existing defaults and `"pc"`, `"bc"`, `"bca"` intervals are unchanged.
+
+* `NB()` gains the wild bootstrap: `type = "wild"` (default `"pairs"`,
+  unchanged), with `weights` (`"rademacher"`, `"mammen"`, `"webb"`,
+  `"normal"`), `hc` (`"hc3"`, `"hc0"`, `"hc1"`, `"hc2"`, `"hc4"`,
+  `"hc4m"`, `"hc5"`; the same leverage adjustments as betaSandwich), and
+  `x` (`"random"` resamples the regressors with their residuals,
+  `"fixed"` keeps them). The effect size functions and intervals work on
+  the wild draws unchanged. The sampler is in R for now.
 * New `FSqNB()`: Cohen's f-squared and the local f-squared of each
   regressor.
 * Faster bootstrap: the bootstrap and jackknife covariance matrices

@@ -17,11 +17,11 @@
 print.nb <- function(x,
                      ...) {
   cat("Call:\n")
-  base::print(x$call)
+  base::print(x = x$call)
   cat(
     "\nThe first six bootstrap covariance matrices.\n\n"
   )
   base::print(
-    utils::head(x$thetahatstar)
+    x = utils::head(x = x$thetahatstar)
   )
 }

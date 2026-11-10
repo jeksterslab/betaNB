@@ -27,7 +27,7 @@ LinkingTo: Rcpp, RcppArmadillo
 Suggests: knitr, rmarkdown, testthat, betaDelta, betaSandwich, betaMC
 Config/roxygen2/version: 8.1.1.9000
 NeedsCompilation: yes
-Packaged: 2026-11-05 03:44:18 UTC; root
+Packaged: 2026-11-10 19:32:34 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>

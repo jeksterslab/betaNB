@@ -34,7 +34,7 @@ print.betanb <- function(x,
                          digits = 4,
                          ...) {
   print.summary.betanb(
-    summary.betanb(
+    x = summary.betanb(
       object = x,
       alpha = alpha,
       type = type,
@@ -74,7 +74,9 @@ print.betanb <- function(x,
 #'   Confidence interval type, that is,
 #'   `type = "pc"` for percentile;
 #'   `type = "bc"` for bias corrected;
-#'   `type = "bca"` for bias corrected and accelerated.
+#'   `type = "bca"` for bias corrected and accelerated;
+#'   `type = "mpc"` for modified percentile, available only for
+#'   [DeltaRSqNB()] (unadjusted or `adj = TRUE`).
 #' @param digits Digits to print.
 #'
 #' @keywords methods
@@ -113,7 +115,7 @@ summary.betanb <- function(object,
     x = ci,
     which = "digits"
   ) <- digits
-  class(ci) <- "summary.betanb"
+  class(x = ci) <- "summary.betanb"
   ci
 }
 
@@ -146,6 +148,9 @@ print.summary.betanb <- function(x,
   if (object$fun == "DeltaRSqNB") {
     label <- "Improvement in R-squared"
   }
+  if (object$fun == "DeltaRSqAdjNB") {
+    label <- "Improvement in adjusted R-squared"
+  }
   if (object$fun == "PCorNB") {
     label <- "Squared partial correlations"
   }
@@ -156,7 +161,7 @@ print.summary.betanb <- function(x,
     label <- "Cohen's f-squared (fsq) and local f-squared"
   }
   cat("Call:\n")
-  base::print(object$call)
+  base::print(x = object$call)
   cat(
     paste0(
       "\n",
@@ -169,8 +174,8 @@ print.summary.betanb <- function(x,
       "\n"
     )
   )
-  print(print_summary)
-  invisible(x)
+  print(x = print_summary)
+  invisible(x = x)
 }
 
 #' Sampling Variance-Covariance Matrix Method for an Object of Class
@@ -226,9 +231,9 @@ confint.betanb <- function(object,
                            level = 0.95,
                            type = "pc",
                            ...) {
-  if (is.null(parm)) {
+  if (is.null(x = parm)) {
     parm <- seq_along(
-      object$est
+      along.with = object$est
     )
   }
   ci <- .CI(
@@ -236,12 +241,12 @@ confint.betanb <- function(object,
     alpha = 1 - level[1],
     type = type
   )[parm, 4:5, drop = FALSE]
-  varnames <- colnames(ci)
+  varnames <- colnames(x = ci)
   varnames <- gsub(
     pattern = "%",
     replacement = " %",
     x = varnames
   )
-  colnames(ci) <- varnames
+  colnames(x = ci) <- varnames
   ci
 }
