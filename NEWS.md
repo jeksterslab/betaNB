@@ -1,3 +1,7 @@
+# betaNB 1.0.7.9001
+
+- Add SCorSqNB() for the image of a signed-semipartial interval under squaring.
+
 # betaNB 1.0.7.9000
 
 ## Minor
