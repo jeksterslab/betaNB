@@ -24,6 +24,8 @@
 - [`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
   : Estimate Semipartial Correlation Coefficients and Generate the
   Corresponding Sampling Distribution Using Nonparametric Bootstrapping
+- [`SCorSqNB()`](https://jeksterslab.github.io/betaNB/reference/SCorSqNB.md)
+  : Squared Signed-Semipartial Confidence Intervals
 
 ## Improvement in R-Squared
 

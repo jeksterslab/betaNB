@@ -50,9 +50,9 @@ Summary of the results of
 `#> Improvement in R-squared`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.1859 0.0596 5000 0.0810 0.3137`\
-`#> PCTGRT  0.1177 0.0488 5000 0.0358 0.2247`\
-`#> PCTSUPP 0.0569 0.0344 5000 0.0087 0.1399`
+`#> NARTIC  0.1859 0.0592 5000 0.0810 0.3100`\
+`#> PCTGRT  0.1177 0.0493 5000 0.0327 0.2256`\
+`#> PCTSUPP 0.0569 0.0336 5000 0.0088 0.1390`
 
 #### Bias Corrected Confidence Intervals
 
@@ -64,9 +64,9 @@ Summary of the results of
 `#> Improvement in R-squared`\
 `#> type = "bc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.1859 0.0596 5000 0.0921 0.3454`\
-`#> PCTGRT  0.1177 0.0488 5000 0.0438 0.2483`\
-`#> PCTSUPP 0.0569 0.0344 5000 0.0116 0.1506`
+`#> NARTIC  0.1859 0.0592 5000 0.0909 0.3306`\
+`#> PCTGRT  0.1177 0.0493 5000 0.0398 0.2431`\
+`#> PCTSUPP 0.0569 0.0336 5000 0.0113 0.1474`
 
 #### Bias Corrected and Accelerated Confidence Intervals
 
@@ -78,9 +78,9 @@ Summary of the results of
 `#> Improvement in R-squared`\
 `#> type = "bca"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.1859 0.0596 5000 0.0959 0.3507`\
-`#> PCTGRT  0.1177 0.0488 5000 0.0473 0.2616`\
-`#> PCTSUPP 0.0569 0.0344 5000 0.0103 0.1464`
+`#> NARTIC  0.1859 0.0592 5000 0.0943 0.3386`\
+`#> PCTGRT  0.1177 0.0493 5000 0.0447 0.2619`\
+`#> PCTSUPP 0.0569 0.0336 5000 0.0102 0.1426`
 
 ### coef
 
@@ -98,9 +98,9 @@ Return the sampling covariance matrix.
 \
 [`vcov`](https://rdrr.io/r/stats/vcov.html)`(``out``)`\
 `#>                NARTIC        PCTGRT       PCTSUPP`\
-`#> NARTIC   0.0035482141 -0.0001826489 -0.0002584525`\
-`#> PCTGRT  -0.0001826489  0.0023822112 -0.0002743516`\
-`#> PCTSUPP -0.0002584525 -0.0002743516  0.0011847751`
+`#> NARTIC   0.0035076990 -0.0002807503 -0.0003134451`\
+`#> PCTGRT  -0.0002807503  0.0024314770 -0.0002353022`\
+`#> PCTSUPP -0.0003134451 -0.0002353022  0.0011317224`
 
 ### confint
 
@@ -111,26 +111,26 @@ Return confidence intervals.
 \
 [`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"pc"``)`\
 `#>               2.5 %    97.5 %`\
-`#> NARTIC  0.080998370 0.3137179`\
-`#> PCTGRT  0.035829362 0.2246923`\
-`#> PCTSUPP 0.008719066 0.1399498`
+`#> NARTIC  0.081043060 0.3099746`\
+`#> PCTGRT  0.032683386 0.2255654`\
+`#> PCTSUPP 0.008758225 0.1390300`
 
 #### Bias Corrected Confidence Intervals
 
 \
 [`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"bc"``)`\
 `#>              2.5 %    97.5 %`\
-`#> NARTIC  0.09207886 0.3453511`\
-`#> PCTGRT  0.04384469 0.2482640`\
-`#> PCTSUPP 0.01156820 0.1505691`
+`#> NARTIC  0.09085304 0.3305686`\
+`#> PCTGRT  0.03984079 0.2431469`\
+`#> PCTSUPP 0.01134756 0.1473596`
 
 #### Bias Corrected and Accelerated Confidence Intervals
 
 \
 [`confint`](https://rdrr.io/r/stats/confint.html)`(``out``, level ``=`` ``0.95``, type ``=`` ``"bca"``)`\
 `#>              2.5 %    97.5 %`\
-`#> NARTIC  0.09585695 0.3507094`\
-`#> PCTGRT  0.04733337 0.2616335`\
-`#> PCTSUPP 0.01031115 0.1464388`
+`#> NARTIC  0.09428284 0.3385719`\
+`#> PCTGRT  0.04470874 0.2618932`\
+`#> PCTSUPP 0.01020061 0.1425555`
 
 ## References
