@@ -63,7 +63,7 @@ For condition `taskid`, replication `repid`, and stream `s`, the seed is:
 16 * ((taskid - 1) * 1000000 + repid - 1) + s
 ```
 
-Streams 1–4 are data, pairs, wild fixed-X and wild random-X.
+Streams 1-4 are data, pairs, wild fixed-X and wild random-X.
 There are no collisions for eight conditions and up to one million replications; the maximum seed is below R's integer limit.
 Seeds do not depend on execution order, shard size or bootstrap draw count.
 Each cell uses one dataset and one fitted model for all three samplers; all effects and interval types reuse a sampler's single `NB()` result.
