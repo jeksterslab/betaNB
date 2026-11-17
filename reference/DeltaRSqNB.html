@@ -11,7 +11,7 @@ Using Nonparametric Bootstrapping"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">betaNB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,6 +122,26 @@ Unlike their ranked endpoints, betaNB retains its ordinary
 interpolated percentile calculation. Their studies used pairs
 resampling; coverage for wild draws or heteroskedastic F testing
 is not established by those studies.</p>
+<p>Let \(\boldsymbol{\beta}^{\ast}\) be the vector of standardized slopes,
+\(\boldsymbol{R}_{x}\) the correlation matrix of the regressors,
+\(r^{jj}\) the \(j\)th diagonal element of \(\boldsymbol{R}_{x}^{-1}\),
+and \(R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+\boldsymbol{\beta}^{\ast}\).
+The semipartial correlation of regressor \(j\) is
+$$sr_{j} = \beta^{\ast}_{j} / \sqrt{r^{jj}} = \beta^{\ast}_{j} \sqrt{1 -
+R^{2}_{j \cdot -j}},$$
+where \(R^{2}_{j \cdot -j}\) is the R-squared from regressing regressor
+\(j\)
+on the other regressors.
+Its square, \(sr^{2}_{j}\), is the change in \(R^{2}\) when regressor
+\(j\) is added last.
+Because \(1 / r^{jj} = 1 - R^{2}_{j \cdot -j}\), \(sr_{j}\) shrinks
+toward zero
+as regressor \(j\) becomes more redundant with the other regressors.
+The improvement in R-squared for regressor \(j\) is
+$$\Delta R^{2}_{j} = R^{2} - R^{2}_{-j} = sr^{2}_{j}.$$
+Each effect size is computed from every bootstrap sample
+(see <code><a href="NB.html">NB()</a></code>), and the confidence intervals are percentile-based.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>

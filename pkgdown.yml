@@ -1,4 +1,4 @@
-pandoc: '3.13'
+pandoc: '3.14'
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
@@ -6,11 +6,12 @@ articles:
   example-beta-nb: example-beta-nb.html
   example-delta-r-sq-nb: example-delta-r-sq-nb.html
   example-diff-beta-nb: example-diff-beta-nb.html
+  example-es-nb: example-es-nb.html
   example-p-cor-nb: example-p-cor-nb.html
   example-r-sq-nb: example-r-sq-nb.html
   example-s-cor-nb: example-s-cor-nb.html
   session: session.html
-last_built: 2026-11-12T20:28Z
+last_built: 2026-11-17T00:19Z
 urls:
   reference: https://jeksterslab.github.io/betaNB//reference
   article: https://jeksterslab.github.io/betaNB//articles

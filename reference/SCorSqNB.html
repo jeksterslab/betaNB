@@ -13,7 +13,7 @@ Failed signed endpoints remain missing."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">betaNB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,18 +76,46 @@ row names. The point estimate is the squared signed estimate.
 No standard error is implied by this interval transformation.</p>
     </div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>The semipartial correlation \(sr_{j}\) (see <code><a href="SCorNB.html">SCorNB()</a></code>) is signed,
+and its confidence interval \(\left[ l, u \right]\) may contain zero.
+The interval for \(sr^{2}_{j}\) is the image of that interval under
+squaring.
+The squared interval is
+\(\left[ l^{2}, u^{2} \right]\) if \(0 &lt; l\),
+\(\left[ u^{2}, l^{2} \right]\) if \(u &lt; 0\),
+and \(\left[ 0, \max \left( l^{2}, u^{2} \right) \right]\)
+if the signed interval contains zero.
+This is not the interval of squared draws, and it is not an interval for
+<code><a href="DeltaRSqNB.html">DeltaRSqNB()</a></code>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Ivan Jacob Agaloos Pesigan</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">fit</span>, R <span class="op">=</span> <span class="fl">199</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">SCorSqNB</span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           est      lower     upper</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> wt 0.22434811 0.06452469 0.3660758</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> hp 0.07395266 0.02219781 0.1493710</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Data ---------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"nas1982"</span>, package <span class="op">=</span> <span class="st">"betaNB"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fit Model in lm ----------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># NB -----------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  R <span class="op">=</span> <span class="fl">100</span>, <span class="co"># use a large value e.g., 5000L for actual research</span></span></span>
+<span class="r-in"><span>  seed <span class="op">=</span> <span class="fl">0508</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># SCorSqNB -----------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="fu">SCorSqNB</span><span class="op">(</span>object <span class="op">=</span> <span class="va">nb</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               est       lower     upper</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.1858925 0.079616147 0.2940437</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.1176542 0.037356988 0.2216212</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.0568722 0.008838188 0.1394616</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

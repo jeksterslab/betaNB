@@ -84,6 +84,25 @@ ranked endpoints, betaNB retains its ordinary interpolated percentile
 calculation. Their studies used pairs resampling; coverage for wild
 draws or heteroskedastic F testing is not established by those studies.
 
+Let \\(\boldsymbol{\beta}^{\ast}\\) be the vector of standardized
+slopes, \\(\boldsymbol{R}\_{x}\\) the correlation matrix of the
+regressors, \\(r^{jj}\\) the \\(j\\)th diagonal element of
+\\(\boldsymbol{R}\_{x}^{-1}\\), and \\(R^{2} =
+\boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}\_{x}
+\boldsymbol{\beta}^{\ast}\\). The semipartial correlation of regressor
+\\(j\\) is \$\$sr\_{j} = \beta^{\ast}\_{j} / \sqrt{r^{jj}} =
+\beta^{\ast}\_{j} \sqrt{1 - R^{2}\_{j \cdot -j}},\$\$ where \\(R^{2}\_{j
+\cdot -j}\\) is the R-squared from regressing regressor \\(j\\) on the
+other regressors. Its square, \\(sr^{2}\_{j}\\), is the change in
+\\(R^{2}\\) when regressor \\(j\\) is added last. Because \\(1 / r^{jj}
+= 1 - R^{2}\_{j \cdot -j}\\), \\(sr\_{j}\\) shrinks toward zero as
+regressor \\(j\\) becomes more redundant with the other regressors. The
+improvement in R-squared for regressor \\(j\\) is \$\$\Delta R^{2}\_{j}
+= R^{2} - R^{2}\_{-j} = sr^{2}\_{j}.\$\$ Each effect size is computed
+from every bootstrap sample (see
+[`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md)), and the
+confidence intervals are percentile-based.
+
 ## References
 
 Algina, J., Keselman, H. J., & Penfield, R. D. (2007). Confidence

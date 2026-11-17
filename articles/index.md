@@ -14,6 +14,8 @@
   Function](https://jeksterslab.github.io/betaNB/articles/example-p-cor-nb.md):
 - [betaNB: Example Using the DiffBetaNB
   Function](https://jeksterslab.github.io/betaNB/articles/example-diff-beta-nb.md):
+- [betaNB: Example Using the SCorSqNB and FSqNB
+  Functions](https://jeksterslab.github.io/betaNB/articles/example-es-nb.md):
 
 ### Session Information
 

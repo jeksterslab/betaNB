@@ -14,8 +14,8 @@
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Bootstrap for Regression Effect Sizes">
-<meta name="description" content="Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani, 1993: &lt;doi:10.1201/9780429246593&gt;) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by lm().">
-<meta property="og:description" content="Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani, 1993: &lt;doi:10.1201/9780429246593&gt;) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by lm().">
+<meta name="description" content="Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani, 1993: &lt;doi:10.1201/9780429246593&gt;) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, squared semipartial correlations, improvement in R-squared, squared partial correlations, Cohen's f-squared, and differences in standardized regression coefficients, for models fitted by lm(). Pairs and wild bootstrap samples are supported.">
+<meta property="og:description" content="Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani, 1993: &lt;doi:10.1201/9780429246593&gt;) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, squared semipartial correlations, improvement in R-squared, squared partial correlations, Cohen's f-squared, and differences in standardized regression coefficients, for models fitted by lm(). Pairs and wild bootstrap samples are supported.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="index.html">betaNB</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,14 +54,14 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="betanb">betaNB<a class="anchor" aria-label="anchor" href="#betanb"></a>
 </h1></div>
-<p>Ivan Jacob Agaloos Pesigan 2026-11-12</p>
+<p>Ivan Jacob Agaloos Pesigan 2026-11-17</p>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
 <div class="section level2">
 <h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
 </h2>
-<p>Generates nonparametric bootstrap confidence intervals (Efron &amp; Tibshirani, 1993: <a href="https://doi.org/10.1201/9780429246593" class="external-link uri">https://doi.org/10.1201/9780429246593</a>) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>.</p>
+<p>Generates nonparametric bootstrap confidence intervals (Efron &amp; Tibshirani, 1993: <a href="https://doi.org/10.1201/9780429246593" class="external-link uri">https://doi.org/10.1201/9780429246593</a>) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, squared semipartial correlations, improvement in R-squared, squared partial correlations, Cohen’s f-squared, and differences in standardized regression coefficients, for models fitted by <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>. The pairs bootstrap and the wild bootstrap are available, with percentile, bias-corrected, bias-corrected and accelerated, and modified percentile intervals.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -106,89 +106,69 @@
 <span><span class="co">#&gt; Standardized regression slopes</span></span>
 <span><span class="co">#&gt; type = "pc"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4951 0.0724 5000 0.3550 0.6363</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3915 0.0770 5000 0.2341 0.5382</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2632 0.0810 5000 0.1005 0.4141</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="other-effect-sizes">Other Effect Sizes<a class="anchor" aria-label="anchor" href="#other-effect-sizes"></a>
-</h3>
-<p>The <code>betaNB</code> package also has functions to generate nonparametric bootstrap confidence intervals for other effect sizes such as <code><a href="reference/RSqNB.html">RSqNB()</a></code> for multiple correlation coefficients (R-squared and adjusted R-squared), <code><a href="reference/DeltaRSqNB.html">DeltaRSqNB()</a></code> for improvement in R-squared, <code><a href="reference/SCorNB.html">SCorNB()</a></code> for semipartial correlation coefficients, <code><a href="reference/PCorNB.html">PCorNB()</a></code> for squared partial correlation coefficients, and <code><a href="reference/DiffBetaNB.html">DiffBetaNB()</a></code> for differences of standardized regression coefficients.</p>
-<div class="section level4">
-<h4 id="multiple-correlation-coefficients-r-squared-and-adjusted-r-squared">Multiple Correlation Coefficients (R-squared and adjusted R-squared)<a class="anchor" aria-label="anchor" href="#multiple-correlation-coefficients-r-squared-and-adjusted-r-squared"></a>
-</h4>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/RSqNB.html">RSqNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; RSqNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; rsq 0.8045 0.0525 5000 0.6927 0.8997</span></span>
-<span><span class="co">#&gt; adj 0.7906 0.0563 5000 0.6708 0.8925</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="improvement-in-r-squared">Improvement in R-squared<a class="anchor" aria-label="anchor" href="#improvement-in-r-squared"></a>
-</h4>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/DeltaRSqNB.html">DeltaRSqNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; DeltaRSqNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Improvement in R-squared</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.1859 0.0593 5000 0.0823 0.3119</span></span>
-<span><span class="co">#&gt; PCTGRT  0.1177 0.0485 5000 0.0347 0.2215</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.0569 0.0342 5000 0.0080 0.1371</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="semipartial-correlation-coefficients">Semipartial Correlation Coefficients<a class="anchor" aria-label="anchor" href="#semipartial-correlation-coefficients"></a>
-</h4>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/SCorNB.html">SCorNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; SCorNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Semipartial correlations</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4312 0.0699 5000 0.2868 0.5585</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3430 0.0727 5000 0.1862 0.4706</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2385 0.0724 5000 0.0894 0.3703</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="squared-partial-correlation-coefficients">Squared Partial Correlation Coefficients<a class="anchor" aria-label="anchor" href="#squared-partial-correlation-coefficients"></a>
-</h4>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/PCorNB.html">PCorNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; PCorNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Squared partial correlations</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC  0.4874 0.0994 5000 0.2898 0.6743</span></span>
-<span><span class="co">#&gt; PCTGRT  0.3757 0.1090 5000 0.1583 0.5850</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2254 0.1163 5000 0.0399 0.4829</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="differences-of-standardized-regression-coefficients">Differences of Standardized Regression Coefficients<a class="anchor" aria-label="anchor" href="#differences-of-standardized-regression-coefficients"></a>
-</h4>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/DiffBetaNB.html">DiffBetaNB</a></span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; DiffBetaNB(object = nb, alpha = 0.05)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Differences of standardized regression slopes</span></span>
-<span><span class="co">#&gt; type = "pc"</span></span>
-<span><span class="co">#&gt;                   est     se    R    2.5%  97.5%</span></span>
-<span><span class="co">#&gt; NARTIC-PCTGRT  0.1037 0.1318 5000 -0.1542 0.3659</span></span>
-<span><span class="co">#&gt; NARTIC-PCTSUPP 0.2319 0.1252 5000 -0.0132 0.4845</span></span>
-<span><span class="co">#&gt; PCTGRT-PCTSUPP 0.1282 0.1297 5000 -0.1190 0.3860</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.4951 0.0722 5000 0.3589 0.6388</span></span>
+<span><span class="co">#&gt; PCTGRT  0.3915 0.0769 5000 0.2379 0.5367</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2632 0.0796 5000 0.1045 0.4178</span></span></code></pre></div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="other-features">Other Features<a class="anchor" aria-label="anchor" href="#other-features"></a>
+</h2>
+<p>The package provides the following functions.</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code><a href="reference/NB.html">NB()</a></code></td>
+<td>Nonparametric bootstrap (pairs or wild) of a fitted <code>lm</code> model</td>
+</tr>
+<tr>
+<td><code><a href="reference/BetaNB.html">BetaNB()</a></code></td>
+<td>Standardized regression coefficients</td>
+</tr>
+<tr>
+<td><code><a href="reference/RSqNB.html">RSqNB()</a></code></td>
+<td>R-squared and adjusted R-squared</td>
+</tr>
+<tr>
+<td><code><a href="reference/DiffBetaNB.html">DiffBetaNB()</a></code></td>
+<td>Differences of standardized regression coefficients</td>
+</tr>
+<tr>
+<td><code><a href="reference/SCorNB.html">SCorNB()</a></code></td>
+<td>Semipartial correlations</td>
+</tr>
+<tr>
+<td><code><a href="reference/SCorSqNB.html">SCorSqNB()</a></code></td>
+<td>Squared semipartial correlations (squared signed interval)</td>
+</tr>
+<tr>
+<td><code><a href="reference/PCorNB.html">PCorNB()</a></code></td>
+<td>Squared partial correlations</td>
+</tr>
+<tr>
+<td><code><a href="reference/DeltaRSqNB.html">DeltaRSqNB()</a></code></td>
+<td>Improvement in R-squared (adjusted differences and modified percentile intervals available)</td>
+</tr>
+<tr>
+<td><code><a href="reference/FSqNB.html">FSqNB()</a></code></td>
+<td>Cohen’s f-squared and local f-squared</td>
+</tr>
+</tbody>
+</table>
+<p>The <code><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef()</a></code>, <code><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov()</a></code>, <code><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint()</a></code>, <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, and <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> methods are available for the returned objects. Examples for each function are in the package vignettes.</p>
+</div>
+<div class="section level2">
+<h2 id="effect-sizes">Effect Sizes<a class="anchor" aria-label="anchor" href="#effect-sizes"></a>
+</h2>
+<p>The definitions, formulas, and notes on the intervals are in the help pages of the functions and in the vignette <a href="https://jeksterslab.github.io/betaNB/articles/example-es-nb.html">betaNB: Example Using the SCorSqNB and FSqNB Functions</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>

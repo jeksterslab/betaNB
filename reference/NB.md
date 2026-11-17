@@ -35,7 +35,7 @@ NB(
 
   Character string. Bootstrap sampler. `"pairs"` (default) resamples the
   rows of the data (nonparametric bootstrap). `"wild"` is the wild
-  bootstrap, which generates \\(y_i^{\*} = \mathbf{x}\_i^{\prime}
+  bootstrap, which generates \\(y_i^{\*} = \boldsymbol{x}\_i^{\prime}
   \hat{\boldsymbol{\beta}} + f(h_i) e_i v_i\\), where \\(e_i\\) is the
   residual, \\(h_i\\) is the leverage, \\(v_i\\) is a random weight with
   mean 0 and variance 1, and \\(f(h_i)\\) is set by `hc`. The arguments
@@ -59,8 +59,8 @@ NB(
 - x:
 
   Character string. `"random"` (default) resamples the rows \\(\left(
-  \mathbf{x}\_i, f(h_i) e_i \right)\\) together before the weights are
-  applied, so the sampling variability of the regressors is kept.
+  \boldsymbol{x}\_i, f(h_i) e_i \right)\\) together before the weights
+  are applied, so the sampling variability of the regressors is kept.
   `"fixed"` keeps the regressors of the data in every sample
   (conditional wild bootstrap); the covariance matrix of the regressors
   is then the same in every sample.

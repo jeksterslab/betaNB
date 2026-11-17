@@ -60,6 +60,20 @@ obtaining percentiles corresponding to \\(100(1 - \alpha)\\%\\) from the
 generated sampling distribution of \\(R^{2}\\) and \\(\bar{R}^{2}\\),
 where \\(\alpha\\) is the significance level.
 
+Let \\(\boldsymbol{\beta}^{\ast}\\) be the vector of standardized
+slopes, \\(\boldsymbol{R}\_{x}\\) the correlation matrix of the
+regressors, \\(r^{jj}\\) the \\(j\\)th diagonal element of
+\\(\boldsymbol{R}\_{x}^{-1}\\), and \\(R^{2} =
+\boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}\_{x}
+\boldsymbol{\beta}^{\ast}\\). The R-squared and the adjusted R-squared
+are \$\$R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}\_{x}
+\boldsymbol{\beta}^{\ast}, \quad \bar{R}^{2} = 1 - \left( 1 - R^{2}
+\right) \frac{n - 1}{n - k},\$\$ where \\(n\\) is the sample size and
+\\(k\\) is the number of parameters in the regression model, including
+the intercept. Each effect size is computed from every bootstrap sample
+(see [`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md)),
+and the confidence intervals are percentile-based.
+
 ## See also
 
 Other Beta Nonparametric Bootstrap Functions:

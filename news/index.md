@@ -1,11 +1,16 @@
 # Changelog
 
-## betaNB 1.0.7.9001
+## betaNB 1.1.0
 
-- Add SCorSqNB() for the image of a signed-semipartial interval under
-  squaring.
+### Major
 
-## betaNB 1.0.7.9000
+- New
+  [`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md)
+  (Cohen’s f-squared) and
+  [`SCorSqNB()`](https://jeksterslab.github.io/betaNB/reference/SCorSqNB.md)
+  (the image of a signed semipartial interval under squaring); equations
+  and definitions in the help pages of the effect size functions; a
+  package help page.
 
 ### Minor
 
