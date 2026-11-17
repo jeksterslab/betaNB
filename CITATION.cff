@@ -8,15 +8,16 @@ message: 'To cite package "betaNB" in publications use:'
 type: software
 license: MIT
 title: 'betaNB: Bootstrap for Regression Effect Sizes'
-version: 1.0.7.9001
+version: 1.1.0
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.betaNB
 abstract: 'Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani,
   1993: <https://doi.org/10.1201/9780429246593>) for standardized regression coefficients
   (beta) and other effect sizes, including multiple correlation, semipartial correlations,
-  improvement in R-squared, squared partial correlations, and differences in standardized
-  regression coefficients, for models fitted by lm().'
+  squared semipartial correlations, improvement in R-squared, squared partial correlations,
+  Cohen''s f-squared, and differences in standardized regression coefficients, for
+  models fitted by lm(). Pairs and wild bootstrap samples are supported.'
 authors:
 - family-names: Pesigan
   given-names: Ivan Jacob Agaloos

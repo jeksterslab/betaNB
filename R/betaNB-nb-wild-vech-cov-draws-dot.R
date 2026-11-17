@@ -1,14 +1,14 @@
 #' Wild Bootstrap Covariance Matrices
 #'
 #' Draws wild bootstrap samples
-#' \eqn{y_i^{*} = \mathbf{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
+#' \eqn{y_i^{*} = \boldsymbol{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
 #' f(h_i) e_i v_i}
 #' and returns the half-vectorized sample covariance matrix of
-#' \eqn{\left( y^{*}, \mathbf{X} \right)} of each sample.
+#' \eqn{\left( y^{*}, \boldsymbol{X} \right)} of each sample.
 #' With `x = "fixed"`, the regressors are those of the data
 #' in every sample.
 #' With `x = "random"`, the rows
-#' \eqn{\left( \mathbf{x}_i, f(h_i) e_i \right)}
+#' \eqn{\left( \boldsymbol{x}_i, f(h_i) e_i \right)}
 #' are resampled with replacement together,
 #' so the residual stays with its own regressors,
 #' and then multiplied by \eqn{v_i}.

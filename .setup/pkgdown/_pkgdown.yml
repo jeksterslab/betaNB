@@ -45,6 +45,7 @@ articles:
   - example-delta-r-sq-nb
   - example-p-cor-nb
   - example-diff-beta-nb
+  - example-es-nb
 - title: Session Information
   contents:
   - session

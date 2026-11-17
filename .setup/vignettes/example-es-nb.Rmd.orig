@@ -1,0 +1,116 @@
+---
+title: "betaNB: Example Using the SCorSqNB and FSqNB Functions"
+author: "Ivan Jacob Agaloos Pesigan"
+output: rmarkdown::html_vignette
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+nocite: |
+  @Pesigan-2022
+  @Efron-Tibshirani-1993
+vignette: >
+  %\VignetteIndexEntry{betaNB: Example Using the SCorSqNB and FSqNB Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Confidence intervals for
+squared semipartial correlation coefficients
+and Cohen's f-squared
+are generated using
+the `SCorSqNB()` and `FSqNB()` functions from the `betaNB` package.
+In this example,
+we use the data set and the model used in
+[betaNB: Example Using the BetaNB Function](example-beta-nb.html).
+
+```{r}
+#| message = FALSE
+library(betaNB)
+```
+
+```{r}
+#| echo = FALSE
+if (!exists("nas1982")) {
+  try(
+    data(
+      "nas1982",
+      package = "betaNB"
+    ),
+    silent = TRUE
+  )
+}
+df <- nas1982
+```
+
+```{r}
+#| eval = FALSE
+df <- betaNB::nas1982
+```
+
+### Regression
+
+Fit the regression model using the `lm()` function.
+
+```{r}
+object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+```
+
+### Nonparametric Bootstrap
+
+```{r}
+nb <- NB(object)
+```
+
+### Squared Semipartial Correlation Coefficients
+
+The semipartial correlation is signed,
+and its interval may contain zero.
+`SCorSqNB()` returns the image of the signed interval under squaring.
+It is not the interval of squared draws.
+
+```{r}
+SCorSqNB(nb, level = 0.95, type = "pc")
+```
+
+```{r}
+SCorSqNB(nb, level = 0.95, type = "bca")
+```
+
+### Cohen's f-Squared
+
+```{r}
+out <- FSqNB(nb, alpha = 0.05)
+```
+
+## Methods
+
+### summary
+
+```{r}
+summary(out, type = "pc")
+```
+
+### coef
+
+```{r}
+coef(out)
+```
+
+### vcov
+
+```{r}
+vcov(out)
+```
+
+### confint
+
+```{r}
+confint(out, level = 0.95, type = "pc")
+```
+
+## References

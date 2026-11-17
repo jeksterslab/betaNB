@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-12
+2026-11-17
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -33,9 +33,13 @@ Ivan Jacob Agaloos Pesigan
 Generates nonparametric bootstrap confidence intervals (Efron &
 Tibshirani, 1993: <https://doi.org/10.1201/9780429246593>) for
 standardized regression coefficients (beta) and other effect sizes,
-including multiple correlation, semipartial correlations, improvement in
-R-squared, squared partial correlations, and differences in standardized
-regression coefficients, for models fitted by `lm()`.
+including multiple correlation, semipartial correlations, squared
+semipartial correlations, improvement in R-squared, squared partial
+correlations, Cohen’s f-squared, and differences in standardized
+regression coefficients, for models fitted by `lm()`. The pairs
+bootstrap and the wild bootstrap are available, with percentile,
+bias-corrected, bias-corrected and accelerated, and modified percentile
+intervals.
 
 ## Installation
 
@@ -98,94 +102,37 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0724 5000 0.3550 0.6363
-#> PCTGRT  0.3915 0.0770 5000 0.2341 0.5382
-#> PCTSUPP 0.2632 0.0810 5000 0.1005 0.4141
+#> NARTIC  0.4951 0.0720 5000 0.3529 0.6351
+#> PCTGRT  0.3915 0.0762 5000 0.2351 0.5362
+#> PCTSUPP 0.2632 0.0791 5000 0.1074 0.4175
 ```
 
-### Other Effect Sizes
+## Other Features
 
-The `betaNB` package also has functions to generate nonparametric
-bootstrap confidence intervals for other effect sizes such as `RSqNB()`
-for multiple correlation coefficients (R-squared and adjusted
-R-squared), `DeltaRSqNB()` for improvement in R-squared, `SCorNB()` for
-semipartial correlation coefficients, `PCorNB()` for squared partial
-correlation coefficients, and `DiffBetaNB()` for differences of
-standardized regression coefficients.
+The package provides the following functions.
 
-#### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+| Function | Purpose |
+|----|----|
+| `NB()` | Nonparametric bootstrap (pairs or wild) of a fitted `lm` model |
+| `BetaNB()` | Standardized regression coefficients |
+| `RSqNB()` | R-squared and adjusted R-squared |
+| `DiffBetaNB()` | Differences of standardized regression coefficients |
+| `SCorNB()` | Semipartial correlations |
+| `SCorSqNB()` | Squared semipartial correlations (squared signed interval) |
+| `PCorNB()` | Squared partial correlations |
+| `DeltaRSqNB()` | Improvement in R-squared (adjusted differences and modified percentile intervals available) |
+| `FSqNB()` | Cohen’s f-squared and local f-squared |
 
-``` r
-RSqNB(nb, alpha = 0.05)
-#> Call:
-#> RSqNB(object = nb, alpha = 0.05)
-#> 
-#> R-squared and adjusted R-squared
-#> type = "pc"
-#>        est     se    R   2.5%  97.5%
-#> rsq 0.8045 0.0525 5000 0.6927 0.8997
-#> adj 0.7906 0.0563 5000 0.6708 0.8925
-```
+The `coef()`, `vcov()`, `confint()`, `summary()`, and `print()` methods
+are available for the returned objects. Examples for each function are
+in the package vignettes.
 
-#### Improvement in R-squared
+## Effect Sizes
 
-``` r
-DeltaRSqNB(nb, alpha = 0.05)
-#> Call:
-#> DeltaRSqNB(object = nb, alpha = 0.05)
-#> 
-#> Improvement in R-squared
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.1859 0.0593 5000 0.0823 0.3119
-#> PCTGRT  0.1177 0.0485 5000 0.0347 0.2215
-#> PCTSUPP 0.0569 0.0342 5000 0.0080 0.1371
-```
-
-#### Semipartial Correlation Coefficients
-
-``` r
-SCorNB(nb, alpha = 0.05)
-#> Call:
-#> SCorNB(object = nb, alpha = 0.05)
-#> 
-#> Semipartial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4312 0.0699 5000 0.2868 0.5585
-#> PCTGRT  0.3430 0.0727 5000 0.1862 0.4706
-#> PCTSUPP 0.2385 0.0724 5000 0.0894 0.3703
-```
-
-#### Squared Partial Correlation Coefficients
-
-``` r
-PCorNB(nb, alpha = 0.05)
-#> Call:
-#> PCorNB(object = nb, alpha = 0.05)
-#> 
-#> Squared partial correlations
-#> type = "pc"
-#>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4874 0.0994 5000 0.2898 0.6743
-#> PCTGRT  0.3757 0.1090 5000 0.1583 0.5850
-#> PCTSUPP 0.2254 0.1163 5000 0.0399 0.4829
-```
-
-#### Differences of Standardized Regression Coefficients
-
-``` r
-DiffBetaNB(nb, alpha = 0.05)
-#> Call:
-#> DiffBetaNB(object = nb, alpha = 0.05)
-#> 
-#> Differences of standardized regression slopes
-#> type = "pc"
-#>                   est     se    R    2.5%  97.5%
-#> NARTIC-PCTGRT  0.1037 0.1318 5000 -0.1542 0.3659
-#> NARTIC-PCTSUPP 0.2319 0.1252 5000 -0.0132 0.4845
-#> PCTGRT-PCTSUPP 0.1282 0.1297 5000 -0.1190 0.3860
-```
+The definitions, formulas, and notes on the intervals are in the help
+pages of the functions and in the vignette [betaNB: Example Using the
+SCorSqNB and FSqNB
+Functions](https://jeksterslab.github.io/betaNB/articles/example-es-nb.html).
 
 ## Documentation
 

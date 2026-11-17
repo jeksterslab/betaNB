@@ -1,6 +1,6 @@
 Package: betaNB
 Title: Bootstrap for Regression Effect Sizes
-Version: 1.0.7.9001
+Version: 1.1.0
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -11,9 +11,12 @@ Description: Generates nonparametric bootstrap confidence intervals
     (Efron and Tibshirani, 1993: <doi:10.1201/9780429246593>)
     for standardized regression coefficients (beta) and other effect sizes,
     including multiple correlation, semipartial correlations,
+    squared semipartial correlations,
     improvement in R-squared, squared partial correlations,
+    Cohen's f-squared,
     and differences in standardized regression coefficients,
     for models fitted by lm().
+    Pairs and wild bootstrap samples are supported.
 URL: https://github.com/jeksterslab/betaNB, https://jeksterslab.github.io/betaNB/
 BugReports: https://github.com/jeksterslab/betaNB/issues
 License: MIT + file LICENSE
@@ -32,7 +35,5 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    betaDelta,
-    betaSandwich,
-    betaMC
+    betaSandwich
 Config/roxygen2/version: 8.1.1.9000

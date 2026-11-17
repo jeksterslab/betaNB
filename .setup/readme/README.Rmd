@@ -44,9 +44,14 @@ Generates nonparametric bootstrap confidence intervals
 for standardized regression coefficients (beta)
 and other effect sizes,
 including multiple correlation, semipartial correlations,
+squared semipartial correlations,
 improvement in R-squared, squared partial correlations,
+Cohen's f-squared,
 and differences in standardized regression coefficients,
 for models fitted by `lm()`.
+The pairs bootstrap and the wild bootstrap are available,
+with percentile, bias-corrected, bias-corrected and accelerated,
+and modified percentile intervals.
 
 ## Installation
 
@@ -119,46 +124,32 @@ nb <- NB(object)
 BetaNB(nb, alpha = 0.05)
 ```
 
-### Other Effect Sizes
+## Other Features
 
-The `betaNB` package also has functions to generate nonparametric bootstrap confidence intervals
-for other effect sizes such as
-`RSqNB()` for multiple correlation coefficients (R-squared and adjusted R-squared),
-`DeltaRSqNB()` for improvement in R-squared,
-`SCorNB()` for semipartial correlation coefficients,
-`PCorNB()` for squared partial correlation coefficients,
-and
-`DiffBetaNB()` for differences of standardized regression coefficients.
+The package provides the following functions.
 
-#### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+| Function | Purpose |
+|---|---|
+| `NB()` | Nonparametric bootstrap (pairs or wild) of a fitted `lm` model |
+| `BetaNB()` | Standardized regression coefficients |
+| `RSqNB()` | R-squared and adjusted R-squared |
+| `DiffBetaNB()` | Differences of standardized regression coefficients |
+| `SCorNB()` | Semipartial correlations |
+| `SCorSqNB()` | Squared semipartial correlations (squared signed interval) |
+| `PCorNB()` | Squared partial correlations |
+| `DeltaRSqNB()` | Improvement in R-squared (adjusted differences and modified percentile intervals available) |
+| `FSqNB()` | Cohen's f-squared and local f-squared |
 
-```{r}
-RSqNB(nb, alpha = 0.05)
-```
+The `coef()`, `vcov()`, `confint()`, `summary()`, and `print()` methods
+are available for the returned objects.
+Examples for each function are in the package vignettes.
 
-#### Improvement in R-squared
+## Effect Sizes
 
-```{r}
-DeltaRSqNB(nb, alpha = 0.05)
-```
-
-#### Semipartial Correlation Coefficients
-
-```{r}
-SCorNB(nb, alpha = 0.05)
-```
-
-#### Squared Partial Correlation Coefficients
-
-```{r}
-PCorNB(nb, alpha = 0.05)
-```
-
-#### Differences of Standardized Regression Coefficients
-
-```{r}
-DiffBetaNB(nb, alpha = 0.05)
-```
+The definitions, formulas, and notes on the intervals
+are in the help pages of the functions
+and in the vignette
+[betaNB: Example Using the SCorSqNB and FSqNB Functions](https://jeksterslab.github.io/betaNB/articles/example-es-nb.html).
 
 ## Documentation
 

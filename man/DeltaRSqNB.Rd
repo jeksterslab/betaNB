@@ -67,6 +67,27 @@ Unlike their ranked endpoints, betaNB retains its ordinary
 interpolated percentile calculation. Their studies used pairs
 resampling; coverage for wild draws or heteroskedastic F testing
 is not established by those studies.
+
+Let \eqn{\boldsymbol{\beta}^{\ast}} be the vector of standardized slopes,
+\eqn{\boldsymbol{R}_{x}} the correlation matrix of the regressors,
+\eqn{r^{jj}} the \eqn{j}th diagonal element of \eqn{\boldsymbol{R}_{x}^{-1}},
+and \eqn{R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+\boldsymbol{\beta}^{\ast}}.
+The semipartial correlation of regressor \eqn{j} is
+\deqn{sr_{j} = \beta^{\ast}_{j} / \sqrt{r^{jj}} = \beta^{\ast}_{j} \sqrt{1 -
+R^{2}_{j \cdot -j}},}
+where \eqn{R^{2}_{j \cdot -j}} is the R-squared from regressing regressor
+\eqn{j}
+on the other regressors.
+Its square, \eqn{sr^{2}_{j}}, is the change in \eqn{R^{2}} when regressor
+\eqn{j} is added last.
+Because \eqn{1 / r^{jj} = 1 - R^{2}_{j \cdot -j}}, \eqn{sr_{j}} shrinks
+toward zero
+as regressor \eqn{j} becomes more redundant with the other regressors.
+The improvement in R-squared for regressor \eqn{j} is
+\deqn{\Delta R^{2}_{j} = R^{2} - R^{2}_{-j} = sr^{2}_{j}.}
+Each effect size is computed from every bootstrap sample
+(see \code{\link[=NB]{NB()}}), and the confidence intervals are percentile-based.
 }
 \examples{
 # Data ---------------------------------------------------------------------
