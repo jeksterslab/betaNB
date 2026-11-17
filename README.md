@@ -102,9 +102,9 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0720 5000 0.3529 0.6351
-#> PCTGRT  0.3915 0.0762 5000 0.2351 0.5362
-#> PCTSUPP 0.2632 0.0791 5000 0.1074 0.4175
+#> NARTIC  0.4951 0.0722 5000 0.3589 0.6388
+#> PCTGRT  0.3915 0.0769 5000 0.2379 0.5367
+#> PCTSUPP 0.2632 0.0796 5000 0.1045 0.4178
 ```
 
 ## Other Features
