@@ -30,7 +30,7 @@
 #'   `"pairs"` (default) resamples the rows of the data
 #'   (nonparametric bootstrap).
 #'   `"wild"` is the wild bootstrap, which generates
-#'   \eqn{y_i^{*} = \mathbf{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
+#'   \eqn{y_i^{*} = \boldsymbol{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
 #'   f(h_i) e_i v_i},
 #'   where \eqn{e_i} is the residual,
 #'   \eqn{h_i} is the leverage,
@@ -54,7 +54,7 @@
 #'   `"hc0"` and `"hc1"`.
 #' @param x Character string.
 #'   `"random"` (default) resamples the rows
-#'   \eqn{\left( \mathbf{x}_i, f(h_i) e_i \right)} together
+#'   \eqn{\left( \boldsymbol{x}_i, f(h_i) e_i \right)} together
 #'   before the weights are applied,
 #'   so the sampling variability of the regressors is kept.
 #'   `"fixed"` keeps the regressors of the data in every sample

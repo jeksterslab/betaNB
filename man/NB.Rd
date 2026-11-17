@@ -29,7 +29,7 @@ Bootstrap sampler.
 \code{"pairs"} (default) resamples the rows of the data
 (nonparametric bootstrap).
 \code{"wild"} is the wild bootstrap, which generates
-\eqn{y_i^{*} = \mathbf{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
+\eqn{y_i^{*} = \boldsymbol{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
 f(h_i) e_i v_i},
 where \eqn{e_i} is the residual,
 \eqn{h_i} is the leverage,
@@ -56,7 +56,7 @@ A leverage equal to 1 is an error for every type except
 
 \item{x}{Character string.
 \code{"random"} (default) resamples the rows
-\eqn{\left( \mathbf{x}_i, f(h_i) e_i \right)} together
+\eqn{\left( \boldsymbol{x}_i, f(h_i) e_i \right)} together
 before the weights are applied,
 so the sampling variability of the regressors is kept.
 \code{"fixed"} keeps the regressors of the data in every sample

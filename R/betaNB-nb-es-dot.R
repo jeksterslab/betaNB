@@ -7,7 +7,7 @@
 #'
 #' @param vechsigmacap Numeric matrix.
 #'   Each row is the half-vectorization of a sample covariance matrix
-#'   of \eqn{\left( Y, \mathbf{X} \right)}.
+#'   of \eqn{\left( Y, \boldsymbol{X} \right)}.
 #' @param lm_process List.
 #'   Output of `.ProcessLM()`.
 #' @return Returns a list of matrices

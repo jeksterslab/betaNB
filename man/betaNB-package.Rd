@@ -4,9 +4,46 @@
 \name{betaNB-package}
 \alias{betaNB}
 \alias{betaNB-package}
-\title{betaNB: Bootstrap for Regression Effect Sizes}
+\title{betaNB: Nonparametric Bootstrap Confidence Intervals for Standardized
+Regression Coefficients}
 \description{
-Generates nonparametric bootstrap confidence intervals (Efron and Tibshirani, 1993: \doi{10.1201/9780429246593}) for standardized regression coefficients (beta) and other effect sizes, including multiple correlation, semipartial correlations, improvement in R-squared, squared partial correlations, and differences in standardized regression coefficients, for models fitted by lm().
+Generates nonparametric bootstrap confidence intervals
+for standardized regression coefficients and other effect sizes
+for models fitted by \code{\link[stats:lm]{stats::lm()}}
+(Efron & Tibshirani, 1993).
+}
+\section{Bootstrap}{
+
+\code{\link[=NB]{NB()}} generates the bootstrap samples, either by resampling cases
+(\code{type = "pairs"}) or by the wild bootstrap (\code{type = "wild"}).
+The arguments \code{std_y} and \code{std_x} standardize only the outcome
+or only the named regressors.
+}
+
+\section{Effect sizes}{
+
+\code{\link[=BetaNB]{BetaNB()}} (standardized regression coefficients),
+\code{\link[=DiffBetaNB]{DiffBetaNB()}} (differences of standardized slopes),
+\code{\link[=RSqNB]{RSqNB()}} (R-squared and adjusted R-squared),
+\code{\link[=SCorNB]{SCorNB()}} and \code{\link[=SCorSqNB]{SCorSqNB()}} (semipartial correlations),
+\code{\link[=PCorNB]{PCorNB()}} (squared partial correlations),
+\code{\link[=DeltaRSqNB]{DeltaRSqNB()}} (improvement in R-squared), and
+\code{\link[=FSqNB]{FSqNB()}} (Cohen's f-squared and local f-squared).
+Percentile (\code{"pc"}), bias-corrected (\code{"bc"}),
+and bias-corrected and accelerated (\code{"bca"}) intervals are available.
+}
+
+\section{Methods}{
+
+The \code{coef()}, \code{vcov()}, \code{confint()}, \code{summary()}, and \code{print()} methods are
+available for objects of class \code{betanb}.
+}
+
+\references{
+Efron, B., & Tibshirani, R. J. (1993).
+\emph{An introduction to the bootstrap}.
+Chapman & Hall.
+\doi{10.1201/9780429246593}
 }
 \seealso{
 Useful links:

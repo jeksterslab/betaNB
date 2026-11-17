@@ -2,7 +2,7 @@
 #'
 #' The factor \eqn{f(h_i)} that multiplies the residual \eqn{e_i}
 #' in the wild bootstrap,
-#' \eqn{y_i^{*} = \mathbf{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
+#' \eqn{y_i^{*} = \boldsymbol{x}_i^{\prime} \hat{\boldsymbol{\beta}} +
 #' f(h_i) e_i v_i}.
 #' It is the square root of the leverage adjustment
 #' used for the heteroskedasticity-consistent

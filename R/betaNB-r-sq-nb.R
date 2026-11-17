@@ -14,6 +14,21 @@
 #'   distribution of \eqn{R^{2}} and \eqn{\bar{R}^{2}},
 #'   where \eqn{\alpha} is the significance level.
 #'
+#' @details
+#' Let \eqn{\boldsymbol{\beta}^{\ast}} be the vector of standardized slopes,
+#' \eqn{\boldsymbol{R}_{x}} the correlation matrix of the regressors,
+#' \eqn{r^{jj}} the \eqn{j}th diagonal element of \eqn{\boldsymbol{R}_{x}^{-1}},
+#' and \eqn{R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+#' \boldsymbol{\beta}^{\ast}}.
+#' The R-squared and the adjusted R-squared are
+#' \deqn{R^{2} = \boldsymbol{\beta}^{\ast\prime} \boldsymbol{R}_{x}
+#' \boldsymbol{\beta}^{\ast}, \quad \bar{R}^{2} = 1 - \left( 1 - R^{2} \right)
+#' \frac{n - 1}{n - k},}
+#' where \eqn{n} is the sample size and \eqn{k} is the number of parameters
+#' in the regression model, including the intercept.
+#' Each effect size is computed from every bootstrap sample
+#' (see [NB()]), and the confidence intervals are percentile-based.
+#'
 #' @return Returns an object
 #'   of class `betanb` which is a list with the following elements:
 #'   \describe{
