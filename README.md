@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-17
+2026-11-21
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -102,9 +102,9 @@ BetaNB(nb, alpha = 0.05)
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0722 5000 0.3589 0.6388
-#> PCTGRT  0.3915 0.0769 5000 0.2379 0.5367
-#> PCTSUPP 0.2632 0.0796 5000 0.1045 0.4178
+#> NARTIC  0.4951 0.0728 5000 0.3531 0.6409
+#> PCTGRT  0.3915 0.0769 5000 0.2414 0.5349
+#> PCTSUPP 0.2632 0.0800 5000 0.1028 0.4147
 ```
 
 ## Other Features

@@ -5,7 +5,7 @@
 #' from the covariance matrix.
 #'
 #' @details Let the covariance matrix of \eqn{Y} and
-#'   \eqn{\mathbf{X} = \left\{ X_{1}, \dots, \X_{p} \right\}}
+#'   \eqn{\boldsymbol{X} = \left\{ X_{1}, \dots, X_{p} \right\}}
 #'   be partitioned as follows
 #'   \deqn{
 #'     \boldsymbol{\Sigma}
@@ -14,20 +14,20 @@
 #'     \begin{array}{cc}
 #'     \sigma_{Y}^{2}
 #'     &
-#'     \boldsymbol{\sigma}_{Y \mathbf{X}} \\
-#'     \boldsymbol{\sigma}_{\mathbf{X} Y}
+#'     \boldsymbol{\sigma}_{Y \boldsymbol{X}} \\
+#'     \boldsymbol{\sigma}_{\boldsymbol{X} Y}
 #'     &
-#'     \boldsymbol{\Sigma}_{\mathbf{X} \mathbf{X}}
+#'     \boldsymbol{\Sigma}_{\boldsymbol{X} \boldsymbol{X}}
 #'     \end{array}
 #'     \right) .
 #'   }
 #'   The corresponding correlation matrix is given by
 #'   \deqn{
-#'     \mathbf{P}
+#'     \boldsymbol{P}
 #'     =
-#'     \mathrm{diag} \left( \boldsymbol{\sigma}^{-1} \right)
+#'     \operatorname{diag} \left( \boldsymbol{\sigma}^{-1} \right)
 #'     \boldsymbol{\Sigma}
-#'     \mathrm{diag} \left( \boldsymbol{\sigma}^{-1} \right)
+#'     \operatorname{diag} \left( \boldsymbol{\sigma}^{-1} \right)
 #'   }
 #'   where \eqn{\boldsymbol{\sigma}} is the vector of standard deviations.
 #'   The vector of standardized partial regression slopes
@@ -35,8 +35,8 @@
 #'   \deqn{
 #'     \boldsymbol{\beta}^{\ast}
 #'     =
-#'     \mathbf{P}_{\mathbf{X} \mathbf{X}}^{-1}
-#'     \boldsymbol{\rho}_{Y \mathbf{X}} .
+#'     \boldsymbol{P}_{\boldsymbol{X} \boldsymbol{X}}^{-1}
+#'     \boldsymbol{\rho}_{Y \boldsymbol{X}} .
 #'   }
 #'
 #' @author Ivan Jacob Agaloos Pesigan
@@ -52,6 +52,19 @@
 #'   Dimension of the `k` by `k` covariance matrix.
 #'
 #' @return Returns a vector.
+#' @examples
+#' beta <- c(0.5, 0.3)
+#' sigmacapx <- matrix(data = c(1, 0.2, 0.2, 2), nrow = 2)
+#' sigmacap <- matrix(
+#'   data = c(0.89, 0.56, 0.7, 0.56, 1, 0.2, 0.7, 0.2, 2),
+#'   nrow = 3
+#' )
+#' strRegression:::.BetaStarofSigma(
+#'   sigmacap = sigmacap,
+#'   q = 1 / sqrt(diag(sigmacap)),
+#'   k = 3
+#' )
+#'
 #' @family Standardized Slopes Functions
 #' @keywords strRegression slopesstd internal
 #' @noRd

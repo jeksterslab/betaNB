@@ -22,15 +22,15 @@
                   probs,
                   z0,
                   z1) {
-  thetahatstar <- as.vector(thetahatstar)
+  thetahatstar <- as.vector(x = thetahatstar)
   thetahatstar <- thetahatstar[stats::complete.cases(thetahatstar)]
-  ci <- stats::quantile(
+  # type 7 quantiles in C++ (the arithmetic of stats::quantile())
+  ci <- .Quantile(
     x = thetahatstar,
     probs = .BCProbs(
       z0 = z0,
       z1 = z1
-    ),
-    names = FALSE
+    )
   )
   .CIFormat(
     thetahatstar = thetahatstar,

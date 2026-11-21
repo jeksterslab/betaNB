@@ -62,7 +62,7 @@ Both modes use the unadjusted sample F statistic and test at the
 interval's error probability \code{alpha} (equality is nonsignificant).
 
 These lower-limit rules follow Algina et al. (2007, p. 210;
-2008, pp. 735, 737; 2008a, pp. 3--5; 2010, pp. 928--929, 931--932).
+2008a, pp. 3--5; 2008b, pp. 735, 737; 2010, pp. 928--929, 931--932).
 Unlike their ranked endpoints, betaNB retains its ordinary
 interpolated percentile calculation. Their studies used pairs
 resampling; coverage for wild draws or heteroskedastic F testing
@@ -94,45 +94,56 @@ Each effect size is computed from every bootstrap sample
 data("nas1982", package = "betaNB")
 
 # Fit Model in lm ----------------------------------------------------------
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
 
 # NB -----------------------------------------------------------------------
 nb <- NB(
-  object,
+  object = object,
   R = 100, # use a large value e.g., 5000L for actual research
   seed = 0508
 )
 
 # DeltaRSqNB ---------------------------------------------------------------
-out <- DeltaRSqNB(nb, alpha = 0.05)
+out <- DeltaRSqNB(object = nb, alpha = 0.05)
 
 ## Methods -----------------------------------------------------------------
-print(out)
-summary(out)
-coef(out)
-vcov(out)
-confint(out, level = 0.95)
-confint(out, level = 0.95, type = "mpc")
-adjusted <- DeltaRSqNB(nb, alpha = 0.05, adj = TRUE)
-confint(adjusted, level = 0.95, type = "mpc")
+print(x = out)
+summary(object = out)
+coef(object = out)
+vcov(object = out)
+confint(object = out, level = 0.95)
+confint(object = out, level = 0.95, type = "mpc")
+adjusted <- DeltaRSqNB(object = nb, alpha = 0.05, adj = TRUE)
+confint(object = adjusted, level = 0.95, type = "mpc")
 
 }
 \references{
 Algina, J., Keselman, H. J., & Penfield, R. D. (2007).
-Confidence intervals for an effect size measure in multiple linear
-regression. \doi{10.1177/0013164406292030}.
-
-Algina, J., Keselman, H. J., & Penfield, R. D. (2008).
-Note on a confidence interval for the squared semipartial correlation
-coefficient. \doi{10.1177/0013164407313371}.
+Confidence intervals for an effect size measure
+in multiple linear regression.
+\emph{Educational and Psychological Measurement}, \emph{67}(2), 207--218.
+\doi{10.1177/0013164406292030}
 
 Algina, J., Keselman, H. J., & Penfield, R. D. (2008a).
-Confidence intervals for the squared multiple semipartial correlation
-coefficient. \doi{10.22237/jmasm/1209614460}.
+Confidence intervals for the squared multiple semipartial
+correlation coefficient.
+\emph{Journal of Modern Applied Statistical Methods}, \emph{7}(1), 2--10.
+\doi{10.22237/jmasm/1209614460}
+
+Algina, J., Keselman, H. J., & Penfield, R. D. (2008b).
+Note on a confidence interval for the squared semipartial
+correlation coefficient.
+\emph{Educational and Psychological Measurement}, \emph{68}(5), 734--741.
+\doi{10.1177/0013164407313371}
 
 Algina, J., Keselman, H. J., & Penfield, R. D. (2010).
 Confidence intervals for squared semipartial correlation coefficients:
-The effect of nonnormality. \doi{10.1177/0013164410379335}.
+The effect of nonnormality.
+\emph{Educational and Psychological Measurement}, \emph{70}(6), 926--940.
+\doi{10.1177/0013164410379335}
 }
 \seealso{
 Other Beta Nonparametric Bootstrap Functions:

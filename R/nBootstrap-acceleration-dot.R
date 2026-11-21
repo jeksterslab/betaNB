@@ -11,7 +11,7 @@
 #' @keywords nBootstrap ci internal
 #' @noRd
 .Acceleration <- function(jackknife) {
-  parenthesis <- mean(jackknife) - jackknife
+  parenthesis <- mean(x = jackknife) - jackknife
   (
     sum(parenthesis^3)
   ) / (

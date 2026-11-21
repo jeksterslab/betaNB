@@ -47,24 +47,27 @@
 #' data("nas1982", package = "betaNB")
 #'
 #' # Fit Model in lm ----------------------------------------------------------
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
 #'
 #' # NB -----------------------------------------------------------------------
 #' nb <- NB(
-#'   object,
+#'   object = object,
 #'   R = 100, # use a large value e.g., 5000L for actual research
 #'   seed = 0508
 #' )
 #'
 #' # BetaNB -------------------------------------------------------------------
-#' out <- BetaNB(nb, alpha = 0.05)
+#' out <- BetaNB(object = nb, alpha = 0.05)
 #'
 #' ## Methods -----------------------------------------------------------------
-#' print(out)
-#' summary(out)
-#' coef(out)
-#' vcov(out)
-#' confint(out, level = 0.95)
+#' print(x = out)
+#' summary(object = out)
+#' coef(object = out)
+#' vcov(object = out)
+#' confint(object = out, level = 0.95)
 #'
 #' @family Beta Nonparametric Bootstrap Functions
 #' @keywords betaNB std

@@ -27,13 +27,13 @@
 .NBVechCovDraws <- function(x,
                             R = 5000L,
                             block = 1000L) {
-  n <- dim(x)[1]
+  n <- dim(x = x)[1]
   # at most about 1e7 indices in memory at a time
   block <- max(
     1L,
     min(
       block,
-      as.integer(1e7 %/% n)
+      as.integer(x = 1e7 %/% n)
     )
   )
   starts <- seq(
@@ -46,7 +46,7 @@
     FUN = function(start) {
       size <- min(block, R - start + 1L)
       idx <- vapply(
-        X = seq_len(size),
+        X = seq_len(length.out = size),
         FUN = function(i) {
           sample.int(
             n = n,
@@ -54,7 +54,7 @@
             replace = TRUE
           )
         },
-        FUN.VALUE = integer(n)
+        FUN.VALUE = integer(length = n)
       )
       .NBVechCov(
         x = x,
