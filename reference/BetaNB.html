@@ -141,20 +141,23 @@ where \(\alpha\) is the significance level.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"nas1982"</span>, package <span class="op">=</span> <span class="st">"betaNB"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fit Model in lm ----------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># NB -----------------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
 <span class="r-in"><span>  R <span class="op">=</span> <span class="fl">100</span>, <span class="co"># use a large value e.g., 5000L for actual research</span></span></span>
 <span class="r-in"><span>  seed <span class="op">=</span> <span class="fl">0508</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># BetaNB -------------------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">BetaNB</span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">BetaNB</span><span class="op">(</span>object <span class="op">=</span> <span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Methods -----------------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BetaNB(object = nb, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -164,7 +167,7 @@ where \(\alpha\) is the significance level.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.4951 0.0708 100 0.3498 0.6141</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.3915 0.0797 100 0.2440 0.5192</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.2632 0.0813 100 0.1033 0.4193</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BetaNB(object = nb, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -174,15 +177,15 @@ where \(\alpha\) is the significance level.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.4951 0.0708 100 0.3498 0.6141</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.3915 0.0797 100 0.2440 0.5192</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.2632 0.0813 100 0.1033 0.4193</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    NARTIC    PCTGRT   PCTSUPP </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.4951451 0.3914887 0.2632477 </span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               NARTIC       PCTGRT      PCTSUPP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC   0.005012960 -0.002549951 -0.002273111</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  -0.002549951  0.006346647 -0.002320642</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP -0.002273111 -0.002320642  0.006606168</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.3497796 0.6141490</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.2440254 0.5192221</span>

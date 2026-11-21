@@ -117,7 +117,7 @@ limits are retained. Upper limits are unchanged, without clipping.
 Both modes use the unadjusted sample F statistic and test at the
 interval's error probability <code>alpha</code> (equality is nonsignificant).</p>
 <p>These lower-limit rules follow Algina et al. (2007, p. 210;
-2008, pp. 735, 737; 2008a, pp. 3–5; 2010, pp. 928–929, 931–932).
+2008a, pp. 3–5; 2008b, pp. 735, 737; 2010, pp. 928–929, 931–932).
 Unlike their ranked endpoints, betaNB retains its ordinary
 interpolated percentile calculation. Their studies used pairs
 resampling; coverage for wild draws or heteroskedastic F testing
@@ -146,21 +146,25 @@ Each effect size is computed from every bootstrap sample
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2007).
-Confidence intervals for an effect size measure in multiple linear
-regression. <a href="https://doi.org/10.1177/0013164406292030" class="external-link">doi:10.1177/0013164406292030</a>
-.</p>
-<p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2008).
-Note on a confidence interval for the squared semipartial correlation
-coefficient. <a href="https://doi.org/10.1177/0013164407313371" class="external-link">doi:10.1177/0013164407313371</a>
-.</p>
+Confidence intervals for an effect size measure
+in multiple linear regression.
+<em>Educational and Psychological Measurement</em>, <em>67</em>(2), 207–218.
+<a href="https://doi.org/10.1177/0013164406292030" class="external-link">doi:10.1177/0013164406292030</a></p>
 <p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2008a).
-Confidence intervals for the squared multiple semipartial correlation
-coefficient. <a href="https://doi.org/10.22237/jmasm/1209614460" class="external-link">doi:10.22237/jmasm/1209614460</a>
-.</p>
+Confidence intervals for the squared multiple semipartial
+correlation coefficient.
+<em>Journal of Modern Applied Statistical Methods</em>, <em>7</em>(1), 2–10.
+<a href="https://doi.org/10.22237/jmasm/1209614460" class="external-link">doi:10.22237/jmasm/1209614460</a></p>
+<p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2008b).
+Note on a confidence interval for the squared semipartial
+correlation coefficient.
+<em>Educational and Psychological Measurement</em>, <em>68</em>(5), 734–741.
+<a href="https://doi.org/10.1177/0013164407313371" class="external-link">doi:10.1177/0013164407313371</a></p>
 <p>Algina, J., Keselman, H. J., &amp; Penfield, R. D. (2010).
 Confidence intervals for squared semipartial correlation coefficients:
-The effect of nonnormality. <a href="https://doi.org/10.1177/0013164410379335" class="external-link">doi:10.1177/0013164410379335</a>
-.</p>
+The effect of nonnormality.
+<em>Educational and Psychological Measurement</em>, <em>70</em>(6), 926–940.
+<a href="https://doi.org/10.1177/0013164410379335" class="external-link">doi:10.1177/0013164410379335</a></p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -184,20 +188,23 @@ The effect of nonnormality. <a href="https://doi.org/10.1177/0013164410379335" c
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"nas1982"</span>, package <span class="op">=</span> <span class="st">"betaNB"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fit Model in lm ----------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># NB -----------------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
 <span class="r-in"><span>  R <span class="op">=</span> <span class="fl">100</span>, <span class="co"># use a large value e.g., 5000L for actual research</span></span></span>
 <span class="r-in"><span>  seed <span class="op">=</span> <span class="fl">0508</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># DeltaRSqNB ---------------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">DeltaRSqNB</span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">DeltaRSqNB</span><span class="op">(</span>object <span class="op">=</span> <span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Methods -----------------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> DeltaRSqNB(object = nb, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -207,7 +214,7 @@ The effect of nonnormality. <a href="https://doi.org/10.1177/0013164410379335" c
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.1859 0.0543 100 0.0797 0.2945</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.1177 0.0507 100 0.0374 0.2216</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.0569 0.0342 100 0.0091 0.1396</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> DeltaRSqNB(object = nb, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -217,26 +224,26 @@ The effect of nonnormality. <a href="https://doi.org/10.1177/0013164410379335" c
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.1859 0.0543 100 0.0797 0.2945</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.1177 0.0507 100 0.0374 0.2216</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.0569 0.0342 100 0.0091 0.1396</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    NARTIC    PCTGRT   PCTSUPP </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.1858925 0.1176542 0.0568722 </span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                NARTIC        PCTGRT       PCTSUPP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC   0.0029458986  0.0003342570 -0.0004080511</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT   0.0003342570  0.0025659708 -0.0002009029</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP -0.0004080511 -0.0002009029  0.0011699276</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.079688018 0.2944650</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.037358975 0.2216272</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.009079169 0.1395662</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"mpc"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"mpc"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.079688018 0.2944650</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.037358975 0.2216272</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTSUPP 0.009079169 0.1395662</span>
-<span class="r-in"><span><span class="va">adjusted</span> <span class="op">&lt;-</span> <span class="fu">DeltaRSqNB</span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span>, adj <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">adjusted</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"mpc"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">adjusted</span> <span class="op">&lt;-</span> <span class="fu">DeltaRSqNB</span><span class="op">(</span>object <span class="op">=</span> <span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span>, adj <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">adjusted</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"mpc"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NARTIC  0.07846053 0.3026643</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PCTGRT  0.03560112 0.2264941</span>

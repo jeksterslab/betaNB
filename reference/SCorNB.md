@@ -98,20 +98,23 @@ Ivan Jacob Agaloos Pesigan
 data("nas1982", package = "betaNB")
 
 # Fit Model in lm ----------------------------------------------------------
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
 
 # NB -----------------------------------------------------------------------
 nb <- NB(
-  object,
+  object = object,
   R = 100, # use a large value e.g., 5000L for actual research
   seed = 0508
 )
 
 # SCorNB -------------------------------------------------------------------
-out <- SCorNB(nb, alpha = 0.05)
+out <- SCorNB(object = nb, alpha = 0.05)
 
 ## Methods -----------------------------------------------------------------
-print(out)
+print(x = out)
 #> Call:
 #> SCorNB(object = nb, alpha = 0.05)
 #> 
@@ -121,7 +124,7 @@ print(out)
 #> NARTIC  0.4312 0.0661 100 0.2822 0.5423
 #> PCTGRT  0.3430 0.0770 100 0.1933 0.4708
 #> PCTSUPP 0.2385 0.0707 100 0.0940 0.3734
-summary(out)
+summary(object = out)
 #> Call:
 #> SCorNB(object = nb, alpha = 0.05)
 #> 
@@ -131,15 +134,15 @@ summary(out)
 #> NARTIC  0.4312 0.0661 100 0.2822 0.5423
 #> PCTGRT  0.3430 0.0770 100 0.1933 0.4708
 #> PCTSUPP 0.2385 0.0707 100 0.0940 0.3734
-coef(out)
+coef(object = out)
 #>    NARTIC    PCTGRT   PCTSUPP 
 #> 0.4311525 0.3430075 0.2384789 
-vcov(out)
+vcov(object = out)
 #>                NARTIC        PCTGRT       PCTSUPP
 #> NARTIC   0.0043636010  0.0004196016 -0.0011696805
 #> PCTGRT   0.0004196016  0.0059260665 -0.0008003066
 #> PCTSUPP -0.0011696805 -0.0008003066  0.0049980295
-confint(out, level = 0.95)
+confint(object = out, level = 0.95)
 #>              2.5 %    97.5 %
 #> NARTIC  0.28216333 0.5422580
 #> PCTGRT  0.19327956 0.4707667

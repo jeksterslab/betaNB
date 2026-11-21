@@ -96,20 +96,23 @@ Ivan Jacob Agaloos Pesigan
 data("nas1982", package = "betaNB")
 
 # Fit Model in lm ----------------------------------------------------------
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
 
 # NB -----------------------------------------------------------------------
 nb <- NB(
-  object,
+  object = object,
   R = 100, # use a large value e.g., 5000L for actual research
   seed = 0508
 )
 
 # RSqNB --------------------------------------------------------------------
-out <- RSqNB(nb, alpha = 0.05)
+out <- RSqNB(object = nb, alpha = 0.05)
 
 ## Methods -----------------------------------------------------------------
-print(out)
+print(x = out)
 #> Call:
 #> RSqNB(object = nb, alpha = 0.05)
 #> 
@@ -118,7 +121,7 @@ print(out)
 #>        est     se   R   2.5%  97.5%
 #> rsq 0.8045 0.0499 100 0.7110 0.8872
 #> adj 0.7906 0.0534 100 0.6903 0.8792
-summary(out)
+summary(object = out)
 #> Call:
 #> RSqNB(object = nb, alpha = 0.05)
 #> 
@@ -127,14 +130,14 @@ summary(out)
 #>        est     se   R   2.5%  97.5%
 #> rsq 0.8045 0.0499 100 0.7110 0.8872
 #> adj 0.7906 0.0534 100 0.6903 0.8792
-coef(out)
+coef(object = out)
 #>       rsq       adj 
 #> 0.8045263 0.7905638 
-vcov(out)
+vcov(object = out)
 #>             rsq         adj
 #> rsq 0.002485577 0.002663118
 #> adj 0.002663118 0.002853340
-confint(out, level = 0.95)
+confint(object = out, level = 0.95)
 #>         2.5 %    97.5 %
 #> rsq 0.7109512 0.8872404
 #> adj 0.6903048 0.8791862

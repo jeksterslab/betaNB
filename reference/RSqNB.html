@@ -139,20 +139,23 @@ Each effect size is computed from every bootstrap sample
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"nas1982"</span>, package <span class="op">=</span> <span class="st">"betaNB"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fit Model in lm ----------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>, data <span class="op">=</span> <span class="va">nas1982</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># NB -----------------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
 <span class="r-in"><span>  R <span class="op">=</span> <span class="fl">100</span>, <span class="co"># use a large value e.g., 5000L for actual research</span></span></span>
 <span class="r-in"><span>  seed <span class="op">=</span> <span class="fl">0508</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># RSqNB --------------------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">RSqNB</span><span class="op">(</span><span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">RSqNB</span><span class="op">(</span>object <span class="op">=</span> <span class="va">nb</span>, alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Methods -----------------------------------------------------------------</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RSqNB(object = nb, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -161,7 +164,7 @@ Each effect size is computed from every bootstrap sample
 <span class="r-out co"><span class="r-pr">#&gt;</span>        est     se   R   2.5%  97.5%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.8045 0.0499 100 0.7110 0.8872</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.7906 0.0534 100 0.6903 0.8792</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> RSqNB(object = nb, alpha = 0.05)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -170,14 +173,14 @@ Each effect size is computed from every bootstrap sample
 <span class="r-out co"><span class="r-pr">#&gt;</span>        est     se   R   2.5%  97.5%</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.8045 0.0499 100 0.7110 0.8872</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.7906 0.0534 100 0.6903 0.8792</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       rsq       adj </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.8045263 0.7905638 </span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             rsq         adj</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.002485577 0.002663118</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.002663118 0.002853340</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         2.5 %    97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rsq 0.7109512 0.8872404</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> adj 0.6903048 0.8791862</span>

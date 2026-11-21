@@ -82,20 +82,23 @@ Ivan Jacob Agaloos Pesigan
 data("nas1982", package = "betaNB")
 
 # Fit Model in lm ----------------------------------------------------------
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
 
 # NB -----------------------------------------------------------------------
 nb <- NB(
-  object,
+  object = object,
   R = 100, # use a large value e.g., 5000L for actual research
   seed = 0508
 )
 
 # DiffBetaNB ---------------------------------------------------------------
-out <- DiffBetaNB(nb, alpha = 0.05)
+out <- DiffBetaNB(object = nb, alpha = 0.05)
 
 ## Methods -----------------------------------------------------------------
-print(out)
+print(x = out)
 #> Call:
 #> DiffBetaNB(object = nb, alpha = 0.05)
 #> 
@@ -105,7 +108,7 @@ print(out)
 #> NARTIC-PCTGRT  0.1037 0.1283 100 -0.1579 0.3251
 #> NARTIC-PCTSUPP 0.2319 0.1271 100  0.0284 0.4791
 #> PCTGRT-PCTSUPP 0.1282 0.1326 100 -0.1146 0.3731
-summary(out)
+summary(object = out)
 #> Call:
 #> DiffBetaNB(object = nb, alpha = 0.05)
 #> 
@@ -115,15 +118,15 @@ summary(out)
 #> NARTIC-PCTGRT  0.1037 0.1283 100 -0.1579 0.3251
 #> NARTIC-PCTSUPP 0.2319 0.1271 100  0.0284 0.4791
 #> PCTGRT-PCTSUPP 0.1282 0.1326 100 -0.1146 0.3731
-coef(out)
+coef(object = out)
 #>  NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP 
 #>      0.1036564      0.2318974      0.1282410 
-vcov(out)
+vcov(object = out)
 #>                NARTIC-PCTGRT NARTIC-PCTSUPP PCTGRT-PCTSUPP
 #> NARTIC-PCTGRT    0.016459509    0.007515380   -0.008944129
 #> NARTIC-PCTSUPP   0.007515380    0.016165350    0.008649969
 #> PCTGRT-PCTSUPP  -0.008944129    0.008649969    0.017594099
-confint(out, level = 0.95)
+confint(object = out, level = 0.95)
 #>                      2.5 %    97.5 %
 #> NARTIC-PCTGRT  -0.15787042 0.3250606
 #> NARTIC-PCTSUPP  0.02839849 0.4790846
