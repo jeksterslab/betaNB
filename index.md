@@ -72,9 +72,9 @@ Fit the regression model using the
 `#> Standardized regression slopes`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.4951 0.0735 5000 0.3526 0.6414`\
-`#> PCTGRT  0.3915 0.0764 5000 0.2363 0.5393`\
-`#> PCTSUPP 0.2632 0.0794 5000 0.0978 0.4131`
+`#> NARTIC  0.4951 0.0718 5000 0.3554 0.6380`\
+`#> PCTGRT  0.3915 0.0776 5000 0.2372 0.5400`\
+`#> PCTSUPP 0.2632 0.0806 5000 0.1075 0.4188`
 
 ## Other Features
 
