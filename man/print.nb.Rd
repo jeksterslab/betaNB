@@ -18,9 +18,12 @@ Prints the first six bootstrap covariance matrices.
 Print Method for an Object of Class \code{nb}
 }
 \examples{
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-nb <- NB(object, R = 100)
-print(nb)
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+nb <- NB(object = object, R = 100)
+print(x = nb)
 
 }
 \author{

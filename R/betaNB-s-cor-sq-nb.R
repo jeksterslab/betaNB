@@ -29,11 +29,14 @@
 #' data("nas1982", package = "betaNB")
 #'
 #' # Fit Model in lm ----------------------------------------------------------
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
 #'
 #' # NB -----------------------------------------------------------------------
 #' nb <- NB(
-#'   object,
+#'   object = object,
 #'   R = 100, # use a large value e.g., 5000L for actual research
 #'   seed = 0508
 #' )

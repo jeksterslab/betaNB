@@ -34,12 +34,12 @@
                    type = "pc",
                    jackknife = NULL) {
   probs <- .PCProbs(alpha = alpha)
-  k <- dim(thetahatstar)[2]
+  k <- dim(x = thetahatstar)[2]
   if (type %in% c("bc", "bca")) {
     z1 <- .Z1(probs = probs)
   }
   ci <- lapply(
-    X = seq_len(k),
+    X = seq_len(length.out = k),
     FUN = function(i) {
       if (type == "pc") {
         .PCCI(
@@ -79,6 +79,6 @@
     what = "rbind",
     args = ci
   )
-  rownames(ci) <- names(thetahat)
+  rownames(x = ci) <- names(x = thetahat)
   ci
 }

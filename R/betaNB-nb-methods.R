@@ -8,9 +8,12 @@
 #' @param ... additional arguments.
 #'
 #' @examples
-#' object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = nas1982)
-#' nb <- NB(object, R = 100)
-#' print(nb)
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#' nb <- NB(object = object, R = 100)
+#' print(x = nb)
 #'
 #' @keywords methods
 #' @export
