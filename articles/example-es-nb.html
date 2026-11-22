@@ -97,15 +97,15 @@ under squaring. It is not the interval of squared draws.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/SCorSqNB.html">SCorSqNB</a></span><span class="op">(</span><span class="va">nb</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               est       lower     upper</span></span>
-<span><span class="co">#&gt; NARTIC  0.1858925 0.082959919 0.3136795</span></span>
-<span><span class="co">#&gt; PCTGRT  0.1176542 0.035421898 0.2232690</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.0568722 0.008529185 0.1402788</span></span></code></pre></div>
+<span><span class="co">#&gt; NARTIC  0.1858925 0.081779071 0.3102292</span></span>
+<span><span class="co">#&gt; PCTGRT  0.1176542 0.035848129 0.2295359</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.0568722 0.008977197 0.1373962</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/SCorSqNB.html">SCorSqNB</a></span><span class="op">(</span><span class="va">nb</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bca"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;               est       lower     upper</span></span>
-<span><span class="co">#&gt; NARTIC  0.1858925 0.099694670 0.3481583</span></span>
-<span><span class="co">#&gt; PCTGRT  0.1176542 0.049531852 0.2605634</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.0568722 0.009692286 0.1432379</span></span></code></pre></div>
+<span><span class="co">#&gt;               est      lower     upper</span></span>
+<span><span class="co">#&gt; NARTIC  0.1858925 0.09826801 0.3444725</span></span>
+<span><span class="co">#&gt; PCTGRT  0.1176542 0.04754351 0.2537687</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.0568722 0.01003975 0.1414209</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="cohens-f-squared">Cohen’s f-Squared<a class="anchor" aria-label="anchor" href="#cohens-f-squared"></a>
@@ -127,10 +127,10 @@ under squaring. It is not the interval of squared draws.</p>
 <span><span class="co">#&gt; Cohen's f-squared (fsq) and local f-squared</span></span>
 <span><span class="co">#&gt; type = "pc"</span></span>
 <span><span class="co">#&gt;            est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; fsq     4.1158 1.6860 5000 2.2897 8.8114</span></span>
-<span><span class="co">#&gt; NARTIC  0.9510 0.4165 5000 0.4085 1.9907</span></span>
-<span><span class="co">#&gt; PCTGRT  0.6019 0.3160 5000 0.1858 1.4233</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.2909 0.2345 5000 0.0427 0.9370</span></span></code></pre></div>
+<span><span class="co">#&gt; fsq     4.1158 1.7002 5000 2.2591 8.8989</span></span>
+<span><span class="co">#&gt; NARTIC  0.9510 0.4155 5000 0.3952 2.0057</span></span>
+<span><span class="co">#&gt; PCTGRT  0.6019 0.3074 5000 0.1927 1.3935</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.2909 0.2316 5000 0.0461 0.9042</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="coef">coef<a class="anchor" aria-label="anchor" href="#coef"></a>
@@ -146,10 +146,10 @@ under squaring. It is not the interval of squared draws.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
 <span><span class="co">#&gt;               fsq     NARTIC      PCTGRT     PCTSUPP</span></span>
-<span><span class="co">#&gt; fsq     2.8424703 0.40331063 0.250780103 0.193557017</span></span>
-<span><span class="co">#&gt; NARTIC  0.4033106 0.17349801 0.028844724 0.018107743</span></span>
-<span><span class="co">#&gt; PCTGRT  0.2507801 0.02884472 0.099832543 0.008505101</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.1935570 0.01810774 0.008505101 0.054999188</span></span></code></pre></div>
+<span><span class="co">#&gt; fsq     2.8908471 0.41582288 0.229330368 0.194964683</span></span>
+<span><span class="co">#&gt; NARTIC  0.4158229 0.17262383 0.022991454 0.019732188</span></span>
+<span><span class="co">#&gt; PCTGRT  0.2293304 0.02299145 0.094513844 0.007536216</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.1949647 0.01973219 0.007536216 0.053622961</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="confint">confint<a class="anchor" aria-label="anchor" href="#confint"></a>
@@ -157,10 +157,10 @@ under squaring. It is not the interval of squared draws.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;              2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; fsq     2.28967844 8.8114241</span></span>
-<span><span class="co">#&gt; NARTIC  0.40848620 1.9906696</span></span>
-<span><span class="co">#&gt; PCTGRT  0.18575286 1.4233166</span></span>
-<span><span class="co">#&gt; PCTSUPP 0.04272224 0.9369961</span></span></code></pre></div>
+<span><span class="co">#&gt; fsq     2.25911568 8.8988562</span></span>
+<span><span class="co">#&gt; NARTIC  0.39519876 2.0057075</span></span>
+<span><span class="co">#&gt; PCTGRT  0.19274303 1.3935482</span></span>
+<span><span class="co">#&gt; PCTSUPP 0.04607269 0.9042489</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
