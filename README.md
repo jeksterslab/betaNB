@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-21
+2026-11-22
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -30,16 +30,16 @@ Ivan Jacob Agaloos Pesigan
 
 ## Description
 
-Generates nonparametric bootstrap confidence intervals (Efron &
-Tibshirani, 1993: <https://doi.org/10.1201/9780429246593>) for
+Generates nonparametric bootstrap confidence intervals (Efron and
+Tibshirani, 1993,
+[doi:10.1201/9780429246593](https://doi.org/10.1201/9780429246593)) for
 standardized regression coefficients (beta) and other effect sizes,
 including multiple correlation, semipartial correlations, squared
 semipartial correlations, improvement in R-squared, squared partial
 correlations, Cohen’s f-squared, and differences in standardized
-regression coefficients, for models fitted by `lm()`. The pairs
-bootstrap and the wild bootstrap are available, with percentile,
-bias-corrected, bias-corrected and accelerated, and modified percentile
-intervals.
+regression coefficients, for models fitted by `lm()`. Pairs and wild
+bootstrap samples are supported, with percentile, bias-corrected,
+bias-corrected and accelerated, and modified percentile intervals.
 
 ## Installation
 
@@ -68,43 +68,41 @@ number of published articles attributed to the program faculty members
 ratings of 46 doctoral programs in psychology in the USA (National
 Research Council, 1982). Confidence intervals for the standardized
 regression coefficients are generated using the `BetaNB()` function from
-the `betaNB` package.
+the `betaNB` package following Efron & Tibshirani (1993).
 
 ``` r
-library(betaNB)
+library(package = betaNB)
 ```
 
 ``` r
 df <- betaNB::nas1982
 ```
 
-### Regression
-
-Fit the regression model using the `lm()` function.
+### Fit the regression model using the `lm()` function.
 
 ``` r
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+object <- stats::lm(formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
-### Nonparametric Bootstrap
+### Generate the sampling distribution using nonparametric bootstrapping.
 
 ``` r
-nb <- NB(object)
+nb <- NB(object = object, R = 5000L, seed = 0508)
 ```
 
-### Standardized Regression Slopes
+### Estimate the standardized regression slopes and the corresponding confidence intervals.
 
 ``` r
-BetaNB(nb, alpha = 0.05)
+BetaNB(object = nb, alpha = 0.05)
 #> Call:
 #> BetaNB(object = nb, alpha = 0.05)
 #> 
 #> Standardized regression slopes
 #> type = "pc"
 #>            est     se    R   2.5%  97.5%
-#> NARTIC  0.4951 0.0718 5000 0.3554 0.6380
-#> PCTGRT  0.3915 0.0776 5000 0.2372 0.5400
-#> PCTSUPP 0.2632 0.0806 5000 0.1075 0.4188
+#> NARTIC  0.4951 0.0718 5000 0.3567 0.6369
+#> PCTGRT  0.3915 0.0766 5000 0.2349 0.5340
+#> PCTSUPP 0.2632 0.0786 5000 0.1064 0.4135
 ```
 
 ## Other Features
@@ -124,8 +122,10 @@ The package provides the following functions.
 | `FSqNB()` | Cohen’s f-squared and local f-squared |
 
 The `coef()`, `vcov()`, `confint()`, `summary()`, and `print()` methods
-are available for the returned objects. Examples for each function are
-in the package vignettes.
+are available for the returned objects. Percentile, bias-corrected, and
+bias-corrected and accelerated intervals are available through the
+`type` argument of `summary()` and `confint()`. Examples for each
+function are in the package vignettes.
 
 ## Effect Sizes
 
@@ -138,6 +138,10 @@ Functions](https://jeksterslab.github.io/betaNB/articles/example-es-nb.html).
 
 See [GitHub Pages](https://jeksterslab.github.io/betaNB/index.html) for
 package documentation.
+
+## Citation
+
+To cite `betaNB` in publications, please cite Pesigan (2022).
 
 ## References
 

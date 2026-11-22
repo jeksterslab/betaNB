@@ -2,6 +2,7 @@
 title: "betaNB: Bootstrap for Regression Effect Sizes"
 author: "Ivan Jacob Agaloos Pesigan"
 output: rmarkdown::html_vignette
+bibliography: "vignettes.bib"
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 nocite: |
   @Pesigan-2022
@@ -38,13 +39,17 @@ knitr::opts_chunk$set(
 ## Description
 
 Generates nonparametric bootstrap confidence intervals
-(Efron & Tibshirani, 1993: https://doi.org/10.1201/9780429246593)
-for standardized regression coefficients (beta)
-and other effect sizes,
+(Efron and Tibshirani, 1993, [doi:10.1201/9780429246593](https://doi.org/10.1201/9780429246593))
+for standardized regression coefficients (beta) and other effect sizes,
 including multiple correlation, semipartial correlations,
+squared semipartial correlations,
 improvement in R-squared, squared partial correlations,
+Cohen's f-squared,
 and differences in standardized regression coefficients,
 for models fitted by `lm()`.
+Pairs and wild bootstrap samples are supported,
+with percentile, bias-corrected, bias-corrected and accelerated,
+and modified percentile intervals.
 
 ## Installation
 
@@ -71,18 +76,19 @@ percent of faculty members holding research grants (`PCTGRT`), and
 percentage of program graduates who received support (`PCTSUPP`) as regressor/predictor variables
 using a data set from 1982 ratings of 46 doctoral programs in psychology in the USA [@NationalResearchCouncil-1982].
 Confidence intervals for the standardized regression coefficients are generated
-using the `BetaNB()` function from the `betaNB` package.
+using the `BetaNB()` function from the `betaNB` package
+following @Efron-Tibshirani-1993.
 
 ```{r}
 #| message = FALSE
-library(betaNB)
+library(package = betaNB)
 ```
 
 ```{r}
 #| echo = FALSE
-if (!exists("nas1982")) {
+if (!exists(x = "nas1982")) {
   try(
-    data(
+    expr = utils::data(
       "nas1982",
       package = "betaNB"
     ),
@@ -93,75 +99,64 @@ df <- nas1982
 ```
 
 ```{r}
-#| eval = FALSE
 df <- betaNB::nas1982
 ```
 
-### Regression
-
-Fit the regression model using the `lm()` function.
+### Fit the regression model using the `lm()` function.
 
 ```{r}
-object <- lm(QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
+object <- stats::lm(formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP, data = df)
 ```
 
-### Nonparametric Bootstrap
+### Generate the sampling distribution using nonparametric bootstrapping.
 
 ```{r}
-nb <- NB(object)
+nb <- NB(object = object, R = 5000L, seed = 0508)
 ```
 
-### Standardized Regression Slopes
+### Estimate the standardized regression slopes and the corresponding confidence intervals.
 
 ```{r}
-BetaNB(nb, alpha = 0.05)
+BetaNB(object = nb, alpha = 0.05)
 ```
 
-### Other Effect Sizes
+## Other Features
 
-The `betaNB` package also has functions to generate nonparametric bootstrap confidence intervals
-for other effect sizes such as
-`RSqNB()` for multiple correlation coefficients (R-squared and adjusted R-squared),
-`DeltaRSqNB()` for improvement in R-squared,
-`SCorNB()` for semipartial correlation coefficients,
-`PCorNB()` for squared partial correlation coefficients,
-and
-`DiffBetaNB()` for differences of standardized regression coefficients.
+The package provides the following functions.
 
-#### Multiple Correlation Coefficients (R-squared and adjusted R-squared)
+| Function | Purpose |
+|---|---|
+| `NB()` | Nonparametric bootstrap (pairs or wild) of a fitted `lm` model |
+| `BetaNB()` | Standardized regression coefficients |
+| `RSqNB()` | R-squared and adjusted R-squared |
+| `DiffBetaNB()` | Differences of standardized regression coefficients |
+| `SCorNB()` | Semipartial correlations |
+| `SCorSqNB()` | Squared semipartial correlations (squared signed interval) |
+| `PCorNB()` | Squared partial correlations |
+| `DeltaRSqNB()` | Improvement in R-squared (adjusted differences and modified percentile intervals available) |
+| `FSqNB()` | Cohen's f-squared and local f-squared |
 
-```{r}
-RSqNB(nb, alpha = 0.05)
-```
+The `coef()`, `vcov()`, `confint()`, `summary()`, and `print()` methods
+are available for the returned objects.
+Percentile, bias-corrected, and bias-corrected and accelerated intervals
+are available through the `type` argument of `summary()` and `confint()`.
+Examples for each function are in the package vignettes.
 
-#### Improvement in R-squared
+## Effect Sizes
 
-```{r}
-DeltaRSqNB(nb, alpha = 0.05)
-```
-
-#### Semipartial Correlation Coefficients
-
-```{r}
-SCorNB(nb, alpha = 0.05)
-```
-
-#### Squared Partial Correlation Coefficients
-
-```{r}
-PCorNB(nb, alpha = 0.05)
-```
-
-#### Differences of Standardized Regression Coefficients
-
-```{r}
-DiffBetaNB(nb, alpha = 0.05)
-```
+The definitions, formulas, and notes on the intervals
+are in the help pages of the functions
+and in the vignette
+[betaNB: Example Using the SCorSqNB and FSqNB Functions](example-es-nb.html).
 
 ## Documentation
 
 See
 [GitHub Pages](https://jeksterslab.github.io/betaNB/index.html)
 for package documentation.
+
+## Citation
+
+To cite `betaNB` in publications, please cite @Pesigan-2022.
 
 ## References

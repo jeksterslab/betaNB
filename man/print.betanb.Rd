@@ -2,29 +2,22 @@
 % Please edit documentation in R/betaNB-beta-nb-methods.R
 \name{print.betanb}
 \alias{print.betanb}
-\title{Print Method for an Object of Class
-\code{betanb}}
+\title{Print Method for an Object of Class \code{betanb}}
 \usage{
 \method{print}{betanb}(x, alpha = NULL, type = "pc", digits = 4, ...)
 }
 \arguments{
 \item{x}{Object of Class \code{betanb},
 that is,
-the output of the
-\code{BetaNB()},
-\code{RSqNB()},
-\code{SCorNB()},
-\code{DeltaRSqNB()},
-\code{PCorNB()}, or
-\code{DiffBetaNB()}
-functions.}
+the output of the \code{\link[=BetaNB]{BetaNB()}}, \code{\link[=RSqNB]{RSqNB()}}, \code{\link[=SCorNB]{SCorNB()}}, \code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
+\code{\link[=PCorNB]{PCorNB()}}, \code{\link[=FSqNB]{FSqNB()}}, or \code{\link[=DiffBetaNB]{DiffBetaNB()}} functions.}
 
 \item{alpha}{Numeric vector.
 Significance level \eqn{\alpha}.
 If \code{alpha = NULL},
 use the argument \code{alpha} used in \code{x}.}
 
-\item{type}{Charater string.
+\item{type}{Character string.
 Confidence interval type, that is,
 \code{type = "pc"} for percentile;
 \code{type = "bc"} for bias corrected;
@@ -37,16 +30,35 @@ Confidence interval type, that is,
 \item{...}{additional arguments.}
 }
 \value{
-Prints a matrix of
-estimates,
-standard errors,
-number of bootstrap replications,
-and
-confidence intervals.
+Prints a matrix of estimates, standard errors,
+number of bootstrap replications, and confidence intervals.
 }
 \description{
-Print Method for an Object of Class
-\code{betanb}
+Print Method for an Object of Class \code{betanb}
+}
+\examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaNB")
+
+# Fit Model in lm ----------------------------------------------------------
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+
+# NB -----------------------------------------------------------------------
+nb <- NB(
+  object = object,
+  R = 100, # use a large value e.g., 5000L for actual research
+  seed = 0508
+)
+
+# BetaNB -------------------------------------------------------------------
+out <- BetaNB(object = nb, alpha = 0.05)
+
+## Methods -----------------------------------------------------------------
+print(x = out)
+
 }
 \author{
 Ivan Jacob Agaloos Pesigan

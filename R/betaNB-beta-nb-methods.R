@@ -1,30 +1,42 @@
-#' Print Method for an Object of Class
-#' `betanb`
+#' Print Method for an Object of Class `betanb`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
-#' @return Prints a matrix of
-#'   estimates,
-#'   standard errors,
-#'   number of bootstrap replications,
-#'   and
-#'   confidence intervals.
+#' @return Prints a matrix of estimates, standard errors,
+#'   number of bootstrap replications, and confidence intervals.
 #'
 #' @param x Object of Class `betanb`,
 #'   that is,
-#'   the output of the
-#'   `BetaNB()`,
-#'   `RSqNB()`,
-#'   `SCorNB()`,
-#'   `DeltaRSqNB()`,
-#'   `PCorNB()`, or
-#'   `DiffBetaNB()`
-#'   functions.
+#'   the output of the [BetaNB()], [RSqNB()], [SCorNB()], [DeltaRSqNB()],
+#'   [PCorNB()], [FSqNB()], or [DiffBetaNB()] functions.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
 #'   If `alpha = NULL`,
 #'   use the argument `alpha` used in `x`.
 #' @inheritParams summary.betanb
+#'
+#' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object = object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # BetaNB -------------------------------------------------------------------
+#' out <- BetaNB(object = nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' print(x = out)
 #'
 #' @keywords methods
 #' @export
@@ -43,10 +55,48 @@ print.betanb <- function(x,
   )
 }
 
-#' Summary Method for an Object of Class
-#' `betanb`
+#' Summary Method for an Object of Class `betanb`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
+#'
+#' @details
+#' Let \eqn{\hat{\theta}} be the estimate,
+#' \eqn{\hat{\theta}^{\ast}_{1}, \dots, \hat{\theta}^{\ast}_{R}} the bootstrap
+#' draws with empirical distribution function \eqn{\hat{G}},
+#' \eqn{\Phi} the standard normal distribution function,
+#' and \eqn{z_{p} = \Phi^{-1} \left( p \right)}.
+#' The limits of a \eqn{100 \left( 1 - \alpha \right) \%} interval are
+#' \eqn{\hat{G}^{-1} \left( p_{1} \right)} and
+#' \eqn{\hat{G}^{-1} \left( p_{2} \right)}
+#' (type 7 quantiles of the draws).
+#' The percentile interval (`type = "pc"`) uses
+#' \eqn{p_{1} = \alpha / 2} and \eqn{p_{2} = 1 - \alpha / 2}.
+#' The bias-corrected interval (`type = "bc"`) uses
+#' \deqn{p_{k} = \Phi \left( 2 \hat{z}_{0} + z_{\alpha_{k}} \right), \quad
+#' \hat{z}_{0} = \Phi^{-1} \left( \frac{1}{R} \sum_{b = 1}^{R}
+#' I \left( \hat{\theta}^{\ast}_{b} < \hat{\theta} \right) \right),}
+#' where \eqn{I} is the indicator function,
+#' \eqn{\alpha_{1} = \alpha / 2}, and \eqn{\alpha_{2} = 1 - \alpha / 2}.
+#' The bias-corrected and accelerated interval (`type = "bca"`) uses
+#' \deqn{p_{k} = \Phi \left( \hat{z}_{0} + \frac{\hat{z}_{0} +
+#' z_{\alpha_{k}}}{1 - \hat{a} \left( \hat{z}_{0} + z_{\alpha_{k}} \right)}
+#' \right), \quad \hat{a} = \frac{\sum_{i = 1}^{n} \left(
+#' \bar{\theta}_{\left( \cdot \right)} - \hat{\theta}_{\left( -i \right)}
+#' \right)^{3}}{6 \left[ \sum_{i = 1}^{n} \left(
+#' \bar{\theta}_{\left( \cdot \right)} - \hat{\theta}_{\left( -i \right)}
+#' \right)^{2} \right]^{3 / 2}},}
+#' where \eqn{\hat{\theta}_{\left( -i \right)}} is the jackknife estimate
+#' without observation \eqn{i} and \eqn{\bar{\theta}_{\left( \cdot \right)}}
+#' is their mean (Efron & Tibshirani, 1993).
+#' Failed draws are dropped.
+#' The modified percentile interval (`type = "mpc"`) is described in
+#' [DeltaRSqNB()].
+#'
+#' @references
+#' Efron, B., & Tibshirani, R. J. (1993).
+#' *An introduction to the bootstrap*.
+#' Chapman & Hall.
+#' \doi{10.1201/9780429246593}
 #'
 #' @return Returns a matrix of
 #'   estimates,
@@ -57,20 +107,14 @@ print.betanb <- function(x,
 #'
 #' @param object Object of Class `betanb`,
 #'   that is,
-#'   the output of the
-#'   `BetaNB()`,
-#'   `RSqNB()`,
-#'   `SCorNB()`,
-#'   `DeltaRSqNB()`,
-#'   `PCorNB()`, or
-#'   `DiffBetaNB()`
-#'   functions.
+#'   the output of the [BetaNB()], [RSqNB()], [SCorNB()], [DeltaRSqNB()],
+#'   [PCorNB()], [FSqNB()], or [DiffBetaNB()] functions.
 #' @param ... additional arguments.
 #' @param alpha Numeric vector.
 #'   Significance level \eqn{\alpha}.
 #'   If `alpha = NULL`,
 #'   use the argument `alpha` used in `object`.
-#' @param type Charater string.
+#' @param type Character string.
 #'   Confidence interval type, that is,
 #'   `type = "pc"` for percentile;
 #'   `type = "bc"` for bias corrected;
@@ -78,6 +122,29 @@ print.betanb <- function(x,
 #'   `type = "mpc"` for modified percentile, available only for
 #'   [DeltaRSqNB()] (unadjusted or `adj = TRUE`).
 #' @param digits Digits to print.
+#'
+#' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object = object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # BetaNB -------------------------------------------------------------------
+#' out <- BetaNB(object = nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' summary(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -178,14 +245,36 @@ print.summary.betanb <- function(x,
   invisible(x = x)
 }
 
-#' Sampling Variance-Covariance Matrix Method for an Object of Class
-#' `betanb`
+#' Sampling Variance-Covariance Matrix Method for an Object of Class `betanb`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns the variance-covariance matrix of estimates.
 #'
 #' @inheritParams summary.betanb
+#'
+#' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object = object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # BetaNB -------------------------------------------------------------------
+#' out <- BetaNB(object = nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' vcov(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -194,14 +283,36 @@ vcov.betanb <- function(object,
   object$vcov
 }
 
-#' Estimated Parameter Method for an Object of Class
-#' `betanb`
+#' Estimated Parameter Method for an Object of Class `betanb`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a vector of estimated parameters.
 #'
 #' @inheritParams summary.betanb
+#'
+#' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object = object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # BetaNB -------------------------------------------------------------------
+#' out <- BetaNB(object = nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' coef(object = out)
 #'
 #' @keywords methods
 #' @export
@@ -210,12 +321,13 @@ coef.betanb <- function(object,
   object$est
 }
 
-#' Confidence Intervals Method for an Object of Class
-#' `betanb`
+#' Confidence Intervals Method for an Object of Class `betanb`
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
 #' @return Returns a matrix of confidence intervals.
+#'
+#' @inherit summary.betanb details references
 #'
 #' @inheritParams summary.betanb
 #' @param parm a specification of which parameters
@@ -223,6 +335,29 @@ coef.betanb <- function(object,
 #'   either a vector of numbers or a vector of names.
 #'   If missing, all parameters are considered.
 #' @param level the confidence level required.
+#'
+#' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
+#' object <- stats::lm(
+#'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+#'   data = nas1982
+#' )
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object = object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
+#' # BetaNB -------------------------------------------------------------------
+#' out <- BetaNB(object = nb, alpha = 0.05)
+#'
+#' ## Methods -----------------------------------------------------------------
+#' confint(object = out, level = 0.95)
 #'
 #' @keywords methods
 #' @export

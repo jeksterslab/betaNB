@@ -2,7 +2,9 @@
 % Please edit documentation in R/betaNB-s-cor-sq-nb.R
 \name{SCorSqNB}
 \alias{SCorSqNB}
-\title{Squared Signed-Semipartial Confidence Intervals}
+\title{Estimate Squared Semipartial Correlation Coefficients
+and the Corresponding Confidence Intervals
+From the Signed Intervals}
 \usage{
 SCorSqNB(object, level = 0.95, type = "pc")
 }
@@ -15,12 +17,14 @@ SCorSqNB(object, level = 0.95, type = "pc")
 }
 \value{
 Data frame with est, lower and upper columns and predictor
-row names. The point estimate is the squared signed estimate.
+row names.
+The point estimate is the squared signed estimate.
 No standard error is implied by this interval transformation.
 }
 \description{
 Square the signed interval as a set, with lower limit zero if it
-contains zero. This differs from an interval of squared draws.
+contains zero.
+This differs from an interval of squared draws.
 No draws are generated and no endpoints are clipped to one.
 Failed signed endpoints remain missing.
 }
@@ -58,8 +62,20 @@ nb <- NB(
 SCorSqNB(object = nb, level = 0.95, type = "pc")
 
 }
+\seealso{
+Other Beta Nonparametric Bootstrap Functions:
+\code{\link[=BetaNB]{BetaNB()}},
+\code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
+\code{\link[=DiffBetaNB]{DiffBetaNB()}},
+\code{\link[=FSqNB]{FSqNB()}},
+\code{\link[=NB]{NB()}},
+\code{\link[=PCorNB]{PCorNB()}},
+\code{\link[=RSqNB]{RSqNB()}},
+\code{\link[=SCorNB]{SCorNB()}}
+}
 \author{
 Ivan Jacob Agaloos Pesigan
 }
+\concept{Beta Nonparametric Bootstrap Functions}
 \keyword{betaNB}
 \keyword{scor}

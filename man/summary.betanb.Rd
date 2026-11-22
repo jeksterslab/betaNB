@@ -2,29 +2,22 @@
 % Please edit documentation in R/betaNB-beta-nb-methods.R
 \name{summary.betanb}
 \alias{summary.betanb}
-\title{Summary Method for an Object of Class
-\code{betanb}}
+\title{Summary Method for an Object of Class \code{betanb}}
 \usage{
 \method{summary}{betanb}(object, alpha = NULL, type = "pc", digits = 4, ...)
 }
 \arguments{
 \item{object}{Object of Class \code{betanb},
 that is,
-the output of the
-\code{BetaNB()},
-\code{RSqNB()},
-\code{SCorNB()},
-\code{DeltaRSqNB()},
-\code{PCorNB()}, or
-\code{DiffBetaNB()}
-functions.}
+the output of the \code{\link[=BetaNB]{BetaNB()}}, \code{\link[=RSqNB]{RSqNB()}}, \code{\link[=SCorNB]{SCorNB()}}, \code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
+\code{\link[=PCorNB]{PCorNB()}}, \code{\link[=FSqNB]{FSqNB()}}, or \code{\link[=DiffBetaNB]{DiffBetaNB()}} functions.}
 
 \item{alpha}{Numeric vector.
 Significance level \eqn{\alpha}.
 If \code{alpha = NULL},
 use the argument \code{alpha} used in \code{object}.}
 
-\item{type}{Charater string.
+\item{type}{Character string.
 Confidence interval type, that is,
 \code{type = "pc"} for percentile;
 \code{type = "bc"} for bias corrected;
@@ -45,8 +38,70 @@ and
 confidence intervals.
 }
 \description{
-Summary Method for an Object of Class
-\code{betanb}
+Summary Method for an Object of Class \code{betanb}
+}
+\details{
+Let \eqn{\hat{\theta}} be the estimate,
+\eqn{\hat{\theta}^{\ast}_{1}, \dots, \hat{\theta}^{\ast}_{R}} the bootstrap
+draws with empirical distribution function \eqn{\hat{G}},
+\eqn{\Phi} the standard normal distribution function,
+and \eqn{z_{p} = \Phi^{-1} \left( p \right)}.
+The limits of a \eqn{100 \left( 1 - \alpha \right) \%} interval are
+\eqn{\hat{G}^{-1} \left( p_{1} \right)} and
+\eqn{\hat{G}^{-1} \left( p_{2} \right)}
+(type 7 quantiles of the draws).
+The percentile interval (\code{type = "pc"}) uses
+\eqn{p_{1} = \alpha / 2} and \eqn{p_{2} = 1 - \alpha / 2}.
+The bias-corrected interval (\code{type = "bc"}) uses
+\deqn{p_{k} = \Phi \left( 2 \hat{z}_{0} + z_{\alpha_{k}} \right), \quad
+\hat{z}_{0} = \Phi^{-1} \left( \frac{1}{R} \sum_{b = 1}^{R}
+I \left( \hat{\theta}^{\ast}_{b} < \hat{\theta} \right) \right),}
+where \eqn{I} is the indicator function,
+\eqn{\alpha_{1} = \alpha / 2}, and \eqn{\alpha_{2} = 1 - \alpha / 2}.
+The bias-corrected and accelerated interval (\code{type = "bca"}) uses
+\deqn{p_{k} = \Phi \left( \hat{z}_{0} + \frac{\hat{z}_{0} +
+z_{\alpha_{k}}}{1 - \hat{a} \left( \hat{z}_{0} + z_{\alpha_{k}} \right)}
+\right), \quad \hat{a} = \frac{\sum_{i = 1}^{n} \left(
+\bar{\theta}_{\left( \cdot \right)} - \hat{\theta}_{\left( -i \right)}
+\right)^{3}}{6 \left[ \sum_{i = 1}^{n} \left(
+\bar{\theta}_{\left( \cdot \right)} - \hat{\theta}_{\left( -i \right)}
+\right)^{2} \right]^{3 / 2}},}
+where \eqn{\hat{\theta}_{\left( -i \right)}} is the jackknife estimate
+without observation \eqn{i} and \eqn{\bar{\theta}_{\left( \cdot \right)}}
+is their mean (Efron & Tibshirani, 1993).
+Failed draws are dropped.
+The modified percentile interval (\code{type = "mpc"}) is described in
+\code{\link[=DeltaRSqNB]{DeltaRSqNB()}}.
+}
+\examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaNB")
+
+# Fit Model in lm ----------------------------------------------------------
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+
+# NB -----------------------------------------------------------------------
+nb <- NB(
+  object = object,
+  R = 100, # use a large value e.g., 5000L for actual research
+  seed = 0508
+)
+
+# BetaNB -------------------------------------------------------------------
+out <- BetaNB(object = nb, alpha = 0.05)
+
+## Methods -----------------------------------------------------------------
+summary(object = out)
+
+}
+\references{
+Efron, B., & Tibshirani, R. J. (1993).
+\emph{An introduction to the bootstrap}.
+Chapman & Hall.
+\doi{10.1201/9780429246593}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

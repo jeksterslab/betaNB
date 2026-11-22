@@ -2,9 +2,9 @@
 % Please edit documentation in R/betaNB-f-sq-nb.R
 \name{FSqNB}
 \alias{FSqNB}
-\title{Estimate Cohen's f-Squared
+\title{Estimate Cohen's f-Squared and Local f-Squared
 and Generate the Corresponding Sampling Distribution
-Using the Nonparametric Bootstrap}
+Using Nonparametric Bootstrapping}
 \usage{
 FSqNB(object, alpha = c(0.05, 0.01, 0.001))
 }
@@ -31,9 +31,9 @@ of class \code{betanb} which is a list with the following elements:
 }
 }
 \description{
-Estimate Cohen's f-Squared
+Estimate Cohen's f-Squared and Local f-Squared
 and Generate the Corresponding Sampling Distribution
-Using the Nonparametric Bootstrap
+Using Nonparametric Bootstrapping
 }
 \details{
 Let \eqn{\boldsymbol{\beta}^{\ast}} be the vector of standardized slopes,
@@ -104,7 +104,8 @@ Other Beta Nonparametric Bootstrap Functions:
 \code{\link[=NB]{NB()}},
 \code{\link[=PCorNB]{PCorNB()}},
 \code{\link[=RSqNB]{RSqNB()}},
-\code{\link[=SCorNB]{SCorNB()}}
+\code{\link[=SCorNB]{SCorNB()}},
+\code{\link[=SCorSqNB]{SCorSqNB()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan
