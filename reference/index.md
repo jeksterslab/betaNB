@@ -12,44 +12,39 @@
   : Estimate Standardized Regression Coefficients and Generate the
   Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
-## Multiple Correlation
+## R-Squared
 
 - [`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md) :
-  Estimate Multiple Correlation Coefficients (R-Squared and Adjusted
-  R-Squared) and Generate the Corresponding Sampling Distribution Using
-  Nonparametric Bootstrapping
+  Estimate R-Squared and Adjusted R-Squared and Generate the
+  Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
-## Semipartial Correlation
+## Semipartial and Squared Partial Correlations
 
 - [`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
   : Estimate Semipartial Correlation Coefficients and Generate the
   Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 - [`SCorSqNB()`](https://jeksterslab.github.io/betaNB/reference/SCorSqNB.md)
-  : Squared Signed-Semipartial Confidence Intervals
+  : Estimate Squared Semipartial Correlation Coefficients and the
+  Corresponding Confidence Intervals From the Signed Intervals
+- [`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md)
+  : Estimate Squared Partial Correlation Coefficients and Generate the
+  Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
-## Improvement in R-Squared
+## Improvement in R-Squared and Cohen’s f-Squared
 
 - [`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md)
   : Estimate Improvement in R-Squared and Generate the Corresponding
   Sampling Distribution Using Nonparametric Bootstrapping
-
-## Squared Partial Correlation
-
-- [`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md)
-  : Estimate Squared Partial Correlation Coefficients and Generate the
+- [`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md) :
+  Estimate Cohen's f-Squared and Local f-Squared and Generate the
   Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
 ## Differences of Standardized Regression Coefficients
 
 - [`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md)
-  : Estimate Differences of Standardized Slopes and Generate the
-  Corresponding Sampling Distribution Using Nonparametric Bootstrapping
-
-## Cohen’s f-Squared
-
-- [`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md) :
-  Estimate Cohen's f-Squared and Generate the Corresponding Sampling
-  Distribution Using the Nonparametric Bootstrap
+  : Estimate Differences of Standardized Regression Coefficients and
+  Generate the Corresponding Sampling Distribution Using Nonparametric
+  Bootstrapping
 
 ## Methods
 

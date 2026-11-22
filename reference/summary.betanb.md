@@ -19,6 +19,7 @@ summary(object, alpha = NULL, type = "pc", digits = 4, ...)
   [`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md),
   [`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md),
   [`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
+  [`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md),
   or
   [`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md)
   functions.
@@ -30,7 +31,7 @@ summary(object, alpha = NULL, type = "pc", digits = 4, ...)
 
 - type:
 
-  Charater string. Confidence interval type, that is, `type = "pc"` for
+  Character string. Confidence interval type, that is, `type = "pc"` for
   percentile; `type = "bc"` for bias corrected; `type = "bca"` for bias
   corrected and accelerated; `type = "mpc"` for modified percentile,
   available only for
@@ -50,6 +51,77 @@ summary(object, alpha = NULL, type = "pc", digits = 4, ...)
 Returns a matrix of estimates, standard errors, number of bootstrap
 replications, and confidence intervals.
 
+## Details
+
+Let \\(\hat{\theta}\\) be the estimate, \\(\hat{\theta}^{\ast}\_{1},
+\dots, \hat{\theta}^{\ast}\_{R}\\) the bootstrap draws with empirical
+distribution function \\(\hat{G}\\), \\(\Phi\\) the standard normal
+distribution function, and \\(z\_{p} = \Phi^{-1} \left( p \right)\\).
+The limits of a \\(100 \left( 1 - \alpha \right) \\%\\) interval are
+\\(\hat{G}^{-1} \left( p\_{1} \right)\\) and \\(\hat{G}^{-1} \left(
+p\_{2} \right)\\) (type 7 quantiles of the draws). The percentile
+interval (`type = "pc"`) uses \\(p\_{1} = \alpha / 2\\) and \\(p\_{2} =
+1 - \alpha / 2\\). The bias-corrected interval (`type = "bc"`) uses
+\$\$p\_{k} = \Phi \left( 2 \hat{z}\_{0} + z\_{\alpha\_{k}} \right),
+\quad \hat{z}\_{0} = \Phi^{-1} \left( \frac{1}{R} \sum\_{b = 1}^{R} I
+\left( \hat{\theta}^{\ast}\_{b} \< \hat{\theta} \right) \right),\$\$
+where \\(I\\) is the indicator function, \\(\alpha\_{1} = \alpha / 2\\),
+and \\(\alpha\_{2} = 1 - \alpha / 2\\). The bias-corrected and
+accelerated interval (`type = "bca"`) uses \$\$p\_{k} = \Phi \left(
+\hat{z}\_{0} + \frac{\hat{z}\_{0} + z\_{\alpha\_{k}}}{1 - \hat{a} \left(
+\hat{z}\_{0} + z\_{\alpha\_{k}} \right)} \right), \quad \hat{a} =
+\frac{\sum\_{i = 1}^{n} \left( \bar{\theta}\_{\left( \cdot \right)} -
+\hat{\theta}\_{\left( -i \right)} \right)^{3}}{6 \left\[ \sum\_{i =
+1}^{n} \left( \bar{\theta}\_{\left( \cdot \right)} -
+\hat{\theta}\_{\left( -i \right)} \right)^{2} \right\]^{3 / 2}},\$\$
+where \\(\hat{\theta}\_{\left( -i \right)}\\) is the jackknife estimate
+without observation \\(i\\) and \\(\bar{\theta}\_{\left( \cdot
+\right)}\\) is their mean (Efron & Tibshirani, 1993). Failed draws are
+dropped. The modified percentile interval (`type = "mpc"`) is described
+in
+[`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md).
+
+## References
+
+Efron, B., & Tibshirani, R. J. (1993). *An introduction to the
+bootstrap*. Chapman & Hall.
+[doi:10.1201/9780429246593](https://doi.org/10.1201/9780429246593)
+
 ## Author
 
 Ivan Jacob Agaloos Pesigan
+
+## Examples
+
+``` r
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaNB")
+
+# Fit Model in lm ----------------------------------------------------------
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+
+# NB -----------------------------------------------------------------------
+nb <- NB(
+  object = object,
+  R = 100, # use a large value e.g., 5000L for actual research
+  seed = 0508
+)
+
+# BetaNB -------------------------------------------------------------------
+out <- BetaNB(object = nb, alpha = 0.05)
+
+## Methods -----------------------------------------------------------------
+summary(object = out)
+#> Call:
+#> BetaNB(object = nb, alpha = 0.05)
+#> 
+#> Standardized regression slopes
+#> type = "pc"
+#>            est     se   R   2.5%  97.5%
+#> NARTIC  0.4951 0.0708 100 0.3498 0.6141
+#> PCTGRT  0.3915 0.0797 100 0.2440 0.5192
+#> PCTSUPP 0.2632 0.0813 100 0.1033 0.4193
+```

@@ -1,7 +1,7 @@
-# Estimate Cohen's f-Squared and Generate the Corresponding Sampling Distribution Using the Nonparametric Bootstrap
+# Estimate Cohen's f-Squared and Local f-Squared and Generate the Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
-Estimate Cohen's f-Squared and Generate the Corresponding Sampling
-Distribution Using the Nonparametric Bootstrap
+Estimate Cohen's f-Squared and Local f-Squared and Generate the
+Corresponding Sampling Distribution Using Nonparametric Bootstrapping
 
 ## Usage
 
@@ -94,7 +94,8 @@ Other Beta Nonparametric Bootstrap Functions:
 [`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md),
 [`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
 [`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
-[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md),
+[`SCorSqNB()`](https://jeksterslab.github.io/betaNB/reference/SCorSqNB.md)
 
 ## Author
 

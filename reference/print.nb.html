@@ -68,31 +68,42 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Data ---------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"nas1982"</span>, package <span class="op">=</span> <span class="st">"betaNB"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Fit Model in lm ----------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  formula <span class="op">=</span> <span class="va">QUALITY</span> <span class="op">~</span> <span class="va">NARTIC</span> <span class="op">+</span> <span class="va">PCTGRT</span> <span class="op">+</span> <span class="va">PCTSUPP</span>,</span></span>
 <span class="r-in"><span>  data <span class="op">=</span> <span class="va">nas1982</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">object</span>, R <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># NB -----------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="NB.html">NB</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  R <span class="op">=</span> <span class="fl">100</span>, <span class="co"># use a large value e.g., 5000L for actual research</span></span></span>
+<span class="r-in"><span>  seed <span class="op">=</span> <span class="fl">0508</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">nb</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NB(object = object, R = 100)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NB(object = object, R = 100, seed = 508)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The first six bootstrap covariance matrices.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]     [,2]      [,3]      [,4]     [,5]     [,6]     [,7]     [,8]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  72.93188 274.6449  94.69855 106.57826 2287.452 290.4338 301.6961 377.0319</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  76.34058 295.7188  98.86039  94.01691 2757.851 110.5903 234.2106 379.8884</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 103.20242 623.9106  96.47343 135.01836 5551.129 502.4386 656.6986 271.3700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 139.10531 623.2995 184.59903 197.00676 3684.010 720.2203 779.6913 392.3517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  90.28841 361.3986 124.31063 161.34444 2312.685 432.5541 594.0111 318.5551</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6,]  92.72464 501.1150 120.14300 105.44348 3946.655 604.3932 461.8029 295.3720</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           [,9]    [,10]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  61.41159 474.8739</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  77.14831 518.2246</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 130.90918 391.4995</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 266.20483 641.4440</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 238.70000 546.5667</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 155.30725 494.1159</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]     [,8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 104.87150 489.5053 112.6802 187.9391 2967.631 563.7749 844.3464 267.0512</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 129.76087 537.8783 160.9517 223.1705 3217.043 612.2077 931.1923 389.8048</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  68.31353 309.2290 101.9329 108.6063 2514.126 433.4164 480.6309 404.9957</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,]  99.90966 533.2034 119.6609 144.6464 4584.244 536.1246 709.2473 306.1990</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 124.06039 583.9411 141.2575 183.6101 4629.755 602.2386 732.7140 293.4208</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 104.78841 472.3159 159.0193 163.9565 3566.429 696.9957 576.1792 357.8382</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          [,9]    [,10]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 213.5585 484.8758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 251.7507 613.0826</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] 159.9232 442.2652</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4,] 173.3411 602.6048</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5,] 183.9396 649.0246</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6,] 230.7947 625.7203</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

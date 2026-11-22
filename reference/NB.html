@@ -153,10 +153,40 @@ leave-one-out covariance matrix).</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Let \(\boldsymbol{z}_{i} = \left( y_{i}, \boldsymbol{x}_{i}^{\prime}
+\right)^{\prime}\), \(i = 1, \dots, n\), be the outcome and the regressors
+of observation \(i\).
+With <code>type = "pairs"</code>, bootstrap sample \(b = 1, \dots, R\) draws
+\(n\) rows
+\(\boldsymbol{z}^{\ast}_{b1}, \dots, \boldsymbol{z}^{\ast}_{bn}\)
+with replacement, and its sample covariance matrix is
+$$\hat{\boldsymbol{\Sigma}}^{\ast}_{b} = \frac{1}{n - 1}
+\sum_{i = 1}^{n} \left( \boldsymbol{z}^{\ast}_{bi} -
+\bar{\boldsymbol{z}}^{\ast}_{b} \right) \left( \boldsymbol{z}^{\ast}_{bi} -
+\bar{\boldsymbol{z}}^{\ast}_{b} \right)^{\prime}.$$
+With <code>type = "wild"</code>, the outcome is generated as described in <code>type</code>,
+and \(\hat{\boldsymbol{\Sigma}}^{\ast}_{b}\) is computed in the same way.
+Row \(b\) of <code>thetahatstar</code> is
+\(\operatorname{vech} \left( \hat{\boldsymbol{\Sigma}}^{\ast}_{b}
+\right)\).
+Row \(i\) of <code>jackknife</code> is
+\(\operatorname{vech} \left( \hat{\boldsymbol{\Sigma}}_{\left( -i
+\right)} \right)\),
+the sample covariance matrix without observation \(i\),
+which gives the acceleration of the bias-corrected and accelerated
+intervals (see <code><a href="summary.betanb.html">summary.betanb()</a></code>).
+An effect size \(\theta = g \left( \boldsymbol{\Sigma} \right)\) is
+computed from every \(\hat{\boldsymbol{\Sigma}}^{\ast}_{b}\),
+which gives its sampling distribution
+\(\hat{\theta}^{\ast}_{1}, \dots, \hat{\theta}^{\ast}_{R}\).</p>
+    </div>
+    <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Efron, B., &amp; Tibshirani, R. J. (1993)
+    <p>Efron, B., &amp; Tibshirani, R. J. (1993).
 <em>An introduction to the bootstrap</em>.
-Chapman &amp; Hall.</p>
+Chapman &amp; Hall.
+<a href="https://doi.org/10.1201/9780429246593" class="external-link">doi:10.1201/9780429246593</a></p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -167,7 +197,8 @@ Chapman &amp; Hall.</p>
 <code><a href="FSqNB.html">FSqNB()</a></code>,
 <code><a href="PCorNB.html">PCorNB()</a></code>,
 <code><a href="RSqNB.html">RSqNB()</a></code>,
-<code><a href="SCorNB.html">SCorNB()</a></code></p></div>
+<code><a href="SCorNB.html">SCorNB()</a></code>,
+<code><a href="SCorSqNB.html">SCorSqNB()</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>

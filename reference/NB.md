@@ -100,10 +100,37 @@ elements:
 
   Effect sizes of the jackknife samples (a list of matrices).
 
+## Details
+
+Let \\(\boldsymbol{z}\_{i} = \left( y\_{i}, \boldsymbol{x}\_{i}^{\prime}
+\right)^{\prime}\\), \\(i = 1, \dots, n\\), be the outcome and the
+regressors of observation \\(i\\). With `type = "pairs"`, bootstrap
+sample \\(b = 1, \dots, R\\) draws \\(n\\) rows
+\\(\boldsymbol{z}^{\ast}\_{b1}, \dots, \boldsymbol{z}^{\ast}\_{bn}\\)
+with replacement, and its sample covariance matrix is
+\$\$\hat{\boldsymbol{\Sigma}}^{\ast}\_{b} = \frac{1}{n - 1} \sum\_{i =
+1}^{n} \left( \boldsymbol{z}^{\ast}\_{bi} -
+\bar{\boldsymbol{z}}^{\ast}\_{b} \right) \left(
+\boldsymbol{z}^{\ast}\_{bi} - \bar{\boldsymbol{z}}^{\ast}\_{b}
+\right)^{\prime}.\$\$ With `type = "wild"`, the outcome is generated as
+described in `type`, and \\(\hat{\boldsymbol{\Sigma}}^{\ast}\_{b}\\) is
+computed in the same way. Row \\(b\\) of `thetahatstar` is
+\\(\operatorname{vech} \left( \hat{\boldsymbol{\Sigma}}^{\ast}\_{b}
+\right)\\). Row \\(i\\) of `jackknife` is \\(\operatorname{vech} \left(
+\hat{\boldsymbol{\Sigma}}\_{\left( -i \right)} \right)\\), the sample
+covariance matrix without observation \\(i\\), which gives the
+acceleration of the bias-corrected and accelerated intervals (see
+[`summary.betanb()`](https://jeksterslab.github.io/betaNB/reference/summary.betanb.md)).
+An effect size \\(\theta = g \left( \boldsymbol{\Sigma} \right)\\) is
+computed from every \\(\hat{\boldsymbol{\Sigma}}^{\ast}\_{b}\\), which
+gives its sampling distribution \\(\hat{\theta}^{\ast}\_{1}, \dots,
+\hat{\theta}^{\ast}\_{R}\\).
+
 ## References
 
-Efron, B., & Tibshirani, R. J. (1993) *An introduction to the
+Efron, B., & Tibshirani, R. J. (1993). *An introduction to the
 bootstrap*. Chapman & Hall.
+[doi:10.1201/9780429246593](https://doi.org/10.1201/9780429246593)
 
 ## See also
 
@@ -114,7 +141,8 @@ Other Beta Nonparametric Bootstrap Functions:
 [`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md),
 [`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
 [`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
-[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md),
+[`SCorSqNB()`](https://jeksterslab.github.io/betaNB/reference/SCorSqNB.md)
 
 ## Author
 

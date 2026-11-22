@@ -1,19 +1,20 @@
 # betaNB
 
-Ivan Jacob Agaloos Pesigan 2026-11-21
+Ivan Jacob Agaloos Pesigan 2026-11-22
 
 ## Description
 
-Generates nonparametric bootstrap confidence intervals (Efron &
-Tibshirani, 1993: <https://doi.org/10.1201/9780429246593>) for
+Generates nonparametric bootstrap confidence intervals (Efron and
+Tibshirani, 1993,
+[doi:10.1201/9780429246593](https://doi.org/10.1201/9780429246593)) for
 standardized regression coefficients (beta) and other effect sizes,
 including multiple correlation, semipartial correlations, squared
 semipartial correlations, improvement in R-squared, squared partial
 correlations, Cohen’s f-squared, and differences in standardized
 regression coefficients, for models fitted by
-[`lm()`](https://rdrr.io/r/stats/lm.html). The pairs bootstrap and the
-wild bootstrap are available, with percentile, bias-corrected,
-bias-corrected and accelerated, and modified percentile intervals.
+[`lm()`](https://rdrr.io/r/stats/lm.html). Pairs and wild bootstrap
+samples are supported, with percentile, bias-corrected, bias-corrected
+and accelerated, and modified percentile intervals.
 
 ## Installation
 
@@ -41,40 +42,37 @@ ratings of 46 doctoral programs in psychology in the USA (National
 Research Council, 1982). Confidence intervals for the standardized
 regression coefficients are generated using the
 [`BetaNB()`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md)
-function from the `betaNB` package.
+function from the `betaNB` package following Efron & Tibshirani (1993).
 
 \
-[`library`](https://rdrr.io/r/base/library.html)`(`[`betaNB`](https://github.com/jeksterslab/betaNB)`)`
+[`library`](https://rdrr.io/r/base/library.html)`(``package ``=`` ``betaNB``)`
 
 \
 `df`` ``<-`` ``betaNB``::`[`nas1982`](https://jeksterslab.github.io/betaNB/reference/nas1982.md)
 
-### Regression
-
-Fit the regression model using the
-[`lm()`](https://rdrr.io/r/stats/lm.html) function.
+### Fit the regression model using the `lm()` function.
 
 \
-`object`` ``<-`` `[`lm`](https://rdrr.io/r/stats/lm.html)`(``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
+`object`` ``<-`` ``stats``::`[`lm`](https://rdrr.io/r/stats/lm.html)`(``formula ``=`` ``QUALITY`` ``~`` ``NARTIC`` ``+`` ``PCTGRT`` ``+`` ``PCTSUPP``, data ``=`` ``df``)`
 
-### Nonparametric Bootstrap
-
-\
-`nb`` ``<-`` `[`NB`](https://jeksterslab.github.io/betaNB/reference/NB.md)`(``object``)`
-
-### Standardized Regression Slopes
+### Generate the sampling distribution using nonparametric bootstrapping.
 
 \
-[`BetaNB`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md)`(``nb``, alpha ``=`` ``0.05``)`\
+`nb`` ``<-`` `[`NB`](https://jeksterslab.github.io/betaNB/reference/NB.md)`(``object ``=`` ``object``, R ``=`` ``5000L``, seed ``=`` ``0508``)`
+
+### Estimate the standardized regression slopes and the corresponding confidence intervals.
+
+\
+[`BetaNB`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md)`(``object ``=`` ``nb``, alpha ``=`` ``0.05``)`\
 `#> Call:`\
 `#> BetaNB(object = nb, alpha = 0.05)`\
 `#> `\
 `#> Standardized regression slopes`\
 `#> type = "pc"`\
 `#>            est     se    R   2.5%  97.5%`\
-`#> NARTIC  0.4951 0.0718 5000 0.3554 0.6380`\
-`#> PCTGRT  0.3915 0.0776 5000 0.2372 0.5400`\
-`#> PCTSUPP 0.2632 0.0806 5000 0.1075 0.4188`
+`#> NARTIC  0.4951 0.0718 5000 0.3567 0.6369`\
+`#> PCTGRT  0.3915 0.0766 5000 0.2349 0.5340`\
+`#> PCTSUPP 0.2632 0.0786 5000 0.1064 0.4135`
 
 ## Other Features
 
@@ -97,8 +95,11 @@ The [`coef()`](https://rdrr.io/r/stats/coef.html),
 [`confint()`](https://rdrr.io/r/stats/confint.html),
 [`summary()`](https://rdrr.io/r/base/summary.html), and
 [`print()`](https://rdrr.io/r/base/print.html) methods are available for
-the returned objects. Examples for each function are in the package
-vignettes.
+the returned objects. Percentile, bias-corrected, and bias-corrected and
+accelerated intervals are available through the `type` argument of
+[`summary()`](https://rdrr.io/r/base/summary.html) and
+[`confint()`](https://rdrr.io/r/stats/confint.html). Examples for each
+function are in the package vignettes.
 
 ## Effect Sizes
 
@@ -111,6 +112,10 @@ Functions](https://jeksterslab.github.io/betaNB/articles/example-es-nb.html).
 
 See [GitHub Pages](https://jeksterslab.github.io/betaNB/index.html) for
 package documentation.
+
+## Citation
+
+To cite `betaNB` in publications, please cite Pesigan (2022).
 
 ## References
 

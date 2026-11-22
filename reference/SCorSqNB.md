@@ -1,4 +1,4 @@
-# Squared Signed-Semipartial Confidence Intervals
+# Estimate Squared Semipartial Correlation Coefficients and the Corresponding Confidence Intervals From the Signed Intervals
 
 Square the signed interval as a set, with lower limit zero if it
 contains zero. This differs from an interval of squared draws. No draws
@@ -44,6 +44,18 @@ interval under squaring. The squared interval is \\(\left\[ l^{2}, u^{2}
 if the signed interval contains zero. This is not the interval of
 squared draws, and it is not an interval for
 [`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md).
+
+## See also
+
+Other Beta Nonparametric Bootstrap Functions:
+[`BetaNB()`](https://jeksterslab.github.io/betaNB/reference/BetaNB.md),
+[`DeltaRSqNB()`](https://jeksterslab.github.io/betaNB/reference/DeltaRSqNB.md),
+[`DiffBetaNB()`](https://jeksterslab.github.io/betaNB/reference/DiffBetaNB.md),
+[`FSqNB()`](https://jeksterslab.github.io/betaNB/reference/FSqNB.md),
+[`NB()`](https://jeksterslab.github.io/betaNB/reference/NB.md),
+[`PCorNB()`](https://jeksterslab.github.io/betaNB/reference/PCorNB.md),
+[`RSqNB()`](https://jeksterslab.github.io/betaNB/reference/RSqNB.md),
+[`SCorNB()`](https://jeksterslab.github.io/betaNB/reference/SCorNB.md)
 
 ## Author
 
