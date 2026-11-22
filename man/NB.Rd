@@ -86,6 +86,34 @@ leave-one-out covariance matrix).}
 Generate the Sampling Distribution of Sample Covariances
 Using Nonparametric Bootstrapping
 }
+\details{
+Let \eqn{\boldsymbol{z}_{i} = \left( y_{i}, \boldsymbol{x}_{i}^{\prime}
+\right)^{\prime}}, \eqn{i = 1, \dots, n}, be the outcome and the regressors
+of observation \eqn{i}.
+With \code{type = "pairs"}, bootstrap sample \eqn{b = 1, \dots, R} draws
+\eqn{n} rows
+\eqn{\boldsymbol{z}^{\ast}_{b1}, \dots, \boldsymbol{z}^{\ast}_{bn}}
+with replacement, and its sample covariance matrix is
+\deqn{\hat{\boldsymbol{\Sigma}}^{\ast}_{b} = \frac{1}{n - 1}
+\sum_{i = 1}^{n} \left( \boldsymbol{z}^{\ast}_{bi} -
+\bar{\boldsymbol{z}}^{\ast}_{b} \right) \left( \boldsymbol{z}^{\ast}_{bi} -
+\bar{\boldsymbol{z}}^{\ast}_{b} \right)^{\prime}.}
+With \code{type = "wild"}, the outcome is generated as described in \code{type},
+and \eqn{\hat{\boldsymbol{\Sigma}}^{\ast}_{b}} is computed in the same way.
+Row \eqn{b} of \code{thetahatstar} is
+\eqn{\operatorname{vech} \left( \hat{\boldsymbol{\Sigma}}^{\ast}_{b}
+\right)}.
+Row \eqn{i} of \code{jackknife} is
+\eqn{\operatorname{vech} \left( \hat{\boldsymbol{\Sigma}}_{\left( -i
+\right)} \right)},
+the sample covariance matrix without observation \eqn{i},
+which gives the acceleration of the bias-corrected and accelerated
+intervals (see \code{\link[=summary.betanb]{summary.betanb()}}).
+An effect size \eqn{\theta = g \left( \boldsymbol{\Sigma} \right)} is
+computed from every \eqn{\hat{\boldsymbol{\Sigma}}^{\ast}_{b}},
+which gives its sampling distribution
+\eqn{\hat{\theta}^{\ast}_{1}, \dots, \hat{\theta}^{\ast}_{R}}.
+}
 \examples{
 # Data ---------------------------------------------------------------------
 data("nas1982", package = "betaNB")
@@ -114,9 +142,10 @@ nb
 
 }
 \references{
-Efron, B., & Tibshirani, R. J. (1993)
+Efron, B., & Tibshirani, R. J. (1993).
 \emph{An introduction to the bootstrap}.
 Chapman & Hall.
+\doi{10.1201/9780429246593}
 }
 \seealso{
 Other Beta Nonparametric Bootstrap Functions:
@@ -126,7 +155,8 @@ Other Beta Nonparametric Bootstrap Functions:
 \code{\link[=FSqNB]{FSqNB()}},
 \code{\link[=PCorNB]{PCorNB()}},
 \code{\link[=RSqNB]{RSqNB()}},
-\code{\link[=SCorNB]{SCorNB()}}
+\code{\link[=SCorNB]{SCorNB()}},
+\code{\link[=SCorSqNB]{SCorSqNB()}}
 }
 \author{
 Ivan Jacob Agaloos Pesigan

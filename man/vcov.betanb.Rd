@@ -2,22 +2,15 @@
 % Please edit documentation in R/betaNB-beta-nb-methods.R
 \name{vcov.betanb}
 \alias{vcov.betanb}
-\title{Sampling Variance-Covariance Matrix Method for an Object of Class
-\code{betanb}}
+\title{Sampling Variance-Covariance Matrix Method for an Object of Class \code{betanb}}
 \usage{
 \method{vcov}{betanb}(object, ...)
 }
 \arguments{
 \item{object}{Object of Class \code{betanb},
 that is,
-the output of the
-\code{BetaNB()},
-\code{RSqNB()},
-\code{SCorNB()},
-\code{DeltaRSqNB()},
-\code{PCorNB()}, or
-\code{DiffBetaNB()}
-functions.}
+the output of the \code{\link[=BetaNB]{BetaNB()}}, \code{\link[=RSqNB]{RSqNB()}}, \code{\link[=SCorNB]{SCorNB()}}, \code{\link[=DeltaRSqNB]{DeltaRSqNB()}},
+\code{\link[=PCorNB]{PCorNB()}}, \code{\link[=FSqNB]{FSqNB()}}, or \code{\link[=DiffBetaNB]{DiffBetaNB()}} functions.}
 
 \item{...}{additional arguments.}
 }
@@ -25,8 +18,31 @@ functions.}
 Returns the variance-covariance matrix of estimates.
 }
 \description{
-Sampling Variance-Covariance Matrix Method for an Object of Class
-\code{betanb}
+Sampling Variance-Covariance Matrix Method for an Object of Class \code{betanb}
+}
+\examples{
+# Data ---------------------------------------------------------------------
+data("nas1982", package = "betaNB")
+
+# Fit Model in lm ----------------------------------------------------------
+object <- stats::lm(
+  formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
+  data = nas1982
+)
+
+# NB -----------------------------------------------------------------------
+nb <- NB(
+  object = object,
+  R = 100, # use a large value e.g., 5000L for actual research
+  seed = 0508
+)
+
+# BetaNB -------------------------------------------------------------------
+out <- BetaNB(object = nb, alpha = 0.05)
+
+## Methods -----------------------------------------------------------------
+vcov(object = out)
+
 }
 \author{
 Ivan Jacob Agaloos Pesigan

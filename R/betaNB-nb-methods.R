@@ -8,11 +8,22 @@
 #' @param ... additional arguments.
 #'
 #' @examples
+#' # Data ---------------------------------------------------------------------
+#' data("nas1982", package = "betaNB")
+#'
+#' # Fit Model in lm ----------------------------------------------------------
 #' object <- stats::lm(
 #'   formula = QUALITY ~ NARTIC + PCTGRT + PCTSUPP,
 #'   data = nas1982
 #' )
-#' nb <- NB(object = object, R = 100)
+#'
+#' # NB -----------------------------------------------------------------------
+#' nb <- NB(
+#'   object = object,
+#'   R = 100, # use a large value e.g., 5000L for actual research
+#'   seed = 0508
+#' )
+#'
 #' print(x = nb)
 #'
 #' @keywords methods

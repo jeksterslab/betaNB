@@ -1,6 +1,6 @@
-#' Estimate Cohen's f-Squared
+#' Estimate Cohen's f-Squared and Local f-Squared
 #' and Generate the Corresponding Sampling Distribution
-#' Using the Nonparametric Bootstrap
+#' Using Nonparametric Bootstrapping
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
