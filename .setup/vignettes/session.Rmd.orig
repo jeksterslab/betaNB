@@ -1,6 +1,7 @@
 ---
 title: "betaNB: Session"
 author: "Ivan Jacob Agaloos Pesigan"
+date: "`r format(Sys.time(), '%Y-%m-%d %H:%M:%S')`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{betaNB: Session}

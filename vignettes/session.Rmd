@@ -1,6 +1,7 @@
 ---
 title: "betaNB: Session"
 author: "Ivan Jacob Agaloos Pesigan"
+date: "2026-11-23 03:03:32"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{betaNB: Session}
@@ -486,7 +487,7 @@ installed.packages()[, c("Package", "Version")]
 #> Socket(s):                               1
 #> Stepping:                                0
 #> Frequency boost:                         enabled
-#> CPU(s) scaling MHz:                      48%
+#> CPU(s) scaling MHz:                      46%
 #> CPU max MHz:                             5060.9761
 #> CPU min MHz:                             1219.5129
 #> BogoMIPS:                                4990.62
@@ -524,7 +525,7 @@ installed.packages()[, c("Package", "Version")]
 
 ```
 #>                total        used        free      shared  buff/cache   available
-#> Mem:            44Gi       2.6Gi        39Gi        13Mi       2.7Gi        41Gi
+#> Mem:            44Gi       2.7Gi        39Gi        13Mi       2.7Gi        41Gi
 #> Swap:           22Gi          0B        22Gi
-#> Total:          66Gi       2.6Gi        62Gi
+#> Total:          66Gi       2.7Gi        62Gi
 ```
