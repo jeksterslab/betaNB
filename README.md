@@ -1,7 +1,7 @@
 betaNB
 ================
 Ivan Jacob Agaloos Pesigan
-2026-11-28 18:20:29
+2026-11-28 18:26:39
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
