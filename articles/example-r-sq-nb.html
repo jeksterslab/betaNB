@@ -116,8 +116,8 @@ the BetaNB Function</a>.</p>
 <span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
 <span><span class="co">#&gt; type = "pc"</span></span>
 <span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; rsq 0.8045 0.0520 5000 0.6955 0.8986</span></span>
-<span><span class="co">#&gt; adj 0.7906 0.0557 5000 0.6738 0.8914</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.8045 0.0522 5000 0.6979 0.8989</span></span>
+<span><span class="co">#&gt; adj 0.7906 0.0560 5000 0.6763 0.8917</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals"></a>
@@ -130,8 +130,8 @@ the BetaNB Function</a>.</p>
 <span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
 <span><span class="co">#&gt; type = "bc"</span></span>
 <span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; rsq 0.8045 0.0520 5000 0.6506 0.8776</span></span>
-<span><span class="co">#&gt; adj 0.7906 0.0557 5000 0.6256 0.8689</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.8045 0.0522 5000 0.6573 0.8791</span></span>
+<span><span class="co">#&gt; adj 0.7906 0.0560 5000 0.6329 0.8704</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals"></a>
@@ -144,8 +144,8 @@ the BetaNB Function</a>.</p>
 <span><span class="co">#&gt; R-squared and adjusted R-squared</span></span>
 <span><span class="co">#&gt; type = "bca"</span></span>
 <span><span class="co">#&gt;        est     se    R   2.5%  97.5%</span></span>
-<span><span class="co">#&gt; rsq 0.8045 0.0520 5000 0.6436 0.8760</span></span>
-<span><span class="co">#&gt; adj 0.7906 0.0557 5000 0.6181 0.8671</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.8045 0.0522 5000 0.6539 0.8773</span></span>
+<span><span class="co">#&gt; adj 0.7906 0.0560 5000 0.6291 0.8685</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -164,8 +164,8 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             rsq         adj</span></span>
-<span><span class="co">#&gt; rsq 0.002700887 0.002893808</span></span>
-<span><span class="co">#&gt; adj 0.002893808 0.003100508</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.002729281 0.002924230</span></span>
+<span><span class="co">#&gt; adj 0.002924230 0.003133103</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="confint">confint<a class="anchor" aria-label="anchor" href="#confint"></a>
@@ -177,8 +177,8 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"pc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; rsq 0.6955291 0.8986358</span></span>
-<span><span class="co">#&gt; adj 0.6737812 0.8913955</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.6979177 0.8988753</span></span>
+<span><span class="co">#&gt; adj 0.6763404 0.8916521</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-confidence-intervals-1">Bias Corrected Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-confidence-intervals-1"></a>
@@ -186,8 +186,8 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; rsq 0.6506037 0.8776069</span></span>
-<span><span class="co">#&gt; adj 0.6256469 0.8688645</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.6573386 0.8790751</span></span>
+<span><span class="co">#&gt; adj 0.6328628 0.8704376</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="bias-corrected-and-accelerated-confidence-intervals-1">Bias Corrected and Accelerated Confidence Intervals<a class="anchor" aria-label="anchor" href="#bias-corrected-and-accelerated-confidence-intervals-1"></a>
@@ -195,8 +195,8 @@ the BetaNB Function</a>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">out</span>, level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"bca"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         2.5 %    97.5 %</span></span>
-<span><span class="co">#&gt; rsq 0.6435884 0.8759938</span></span>
-<span><span class="co">#&gt; adj 0.6181305 0.8671362</span></span></code></pre></div>
+<span><span class="co">#&gt; rsq 0.6538611 0.8772832</span></span>
+<span><span class="co">#&gt; adj 0.6291369 0.8685177</span></span></code></pre></div>
 </div>
 </div>
 </div>
